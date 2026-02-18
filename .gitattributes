@@ -8,3 +8,13 @@ git commit -m "Primeiro commit"
 git remote add origin https://github.com/tilokao1/fidc-insight-mvp.git
 git branch -M main
 git push -u origin main
+fidc-insight-mvp/
+  README.md
+  /data/
+     (não subir arquivos pesados)
+  /database/
+     fidc.db  (se for subir, depende do combinado)
+  /scripts/
+  /notebooks/
+  /powerbi/
+  /ppt/
