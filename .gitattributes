@@ -5,3 +5,6 @@ cd fidc-insight-mvp
 git init
 git add .
 git commit -m "Primeiro commit"
+git remote add origin https://github.com/tilokao1/fidc-insight-mvp.git
+git branch -M main
+git push -u origin main
