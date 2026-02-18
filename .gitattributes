@@ -1,2 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+mkdir fidc-insight-mvp
+cd fidc-insight-mvp
+git init
+git add .
+git commit -m "Primeiro commit"
