@@ -18,3 +18,10 @@ fidc-insight-mvp/
   /notebooks/
   /powerbi/
   /ppt/
+/data/raw/processed
+/database
+/notebooks
+/scripts
+/powerbi
+/ppt
+/outputs
