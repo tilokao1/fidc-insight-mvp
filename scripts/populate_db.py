@@ -1,9 +1,13 @@
 import pandas as pd
 import sqlite3
+import os
 
-# caminhos
-csv_path = r"C:\Users\Wagner Martins\Downloads\inf_mensal_fidc_tab_I_202602.csv"
-db_path = r"C:\Users\Wagner Martins\OneDrive\Área de Trabalho\Fiap - DS\DB.Challenge\fidc.db"
+# base do projeto
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+# caminhos relativos
+csv_path = os.path.join(BASE_DIR, "data", "inf_mensal_fidc_tab_I_202602.csv")
+db_path = os.path.join(BASE_DIR, "fidc.db")
 
 # ler csv
 df = pd.read_csv(csv_path, sep=";", encoding="latin1")
@@ -29,7 +33,7 @@ df["DT_COMPTC"] = pd.to_datetime(df["DT_COMPTC"], errors="coerce")
 conn = sqlite3.connect(db_path)
 cursor = conn.cursor()
 
-# criar tabela real
+# criar tabela
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS fidc_dados (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -71,4 +75,4 @@ for _, row in df.iterrows():
 conn.commit()
 conn.close()
 
-print("🔥 Dados reais da CVM inseridos com sucesso!")
+print("🔥 Banco criado e populado com sucesso!")
