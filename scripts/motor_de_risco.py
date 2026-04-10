@@ -1,99 +1,69 @@
-import sqlite3
 import pandas as pd
+from sqlalchemy import create_engine
 import os
+from dotenv import load_dotenv
 
-# 1. Configurar os caminhos das pastas dinamicamente
-# Pega o caminho absoluto da pasta onde este script está salvo (.../scripts)
-diretorio_script = os.path.dirname(os.path.abspath(__file__))
+print("Iniciando o Motor de Risco Cloud-Native...")
 
-# Sobe um nível e aponta para a pasta 'database' (.../database)
-diretorio_database = os.path.join(diretorio_script, '..', 'database')
+# Carrega a senha escondida do arquivo .env (quando rodar na máquina)
+load_dotenv()
 
-# Garante que a pasta 'database' exista (cria se você tiver deletado sem querer)
-os.makedirs(diretorio_database, exist_ok=True)
+# Puxa a URL com segurança
+url_postgres = os.getenv('DATABASE_URL')
 
-# Define o caminho completo dos arquivos
-caminho_origem = os.path.join(diretorio_database, 'fidc_insight.db')
-caminho_destino = os.path.join(diretorio_database, 'fidc_metrics.db')
+# Cria o "motor" do banco
+engine = create_engine(url_postgres)
 
-# 2. Criar as DUAS conexões usando os novos caminhos
-# Conexão de LEITURA (Banco atual com 1,1GB de dados da CVM)
-conn_origem = sqlite3.connect(caminho_origem)
-
-# Conexão de ESCRITA (Seu novo banco de métricas)
-conn_destino = sqlite3.connect(caminho_destino)
-
-def calcular_e_salvar_score_setorial(conexao_leitura, conexao_escrita):
-    print("Iniciando o cálculo do Score de Diversificação Setorial...")
+def calcular_e_salvar_score_setorial(conexao_engine):
+    print("1. Conectando ao Supabase para ler os dados brutos...")
     
-    # 3. Ler do banco de ORIGEM (pegando o mês mais recente)
-    query = """
-        SELECT *
-        FROM inf_mensal_fidc_tab_II
-        WHERE DT_COMPTC = (SELECT MAX(DT_COMPTC) FROM inf_mensal_fidc_tab_II)
-    """
-    df_tab2 = pd.read_sql_query(query, conexao_leitura)
+    # Lendo do Supabase (Trazemos tudo e filtramos o mês mais recente via Pandas para evitar erros de sintaxe no Postgres)
+    query = 'SELECT * FROM "inf_mensal_fidc_tab_II"'
+    df_tab2 = pd.read_sql_query(query, conexao_engine)
+    
+    if df_tab2.empty:
+        print("Erro: Nenhuma informação encontrada na tabela.")
+        return
+
+    # Filtrar apenas o mês mais recente disponível
+    data_recente = df_tab2['DT_COMPTC'].max()
+    df_tab2 = df_tab2[df_tab2['DT_COMPTC'] == data_recente]
+    print(f"   -> Dados carregados! Processando competência: {data_recente}")
     
     # ---------------------------------------------------------
-    # 4. IDENTIFICAR AS COLUNAS
+    # 2. IDENTIFICAR AS COLUNAS (Lógica mantida intacta)
     # ---------------------------------------------------------
     colunas_id = ['CNPJ_FUNDO_CLASSE', 'DT_COMPTC']
-    
-    # Colunas que são agrupamentos "Pai" e causariam duplicidade na soma
-    colunas_remover = [
-        'TAB_II_VL_CARTEIRA', 
-        'TAB_II_C_VL_COMERC', 
-        'TAB_II_D_VL_SERV', 
-        'TAB_II_F_VL_FINANC', 
-        'TAB_II_H_VL_FACTOR', 
-        'TAB_II_I_VL_SETOR_PUBLICO'
-    ]
-    
-    # Pegar apenas as colunas de setores detalhados (excluindo os pais)
-    colunas_setores = [
-        col for col in df_tab2.columns 
-        if col.startswith('TAB_II_') and col not in colunas_remover
-    ]
-    # ---------------------------------------------------------
+    colunas_remover = ['TAB_II_VL_CARTEIRA', 'TAB_II_C_VL_COMERC', 'TAB_II_D_VL_SERV', 'TAB_II_F_VL_FINANC', 'TAB_II_H_VL_FACTOR', 'TAB_II_I_VL_SETOR_PUBLICO']
+    colunas_setores = [col for col in df_tab2.columns if col.startswith('TAB_II_') and col not in colunas_remover]
 
-    # 5. UNPIVOT (Transformar colunas em linhas)
-    df_unpivot = pd.melt(
-        df_tab2, 
-        id_vars=colunas_id, 
-        value_vars=colunas_setores,
-        var_name='Setor', 
-        value_name='Valor'
-    )
-    
-    # Remover valores zerados ou nulos
+    # 3. UNPIVOT E CÁLCULOS
+    print("2. Calculando o Score de Diversificação (HHI)...")
+    df_unpivot = pd.melt(df_tab2, id_vars=colunas_id, value_vars=colunas_setores, var_name='Setor', value_name='Valor')
     df_unpivot = df_unpivot.fillna(0)
     df_unpivot = df_unpivot[df_unpivot['Valor'] > 0]
     
-    # 6. Calcular o Score HHI
     df_unpivot['Total_Fundo'] = df_unpivot.groupby('CNPJ_FUNDO_CLASSE')['Valor'].transform('sum')
     df_unpivot['Share_Setor'] = (df_unpivot['Valor'] / df_unpivot['Total_Fundo']) * 100
     df_unpivot['Share_Quadrado'] = df_unpivot['Share_Setor'] ** 2
     
-    # Somar os quadrados por fundo
     df_score = df_unpivot.groupby(['CNPJ_FUNDO_CLASSE', 'DT_COMPTC'])['Share_Quadrado'].sum().reset_index()
     df_score.rename(columns={'Share_Quadrado': 'HHI_Setorial'}, inplace=True)
     
-    # Calcular a Nota (0 a 10)
     df_score['Score_Diversificacao_Setorial'] = 10 - ((df_score['HHI_Setorial'] / 10000) * 10)
     df_score['Score_Diversificacao_Setorial'] = df_score['Score_Diversificacao_Setorial'].clip(lower=0, upper=10)
     
-    # 7. Salvar no banco de DESTINO
-    nome_tabela_destino = 'Fato_Score_Setorial'
-    df_score.to_sql(nome_tabela_destino, conexao_escrita, if_exists='replace', index=False)
+    # 4. SALVAR DE VOLTA NO SUPABASE
+    print("3. Salvando a tabela de métricas no Supabase...")
+    nome_tabela_destino = 'fato_score_setorial'
     
-    print(f"Sucesso! Tabela '{nome_tabela_destino}' salva no banco 'fidc_metrics.db' dentro da pasta database.")
+    # O if_exists='replace' garante que ele sempre atualiza a tabela quando rodar
+    df_score.to_sql(nome_tabela_destino, conexao_engine, if_exists='replace', index=False)
+    
+    print(f"Sucesso Total! Tabela '{nome_tabela_destino}' criada/atualizada no banco na nuvem.")
 
 # Executar a função
 try:
-    calcular_e_salvar_score_setorial(conn_origem, conn_destino)
+    calcular_e_salvar_score_setorial(engine)
 except Exception as e:
     print(f"Erro durante a execução: {e}")
-finally:
-    # Sempre fechar as conexões
-    conn_origem.close()
-    conn_destino.close()
