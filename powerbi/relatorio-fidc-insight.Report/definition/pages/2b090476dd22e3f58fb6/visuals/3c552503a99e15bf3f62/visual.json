@@ -1,0 +1,57 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "3c552503a99e15bf3f62",
+  "position": {
+    "x": 103.10030395136779,
+    "y": 105.04559270516718,
+    "z": 2000,
+    "height": 88.510638297872347,
+    "width": 493.13069908814595,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "treemap",
+    "query": {
+      "queryState": {
+        "Details": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fato_Score_Setorial"
+                    }
+                  },
+                  "Property": "HHI_Setorial"
+                }
+              },
+              "queryRef": "Fato_Score_Setorial.HHI_Setorial",
+              "nativeQueryRef": "HHI_Setorial"
+            }
+          ]
+        },
+        "Group": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fato_Score_Setorial"
+                    }
+                  },
+                  "Property": "DT_COMPTC"
+                }
+              },
+              "queryRef": "Fato_Score_Setorial.DT_COMPTC",
+              "nativeQueryRef": "DT_COMPTC",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

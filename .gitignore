@@ -1,11 +1,13 @@
 # Ignorar o ambiente virtual
 fidc-insight-mvp-env/
 
-# Ignorar arquivos de banco de dados locais pesados
+# Ignorar arquivos de banco de dados locais pesados, arquivo binario do power bi e cahe ddo power bi
 data/
 outputs/
 *.db
 *.pbix
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
 
 # Ignorar credenciais e senhas
 .env

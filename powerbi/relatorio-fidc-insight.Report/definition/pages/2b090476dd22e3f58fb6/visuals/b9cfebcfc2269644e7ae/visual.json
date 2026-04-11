@@ -1,0 +1,80 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "b9cfebcfc2269644e7ae",
+  "position": {
+    "x": 726.565349544073,
+    "y": 397.81155015197572,
+    "z": 0,
+    "height": 280.1215805471125,
+    "width": 517.44680851063833,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fato_Score_Setorial"
+                    }
+                  },
+                  "Property": "CNPJ_FUNDO_CLASSE"
+                }
+              },
+              "queryRef": "Fato_Score_Setorial.CNPJ_FUNDO_CLASSE",
+              "nativeQueryRef": "CNPJ_FUNDO_CLASSE"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fato_Score_Setorial"
+                    }
+                  },
+                  "Property": "DT_COMPTC"
+                }
+              },
+              "queryRef": "Fato_Score_Setorial.DT_COMPTC",
+              "nativeQueryRef": "DT_COMPTC"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fato_Score_Setorial"
+                    }
+                  },
+                  "Property": "HHI_Setorial"
+                }
+              },
+              "queryRef": "Fato_Score_Setorial.HHI_Setorial",
+              "nativeQueryRef": "HHI_Setorial"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fato_Score_Setorial"
+                    }
+                  },
+                  "Property": "Score_Diversificacao_Setorial"
+                }
+              },
+              "queryRef": "Fato_Score_Setorial.Score_Diversificacao_Setorial",
+              "nativeQueryRef": "Score_Diversificacao_Setorial"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
