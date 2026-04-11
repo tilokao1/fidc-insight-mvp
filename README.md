@@ -1,0 +1,98 @@
+Projeto desenvolvido para criação de uma solução de análise de risco aplicada a Fundos de Investimento em Direitos Creditórios (FIDCs).
+
+Este repositório contém apenas o código-fonte, documentação técnica e estrutura do projeto.
+
+---
+
+## 🎯 Objetivo do MVP
+
+Integrar dados da CVM, aplicar tratamento e cálculos de métricas de risco em Python, armazenar em banco SQLite e disponibilizar visualizações estratégicas via Power BI Desktop.
+
+---
+
+# 📂 Estrutura do Repositório
+
+## /scripts
+Contém os scripts Python utilizados no projeto:
+
+- ETL (coleta, limpeza e transformação dos dados)
+- Atualização do banco SQLite
+- Cálculo de Scores e métricas
+- Funções auxiliares
+
+Esses arquivos representam o núcleo técnico do projeto.
+
+---
+
+## /notebooks
+Contém notebooks Jupyter utilizados para:
+
+- Exploração de dados
+- Testes de métricas
+- Validação de regras de scoring
+
+Os notebooks não substituem os scripts principais.
+
+---
+
+## /docs
+Documentação técnica do projeto:
+
+- Definição dos KPIs
+- Regras de cálculo dos Scores (1–4)
+- Dicionário de dados
+- Modelo lógico das tabelas
+- Decisões arquiteturais
+
+---
+
+## /ppt
+Contém a versão final da apresentação (.pptx) utilizada para entrega acadêmica.
+
+---
+
+## README.md
+Documento principal explicando:
+- Estrutura do projeto
+- Tecnologias utilizadas
+- Organização das pastas
+- Fluxo de trabalho
+
+---
+
+# 🚫 Arquivos que NÃO ficam no repositório
+
+Para manter organização e evitar conflitos, os seguintes arquivos não são versionados:
+
+- Banco SQLite (`*.db`)
+- Dados brutos da CVM
+- Arquivos Power BI (`*.pbix`)
+- Outputs gerados automaticamente
+- Cache do Python
+
+Esses arquivos são mantidos em pasta compartilhada do grupo.
+
+---
+
+# 🧱 Tecnologias Utilizadas
+
+- Python (Pandas, NumPy)
+- SQLite (Banco de Dados Local)
+- Power BI Desktop (Visualização)
+- GitHub (Versionamento)
+
+---
+
+# 🔄 Fluxo de Atualização do Projeto
+
+1. Dados são coletados e tratados via Python
+2. Banco SQLite é atualizado
+3. Scores e métricas são calculados
+4. Power BI consome os dados para visualização
+5. PPT é atualizado com os resultados
+
+---
+
+# 👥 Equipe
+
+Projeto desenvolvido pelo grupo FIDC Insight.
