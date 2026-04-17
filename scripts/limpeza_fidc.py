@@ -1,5 +1,5 @@
 import os
-from sqlalchemy import create_url, create_engine, text
+from sqlalchemy import create_engine, text
 
 # URL do banco vinda do Secret do GitHub
 DATABASE_URL = os.getenv("DATABASE_URL")
