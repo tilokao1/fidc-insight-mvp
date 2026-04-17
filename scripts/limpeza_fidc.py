@@ -45,7 +45,7 @@ def limpar_dados():
             print(f"Limpando tabela: {tabela}")
             for col in colunas:
                 # O comando COALESCE(coluna, 0) substitui NULL por 0 no próprio banco
-                query = text(f"UPDATE {tabela} SET \"{col}\" = COALESCE(\"{col}\", 0) WHERE \"{col}\" IS NULL")
+                query = text(f'UPDATE "{tabela}" SET "{col}" = COALESCE("{col}", 0) WHERE "{col}" IS NULL')
                 conn.execute(query)
     print("Limpeza concluída com sucesso!")
 
