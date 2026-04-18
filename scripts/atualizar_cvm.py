@@ -20,22 +20,30 @@ def descobrir_mes_mais_recente():
     """Testa os links da CVM de trás pra frente até achar o mês mais recente disponível."""
     data_teste = datetime.today().replace(day=1)
     
-    for _ in range(6): # Tenta até 6 meses para trás
+    # O disfarce (User-Agent) para o firewall do governo não bloquear o Python
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+    }
+    
+    for _ in range(12): # Aumentamos para 12 tentativas (1 ano) por garantia
         ano = data_teste.year
         mes = f"{data_teste.month:02d}"
         url = f"http://dados.cvm.gov.br/dados/FIDC/DOC/INF_MENSAL/DADOS/inf_mensal_fidc_{ano}{mes}.zip"
         
         print(f"Testando disponibilidade em: {ano}/{mes}...")
-        resposta = requests.head(url) # Head pega só o status, sem baixar o arquivo (super rápido)
+        
+        # Usamos GET com stream=True para enganar o bloqueio de HEAD do servidor
+        resposta = requests.get(url, headers=headers, stream=True) 
         
         if resposta.status_code == 200:
             print(f"✅ Mês mais recente encontrado: {ano}/{mes}")
+            resposta.close() # Fecha a conexão rápida sem baixar o zip inteiro aqui
             return data_teste
             
         # Volta 1 mês
         data_teste -= relativedelta(months=1)
         
-    raise Exception("Não foi possível encontrar dados recentes na CVM.")
+    raise Exception("Não foi possível encontrar dados recentes na CVM após 12 tentativas.")
 
 def atualizar_banco():
     engine = create_engine(DATABASE_URL)
