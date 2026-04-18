@@ -29,6 +29,6 @@ jobs:
         pip install -r requirements.txt
 
     - name: 4. Executar Scripts de Métricas - Score 4
-          env:
-            DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          run: python scripts/metricas_score_4.py
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      run: python scripts/metricas_score_4.py
