@@ -24,7 +24,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: 4. Executar Limpeza de Dados (Null to Zero)
+    - name: 4. Extrair e Sincronizar Dados da CVM (Últimos 12 meses)
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      run: python scripts/atualizar_cvm.py
+
+    - name: 5. Executar Limpeza de Dados (Null to Zero)
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
       run: python scripts/limpeza_fidc.py

@@ -2,3 +2,6 @@ pandas
 SQLAlchemy
 psycopg2-binary
 python-dotenv
+requests
+psycopg2-binary
+python-dateutil
