@@ -25,9 +25,10 @@ REGRAS_LIMPEZA = {
         "TAB_V_A7_VL_PRAZO_VENC_360", "TAB_V_A8_VL_PRAZO_VENC_720", "TAB_V_A9_VL_PRAZO_VENC_1080",
         "TAB_V_A10_VL_PRAZO_VENC_MAIOR_1080"
     ],
-    "inf_mensal_fidc_tab_IV": ["TAB_IV_B_VL_PL_MEDIO"],
+    "inf_mensal_fidc_tab_IV": ["TAB_IV_B_VL_PL_MEDIO", "TAB_IV_A_VL_PL"],
+    "inf_mensal_fidc_tab_VII": ["TAB_VII_B1_2_VL_CEDENTE"],
     "inf_mensal_fidc_tab_X_1": ["TAB_X_NR_COTST"],
-    "inf_mensal_fidc_tab_X_2": ["TAB_X_QT_COTA"],
+    "inf_mensal_fidc_tab_X_2": ["TAB_X_QT_COTA", "TAB_X_VL_COTA"],
     "inf_mensal_fidc_tab_X_3": ["TAB_X_VL_RENTAB_MES"],
     "inf_mensal_fidc_tab_X_5": [
         "TAB_X_VL_LIQUIDEZ_0", "TAB_X_VL_LIQUIDEZ_30", "TAB_X_VL_LIQUIDEZ_60",

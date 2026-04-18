@@ -1,9 +1,9 @@
-name: Pipeline de Métricas FIDC
+name: Pipeline Criação de Métricas FIDC
 
 on:
   schedule:
-    # Roda automaticamente todo dia 10 do mês à 1h30 da manhã (UTC)
-    - cron: '30 1 10 * *'
+    # Roda automaticamente todo dia 10 do mês à 2h da manhã (UTC)
+    - cron: '0 2 10 * *'
   workflow_dispatch: # Permite rodar MANUALMENTE e independente da extração
 
 jobs:
@@ -28,11 +28,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: 4. Executar Scripts de Métricas
-      env:
-        DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      run: |
-        # Aqui você devo listar os scripts de métricas e risco na ordem que quiser
-        # python scripts/metricas_inadimplencia.py
-        # python scripts/motor_de_risco.py
-        echo "Adicione os scripts de métrica aqui!"
+    - name: 4. Executar Scripts de Métricas - Score 4
+          env:
+            DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          run: python scripts/metricas_score_4.py

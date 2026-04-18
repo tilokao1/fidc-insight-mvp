@@ -1,9 +1,9 @@
-name: Pipeline Extração Mensal de Dados FIDC
+name: Pipeline Limpeza de Dados FIDC
 
 on:
   schedule:
-    # Roda automaticamente todo dia 10 do mês à 1h da manhã (UTC)
-    - cron: '0 1 10 * *'
+    # Roda automaticamente todo dia 10 do mês à 1h30 da manhã (UTC)
+    - cron: '30 1 10 * *'
   workflow_dispatch: # Permite rodar manualmente
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: 4. Extrair e Sincronizar Dados da CVM (Últimos 12 meses)
+    - name: 4. Executar Limpeza de Dados (Null to Zero)
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      run: python scripts/atualizar_cvm.py
+      run: python scripts/limpeza_fidc.py
