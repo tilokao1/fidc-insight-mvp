@@ -31,7 +31,7 @@ jobs:
     - name: 4. Executar Scripts de Métricas - Score 2
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      run: motor_score_2_liquidez.py.py
+      run: python scripts/motor_score_2_liquidez.py.py
 
     - name: 5. Executar Scripts de Métricas - Score 4
       env:
@@ -41,5 +41,5 @@ jobs:
     - name: 6. Executar Scripts de Métricas - Módulo 2 "Performance & Value Analyzer"; Matriz de Risco vs. Retorno.
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      run: python scripts/metricas_score_4.py
+      run: python scripts/risco_retorno_ranking.py
     
