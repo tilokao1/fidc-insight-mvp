@@ -55,7 +55,7 @@ def calcular_e_salvar_score_setorial(conexao_engine):
     
     # 4. SALVAR DE VOLTA NO SUPABASE
     print("3. Salvando a tabela de métricas no Supabase...")
-    nome_tabela_destino = 'fato_score_setorial'
+    nome_tabela_destino = 'score_3_metrica_2'
     
     # O if_exists='replace' garante que ele sempre atualiza a tabela quando rodar
     df_score.to_sql(nome_tabela_destino, conexao_engine, if_exists='replace', index=False)

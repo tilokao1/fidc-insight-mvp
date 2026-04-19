@@ -42,7 +42,7 @@ df_score["score_cedentes"] = df_score["score_cedentes"].clip(0, 10)
 df_score["score_100"] = df_score["score_cedentes"] * 10
 
 df_score.to_sql(
-    "fato_score_cedentes",
+    "score_3_metrica_1",
     engine,
     if_exists="replace",
     index=False
