@@ -4,50 +4,39 @@ Este repositório contém apenas o código-fonte, documentação técnica e estr
 
 ---
 
-## 🎯 Objetivo do MVP
+## 🎯 Objetivo do Projeto
 
-Integrar dados da CVM, aplicar tratamento e cálculos de métricas de risco em Python, armazenar em banco SQLite e disponibilizar visualizações estratégicas via Power BI Desktop.
+Identificar padrões e desafios encontrados pelos Fundo de Investimento em Direitos Creditórios(FIDC), utilizando os dados da Núclea e dados da CVM.  
+Aplicação, tratamento e cálculos de métricas de risco em Python, armazenamento dos dados em banco PostgreSQL, hospedado na AWS e visualizações estratégicas em Power BI Online.
 
 ---
 
 # 📂 Estrutura do Repositório
 
-## /scripts
+## Scripts
 Contém os scripts Python utilizados no projeto:
 
 - ETL (coleta, limpeza e transformação dos dados)
-- Atualização do banco SQLite
 - Cálculo de Scores e métricas
+- Atualização do banco PostgreSQL no AWS
 - Funções auxiliares
 
 Esses arquivos representam o núcleo técnico do projeto.
 
 ---
 
-## /notebooks
-Contém notebooks Jupyter utilizados para:
-
-- Exploração de dados
-- Testes de métricas
-- Validação de regras de scoring
-
-Os notebooks não substituem os scripts principais.
-
----
-
-## /docs
+## Docs
 Documentação técnica do projeto:
 
-- Definição dos KPIs
 - Regras de cálculo dos Scores (1–4)
+- Definição dos KPIs
 - Dicionário de dados
-- Modelo lógico das tabelas
 - Decisões arquiteturais
 
 ---
 
-## /ppt
-Contém a versão final da apresentação (.pptx) utilizada para entrega acadêmica.
+## PowerPoint
+Contém as apresentações dos respectivos sprints(.pptx) entregues em cada etapa  acadêmica do projeto.
 
 ---
 
@@ -64,9 +53,10 @@ Documento principal explicando:
 
 Para manter organização e evitar conflitos, os seguintes arquivos não são versionados:
 
-- Banco SQLite (`*.db`)
+- Banco PostgreSQL
 - Dados brutos da CVM
-- Arquivos Power BI (`*.pbix`)
+- Dados brutos da Núclea
+- Arquivos Power BI (`*.pbib`)
 - Outputs gerados automaticamente
 - Cache do Python
 
@@ -76,9 +66,9 @@ Esses arquivos são mantidos em pasta compartilhada do grupo.
 
 # 🧱 Tecnologias Utilizadas
 
-- Python (Pandas, NumPy)
-- SQLite (Banco de Dados Local)
-- Power BI Desktop (Visualização)
+- Python (Pandas, SQLAlchemy, psycopg2-binary, python-dotenv, requests e python-dateutil)
+- PostgreSQL (Banco de Dados Online)
+- Power BI Online (Visualização)
 - GitHub (Versionamento)
 
 ---
@@ -86,10 +76,10 @@ Esses arquivos são mantidos em pasta compartilhada do grupo.
 # 🔄 Fluxo de Atualização do Projeto
 
 1. Dados são coletados e tratados via Python
-2. Banco SQLite é atualizado
+2. Banco PostgreSQL é atualizado no AWS através do Supabase
 3. Scores e métricas são calculados
 4. Power BI consome os dados para visualização
-5. PPT é atualizado com os resultados
+5. PPT é atualizado com os resultados e entregas
 
 ---
 
