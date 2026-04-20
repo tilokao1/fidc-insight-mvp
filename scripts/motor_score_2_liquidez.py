@@ -69,7 +69,7 @@ def calcular_score_2_liquidez():
     # Regra de descasamento de liquidez (Blueprint v2)
     # -------------------------------------------------
     df["flag_risco_liquidez"] = (
-        (df["prazo_pagto_resgate"] <= 90)
+        (df["PRAZO_PAGTO_RESGATE"] <= 90)
         & (df["pct_curto_prazo"] < 20)
     ).astype(int)
 
@@ -81,7 +81,7 @@ def calcular_score_2_liquidez():
             "cnpj_fundo_classe",
             "pct_curto_prazo",
             "pct_longo_prazo",
-            "prazo_pagto_resgate",
+            "PRAZO_PAGTO_RESGATE",
             "flag_risco_liquidez"
         ]
     ]
