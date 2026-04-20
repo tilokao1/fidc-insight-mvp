@@ -18,25 +18,25 @@ if not DATABASE_URL:
 engine = create_engine(DATABASE_URL)
 
 # =====================================================
-# 2. Nomes físicos das tabelas (CONFIRMADOS)
+# 2. Tabelas físicas (PostgreSQL → tudo minúsculo)
 # =====================================================
-TABELA_X5 = "inf_mensal_fidc_tab_X_5"
-TABELA_I  = "tabela_i"  # ajuste apenas se o nome físico for diferente
+TABELA_X5 = "public.inf_mensal_fidc_tab_X_5"
+TABELA_I  = "public.inf_mensal_fidc_tab_I"
 
 # =====================================================
 # 3. Função principal
 # =====================================================
-def calcular_score_2_liquidez(engine):
-    print(f"Lendo dados da {TABELA_X5} (Liquidez dos Ativos)...")
+def calcular_score_2_liquidez(engine):ados da {TABELA_X5} (Liquidez dos A
+    print(f"Lendo dtivos)...")
 
     query_x5 = f"""
         SELECT
-            CNPJ_FUNDO_CLASSE,
-            TAB_X_VL_LIQUIDEZ_0,
-            TAB_X_VL_LIQUIDEZ_30,
-            TAB_X_VL_LIQUIDEZ_60,
-            TAB_X_VL_LIQUIDEZ_90,
-            TAB_X_VL_LIQUIDEZ_MAIOR_360
+            cnpj_fundo_classe,
+            tab_x_vl_liquidez_0,
+            tab_x_vl_liquidez_30,
+            tab_x_vl_liquidez_60,
+            tab_x_vl_liquidez_90,
+            tab_x_vl_liquidez_maior_360
         FROM {TABELA_X5}
     """
 
@@ -46,9 +46,9 @@ def calcular_score_2_liquidez(engine):
 
     query_i = f"""
         SELECT
-            CNPJ_FUNDO_CLASSE,
-            TAB_I2_VL_CARTEIRA AS valor_carteira,
-            PRAZO_PAGTO_RESGATE
+            cnpj_fundo_classe,
+            tab_i2_vl_carteira AS valor_carteira,
+            prazo_pagto_resgate
         FROM {TABELA_I}
     """
 
@@ -57,28 +57,28 @@ def calcular_score_2_liquidez(engine):
     # =====================================================
     # 4. Integração das bases
     # =====================================================
-    df = df_x5.merge(df_i, on="CNPJ_FUNDO_CLASSE", how="inner")
+    df = df_x5.merge(df_i, on="cnpj_fundo_classe", how="inner")
 
     # =====================================================
     # 5. Cálculo do perfil de maturidade
     # =====================================================
     df["vl_curto_prazo"] = (
-        df["TAB_X_VL_LIQUIDEZ_0"]
-        + df["TAB_X_VL_LIQUIDEZ_30"]
-        + df["TAB_X_VL_LIQUIDEZ_60"]
-        + df["TAB_X_VL_LIQUIDEZ_90"]
+        df["tab_x_vl_liquidez_0"]
+        + df["tab_x_vl_liquidez_30"]
+        + df["tab_x_vl_liquidez_60"]
+        + df["tab_x_vl_liquidez_90"]
     )
 
     df["pct_curto_prazo"] = (df["vl_curto_prazo"] / df["valor_carteira"]) * 100
     df["pct_longo_prazo"] = (
-        df["TAB_X_VL_LIQUIDEZ_MAIOR_360"] / df["valor_carteira"]
+        df["tab_x_vl_liquidez_maior_360"] / df["valor_carteira"]
     ) * 100
 
     # =====================================================
     # 6. Regra de descasamento de liquidez (INSIGHT-CHAVE)
     # =====================================================
     df["flag_risco_liquidez"] = (
-        (df["PRAZO_PAGTO_RESGATE"] <= 90)
+        (df["prazo_pagto_resgate"] <= 90)
         & (df["pct_curto_prazo"] < 20)
     ).astype(int)
 
@@ -87,10 +87,10 @@ def calcular_score_2_liquidez(engine):
     # =====================================================
     resultado = df[
         [
-            "CNPJ_FUNDO_CLASSE",
+            "cnpj_fundo_classe",
             "pct_curto_prazo",
             "pct_longo_prazo",
-            "PRAZO_PAGTO_RESGATE",
+            "prazo_pagto_resgate",
             "flag_risco_liquidez"
         ]
     ]
