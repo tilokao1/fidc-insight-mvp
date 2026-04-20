@@ -78,7 +78,7 @@ def calcular_score_2_liquidez():
     # -------------------------------------------------
     resultado = df[
         [
-            "cnpj_fundo_classe",
+            "CNPJ_FUNDO_CLASSE",
             "pct_curto_prazo",
             "pct_longo_prazo",
             "PRAZO_PAGTO_RESGATE",
