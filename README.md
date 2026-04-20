@@ -1,3 +1,5 @@
+# FIDC Insight
+
 Projeto desenvolvido para criação de uma solução de análise de risco aplicada a Fundos de Investimento em Direitos Creditórios (FIDCs).
 
 Este repositório contém apenas o código-fonte, documentação técnica e estrutura do projeto.
@@ -11,9 +13,9 @@ Aplicação, tratamento e cálculos de métricas de risco em Python, armazenamen
 
 ---
 
-# 📂 Estrutura do Repositório
+## 📂 Estrutura do Repositório
 
-## Scripts
+### Scripts
 Contém os scripts Python utilizados no projeto:
 
 - ETL (coleta, limpeza e transformação dos dados)
@@ -25,7 +27,7 @@ Esses arquivos representam o núcleo técnico do projeto.
 
 ---
 
-## Docs
+### Docs
 Documentação técnica do projeto:
 
 - Regras de cálculo dos Scores (1–4)
@@ -35,12 +37,12 @@ Documentação técnica do projeto:
 
 ---
 
-## PowerPoint
+### PowerPoint
 Contém as apresentações dos respectivos sprints(.pptx) entregues em cada etapa  acadêmica do projeto.
 
 ---
 
-## README.md
+### README.md
 Documento principal explicando:
 - Estrutura do projeto
 - Tecnologias utilizadas
@@ -49,7 +51,7 @@ Documento principal explicando:
 
 ---
 
-# 🚫 Arquivos que NÃO ficam no repositório
+## 🚫 Arquivos que NÃO ficam no repositório
 
 Para manter organização e evitar conflitos, os seguintes arquivos não são versionados:
 
@@ -64,7 +66,7 @@ Esses arquivos são mantidos em pasta compartilhada do grupo.
 
 ---
 
-# 🧱 Tecnologias Utilizadas
+## 🧱 Tecnologias Utilizadas
 
 - Python (Pandas, SQLAlchemy, psycopg2-binary, python-dotenv, requests e python-dateutil)
 - PostgreSQL (Banco de Dados Online)
@@ -73,16 +75,46 @@ Esses arquivos são mantidos em pasta compartilhada do grupo.
 
 ---
 
-# 🔄 Fluxo de Atualização do Projeto
+## 🔄 Fluxo de Atualização do Projeto
 
 1. Dados são coletados e tratados via Python
 2. Banco PostgreSQL é atualizado no AWS através do Supabase
 3. Scores e métricas são calculados
 4. Power BI consome os dados para visualização
-5. PPT é atualizado com os resultados e entregas
+5. PPT é atualizado com os resultados e entregas.
 
 ---
 
-# 👥 Equipe
+## 👥 Equipe
 
-Projeto desenvolvido pelo grupo FIDC Insight.
+Projeto desenvolvido pela equipe Data Insight.
+
+<a href="https://github.com/DanielaPSilva" target="_blank" style="text-align: center; display: inline-block;">
+    <img src="/assets/imagem-daniela.png" alt="Daniela Silva" style="border-radius: 50%;" width="120" height="120">
+    <br>
+    <sub><b>Daniela Silva</b></sub>
+</a>
+
+<a href="https://github.com/fabioamaralds" target="_blank" style="text-align: center; display: inline-block;">
+    <img src="/assets/imagem-fabio.png" alt="Daniela Amaral" style="border-radius: 50%;" width="120" height="120">
+    <br>
+    <sub><b>Fabio Amaral</b></sub>
+</a>
+
+<a href="https://github.com/ReginaBolsanelli" target="_blank" style="text-align: center; display: inline-block;">
+    <img src="/assets/imagem-regina.png" alt="Regina Bolsanelli" style="border-radius: 50%;" width="120" height="120">
+    <br>
+    <sub><b>Regina Bolsanelli</b></sub>
+</a>
+
+<a href="https://github.com/tilokao1" target="_blank" style="text-align: center; display: inline-block;">
+    <img src="/assets/imagem-thiago.png" alt="Thiago Perez" style="border-radius: 50%;" width="120" height="120">
+    <br>
+    <sub><b>Thiago Perez</b></sub>
+</a>
+
+<a href="https://github.com/WagnerMartins-on" target="_blank" style="text-align: center; display: inline-block;">
+    <img src="/assets/imagem-wagner.png" alt="Wagner Santana" style="border-radius: 50%;" width="120" height="120">
+    <br>
+    <sub><b>Thiago Perez</b></sub>
+</a>
