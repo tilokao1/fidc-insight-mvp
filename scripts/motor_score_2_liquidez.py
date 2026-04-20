@@ -89,8 +89,7 @@ def calcular_score_2_liquidez():
     print("Gravando tabela score_2_liquidez_v2...")
 
     resultado.to_sql(
-        "score_2_liquidez_v2",
-        engine,
+        "score_2_metricas_1_e_2",
         if_exists="replace",
         index=False
     )
