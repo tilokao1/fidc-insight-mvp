@@ -68,11 +68,11 @@ def calcular_score_2_liquidez():
     # -------------------------------------------------
     # Regra de descasamento de liquidez (Blueprint v2)
     # -------------------------------------------------
+    df["PRAZO_PAGTO_RESGATE"] = pd.to_numeric(df["PRAZO_PAGTO_RESGATE"], errors="coerce").fillna(0)
     df["flag_risco_liquidez"] = (
         (df["PRAZO_PAGTO_RESGATE"] <= 90)
         & (df["pct_curto_prazo"] < 20)
     ).astype(int)
-
     # -------------------------------------------------
     # Tabela final do Score 2
     # -------------------------------------------------
