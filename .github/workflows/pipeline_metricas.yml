@@ -31,7 +31,7 @@ jobs:
     - name: 4. Executar Scripts de Métricas - Score 2
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      run: python scripts/motor_score_2_liquidez.py.py
+      run: python scripts/motor_score_2_liquidez.py
 
     - name: 5. Executar Scripts de Métricas - Score 3.1
       env:
