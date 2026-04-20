@@ -27,7 +27,7 @@ def calcular_score_2_liquidez():
             tab_x_vl_liquidez_60,
             tab_x_vl_liquidez_90,
             tab_x_vl_liquidez_maior_360
-        FROM public.inf_mensal_fidc_tab_x_5
+        FROM inf_mensal_fidc_tab_X_5
     """)
 
     df_x5 = pd.read_sql(query_x5, engine)
@@ -40,7 +40,7 @@ def calcular_score_2_liquidez():
             cnpj_fundo_classe,
             tab_i2_vl_carteira AS valor_carteira,
             prazo_pagto_resgate
-        FROM public.inf_mensal_fidc_tab_i
+        FROM inf_mensal_fidc_tab_I
     """)
 
     df_i = pd.read_sql(query_i, engine)
