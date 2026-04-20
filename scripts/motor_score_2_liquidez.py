@@ -17,9 +17,8 @@ def calcular_score_2_liquidez():
 
     engine = create_engine(
         os.getenv("DATABASE_URL"),
-        poolclass=NullPool, connect_args={"prepare_threshold": 0  # Recomendado para Transaction Mode (porta 6543)
-                                                                     }
-                                                                     )
+        poolclass=NullPool,)
+
 
     # -------------------------------------------------
     # Leitura da Tabela X_5 – Perfil de Liquidez
