@@ -42,7 +42,7 @@ Contém as apresentações dos respectivos sprints(.pptx) entregues em cada etap
 
 ---
 
-### README.md
+### Readme
 Documento principal explicando:
 - Estrutura do projeto
 - Tecnologias utilizadas
