@@ -21,12 +21,12 @@ def calcular_score_2_liquidez():
     # -------------------------------------------------
     query_x5 = text("""
         SELECT
-            CNPJ_FUNDO_CLASSE,
-            tab_x_vl_liquidez_0,
-            tab_x_vl_liquidez_30,
-            tab_x_vl_liquidez_60,
-            tab_x_vl_liquidez_90,
-            tab_x_vl_liquidez_maior_360
+            "CNPJ_FUNDO_CLASSE",
+            "tab_x_vl_liquidez_0",
+            "tab_x_vl_liquidez_30",
+            "tab_x_vl_liquidez_60",
+            "tab_x_vl_liquidez_90",
+            "tab_x_vl_liquidez_maior_360"
         FROM "inf_mensal_fidc_tab_X_5"
     """)
 
@@ -37,9 +37,9 @@ def calcular_score_2_liquidez():
     # -------------------------------------------------
     query_i = text("""
         SELECT
-            CNPJ_FUNDO_CLASSE,
-            tab_i2_vl_carteira AS valor_carteira,
-            prazo_pagto_resgate
+            "CNPJ_FUNDO_CLASSE",
+            "tab_i2_vl_carteira" AS valor_carteira,
+            "prazo_pagto_resgate"
         FROM "inf_mensal_fidc_tab_I"
     """)
 
