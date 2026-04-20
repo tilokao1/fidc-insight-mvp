@@ -1,37 +1,25 @@
-
-import pandas as pd
-from sqlalchemy import create_engine
 import os
-from dotenv import load_dotenv
-
-print("Iniciando Motor de Risco – Score 2 (Liquidez Estrutural v2)...")
+import pandas as pd
+from sqlalchemy import create_engine, text
 
 # =====================================================
-# 1. Variáveis de ambiente
+# Configuração
 # =====================================================
-load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")
 
-if not DATABASE_URL:
-    raise RuntimeError("DATABASE_URL não encontrada no .env")
-
-engine = create_engine(DATABASE_URL)
-
 # =====================================================
-# 2. Tabelas físicas (PostgreSQL → tudo minúsculo)
+# Função principal – Score 2 (Liquidez Estrutural)
 # =====================================================
-TABELA_X5 = "inf_mensal_fidc_tab_X_5"
-TABELA_I  = "inf_mensal_fidc_tab_I"
+def calcular_score_2_liquidez():
 
-# =====================================================
-# 3. Função principal
-# =====================================================
+    print("Iniciando cálculo do Score 2 – Risco de Liquidez (v2)...")
 
-def calcular_score_2_liquidez(engine):
-    print(f"Lendo dados da {TABELA_X5} (Liquidez dos Ativos)...")
+    engine = create_engine(DATABASE_URL)
 
-
-    query_x5 = f"""
+    # -------------------------------------------------
+    # Leitura da Tabela X_5 – Perfil de Liquidez
+    # -------------------------------------------------
+    query_x5 = text("""
         SELECT
             cnpj_fundo_classe,
             tab_x_vl_liquidez_0,
@@ -39,31 +27,32 @@ def calcular_score_2_liquidez(engine):
             tab_x_vl_liquidez_60,
             tab_x_vl_liquidez_90,
             tab_x_vl_liquidez_maior_360
-        FROM {TABELA_X5}
-    """
+        FROM public.inf_mensal_fidc_tab_x_5
+    """)
 
     df_x5 = pd.read_sql(query_x5, engine)
 
-    print(f"Lendo dados da {TABELA_I} (Estrutura do Fundo)...")
-
-    query_i = f"""
+    # -------------------------------------------------
+    # Leitura da Tabela I – Passivo do Fundo
+    # -------------------------------------------------
+    query_i = text("""
         SELECT
             cnpj_fundo_classe,
             tab_i2_vl_carteira AS valor_carteira,
             prazo_pagto_resgate
-        FROM {TABELA_I}
-    """
+        FROM public.inf_mensal_fidc_tab_i
+    """)
 
     df_i = pd.read_sql(query_i, engine)
 
-    # =====================================================
-    # 4. Integração das bases
-    # =====================================================
+    # -------------------------------------------------
+    # Integração das bases
+    # -------------------------------------------------
     df = df_x5.merge(df_i, on="cnpj_fundo_classe", how="inner")
 
-    # =====================================================
-    # 5. Cálculo do perfil de maturidade
-    # =====================================================
+    # -------------------------------------------------
+    # Cálculo do perfil de maturidade
+    # -------------------------------------------------
     df["vl_curto_prazo"] = (
         df["tab_x_vl_liquidez_0"]
         + df["tab_x_vl_liquidez_30"]
@@ -76,17 +65,17 @@ def calcular_score_2_liquidez(engine):
         df["tab_x_vl_liquidez_maior_360"] / df["valor_carteira"]
     ) * 100
 
-    # =====================================================
-    # 6. Regra de descasamento de liquidez (INSIGHT-CHAVE)
-    # =====================================================
+    # -------------------------------------------------
+    # Regra de descasamento de liquidez (Blueprint v2)
+    # -------------------------------------------------
     df["flag_risco_liquidez"] = (
         (df["prazo_pagto_resgate"] <= 90)
         & (df["pct_curto_prazo"] < 20)
     ).astype(int)
 
-    # =====================================================
-    # 7. Resultado final
-    # =====================================================
+    # -------------------------------------------------
+    # Tabela final do Score 2
+    # -------------------------------------------------
     resultado = df[
         [
             "cnpj_fundo_classe",
@@ -106,13 +95,10 @@ def calcular_score_2_liquidez(engine):
         index=False
     )
 
-    print("Score 2 – Liquidez Estrutural v2 processado com sucesso!")
+    print("Score 2 – Liquidez Estrutural calculado com sucesso!")
 
 # =====================================================
-# 8. Execução controlada
+# Execução
 # =====================================================
 if __name__ == "__main__":
-    try:
-        calcular_score_2_liquidez(engine)
-    except Exception as e:
-        print("Erro na execução do Score 2 v2:", str(e))
+    calcular_score_2_liquidez()
