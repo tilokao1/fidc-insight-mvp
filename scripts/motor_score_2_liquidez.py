@@ -20,8 +20,8 @@ engine = create_engine(DATABASE_URL)
 # =====================================================
 # 2. Tabelas físicas (PostgreSQL → tudo minúsculo)
 # =====================================================
-TABELA_X5 = "public.inf_mensal_fidc_tab_X_5"
-TABELA_I  = "public.inf_mensal_fidc_tab_I"
+TABELA_X5 = "inf_mensal_fidc_tab_X_5"
+TABELA_I  = "inf_mensal_fidc_tab_I"
 
 # =====================================================
 # 3. Função principal
