@@ -36,8 +36,8 @@ def calcular_kpis_performance(engine):
             s3."Score_Diversificacao_Setorial"
         FROM "inf_mensal_fidc_tab_X_3" v
         -- LEFT JOIN "score_1_credito" s1 ON v."CNPJ_FUNDO_CLASSE" = s1."CNPJ_FUNDO_CLASSE"
-        LEFT JOIN "score_2_liquidez_v2" s2 ON v."CNPJ_FUNDO_CLASSE" = s2."CNPJ_FUNDO_CLASSE"
-        LEFT JOIN "score_3_diversificacao" s3 ON v."CNPJ_FUNDO_CLASSE" = s3."CNPJ_FUNDO_CLASSE"
+        LEFT JOIN "score_2_metricas_1_e_2" s2 ON v."CNPJ_FUNDO_CLASSE" = s2."CNPJ_FUNDO_CLASSE"
+        LEFT JOIN "score_3_metrica_2" s3 ON v."CNPJ_FUNDO_CLASSE" = s3."CNPJ_FUNDO_CLASSE"
     """
 
     df = pd.read_sql(query, engine)
