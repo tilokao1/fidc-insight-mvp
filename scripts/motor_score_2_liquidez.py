@@ -21,7 +21,7 @@ def calcular_score_2_liquidez():
     # -------------------------------------------------
     query_x5 = text("""
         SELECT
-            cnpj_fundo_classe,
+            CNPJ_FUNDO_CLASSE,
             tab_x_vl_liquidez_0,
             tab_x_vl_liquidez_30,
             tab_x_vl_liquidez_60,
@@ -37,7 +37,7 @@ def calcular_score_2_liquidez():
     # -------------------------------------------------
     query_i = text("""
         SELECT
-            cnpj_fundo_classe,
+            CNPJ_FUNDO_CLASSE,
             tab_i2_vl_carteira AS valor_carteira,
             prazo_pagto_resgate
         FROM "inf_mensal_fidc_tab_I"
@@ -48,7 +48,7 @@ def calcular_score_2_liquidez():
     # -------------------------------------------------
     # Integração das bases
     # -------------------------------------------------
-    df = df_x5.merge(df_i, on="cnpj_fundo_classe", how="inner")
+    df = df_x5.merge(df_i, on="CNPJ_FUNDO_CLASSE", how="inner")
 
     # -------------------------------------------------
     # Cálculo do perfil de maturidade
@@ -78,7 +78,7 @@ def calcular_score_2_liquidez():
     # -------------------------------------------------
     resultado = df[
         [
-            "cnpj_fundo_classe",
+            "CNPJ_FUNDO_CLASSE",
             "pct_curto_prazo",
             "pct_longo_prazo",
             "prazo_pagto_resgate",
