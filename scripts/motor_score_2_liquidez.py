@@ -26,8 +26,10 @@ TABELA_I  = "public.inf_mensal_fidc_tab_I"
 # =====================================================
 # 3. Função principal
 # =====================================================
-def calcular_score_2_liquidez(engine):ados da {TABELA_X5} (Liquidez dos A
-    print(f"Lendo dtivos)...")
+
+def calcular_score_2_liquidez(engine):
+    print(f"Lendo dados da {TABELA_X5} (Liquidez dos Ativos)...")
+
 
     query_x5 = f"""
         SELECT
