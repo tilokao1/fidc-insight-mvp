@@ -40,10 +40,7 @@ def descobrir_mes_mais_recente():
     raise Exception("Não foi possível encontrar dados recentes na CVM.")
 
 def atualizar_banco():
-    engine = create_engine(os.getenv("DATABASE_URL"), poolclass=NullPool,connect_args={
-        "prepare_threshold": 0  # Recomendado para Transaction Mode (porta 6543)
-        }
-    )
+    engine = create_engine(os.getenv("DATABASE_URL"), poolclass=NullPool,)
     data_recente = descobrir_mes_mais_recente()
     data_corte = data_recente - relativedelta(months=11)
     

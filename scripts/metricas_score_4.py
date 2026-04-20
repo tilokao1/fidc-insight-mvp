@@ -8,10 +8,7 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 
 def calcular_score_4():
     engine = create_engine(
-        os.getenv("DATABASE_URL"), poolclass=NullPool, connect_args={
-            "prepare_threshold": 0  # Recomendado para Transaction Mode (porta 6543)
-            }
-            )
+        os.getenv("DATABASE_URL"), poolclass=NullPool,)
     
     with engine.begin() as conn:
         print("Iniciando cálculos do Score 4...")

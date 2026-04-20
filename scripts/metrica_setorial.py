@@ -15,11 +15,7 @@ url_postgres = os.getenv('DATABASE_URL')
 # Cria o "motor" do banco
 engine = create_engine(
     os.getenv("DATABASE_URL"),
-    poolclass=NullPool,
-    connect_args={
-        "prepare_threshold": 0  # Recomendado para Transaction Mode (porta 6543)
-    }
-)
+    poolclass=NullPool,)
 
 def calcular_e_salvar_score_setorial(conexao_engine):
     print("1. Conectando ao Supabase para ler os dados brutos...")

@@ -17,17 +17,14 @@ if not DATABASE_URL:
 
 engine = create_engine(
     os.getenv("DATABASE_URL"),
-    poolclass=NullPool,
-    connect_args={
-        "prepare_threshold": 0  # Recomendado para Transaction Mode (porta 6543)
-    }
-)
+    poolclass=NullPool,)
 
 
 # =====================================================
 # 2. Função principal
 # =====================================================
 def calcular_kpis_performance(engine):
+    
     print("Lendo dados de rentabilidade e scores...")
 
     query = """

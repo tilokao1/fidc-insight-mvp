@@ -43,11 +43,7 @@ REGRAS_LIMPEZA = {
 def limpar_dados():
     engine = create_engine(
         os.getenv("DATABASE_URL"),
-        poolclass=NullPool,
-        connect_args={
-            "prepare_threshold": 0  # Recomendado para Transaction Mode (porta 6543)
-        }
-    )
+        poolclass=NullPool,)
     with engine.begin() as conn:
         for tabela, colunas in REGRAS_LIMPEZA.items():
             print(f"Limpando tabela: {tabela}")
