@@ -26,18 +26,18 @@ engine = create_engine(
 def calcular_kpis_performance(engine):
     
     print("Lendo dados de rentabilidade e scores...")
-
+    # Retornar após criar tabelas da métrica 1
     query = """
         SELECT
-            v.id_fundo,
-            v.RENTAB_MES,
-            s1.score_1_credito,
+            CNPJ_FUNDO_CLASSE,
+            TAB_X_VL_RENTAB_MES,
+            -- s1.score_1_credito,
             s2.flag_risco_liquidez,
-            s3.score_3_diversificacao
-        FROM tabela_vii v
-        LEFT JOIN score_1_credito s1 ON v.id_fundo = s1.id_fundo
-        LEFT JOIN score_2_liquidez_v2 s2 ON v.id_fundo = s2.id_fundo
-        LEFT JOIN score_3_diversificacao s3 ON v.id_fundo = s3.id_fundo
+            s3.Score_Diversificacao_Setorial
+        FROM inf_mensal_fidc_tab_X_3 v
+        -- LEFT JOIN score_1_credito s1 ON v.CNPJ_FUNDO_CLASSE = s1.CNPJ_FUNDO_CLASSE
+        LEFT JOIN score_2_liquidez_v2 s2 ON v.CNPJ_FUNDO_CLASSE = s2.CNPJ_FUNDO_CLASSE
+        LEFT JOIN score_3_diversificacao s3 ON v.CNPJ_FUNDO_CLASSE = s3.CNPJ_FUNDO_CLASSE
     """
 
     df = pd.read_sql(query, engine)
