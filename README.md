@@ -89,33 +89,33 @@ Esses arquivos são mantidos em pasta compartilhada do grupo.
 
 Projeto desenvolvido pela equipe Data Insight.
 
-<table align="center">
+<table align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none;">
   <tr>
-    <td align="center">
+    <td align="center" style="border: none;">
       <a href="https://github.com/DanielaPSilva">
         <img src="./assets/imagem-daniela.png" width="120px" style="border-radius:50%"><br>
         <sub><b>Daniela Silva</b></sub>
       </a>
     </td>
-    <td align="center">
+    <td align="center" style="border: none;">
       <a href="https://github.com/fabioamaralds">
         <img src="./assets/imagem-fabio.png" width="120px" style="border-radius:50%"><br>
         <sub><b>Fabio Amaral</b></sub>
       </a>
     </td>
-    <td align="center">
+    <td align="center" style="border: none;">
       <a href="https://github.com/ReginaBolsanelli">
         <img src="./assets/imagem-regina.png" width="120px" style="border-radius:50%"><br>
         <sub><b>Regina Bolsanelli</b></sub>
       </a>
     </td>
-    <td align="center">
+    <td align="center" style="border: none;">
       <a href="https://github.com/tilokao1">
         <img src="./assets/imagem-thiago.png" width="120px" style="border-radius:50%"><br>
         <sub><b>Thiago Perez</b></sub>
       </a>
     </td>
-    <td align="center">
+    <td align="center" style="border: none;">
       <a href="https://github.com/WagnerMartins-on">
         <img src="./assets/imagem-wagner.png" width="120px" style="border-radius:50%"><br>
         <sub><b>Wagner Santana</b></sub>
