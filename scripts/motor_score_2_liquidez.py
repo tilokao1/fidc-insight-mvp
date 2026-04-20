@@ -54,15 +54,15 @@ def calcular_score_2_liquidez():
     # Cálculo do perfil de maturidade
     # -------------------------------------------------
     df["vl_curto_prazo"] = (
-        df["tab_x_vl_liquidez_0"]
-        + df["tab_x_vl_liquidez_30"]
-        + df["tab_x_vl_liquidez_60"]
-        + df["tab_x_vl_liquidez_90"]
+        df["TAB_X_VL_LIQUIDEZ_0"]
+        + df["TAB_X_VL_LIQUIDEZ_30"]
+        + df["TAB_X_VL_LIQUIDEZ_60"]
+        + df["TAB_X_VL_LIQUIDEZ_90"]
     )
 
     df["pct_curto_prazo"] = (df["vl_curto_prazo"] / df["valor_carteira"]) * 100
     df["pct_longo_prazo"] = (
-        df["tab_x_vl_liquidez_maior_360"] / df["valor_carteira"]
+        df["TAB_X_VL_LIQUIDEZ_MAIOR_360"] / df["valor_carteira"]
     ) * 100
 
     # -------------------------------------------------
