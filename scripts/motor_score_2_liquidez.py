@@ -90,6 +90,7 @@ def calcular_score_2_liquidez():
 
     resultado.to_sql(
         "score_2_metricas_1_e_2",
+        engine,
         if_exists="replace",
         index=False
     )
