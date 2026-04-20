@@ -1,0 +1,67 @@
+table score_4_metrica_3
+	lineageTag: 6d44fafe-79c5-408c-9a9b-f6026aa479ab
+
+	column CNPJ_FUNDO_CLASSE
+		dataType: string
+		lineageTag: 6c5c21c3-36d3-496d-8e52-bbe965554c42
+		summarizeBy: none
+		sourceColumn: CNPJ_FUNDO_CLASSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DT_COMPTC
+		dataType: string
+		lineageTag: b7de5f2c-cf11-438c-a2cf-7b0c75d35dd1
+		summarizeBy: none
+		sourceColumn: DT_COMPTC
+
+		annotation SummarizationSetBy = Automatic
+
+	column cotistas_atual
+		dataType: string
+		lineageTag: c5e941cf-0884-49fc-b2a5-2ca7ab164e65
+		summarizeBy: none
+		sourceColumn: cotistas_atual
+
+		annotation SummarizationSetBy = Automatic
+
+	column cotistas_anterior
+		dataType: string
+		lineageTag: 369cfaeb-e63e-4511-bb6a-1ace0b5757cd
+		summarizeBy: none
+		sourceColumn: cotistas_anterior
+
+		annotation SummarizationSetBy = Automatic
+
+	column variacao_cotistas
+		dataType: string
+		lineageTag: a175ec5c-9366-4b7c-af78-55aa9c586e06
+		summarizeBy: none
+		sourceColumn: variacao_cotistas
+
+		annotation SummarizationSetBy = Automatic
+
+	partition score_4_metrica_3 = m
+		mode: import
+		source = ```
+				let
+				    // URL do Supabase + o caminho da tabela
+				    UrlDaApi = "https://bgkrnjbleagxnhjlggbj.supabase.co/rest/v1/score_4_metrica_3",
+				    
+				    // Chave anon public (coloque a mesma chave nos dois lugares)
+				    ChaveAnon = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJna3JuamJsZWFneG5oamxnZ2JqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NjYxNTEsImV4cCI6MjA5MTM0MjE1MX0.i2ZIZHy74lfohzGf-YCFiRduLT3yWzPZWVYXaOY9Qhg",
+				
+				    Fonte = Json.Document(Web.Contents(UrlDaApi, 
+				        [Headers=[apikey=ChaveAnon, Authorization="Bearer " & ChaveAnon]]
+				    )),
+				    
+				    // Converte a resposta da API (JSON) em uma tabela legível
+				    Tabela = Table.FromRecords(Fonte)
+				in
+				    Tabela
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

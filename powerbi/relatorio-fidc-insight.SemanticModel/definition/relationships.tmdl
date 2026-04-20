@@ -1,0 +1,6 @@
+relationship AutoDetected_2ab2c92b-c164-478b-baa6-241a5b14de27
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: score_3_metrica_1.CNPJ_FUNDO_CLASSE
+	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
+

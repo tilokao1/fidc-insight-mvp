@@ -8,11 +8,16 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["Fato_Score_Setorial"]
+annotation PBI_QueryOrder = ["score_2_metricas_1_e_2","score_3_metrica_1","score_3_metrica_2","score_4_metrica_1","score_4_metrica_2","score_4_metrica_3"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
-ref table Fato_Score_Setorial
+ref table score_2_metricas_1_e_2
+ref table score_3_metrica_1
+ref table score_3_metrica_2
+ref table score_4_metrica_1
+ref table score_4_metrica_2
+ref table score_4_metrica_3
 
 ref cultureInfo pt-BR
 
