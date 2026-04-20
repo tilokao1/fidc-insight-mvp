@@ -90,33 +90,9 @@ Esses arquivos são mantidos em pasta compartilhada do grupo.
 Projeto desenvolvido pela equipe Data Insight.
 
 <div align="center">
-  <a href="https://github.com/DanielaPSilva" target="_blank" style="display: inline-block; margin: 0 15px; text-decoration: none;">
-    <img src="./assets/imagem-daniela.png" width="120" height="120" style="border-radius: 50%; object-fit: cover;">
-    <br>
-    <sub style="color: black;"><b>Daniela Silva</b></sub>
-  </a>
-
-  <a href="https://github.com/fabioamaralds" target="_blank" style="display: inline-block; margin: 0 15px; text-decoration: none;">
-    <img src="./assets/imagem-fabio.png" width="120" height="120" style="border-radius: 50%; object-fit: cover;">
-    <br>
-    <sub style="color: black;"><b>Fabio Amaral</b></sub>
-  </a>
-
-  <a href="https://github.com/ReginaBolsanelli" target="_blank" style="display: inline-block; margin: 0 15px; text-decoration: none;">
-    <img src="./assets/imagem-regina.png" width="120" height="120" style="border-radius: 50%; object-fit: cover;">
-    <br>
-    <sub style="color: black;"><b>Regina Bolsanelli</b></sub>
-  </a>
-
-  <a href="https://github.com/tilokao1" target="_blank" style="display: inline-block; margin: 0 15px; text-decoration: none;">
-    <img src="./assets/imagem-thiago.png" width="120" height="120" style="border-radius: 50%; object-fit: cover;">
-    <br>
-    <sub style="color: black;"><b>Thiago Perez</b></sub>
-  </a>
-
-  <a href="https://github.com/WagnerMartins-on" target="_blank" style="display: inline-block; margin: 0 15px; text-decoration: none;">
-    <img src="./assets/imagem-wagner.png" width="120" height="120" style="border-radius: 50%; object-fit: cover;">
-    <br>
-    <sub style="color: black;"><b>Wagner Santana</b></sub>
-  </a>
+  <a href="https://github.com/DanielaPSilva"><img src="./assets/imagem-daniela.png" width="120px" style="border-radius:50%"><br><sub><b>Daniela Silva</b></sub></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/fabioamaralds"><img src="./assets/imagem-fabio.png" width="120px" style="border-radius:50%"><br><sub><b>Fabio Amaral</b></sub></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/ReginaBolsanelli"><img src="./assets/imagem-regina.png" width="120px" style="border-radius:50%"><br><sub><b>Regina Bolsanelli</b></sub></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/tilokao1"><img src="./assets/imagem-thiago.png" width="120px" style="border-radius:50%"><br><sub><b>Thiago Perez</b></sub></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/WagnerMartins-on"><img src="./assets/imagem-wagner.png" width="120px" style="border-radius:50%"><br><sub><b>Wagner Santana</b></sub></a>
 </div>
