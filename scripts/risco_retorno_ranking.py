@@ -29,7 +29,7 @@ def calcular_kpis_performance(engine):
     # Retornar após criar tabelas da métrica 1
     query = """
         SELECT
-            "CNPJ_FUNDO_CLASSE",
+            v."CNPJ_FUNDO_CLASSE",
             "TAB_X_VL_RENTAB_MES",
             -- s1.score_1_credito,
             s2."flag_risco_liquidez",
