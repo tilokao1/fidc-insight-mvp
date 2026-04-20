@@ -1,5 +1,6 @@
 import pandas as pd
 from sqlalchemy import create_engine
+from sqlalchemy.pool import NullPool
 import os
 from dotenv import load_dotenv
 
@@ -14,7 +15,14 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 if not DATABASE_URL:
     raise RuntimeError("DATABASE_URL não encontrada no .env")
 
-engine = create_engine(DATABASE_URL)
+engine = create_engine(
+    os.getenv("DATABASE_URL"),
+    poolclass=NullPool,
+    connect_args={
+        "prepare_threshold": 0  # Recomendado para Transaction Mode (porta 6543)
+    }
+)
+
 
 # =====================================================
 # 2. Função principal

@@ -1,5 +1,6 @@
 import pandas as pd
 from sqlalchemy import create_engine
+from sqlalchemy.pool import NullPool
 import os
 from dotenv import load_dotenv
 
@@ -7,7 +8,13 @@ print("🚀 Iniciando Score de Cedentes...")
 
 load_dotenv()
 
-engine = create_engine(os.getenv("DATABASE_URL"))
+engine = create_engine(
+    os.getenv("DATABASE_URL"),
+    poolclass=NullPool,
+    connect_args={
+        "prepare_threshold": 0  # Recomendado para Transaction Mode (porta 6543)
+    }
+)
 
 df = pd.read_sql_query('SELECT * FROM "inf_mensal_fidc_tab_I"', engine)
 

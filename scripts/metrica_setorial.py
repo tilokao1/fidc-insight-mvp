@@ -1,5 +1,6 @@
 import pandas as pd
 from sqlalchemy import create_engine
+from sqlalchemy.pool import NullPool
 import os
 from dotenv import load_dotenv
 
@@ -12,7 +13,13 @@ load_dotenv()
 url_postgres = os.getenv('DATABASE_URL')
 
 # Cria o "motor" do banco
-engine = create_engine(url_postgres)
+engine = create_engine(
+    os.getenv("DATABASE_URL"),
+    poolclass=NullPool,
+    connect_args={
+        "prepare_threshold": 0  # Recomendado para Transaction Mode (porta 6543)
+    }
+)
 
 def calcular_e_salvar_score_setorial(conexao_engine):
     print("1. Conectando ao Supabase para ler os dados brutos...")

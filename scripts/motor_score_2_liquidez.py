@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 from sqlalchemy import create_engine, text
+from sqlalchemy.pool import NullPool
 
 # =====================================================
 # Configuração
@@ -14,7 +15,11 @@ def calcular_score_2_liquidez():
 
     print("Iniciando cálculo do Score 2 – Risco de Liquidez (v2)...")
 
-    engine = create_engine(DATABASE_URL)
+    engine = create_engine(
+        os.getenv("DATABASE_URL"),
+        poolclass=NullPool, connect_args={"prepare_threshold": 0  # Recomendado para Transaction Mode (porta 6543)
+                                                                     }
+                                                                     )
 
     # -------------------------------------------------
     # Leitura da Tabela X_5 – Perfil de Liquidez
