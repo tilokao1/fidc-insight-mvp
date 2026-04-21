@@ -2,12 +2,13 @@ import pandas as pd
 from sqlalchemy import create_engine
 from sqlalchemy.pool import NullPool
 import numpy as np
+import os
 
 print("🚀 Iniciando Métrica 1.4 - Risco Oculto...")
 
 # Conexão
 engine = create_engine(
-    "postgresql+psycopg2://postgres:Fiapdata2025@db.bgkrnjbleagxnhjlggbj.supabase.co:5432/postgres",
+    os.getenv("DATABASE_URL"),
     poolclass=NullPool,
 )
 

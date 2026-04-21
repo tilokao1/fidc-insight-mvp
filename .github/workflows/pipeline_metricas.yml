@@ -28,22 +28,42 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: 4. Executar Scripts de Métricas - Score 2
+    - name: 4. Executar Scripts de Métricas - Score 1
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
       run: python scripts/motor_score_2_liquidez.py
+    
+    - name: 5. Executar Scripts de Métricas - Score 2 Métrica 1.1
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      run: python scripts/metrica_score_1.1.py
 
-    - name: 5. Executar Scripts de Métricas - Score 3.1
+    - name: 6. Executar Scripts de Métricas - Score 2 Métrica 1.2
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      run: python scripts/metrica_score_1.2.py
+  
+    - name: 7. Executar Scripts de Métricas - Score 2 Métrica 1.3
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      run: python scripts/metrica_score_1.3.py
+
+    - name: 8. Executar Scripts de Métricas - Score 2 Métrica 1.4
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      run: python scripts/metrica_score_1.4.py
+
+    - name: 9. Executar Scripts de Métricas - Score 3.1
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
       run: python scripts/metrica_cedentes.py     
 
-    - name: 6. Executar Scripts de Métricas - Score 3.2
+    - name: 10. Executar Scripts de Métricas - Score 3.2
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
       run: python scripts/metrica_setorial.py 
 
-    - name: 7. Executar Scripts de Métricas - Score 4
+    - name: 11. Executar Scripts de Métricas - Score 4
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
       run: python scripts/metricas_score_4.py

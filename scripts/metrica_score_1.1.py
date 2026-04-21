@@ -12,7 +12,7 @@ load_dotenv()
 
 # Cria conexão com o banco
 engine = create_engine(
-    "postgresql+psycopg2://postgres:Fiapdata2025@db.bgkrnjbleagxnhjlggbj.supabase.co:5432/postgres",
+    os.getenv("DATABASE_URL"),
     poolclass=NullPool,
 )
 def calcular_e_salvar_metrica_1_1(conexao_engine):
