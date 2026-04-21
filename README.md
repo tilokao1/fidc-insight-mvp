@@ -37,12 +37,12 @@ Documentação técnica do projeto:
 
 ---
 
-### PowerPoint
-Contém as apresentações dos respectivos sprints(.pptx) entregues em cada etapa  acadêmica do projeto.
+### 📊 PowerPoint
+Contém as apresentações dos respectivos sprints(.pptx`) entregues em cada etapa  acadêmica do projeto.
 
 ---
 
-### Readme
+### 📖 Readme
 Documento principal explicando:
 - Estrutura do projeto
 - Tecnologias utilizadas
