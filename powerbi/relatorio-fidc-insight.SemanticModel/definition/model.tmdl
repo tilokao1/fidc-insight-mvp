@@ -22,6 +22,11 @@ ref table score_1_metrica_1
 ref table score_1_metrica_2
 ref table score_1_metrica_3
 ref table score_1_metrica_4
+ref table DateTableTemplate_7a9ce246-7d19-4afd-bc6a-556fe932b15e
+ref table LocalDateTable_7dc594b5-7183-40fb-bf94-b1021cc35886
+ref table LocalDateTable_b7ba6510-d466-44da-9a5b-c499f005d4d8
+ref table LocalDateTable_4adcf974-f005-4cd3-99cd-2ed69f435faf
+ref table LocalDateTable_9bab00e4-a332-40e7-9a9b-b71714f912d9
 
 ref cultureInfo pt-BR
 

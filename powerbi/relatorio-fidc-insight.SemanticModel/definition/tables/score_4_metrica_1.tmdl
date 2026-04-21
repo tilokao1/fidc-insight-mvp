@@ -11,20 +11,30 @@ table score_4_metrica_1
 		annotation SummarizationSetBy = Automatic
 
 	column DT_COMPTC
-		dataType: string
+		dataType: dateTime
+		formatString: Long Date
 		lineageTag: 6f85d52e-d47f-49fe-a940-fad6e2475a88
 		summarizeBy: none
 		sourceColumn: DT_COMPTC
 
+		variation Variation
+			isDefault
+			relationship: d10e58c6-fa87-4bb4-819b-32698d01868f
+			defaultHierarchy: LocalDateTable_7dc594b5-7183-40fb-bf94-b1021cc35886.'Hierarquia de datas'
+
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column percentual_subordinacao
-		dataType: string
+		dataType: double
 		lineageTag: 29058abe-e85d-4cad-b8c8-17a951844ed2
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: percentual_subordinacao
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition score_4_metrica_1 = m
 		mode: import
@@ -41,9 +51,10 @@ table score_4_metrica_1
 				    )),
 				    
 				    // Converte a resposta da API (JSON) em uma tabela legível
-				    Tabela = Table.FromRecords(Fonte)
+				    Tabela = Table.FromRecords(Fonte),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"DT_COMPTC", type date}, {"percentual_subordinacao", type number}})
 				in
-				    Tabela
+				    #"Tipo Alterado"
 				```
 
 	annotation PBI_NavigationStepName = Navegação

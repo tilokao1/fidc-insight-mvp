@@ -11,28 +11,40 @@ table score_3_metrica_2
 		annotation SummarizationSetBy = Automatic
 
 	column DT_COMPTC
-		dataType: string
+		dataType: dateTime
+		formatString: Long Date
 		lineageTag: a705fffc-b5bc-46bd-ac8a-468431235904
 		summarizeBy: none
 		sourceColumn: DT_COMPTC
 
+		variation Variation
+			isDefault
+			relationship: 3613afbc-820d-47b2-b80a-7ea63b72dbee
+			defaultHierarchy: LocalDateTable_9bab00e4-a332-40e7-9a9b-b71714f912d9.'Hierarquia de datas'
+
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column HHI_Setorial
-		dataType: string
+		dataType: double
 		lineageTag: 98ae8907-1853-4bdf-98cc-f4a49a084d09
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: HHI_Setorial
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Score_Diversificacao_Setorial
-		dataType: string
+		dataType: double
 		lineageTag: fa9e3405-eb2f-4732-8be2-59dbb0cbc29c
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Score_Diversificacao_Setorial
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition score_3_metrica_2 = m
 		mode: import
@@ -49,9 +61,10 @@ table score_3_metrica_2
 				    )),
 				    
 				    // Converte a resposta da API (JSON) em uma tabela legível
-				    Tabela = Table.FromRecords(Fonte)
+				    Tabela = Table.FromRecords(Fonte),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"DT_COMPTC", type date}, {"HHI_Setorial", type number}, {"Score_Diversificacao_Setorial", type number}})
 				in
-				    Tabela
+				    #"Tipo Alterado"
 				```
 
 	annotation PBI_NavigationStepName = Navegação

@@ -8,6 +8,8 @@ table score_1_metrica_3
 		summarizeBy: none
 		sourceColumn: CNPJ_FUNDO_CLASSE
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column DENOM_SOCIAL
@@ -15,6 +17,8 @@ table score_1_metrica_3
 		lineageTag: e6055450-a4c7-4d8b-8a13-a4c309ba236b
 		summarizeBy: none
 		sourceColumn: DENOM_SOCIAL
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -24,6 +28,8 @@ table score_1_metrica_3
 		summarizeBy: none
 		sourceColumn: DT_COMPTC
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column TAB_I2_VL_CARTEIRA
@@ -31,6 +37,8 @@ table score_1_metrica_3
 		lineageTag: afe70278-807d-45e4-90d3-7d4fa5e030fb
 		summarizeBy: none
 		sourceColumn: TAB_I2_VL_CARTEIRA
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -40,6 +48,8 @@ table score_1_metrica_3
 		summarizeBy: none
 		sourceColumn: TAB_X_VL_GARANTIA_DIRCRED
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column TAB_X_PR_GARANTIA_DIRCRED
@@ -48,6 +58,8 @@ table score_1_metrica_3
 		summarizeBy: none
 		sourceColumn: TAB_X_PR_GARANTIA_DIRCRED
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column metrica_1_3_nivel_garantia_coobrigacao
@@ -55,6 +67,8 @@ table score_1_metrica_3
 		lineageTag: e41e0675-42e1-41ff-8866-9da25c56996b
 		summarizeBy: none
 		sourceColumn: metrica_1_3_nivel_garantia_coobrigacao
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -77,6 +91,8 @@ table score_1_metrica_3
 				in
 				    Tabela
 				```
+
+	changedProperty = IsHidden
 
 	annotation PBI_NavigationStepName = Navegação
 

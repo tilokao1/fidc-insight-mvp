@@ -11,36 +11,50 @@ table score_3_metrica_1
 		annotation SummarizationSetBy = Automatic
 
 	column DT_COMPTC
-		dataType: string
+		dataType: dateTime
+		formatString: Long Date
 		lineageTag: 78ace51d-b0ff-4aa0-beb7-37fcbf42dc88
 		summarizeBy: none
 		sourceColumn: DT_COMPTC
 
+		variation Variation
+			isDefault
+			relationship: 69f64161-af79-4ecd-b501-3dc4cfc13146
+			defaultHierarchy: LocalDateTable_b7ba6510-d466-44da-9a5b-c499f005d4d8.'Hierarquia de datas'
+
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column HHI_Cedentes
-		dataType: string
+		dataType: double
 		lineageTag: 1979516f-799b-458f-8eaf-7051506e3d4e
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: HHI_Cedentes
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column score_cedentes
-		dataType: string
+		dataType: double
 		lineageTag: ed169a36-ddee-441e-8e94-a34323e9f8c9
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: score_cedentes
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column score_100
-		dataType: string
+		dataType: double
 		lineageTag: a8d71168-2d7c-4412-90e2-33edbb0905f9
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: score_100
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition score_3_metrica_1 = m
 		mode: import
@@ -57,9 +71,10 @@ table score_3_metrica_1
 				    )),
 				    
 				    // Converte a resposta da API (JSON) em uma tabela legível
-				    Tabela = Table.FromRecords(Fonte)
+				    Tabela = Table.FromRecords(Fonte),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"DT_COMPTC", type date}, {"HHI_Cedentes", type number}, {"score_cedentes", type number}, {"score_100", type number}})
 				in
-				    Tabela
+				    #"Tipo Alterado"
 				```
 
 	annotation PBI_NavigationStepName = Navegação

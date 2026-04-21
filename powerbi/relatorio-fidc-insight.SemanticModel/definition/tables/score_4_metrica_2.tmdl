@@ -11,12 +11,20 @@ table score_4_metrica_2
 		annotation SummarizationSetBy = Automatic
 
 	column DT_COMPTC
-		dataType: string
+		dataType: dateTime
+		formatString: Long Date
 		lineageTag: 9429cf1d-6cf0-4a0a-8eb1-44dc3458af88
 		summarizeBy: none
 		sourceColumn: DT_COMPTC
 
+		variation Variation
+			isDefault
+			relationship: df5872af-8e5a-4541-baad-3a4cc86bfe56
+			defaultHierarchy: LocalDateTable_4adcf974-f005-4cd3-99cd-2ed69f435faf.'Hierarquia de datas'
+
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column perc_concentracao_cedente
 		dataType: string
@@ -49,9 +57,10 @@ table score_4_metrica_2
 				    )),
 				    
 				    // Converte a resposta da API (JSON) em uma tabela legível
-				    Tabela = Table.FromRecords(Fonte)
+				    Tabela = Table.FromRecords(Fonte),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"DT_COMPTC", type date}})
 				in
-				    Tabela
+				    #"Tipo Alterado"
 				```
 
 	annotation PBI_NavigationStepName = Navegação

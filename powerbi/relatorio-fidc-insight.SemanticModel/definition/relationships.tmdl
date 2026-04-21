@@ -1,18 +1,20 @@
-relationship AutoDetected_2ab2c92b-c164-478b-baa6-241a5b14de27
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: score_3_metrica_1.CNPJ_FUNDO_CLASSE
-	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
+relationship d10e58c6-fa87-4bb4-819b-32698d01868f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: score_4_metrica_1.DT_COMPTC
+	toColumn: LocalDateTable_7dc594b5-7183-40fb-bf94-b1021cc35886.Date
 
-relationship AutoDetected_d565ffcf-63e7-4c68-83f4-e333ad644871
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: score_1_metrica_2.TAB_I2_VL_CARTEIRA
-	toColumn: score_1_metrica_1.TAB_I2_VL_CARTEIRA
+relationship 69f64161-af79-4ecd-b501-3dc4cfc13146
+	joinOnDateBehavior: datePartOnly
+	fromColumn: score_3_metrica_1.DT_COMPTC
+	toColumn: LocalDateTable_b7ba6510-d466-44da-9a5b-c499f005d4d8.Date
 
-relationship AutoDetected_b359647a-5013-4f25-9f1d-1f03ac02789b
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: score_1_metrica_3.TAB_I2_VL_CARTEIRA
-	toColumn: score_1_metrica_1.TAB_I2_VL_CARTEIRA
+relationship df5872af-8e5a-4541-baad-3a4cc86bfe56
+	joinOnDateBehavior: datePartOnly
+	fromColumn: score_4_metrica_2.DT_COMPTC
+	toColumn: LocalDateTable_4adcf974-f005-4cd3-99cd-2ed69f435faf.Date
+
+relationship 3613afbc-820d-47b2-b80a-7ea63b72dbee
+	joinOnDateBehavior: datePartOnly
+	fromColumn: score_3_metrica_2.DT_COMPTC
+	toColumn: LocalDateTable_9bab00e4-a332-40e7-9a9b-b71714f912d9.Date
 
