@@ -63,6 +63,11 @@ def calcular_e_salvar_score_setorial(conexao_engine):
     # O if_exists='replace' garante que ele sempre atualiza a tabela quando rodar
     df_score.to_sql(nome_tabela_destino, conexao_engine, if_exists='replace', index=False)
     
+    # Criação de indice para melhor desempenho nas consultas
+    print(f"4. Criando índices na tabela {nome_tabela_destino}...")
+    with conexao_engine.begin() as conn:
+        conn.execute(text(f'CREATE INDEX IF NOT EXISTS idx_score3_cnpj ON "{nome_tabela_destino}" ("CNPJ_FUNDO_CLASSE");'))
+
     print(f"Sucesso Total! Tabela '{nome_tabela_destino}' criada/atualizada no banco na nuvem.")
 
 # Executar a função

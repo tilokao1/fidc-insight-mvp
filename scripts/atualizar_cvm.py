@@ -83,7 +83,12 @@ def atualizar_banco():
         for tab in TABELAS_CVM:
             nome_tabela_db = f"inf_mensal_fidc_tab_{tab}"
             conn.execute(text(f"DELETE FROM \"{nome_tabela_db}\" WHERE \"DT_COMPTC\" < '{data_corte_sql}'"))
-            
+
+    print("\nOtimizando tabela X_3 com índices...")
+    with engine.begin() as conn:
+        # Cria o índice na X_3 se ele ainda não existir
+        conn.execute(text('CREATE INDEX IF NOT EXISTS idx_tab_x3_cnpj ON "inf_mensal_fidc_tab_X_3" ("CNPJ_FUNDO_CLASSE");'))
+
     print("\n✅ Sincronização concluída. Banco otimizado.")
 
 if __name__ == "__main__":

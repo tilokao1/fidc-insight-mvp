@@ -99,6 +99,10 @@ def calcular_score_2_liquidez():
         index=False
     )
 
+    print("Criando índices para otimização de JOINS...")
+    with engine.begin() as conn:
+        conn.execute(text('CREATE INDEX IF NOT EXISTS idx_score2_cnpj ON "score_2_metricas_1_e_2" ("CNPJ_FUNDO_CLASSE");'))
+
     print("Score 2 – Liquidez Estrutural calculado com sucesso!")
 
 # =====================================================
