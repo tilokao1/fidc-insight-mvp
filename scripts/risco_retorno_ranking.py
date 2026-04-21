@@ -48,7 +48,7 @@ def calcular_kpis_performance(engine):
 
     # Índice de eficiência Risco x Retorno (usando Liquidez como risco exemplo)
     df["indice_risco_retorno_liquidez"] = (
-        df["RENTAB_MES"] / (df["flag_risco_liquidez"] + 1)
+        df["TAB_X_VL_RENTAB_MES"] / (df["flag_risco_liquidez"] + 1)
     )
 
     # Ranking por eficiência
@@ -58,7 +58,7 @@ def calcular_kpis_performance(engine):
 
     # Ranking por retorno
     df["ranking_retorno"] = df[
-        "RENTAB_MES"
+        "TAB_X_VL_RENTAB_MES"
     ].rank(ascending=False, method="dense")
 
     # =====================================================
