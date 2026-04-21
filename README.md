@@ -94,7 +94,7 @@ Esses arquivos são mantidos em pasta compartilhada do grupo.
 
 ---
 
-Link para acesso à aplicação: [FIDC Insight](https://app.powerbi.com/view?r=eyJrIjoiMTMxYjMyMzktNjBhNC00N2ZkLTg0M2YtZDVhMmY5YTdlMDYxIiwidCI6IjY4ZWJmNmZlLTdmNzUtNGNmNS1hNWJmLTAzYWQyNGE3NjRiNCJ9)
+Link para acesso à aplicação: <a href="https://app.powerbi.com/view?r=eyJrIjoiMTMxYjMyMzktNjBhNC00N2ZkLTg0M2YtZDVhMmY5YTdlMDYxIiwidCI6IjY4ZWJmNmZlLTdmNzUtNGNmNS1hNWJmLTAzYWQyNGE3NjRiNCJ9" target="_blank" rel="noopener noreferrer">FIDC Insight</a>
 
 ## 👥 Equipe
 
