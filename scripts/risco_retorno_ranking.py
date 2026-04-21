@@ -65,8 +65,8 @@ def calcular_kpis_performance(engine):
     # 4. Resultado final
     # =====================================================
     resultado = df[[
-        "id_fundo",
-        "RENTAB_MES",
+        "CNPJ_FUNDO_CLASSE",
+        "TAB_X_VL_RENTAB_MES",
         "indice_risco_retorno_liquidez",
         "ranking_eficiencia",
         "ranking_retorno"
