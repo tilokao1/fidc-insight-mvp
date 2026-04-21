@@ -1,4 +1,5 @@
 table score_2_metricas_1_e_2
+	excludeFromModelRefresh
 	lineageTag: ca6b2988-947d-4319-b9bd-9af2147d35fb
 
 	column CNPJ_FUNDO_CLASSE
@@ -60,8 +61,6 @@ table score_2_metricas_1_e_2
 				in
 				    Tabela
 				```
-
-	changedProperty = Name
 
 	annotation PBI_NavigationStepName = Navegação
 

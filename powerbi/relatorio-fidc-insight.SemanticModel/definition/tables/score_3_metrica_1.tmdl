@@ -1,4 +1,5 @@
 table score_3_metrica_1
+	excludeFromModelRefresh
 	lineageTag: 74adb961-0d75-4faf-9eb0-b65118c43b4c
 
 	column CNPJ_FUNDO_CLASSE

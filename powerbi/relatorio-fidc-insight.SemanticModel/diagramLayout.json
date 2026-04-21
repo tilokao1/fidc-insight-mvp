@@ -10,10 +10,88 @@
       "nodes": [
         {
           "location": {
-            "x": 0,
-            "y": 12
+            "x": 2790.3616394153596,
+            "y": 54.064970863773226
           },
-          "nodeIndex": "Fato_Score_Setorial",
+          "nodeIndex": "score_2_metricas_1_e_2",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 334.18475118062975,
+            "y": -19.065109177341881
+          },
+          "nodeIndex": "score_1_metrica_1",
+          "nodeLineageTag": "025b6ea7-9336-4932-95b1-36670bed6ab8",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 618.36163941535972,
+            "y": -29.740116544906982
+          },
+          "nodeIndex": "score_1_metrica_2",
+          "nodeLineageTag": "c39fbc15-7e15-406d-8736-5a952654d29c",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": -50.000000000000014
+          },
+          "nodeIndex": "score_1_metrica_3",
+          "nodeLineageTag": "d55ded67-0cd4-4462-a69c-b232b3664cf1",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1420.3616394153596,
+            "y": 34.12994172754648
+          },
+          "nodeIndex": "score_1_metrica_4",
+          "nodeLineageTag": "db388b25-ed1e-4c09-831c-e87429209e1f",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1186.3616394153596,
+            "y": -3.8700582724535195
+          },
+          "nodeIndex": "score_3_metrica_1",
+          "nodeLineageTag": "74adb961-0d75-4faf-9eb0-b65118c43b4c",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 902.3616394153596,
+            "y": 8.12994172754648
+          },
+          "nodeIndex": "score_3_metrica_2",
+          "nodeLineageTag": "210023e3-0550-43e1-82f5-322f047b0ea1",
           "size": {
             "height": 176,
             "width": 234
@@ -22,10 +100,37 @@
         },
         {
           "location": {
-            "x": 284,
-            "y": 0
+            "x": 1704.3616394153596,
+            "y": 70.12994172754648
           },
-          "nodeIndex": "score_2_metricas_1_e_2",
+          "nodeIndex": "score_4_metrica_1",
+          "nodeLineageTag": "d272365d-cf13-4724-b085-28a9c6e4bac3",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1988.3616394153596,
+            "y": 58.12994172754648
+          },
+          "nodeIndex": "score_4_metrica_2",
+          "nodeLineageTag": "f1323e17-415b-4972-8418-96a7802f9fa1",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2272.3616394153596,
+            "y": 46.12994172754648
+          },
+          "nodeIndex": "score_4_metrica_3",
+          "nodeLineageTag": "6d44fafe-79c5-408c-9a9b-f6026aa479ab",
           "size": {
             "height": 200,
             "width": 234
