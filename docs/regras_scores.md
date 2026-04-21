@@ -9,23 +9,23 @@ Mede o risco intrínseco de inadimplência da carteira.
 
 #### Métrica 1.1: Taxa de Inadimplência Atual
 **Conceito:** Quanto da carteira está com pagamento atrasado hoje?
-**Tabelas:** 
-**Cáculo:**
+**Tabelas:** inf_mensal_fidc_tab_I (para inadimplentes e total da carteira).
+**Cáculo:** (tab_I.TAB_I2A3_VL_CRED_INAD / tab_I.TAB_I2_VL_CARTEIRA)
 
 #### Métrica 1.2: Estratégia "Distressed"
-**Conceito:** Qual % da carteira foi comprada já problemática?
-**Tabelas:** 
-**Cáculo:**
+**Conceito:** Qual o nível de exposição da carteira a créditos problemáticos?
+**Tabelas:** inf_mensal_fidc_tab_I
+**Cáculo:** MAX ((tab_I.TAB_I2A5_VL_CRED_VENCIDO_PENDENTE, tab_I.TAB_I2A6_VL_CRED_EMP_RECUP) / tab_I.TAB_I2_VL_CARTEIRA)
 
 #### Métrica 1.3: Nível de Garantia (Coobrigação)
-**Conceito:** Qual % da carteira tem uma garantia extra do originador (cedente)?
-**Tabelas:** 
-**Cáculo:**
+**Conceito:** Qual % da carteira possui proteção adicional por meio de garantias?
+**Tabelas:** inf_mensal_fidc_tab_X_7 e inf_mensal_fidc_tab_I.
+**Cáculo:** (tab_X_7.TAB_X_VL_GARANTIA_DIRCRED / tab_I.TAB_I2_VL_CARTEIRA)
 
-#### Métrica 1.4: Risco Oculto (Compra de Ativos Subordinados)
-**Conceito:** O fundo está comprando 'sobra' de outras operações (ativos que já são subordinados)?
-**Tabelas:** 
-**Cáculo:**
+#### Métrica 1.4: Risco Oculto (Proxy de Agressividade da Carteira)
+**Conceito:** O fundo apresenta comportamento compatível com maior nível de risco na carteira?
+**Tabelas:** inf_mensal_fidc_tab_X_3
+**Cáculo:** ABS(tab_X_3.TAB_X_VL_RENTAB_MES) normalizado pelo percentil 95
 
 ### Score 2: Risco de Liquidez
 Mede o risco do fundo não ter dinheiro em caixa para pagar os resgates dos investidores.
