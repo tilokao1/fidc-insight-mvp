@@ -38,7 +38,7 @@ Documentação técnica do projeto:
 ---
 
 ### 📊 PowerPoint
-Contém as apresentações dos respectivos sprints(.pptx`) entregues em cada etapa  acadêmica do projeto.
+Contém as apresentações dos respectivos sprints(.pptx) entregues em cada etapa  acadêmica do projeto.
 
 ---
 
@@ -84,6 +84,17 @@ Esses arquivos são mantidos em pasta compartilhada do grupo.
 5. PPT é atualizado com os resultados e entregas.
 
 ---
+
+## 🔜 Próximos Passos
+
+* Realizar mais análises a fim de melhorar o entendimento dos dados da base de dados.
+* Inserir os dados da parceira Núclea para comparação e talvez uma possibilidade de vínculo com as bases de informe CVM.
+* Verificar a possibilidade de inserção da Matriz de Risco vs. Retorno.
+* Utilizar algoritmos de Machine Learning para analise preditiva com previsão de inadimplência.
+
+---
+
+Link para acesso à aplicação: [FIDC Insight](https://app.powerbi.com/view?r=eyJrIjoiMTMxYjMyMzktNjBhNC00N2ZkLTg0M2YtZDVhMmY5YTdlMDYxIiwidCI6IjY4ZWJmNmZlLTdmNzUtNGNmNS1hNWJmLTAzYWQyNGE3NjRiNCJ9)
 
 ## 👥 Equipe
 
