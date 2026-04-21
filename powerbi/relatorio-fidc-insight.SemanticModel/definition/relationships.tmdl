@@ -4,3 +4,15 @@ relationship AutoDetected_2ab2c92b-c164-478b-baa6-241a5b14de27
 	fromColumn: score_3_metrica_1.CNPJ_FUNDO_CLASSE
 	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
 
+relationship AutoDetected_d565ffcf-63e7-4c68-83f4-e333ad644871
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: score_1_metrica_2.TAB_I2_VL_CARTEIRA
+	toColumn: score_1_metrica_1.TAB_I2_VL_CARTEIRA
+
+relationship AutoDetected_b359647a-5013-4f25-9f1d-1f03ac02789b
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: score_1_metrica_3.TAB_I2_VL_CARTEIRA
+	toColumn: score_1_metrica_1.TAB_I2_VL_CARTEIRA
+

@@ -1,0 +1,75 @@
+table score_1_metrica_4
+	lineageTag: db388b25-ed1e-4c09-831c-e87429209e1f
+
+	column CNPJ_FUNDO_CLASSE
+		dataType: string
+		lineageTag: 289f07c8-4d4e-4b51-b48b-7dfe2d118b96
+		summarizeBy: none
+		sourceColumn: CNPJ_FUNDO_CLASSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DENOM_SOCIAL
+		dataType: string
+		lineageTag: dc084ef7-0526-41ae-aa2b-028a48a32eb2
+		summarizeBy: none
+		sourceColumn: DENOM_SOCIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column DT_COMPTC
+		dataType: string
+		lineageTag: 3b65a8d1-a9f5-4add-b690-b640a417ac15
+		summarizeBy: none
+		sourceColumn: DT_COMPTC
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_X_VL_RENTAB_MES
+		dataType: string
+		lineageTag: 89faad48-4146-4d7d-ab4b-82948428ea01
+		summarizeBy: none
+		sourceColumn: TAB_X_VL_RENTAB_MES
+
+		annotation SummarizationSetBy = Automatic
+
+	column rentabilidade_absoluta
+		dataType: string
+		lineageTag: 5a096426-ace2-449c-ac86-e52c54003095
+		summarizeBy: none
+		sourceColumn: rentabilidade_absoluta
+
+		annotation SummarizationSetBy = Automatic
+
+	column metrica_1_4_risco_oculto
+		dataType: string
+		lineageTag: 24a8f0d9-d53e-403a-8deb-9f26c67750b9
+		summarizeBy: none
+		sourceColumn: metrica_1_4_risco_oculto
+
+		annotation SummarizationSetBy = Automatic
+
+	partition score_1_metrica_4 = m
+		mode: import
+		source = ```
+				let
+				    // URL do Supabase + o caminho da tabela
+				    UrlDaApi = "https://bgkrnjbleagxnhjlggbj.supabase.co/rest/v1/score_1_metrica_4",
+				    
+				    // Chave anon public (coloque a mesma chave nos dois lugares)
+				    ChaveAnon = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJna3JuamJsZWFneG5oamxnZ2JqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NjYxNTEsImV4cCI6MjA5MTM0MjE1MX0.i2ZIZHy74lfohzGf-YCFiRduLT3yWzPZWVYXaOY9Qhg",
+				
+				    Fonte = Json.Document(Web.Contents(UrlDaApi, 
+				        [Headers=[apikey=ChaveAnon, Authorization="Bearer " & ChaveAnon]]
+				    )),
+				    
+				    // Converte a resposta da API (JSON) em uma tabela legível
+				    Tabela = Table.FromRecords(Fonte)
+				in
+				    Tabela
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
