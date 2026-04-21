@@ -71,7 +71,7 @@ Esses arquivos são mantidos em pasta compartilhada do grupo.
 - Python (Pandas, SQLAlchemy, psycopg2-binary, python-dotenv, requests e python-dateutil)
 - PostgreSQL (Banco de Dados Online)
 - Power BI Online (Visualização)
-- GitHub (Versionamento)
+- Git e GitHub (Versionamento)
 
 ---
 
