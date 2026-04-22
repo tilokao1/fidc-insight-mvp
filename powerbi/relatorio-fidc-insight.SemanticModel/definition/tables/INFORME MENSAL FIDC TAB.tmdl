@@ -1,0 +1,323 @@
+table 'INFORME MENSAL FIDC TAB'
+	lineageTag: 543f9266-1f8b-4e55-8f46-bed1f63d05f5
+
+	column CNPJ_FUNDO_CLASSE
+		dataType: string
+		lineageTag: ff87bc78-d009-482e-9ec8-e913d2e1f60b
+		summarizeBy: none
+		sourceColumn: CNPJ_FUNDO_CLASSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DENOM_SOCIAL
+		dataType: string
+		lineageTag: cf7da050-36ae-4aed-9a94-72d38f41144b
+		summarizeBy: none
+		sourceColumn: DENOM_SOCIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column DT_COMPTC
+		dataType: string
+		lineageTag: 378e327c-ae2c-4cca-bc8f-b695d9bf7b95
+		summarizeBy: none
+		sourceColumn: DT_COMPTC
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_VL_CARTEIRA
+		dataType: string
+		lineageTag: ee8e97a2-e210-41a6-930e-b9668e8bd36c
+		summarizeBy: none
+		sourceColumn: TAB_II_VL_CARTEIRA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_A_VL_INDUST
+		dataType: string
+		lineageTag: 3bf85cdd-ec14-4ddd-86fd-3f2c5451f49b
+		summarizeBy: none
+		sourceColumn: TAB_II_A_VL_INDUST
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_B_VL_IMOBIL
+		dataType: string
+		lineageTag: f142ceee-d384-4670-91bf-118090da8c69
+		summarizeBy: none
+		sourceColumn: TAB_II_B_VL_IMOBIL
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_C_VL_COMERC
+		dataType: string
+		lineageTag: ae5e8f90-81c0-47bd-ab7c-507ed1ce1bbd
+		summarizeBy: none
+		sourceColumn: TAB_II_C_VL_COMERC
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_C1_VL_COMERC
+		dataType: string
+		lineageTag: abf2f9c2-3106-4206-b81e-65aaba2eb5b6
+		summarizeBy: none
+		sourceColumn: TAB_II_C1_VL_COMERC
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_C2_VL_VAREJO
+		dataType: string
+		lineageTag: 5c353921-7b69-4d0c-8e5b-db57630a0f98
+		summarizeBy: none
+		sourceColumn: TAB_II_C2_VL_VAREJO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_C3_VL_ARREND
+		dataType: string
+		lineageTag: 87f41177-3112-433e-99d4-07f33366f66e
+		summarizeBy: none
+		sourceColumn: TAB_II_C3_VL_ARREND
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_D_VL_SERV
+		dataType: string
+		lineageTag: 265984ca-ae35-4f11-8b12-ddc05e40c02c
+		summarizeBy: none
+		sourceColumn: TAB_II_D_VL_SERV
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_D1_VL_SERV
+		dataType: string
+		lineageTag: af8c7d0a-f51c-4af7-aeb0-c069ea94ad2a
+		summarizeBy: none
+		sourceColumn: TAB_II_D1_VL_SERV
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_D2_VL_SERV_PUBLICO
+		dataType: string
+		lineageTag: 6ea5354e-f369-486e-a3b7-3b97ea5705ed
+		summarizeBy: none
+		sourceColumn: TAB_II_D2_VL_SERV_PUBLICO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_D3_VL_SERV_EDUC
+		dataType: string
+		lineageTag: d037c898-46ec-497a-ac4b-bd835a450f55
+		summarizeBy: none
+		sourceColumn: TAB_II_D3_VL_SERV_EDUC
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_D4_VL_ENTRET
+		dataType: string
+		lineageTag: bb22a3b8-4900-4cf5-929c-dea5123c0561
+		summarizeBy: none
+		sourceColumn: TAB_II_D4_VL_ENTRET
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_E_VL_AGRONEG
+		dataType: string
+		lineageTag: c4bac8a0-530f-441e-8def-04fbc06de3c5
+		summarizeBy: none
+		sourceColumn: TAB_II_E_VL_AGRONEG
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_F_VL_FINANC
+		dataType: string
+		lineageTag: 32b9624c-6349-468d-8dc1-93ba62ba0ba3
+		summarizeBy: none
+		sourceColumn: TAB_II_F_VL_FINANC
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_F1_VL_CRED_PESSOA
+		dataType: string
+		lineageTag: c1443b66-ae33-4bc8-bba8-756c6bf35286
+		summarizeBy: none
+		sourceColumn: TAB_II_F1_VL_CRED_PESSOA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_F2_VL_CRED_PESSOA_CONSIG
+		dataType: string
+		lineageTag: 19dd17da-9bca-4baf-aa68-43b42f013135
+		summarizeBy: none
+		sourceColumn: TAB_II_F2_VL_CRED_PESSOA_CONSIG
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_F3_VL_CRED_CORP
+		dataType: string
+		lineageTag: 9887b453-f245-40e2-9811-ab35d4be5f89
+		summarizeBy: none
+		sourceColumn: TAB_II_F3_VL_CRED_CORP
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_F4_VL_MIDMARKET
+		dataType: string
+		lineageTag: 4510b97f-64ba-48b3-9fb2-b626c71b0230
+		summarizeBy: none
+		sourceColumn: TAB_II_F4_VL_MIDMARKET
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_F5_VL_VEICULO
+		dataType: string
+		lineageTag: 664a63f3-c9e4-4137-ba43-36da9c4f4b85
+		summarizeBy: none
+		sourceColumn: TAB_II_F5_VL_VEICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_F6_VL_IMOBIL_EMPRESA
+		dataType: string
+		lineageTag: 172a8d38-b9c9-4fad-97e9-6dc8a3ce8ccc
+		summarizeBy: none
+		sourceColumn: TAB_II_F6_VL_IMOBIL_EMPRESA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_F7_VL_IMOBIL_RESID
+		dataType: string
+		lineageTag: 0184b707-9346-4be3-81fc-49d2d4148b74
+		summarizeBy: none
+		sourceColumn: TAB_II_F7_VL_IMOBIL_RESID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_F8_VL_OUTRO
+		dataType: string
+		lineageTag: 1723c5f8-803e-40cc-b7d7-9bee129e5a0f
+		summarizeBy: none
+		sourceColumn: TAB_II_F8_VL_OUTRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_G_VL_CREDITO
+		dataType: string
+		lineageTag: 13d3459b-4b68-4fd4-a9ff-6476f1e0a764
+		summarizeBy: none
+		sourceColumn: TAB_II_G_VL_CREDITO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_H_VL_FACTOR
+		dataType: string
+		lineageTag: 66077fe7-cd02-4db0-9fa8-928e432eb840
+		summarizeBy: none
+		sourceColumn: TAB_II_H_VL_FACTOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_H1_VL_PESSOA
+		dataType: string
+		lineageTag: fef61367-c732-436a-b6c4-97f084da5d19
+		summarizeBy: none
+		sourceColumn: TAB_II_H1_VL_PESSOA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_H2_VL_CORP
+		dataType: string
+		lineageTag: c0b6a627-9b17-4101-80cd-c7ee35acfc0a
+		summarizeBy: none
+		sourceColumn: TAB_II_H2_VL_CORP
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_I_VL_SETOR_PUBLICO
+		dataType: string
+		lineageTag: 21a98ff0-c4da-4eda-a785-9402c4820a0e
+		summarizeBy: none
+		sourceColumn: TAB_II_I_VL_SETOR_PUBLICO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_I1_VL_PRECAT
+		dataType: string
+		lineageTag: d81a82a9-0541-44ab-b2ce-fc929a7b0e76
+		summarizeBy: none
+		sourceColumn: TAB_II_I1_VL_PRECAT
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_I2_VL_TRIBUT
+		dataType: string
+		lineageTag: bd724705-34f7-4f5b-99a0-a263afb7a19e
+		summarizeBy: none
+		sourceColumn: TAB_II_I2_VL_TRIBUT
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_I3_VL_ROYALTIES
+		dataType: string
+		lineageTag: d382f110-ae34-421d-ac5b-cac545686f43
+		summarizeBy: none
+		sourceColumn: TAB_II_I3_VL_ROYALTIES
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_I4_VL_OUTRO
+		dataType: string
+		lineageTag: 4d211fb6-56de-4a03-af2e-8d22c0d1b13a
+		summarizeBy: none
+		sourceColumn: TAB_II_I4_VL_OUTRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_J_VL_JUDICIAL
+		dataType: string
+		lineageTag: 91e9090e-60fc-4bd1-b4ed-d46e1ab0ce77
+		summarizeBy: none
+		sourceColumn: TAB_II_J_VL_JUDICIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_II_K_VL_MARCA
+		dataType: string
+		lineageTag: a0c79c77-2bd7-47cf-b9e5-a015af488979
+		summarizeBy: none
+		sourceColumn: TAB_II_K_VL_MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TP_FUNDO_CLASSE
+		dataType: string
+		lineageTag: 71e00559-2e17-463e-badb-d5b7a75ceed8
+		summarizeBy: none
+		sourceColumn: TP_FUNDO_CLASSE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'INFORME MENSAL FIDC TAB' = m
+		mode: import
+		source = ```
+				let
+				    // URL do Supabase + o caminho da tabela
+				    UrlDaApi = "https://bgkrnjbleagxnhjlggbj.supabase.co/rest/v1/inf_mensal_fidc_tab_II",
+				    
+				    // Chave anon public (coloque a mesma chave nos dois lugares)
+				    ChaveAnon = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJna3JuamJsZWFneG5oamxnZ2JqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NjYxNTEsImV4cCI6MjA5MTM0MjE1MX0.i2ZIZHy74lfohzGf-YCFiRduLT3yWzPZWVYXaOY9Qhg",
+				
+				    Fonte = Json.Document(Web.Contents(UrlDaApi, 
+				        [Headers=[apikey=ChaveAnon, Authorization="Bearer " & ChaveAnon]]
+				    )),
+				    
+				    // Converte a resposta da API (JSON) em uma tabela legível
+				    Tabela = Table.FromRecords(Fonte)
+				in
+				    Tabela
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

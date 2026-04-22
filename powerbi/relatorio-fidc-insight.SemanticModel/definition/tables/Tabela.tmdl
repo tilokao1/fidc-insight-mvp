@@ -1,0 +1,259 @@
+table Tabela
+	lineageTag: 81e4c108-ada3-4697-b348-02acbc6a1a13
+
+	column CNPJ_FUNDO_CLASSE
+		dataType: string
+		lineageTag: b2d30d8e-0507-4d74-ae42-161c25279c04
+		summarizeBy: none
+		sourceColumn: CNPJ_FUNDO_CLASSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DENOM_SOCIAL
+		dataType: string
+		lineageTag: adc2c635-35cf-4a88-93ef-5bf8568d2c39
+		summarizeBy: none
+		sourceColumn: DENOM_SOCIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column DT_COMPTC
+		dataType: string
+		lineageTag: fd6a73e3-b5b8-4130-bb1f-bbb479b987e1
+		summarizeBy: none
+		sourceColumn: DT_COMPTC
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_A1_1_QT_DIRCRED_RISCO
+		dataType: string
+		lineageTag: 8f6ae5cc-39d1-4b0b-b0c6-4213b4e7fde0
+		summarizeBy: none
+		sourceColumn: TAB_VII_A1_1_QT_DIRCRED_RISCO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_A1_2_VL_DIRCRED_RISCO
+		dataType: string
+		lineageTag: 57039566-950d-4e6a-bda0-9ed645dfe499
+		summarizeBy: none
+		sourceColumn: TAB_VII_A1_2_VL_DIRCRED_RISCO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_A2_1_QT_DIRCRED_SEM_RISCO
+		dataType: string
+		lineageTag: a07e1f90-ab83-4db9-b638-83e7c4e81285
+		summarizeBy: none
+		sourceColumn: TAB_VII_A2_1_QT_DIRCRED_SEM_RISCO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_A2_2_VL_DIRCRED_SEM_RISCO
+		dataType: string
+		lineageTag: 80ec1a05-ee45-4ec7-a12f-30f9aa32b200
+		summarizeBy: none
+		sourceColumn: TAB_VII_A2_2_VL_DIRCRED_SEM_RISCO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_A3_1_QT_DIRCRED_VENC_AD
+		dataType: string
+		lineageTag: 2bf6ca5d-0242-4b95-b2c1-43b689db5ebe
+		summarizeBy: none
+		sourceColumn: TAB_VII_A3_1_QT_DIRCRED_VENC_AD
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_A3_2_VL_DIRCRED_VENC_AD
+		dataType: string
+		lineageTag: 98282bb4-a7f7-4cc9-ac60-a91b6a3aa5f2
+		summarizeBy: none
+		sourceColumn: TAB_VII_A3_2_VL_DIRCRED_VENC_AD
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_A4_1_QT_DIRCRED_VENC_INAD
+		dataType: string
+		lineageTag: 58a4d0b5-e58a-4b1e-83ff-5db125a7c29b
+		summarizeBy: none
+		sourceColumn: TAB_VII_A4_1_QT_DIRCRED_VENC_INAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_A4_2_VL_DIRCRED_VENC_INAD
+		dataType: string
+		lineageTag: 0a6bcc23-319c-4006-bb94-89cb03dc8e40
+		summarizeBy: none
+		sourceColumn: TAB_VII_A4_2_VL_DIRCRED_VENC_INAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_A5_1_QT_DIRCRED_INAD
+		dataType: string
+		lineageTag: 2a7b1587-e2bd-4438-b9bf-fb78b5d1baba
+		summarizeBy: none
+		sourceColumn: TAB_VII_A5_1_QT_DIRCRED_INAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_A5_2_VL_DIRCRED_INAD
+		dataType: string
+		lineageTag: da28930e-be6d-4931-86cd-a926dbd72bc6
+		summarizeBy: none
+		sourceColumn: TAB_VII_A5_2_VL_DIRCRED_INAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_B1_1_QT_CEDENTE
+		dataType: string
+		lineageTag: afab0fa4-0a05-4bb4-b944-a1d53aaf91a0
+		summarizeBy: none
+		sourceColumn: TAB_VII_B1_1_QT_CEDENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_B1_2_VL_CEDENTE
+		dataType: string
+		lineageTag: c9e2d3ba-ea62-40f7-9ec3-a37e5f49fcdf
+		summarizeBy: none
+		sourceColumn: TAB_VII_B1_2_VL_CEDENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_B1_3_VL_CONTAB_CEDENTE
+		dataType: string
+		lineageTag: 96007612-4218-4d61-9f99-a62f09dfd370
+		summarizeBy: none
+		sourceColumn: TAB_VII_B1_3_VL_CONTAB_CEDENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_B2_1_QT_PREST
+		dataType: string
+		lineageTag: ba5a8712-aee3-47dd-8f7a-53e66a36d2a5
+		summarizeBy: none
+		sourceColumn: TAB_VII_B2_1_QT_PREST
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_B2_2_VL_PREST
+		dataType: string
+		lineageTag: ebb76f7a-eed1-4e3f-9963-ab5c4d15c76a
+		summarizeBy: none
+		sourceColumn: TAB_VII_B2_2_VL_PREST
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_B2_3_VL_CONTAB_PREST
+		dataType: string
+		lineageTag: 18e812ed-e431-4115-b754-098d943c53b9
+		summarizeBy: none
+		sourceColumn: TAB_VII_B2_3_VL_CONTAB_PREST
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_B3_1_QT_TERCEIRO
+		dataType: string
+		lineageTag: 8b753f73-0f81-461e-a47a-2c6927786f9c
+		summarizeBy: none
+		sourceColumn: TAB_VII_B3_1_QT_TERCEIRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_B3_2_VL_TERCEIRO
+		dataType: string
+		lineageTag: 82d7626d-3222-49f2-b902-b62b69d64d63
+		summarizeBy: none
+		sourceColumn: TAB_VII_B3_2_VL_TERCEIRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_B3_3_VL_CONTAB_TERCEIRO
+		dataType: string
+		lineageTag: 0b0a8ceb-27b0-446d-92e3-5fe95bc84106
+		summarizeBy: none
+		sourceColumn: TAB_VII_B3_3_VL_CONTAB_TERCEIRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_C_1_QT_SUBST
+		dataType: string
+		lineageTag: 8a6606f5-cce6-4007-8e7c-6a1dacf0890f
+		summarizeBy: none
+		sourceColumn: TAB_VII_C_1_QT_SUBST
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_C_2_VL_SUBST
+		dataType: string
+		lineageTag: 938c61f9-45fd-41e0-b7d0-cf55d4e9909b
+		summarizeBy: none
+		sourceColumn: TAB_VII_C_2_VL_SUBST
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_C_3_VL_CONTAB_SUBST
+		dataType: string
+		lineageTag: c4b20af8-0ce3-40fd-be0c-949853412f86
+		summarizeBy: none
+		sourceColumn: TAB_VII_C_3_VL_CONTAB_SUBST
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_D_1_QT_RECOMPRA
+		dataType: string
+		lineageTag: e1c38812-6635-4974-9a61-b2516b4b870e
+		summarizeBy: none
+		sourceColumn: TAB_VII_D_1_QT_RECOMPRA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_D_2_VL_RECOMPRA
+		dataType: string
+		lineageTag: 89083f61-1e37-4d3a-99b5-3ee9a5a251b0
+		summarizeBy: none
+		sourceColumn: TAB_VII_D_2_VL_RECOMPRA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_VII_D_3_VL_CONTAB_RECOMPRA
+		dataType: string
+		lineageTag: 0d0befe8-6631-47de-a51a-bf87a85cfdcf
+		summarizeBy: none
+		sourceColumn: TAB_VII_D_3_VL_CONTAB_RECOMPRA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TP_FUNDO_CLASSE
+		dataType: string
+		lineageTag: dbd81574-c892-4fd2-93ac-ed31abfa3638
+		summarizeBy: none
+		sourceColumn: TP_FUNDO_CLASSE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Tabela = m
+		mode: import
+		source = ```
+				let
+				    // URL do Supabase + o caminho da tabela
+				    UrlDaApi = "https://bgkrnjbleagxnhjlggbj.supabase.co/rest/v1/inf_mensal_fidc_tab_VII",
+				    
+				    // Chave anon public (coloque a mesma chave nos dois lugares)
+				    ChaveAnon = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJna3JuamJsZWFneG5oamxnZ2JqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NjYxNTEsImV4cCI6MjA5MTM0MjE1MX0.i2ZIZHy74lfohzGf-YCFiRduLT3yWzPZWVYXaOY9Qhg",
+				
+				    Fonte = Json.Document(Web.Contents(UrlDaApi, 
+				        [Headers=[apikey=ChaveAnon, Authorization="Bearer " & ChaveAnon]]
+				    )),
+				    
+				    // Converte a resposta da API (JSON) em uma tabela legível
+				    Tabela = Table.FromRecords(Fonte)
+				in
+				    Tabela
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

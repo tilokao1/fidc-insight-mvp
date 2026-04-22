@@ -11,42 +11,36 @@ table score_2_metricas_1_e_2
 		annotation SummarizationSetBy = Automatic
 
 	column pct_curto_prazo
-		dataType: double
-		formatString: 0.00
+		dataType: string
 		lineageTag: 5a0a53fc-cd13-4533-a7c4-c7fe7f26acc1
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: pct_curto_prazo
 
-		annotation SummarizationSetBy = User
+		annotation SummarizationSetBy = Automatic
 
 	column pct_longo_prazo
-		dataType: double
-		formatString: 0.00
+		dataType: string
 		lineageTag: c580c6f0-0bec-4663-b4a7-cd4f90189122
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: pct_longo_prazo
 
 		annotation SummarizationSetBy = Automatic
 
 	column PRAZO_PAGTO_RESGATE
-		dataType: double
+		dataType: string
 		lineageTag: 0515a9f8-3ac8-4c5a-aec9-5329be20bac3
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: PRAZO_PAGTO_RESGATE
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column flag_risco_liquidez
-		dataType: double
+		dataType: string
 		lineageTag: 7b7f2282-575a-4f54-9aad-66f6bc4340c6
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: flag_risco_liquidez
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition score_2_metricas_1_e_2 = m
 		mode: import
@@ -63,11 +57,9 @@ table score_2_metricas_1_e_2
 				    )),
 				    
 				    // Converte a resposta da API (JSON) em uma tabela legível
-				    Tabela = Table.FromRecords(Fonte),
-				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"pct_curto_prazo", type number}, {"pct_longo_prazo", type number}, {"PRAZO_PAGTO_RESGATE", type number}, {"flag_risco_liquidez", type number}}),
-				    #"Linhas Classificadas" = Table.Sort(#"Tipo Alterado",{{"flag_risco_liquidez", Order.Ascending}})
+				    Tabela = Table.FromRecords(Fonte)
 				in
-				    #"Linhas Classificadas"
+				    Tabela
 				```
 
 	annotation PBI_NavigationStepName = Navegação

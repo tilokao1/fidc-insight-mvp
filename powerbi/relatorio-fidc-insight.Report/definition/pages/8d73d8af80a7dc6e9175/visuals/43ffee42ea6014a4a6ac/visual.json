@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "43ffee42ea6014a4a6ac",
   "position": {
-    "x": 624.43768996960489,
-    "y": 387.11246200607906,
+    "x": 625,
+    "y": 360,
     "z": 1000,
-    "height": 332.64437689969606,
-    "width": 520.36474164133745,
+    "height": 360,
+    "width": 635,
     "tabOrder": 1000
   },
   "visual": {
@@ -186,7 +186,22 @@
         }
       },
       {
-        "name": "505a4eb93e10300b4066",
+        "name": "cdd5b62fd0e581789610",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_4_metrica_3"
+              }
+            },
+            "Property": "DT_COMPTC"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "c01ba1a6a4db5d9360c3",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -203,60 +218,6 @@
           }
         },
         "type": "Advanced"
-      },
-      {
-        "name": "cdd5b62fd0e581789610",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_4_metrica_3"
-              }
-            },
-            "Property": "DT_COMPTC"
-          }
-        },
-        "type": "Advanced",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "s",
-              "Entity": "score_4_metrica_3",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Comparison": {
-                  "ComparisonKind": 1,
-                  "Left": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Source": "s"
-                        }
-                      },
-                      "Property": "DT_COMPTC"
-                    }
-                  },
-                  "Right": {
-                    "DateSpan": {
-                      "Expression": {
-                        "Literal": {
-                          "Value": "datetime'2026-01-01T00:00:00'"
-                        }
-                      },
-                      "TimeUnit": 5
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User"
       }
     ]
   }

@@ -1,19 +1,19 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "50cedf2f4830770bbcd3",
   "position": {
-    "x": 0,
-    "y": 480.48632218844989,
+    "x": 15.118110236220472,
+    "y": 357.79527559055117,
     "z": 0,
-    "height": 239.27051671732525,
-    "width": 624.43768996960489,
+    "height": 361.15485564304458,
+    "width": 624.88188976377955,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
-        "Values": {
+        "Category": {
           "projections": [
             {
               "field": {
@@ -27,8 +27,13 @@
                 }
               },
               "queryRef": "score_4_metrica_1.CNPJ_FUNDO_CLASSE",
-              "nativeQueryRef": "CNPJ_FUNDO_CLASSE"
-            },
+              "nativeQueryRef": "CNPJ_FUNDO_CLASSE",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
             {
               "field": {
                 "Column": {
@@ -42,16 +47,25 @@
               },
               "queryRef": "score_4_metrica_1.DT_COMPTC",
               "nativeQueryRef": "DT_COMPTC"
-            },
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
             {
               "field": {
-                "Column": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "score_4_metrica_1"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "score_4_metrica_1"
+                        }
+                      },
+                      "Property": "percentual_subordinacao"
                     }
                   },
-                  "Property": "percentual_subordinacao"
+                  "Function": 0
                 }
               },
               "queryRef": "Sum(score_4_metrica_1.percentual_subordinacao)",
@@ -64,13 +78,18 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Aggregation": {
                 "Expression": {
-                  "SourceRef": {
-                    "Entity": "score_4_metrica_1"
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "score_4_metrica_1"
+                      }
+                    },
+                    "Property": "percentual_subordinacao"
                   }
                 },
-                "Property": "percentual_subordinacao"
+                "Function": 0
               }
             },
             "direction": "Descending"
@@ -83,7 +102,136 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "df6f4efc93780d9a0ca4",
+        "name": "9b185314565bd0d517c2",
+        "type": "Exclude",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "s",
+              "Entity": "score_4_metrica_1",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "s"
+                              }
+                            },
+                            "Property": "CNPJ_FUNDO_CLASSE"
+                          }
+                        },
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "s"
+                              }
+                            },
+                            "Property": "DT_COMPTC"
+                          }
+                        },
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "s"
+                              }
+                            },
+                            "Property": "percentual_subordinacao"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'55.507.580/0001-08'"
+                            }
+                          },
+                          {
+                            "Literal": {
+                              "Value": "datetime'2025-11-30T00:00:00'"
+                            }
+                          },
+                          {
+                            "Literal": {
+                              "Value": "10000000023.015D"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'54.462.450/0001-25'"
+                            }
+                          },
+                          {
+                            "Literal": {
+                              "Value": "datetime'2025-11-30T00:00:00'"
+                            }
+                          },
+                          {
+                            "Literal": {
+                              "Value": "141.856603829415D"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'27.467.600/0001-10'"
+                            }
+                          },
+                          {
+                            "Literal": {
+                              "Value": "datetime'2025-10-31T00:00:00'"
+                            }
+                          },
+                          {
+                            "Literal": {
+                              "Value": "123.5694395876D"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'32.511.204/0001-83'"
+                            }
+                          },
+                          {
+                            "Literal": {
+                              "Value": "datetime'2026-01-31T00:00:00'"
+                            }
+                          },
+                          {
+                            "Literal": {
+                              "Value": "124.448900129477D"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "Exclude"
+      },
+      {
+        "name": "09d92a9e60100ccbc056",
         "field": {
           "Column": {
             "Expression": {
@@ -97,21 +245,7 @@
         "type": "Categorical"
       },
       {
-        "name": "a51577a50001210452ce",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_4_metrica_1"
-              }
-            },
-            "Property": "percentual_subordinacao"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "1201b60d054c8812d656",
+        "name": "c089393f6cd13589edac",
         "field": {
           "Column": {
             "Expression": {
@@ -123,6 +257,25 @@
           }
         },
         "type": "Categorical"
+      },
+      {
+        "name": "f2d7022eec0a230a600b",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_4_metrica_1"
+                  }
+                },
+                "Property": "percentual_subordinacao"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

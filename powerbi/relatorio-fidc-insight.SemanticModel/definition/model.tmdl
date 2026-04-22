@@ -8,7 +8,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["score_2_metricas_1_e_2","score_3_metrica_1","score_3_metrica_2","score_4_metrica_1","score_4_metrica_2","score_4_metrica_3","score_1_metrica_1","score_1_metrica_2","score_1_metrica_3","score_1_metrica_4"]
+annotation PBI_QueryOrder = ["score_2_metricas_1_e_2","score_3_metrica_1","score_3_metrica_2","score_4_metrica_1","score_4_metrica_2","score_4_metrica_3","score_1_metrica_1","score_1_metrica_2","score_1_metrica_3","score_1_metrica_4","Tabela","INFORME MENSAL FIDC TAB"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -32,6 +32,8 @@ ref table LocalDateTable_6c08f687-31eb-4413-816c-364a42cc0877
 ref table LocalDateTable_c801aff6-1724-4a4d-84c1-abb6b63eca68
 ref table LocalDateTable_13fbbab5-824d-430d-94e3-d4bcf7799b09
 ref table LocalDateTable_93071ed8-b7f6-4189-9699-b6140034ac69
+ref table Tabela
+ref table 'INFORME MENSAL FIDC TAB'
 
 ref cultureInfo pt-BR
 

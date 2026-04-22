@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "41ccfe080b6cc54ae10a",
   "position": {
     "x": 0,
@@ -81,16 +81,21 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Aggregation": {
                 "Expression": {
-                  "SourceRef": {
-                    "Entity": "score_3_metrica_1"
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "score_3_metrica_1"
+                      }
+                    },
+                    "Property": "HHI_Cedentes"
                   }
                 },
-                "Property": "CNPJ_FUNDO_CLASSE"
+                "Function": 0
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -279,6 +284,58 @@
           ]
         },
         "howCreated": "Exclude"
+      },
+      {
+        "name": "46ff0903157530aa8465",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_3_metrica_1"
+              }
+            },
+            "Property": "CNPJ_FUNDO_CLASSE"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "cbf776baee7218c830ac",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_3_metrica_1"
+                  }
+                },
+                "Property": "HHI_Cedentes"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "88f398c65000b85de900",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_3_metrica_1"
+                  }
+                },
+                "Property": "score_100"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "5972246fcb50c30507a9",
   "position": {
     "x": 0,
@@ -51,7 +51,7 @@
                 }
               },
               "queryRef": "Sum(score_3_metrica_1.HHI_Cedentes)",
-              "nativeQueryRef": ".",
+              "nativeQueryRef": "Soma de HHI_Cedentes",
               "displayName": "."
             }
           ]
@@ -77,7 +77,8 @@
             },
             "direction": "Descending"
           }
-        ]
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
@@ -468,6 +469,25 @@
             }
           ]
         }
+      },
+      {
+        "name": "2bfcab7adaab4e4d001b",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_3_metrica_1"
+                  }
+                },
+                "Property": "HHI_Cedentes"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

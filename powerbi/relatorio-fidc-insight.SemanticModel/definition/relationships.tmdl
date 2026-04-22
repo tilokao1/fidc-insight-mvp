@@ -97,3 +97,38 @@ relationship 44846197-f4f1-c5da-8db8-ecef07e160c9
 	fromColumn: score_1_metrica_3.TAB_I2_VL_CARTEIRA
 	toColumn: score_1_metrica_1.TAB_I2_VL_CARTEIRA
 
+relationship AutoDetected_e0fd41cf-b931-4e6f-8a06-ca0f27b900ed
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Tabela.CNPJ_FUNDO_CLASSE
+	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
+
+relationship AutoDetected_34363698-465f-4a7c-a1d8-5e3ea2fa3e01
+	fromColumn: 'INFORME MENSAL FIDC TAB'.CNPJ_FUNDO_CLASSE
+	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
+
+relationship AutoDetected_2ddcfc7d-10c1-4e38-878a-f9a7dcd4cf08
+	isActive: false
+	fromColumn: score_1_metrica_1.DENOM_SOCIAL
+	toColumn: Tabela.DENOM_SOCIAL
+
+relationship AutoDetected_55f1eb98-ff97-4387-87c7-6096db3d995e
+	isActive: false
+	fromColumn: score_1_metrica_2.DENOM_SOCIAL
+	toColumn: Tabela.DENOM_SOCIAL
+
+relationship AutoDetected_c2997ef1-5984-4124-9521-c86c3a51d446
+	isActive: false
+	fromColumn: score_1_metrica_3.DENOM_SOCIAL
+	toColumn: Tabela.DENOM_SOCIAL
+
+relationship AutoDetected_67a7a7a6-f679-48ac-8c4b-8a6f7403bb63
+	isActive: false
+	fromColumn: score_1_metrica_4.DENOM_SOCIAL
+	toColumn: Tabela.DENOM_SOCIAL
+
+relationship AutoDetected_642bb194-6640-4a7f-9b49-875f76bc9978
+	isActive: false
+	fromColumn: 'INFORME MENSAL FIDC TAB'.DENOM_SOCIAL
+	toColumn: Tabela.DENOM_SOCIAL
+
