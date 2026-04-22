@@ -1,0 +1,117 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "795907b80792a70d47d7",
+  "position": {
+    "x": 0,
+    "y": 474.65045592705167,
+    "z": 5000,
+    "height": 245.10638297872342,
+    "width": 640,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "score_prazo_longo"
+                    }
+                  },
+                  "Property": "DENOM_SOCIAL"
+                }
+              },
+              "queryRef": "score_prazo_longo.DENOM_SOCIAL",
+              "nativeQueryRef": "DENOM_SOCIAL"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "score_prazo_longo"
+                        }
+                      },
+                      "Property": "prazo_longo"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(score_prazo_longo.prazo_longo)",
+              "nativeQueryRef": "Soma de prazo_longo"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "score_prazo_longo"
+                        }
+                      },
+                      "Property": "TAB_V_A_VL_DIRCRED_PRAZO"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(score_prazo_longo.TAB_V_A_VL_DIRCRED_PRAZO)",
+              "nativeQueryRef": "Soma de TAB_V_A_VL_DIRCRED_PRAZO"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "score_prazo_longo"
+                        }
+                      },
+                      "Property": "metrica_prazo_longo"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(score_prazo_longo.metrica_prazo_longo)",
+              "nativeQueryRef": "Soma de metrica_prazo_longo"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "score_prazo_longo"
+                      }
+                    },
+                    "Property": "metrica_prazo_longo"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

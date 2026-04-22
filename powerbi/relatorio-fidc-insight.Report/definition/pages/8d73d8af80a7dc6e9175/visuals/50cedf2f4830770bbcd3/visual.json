@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "50cedf2f4830770bbcd3",
   "position": {
     "x": 15.118110236220472,
@@ -229,53 +229,6 @@
           ]
         },
         "howCreated": "Exclude"
-      },
-      {
-        "name": "09d92a9e60100ccbc056",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_4_metrica_1"
-              }
-            },
-            "Property": "CNPJ_FUNDO_CLASSE"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "c089393f6cd13589edac",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_4_metrica_1"
-              }
-            },
-            "Property": "DT_COMPTC"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "f2d7022eec0a230a600b",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "score_4_metrica_1"
-                  }
-                },
-                "Property": "percentual_subordinacao"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

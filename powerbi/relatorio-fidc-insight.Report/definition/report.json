@@ -11,7 +11,7 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "Innovate",
+      "name": "AccessibleOrchid",
       "reportVersionAtImport": {
         "visual": "2.6.0",
         "report": "3.1.0",
@@ -49,7 +49,9 @@
     ]
   },
   "publicCustomVisuals": [
-    "htmlContent443BE3AD55E043BF878BED274D3A6865"
+    "htmlContent443BE3AD55E043BF878BED274D3A6865",
+    "histogramF963F133BA02A0B35D286F09F80E9C78",
+    "histogram42E8DF98F1244DB799B2A8A65DBCB226"
   ],
   "resourcePackages": [
     {
@@ -62,8 +64,8 @@
           "type": "BaseTheme"
         },
         {
-          "name": "Innovate",
-          "path": "BuiltInThemes/Innovate.json",
+          "name": "AccessibleOrchid",
+          "path": "BuiltInThemes/AccessibleOrchid.json",
           "type": "CustomTheme"
         }
       ]

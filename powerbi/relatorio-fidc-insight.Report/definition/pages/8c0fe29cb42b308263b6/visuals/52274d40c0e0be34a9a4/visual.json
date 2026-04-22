@@ -1,19 +1,38 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
-  "name": "8e52984eb49004e28e87",
+  "name": "52274d40c0e0be34a9a4",
   "position": {
-    "x": 0,
+    "x": 10,
     "y": 0,
     "z": 0,
-    "height": 117.68996960486322,
-    "width": 304.43768996960489,
+    "height": 280,
+    "width": 280,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
-        "Data": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "score_desvio_desempenho"
+                    }
+                  },
+                  "Property": "DENOM_SOCIAL"
+                }
+              },
+              "queryRef": "score_desvio_desempenho.DENOM_SOCIAL",
+              "nativeQueryRef": "DENOM_SOCIAL",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
           "projections": [
             {
               "field": {
@@ -22,17 +41,17 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "score_protecao_caixa"
+                          "Entity": "score_desvio_desempenho"
                         }
                       },
-                      "Property": "MEDIA GERAL DE PROTEÇÃO DE CAIXA"
+                      "Property": "metrica_desvio_desempenho"
                     }
                   },
                   "Function": 1
                 }
               },
-              "queryRef": "Avg(score_protecao_caixa.MEDIA GERAL DE PROTEÇÃO DE CAIXA)",
-              "nativeQueryRef": "Média de MEDIA GERAL DE PROTEÇÃO DE CAIXA"
+              "queryRef": "Sum(score_desvio_desempenho.metrica_desvio_desempenho)",
+              "nativeQueryRef": "Média de metrica_desvio_desempenho"
             }
           ]
         }
@@ -46,10 +65,10 @@
                   "Column": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "score_protecao_caixa"
+                        "Entity": "score_desvio_desempenho"
                       }
                     },
-                    "Property": "MEDIA GERAL DE PROTEÇÃO DE CAIXA"
+                    "Property": "metrica_desvio_desempenho"
                   }
                 },
                 "Function": 1
@@ -62,28 +81,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "4374f6fca8a5a91059a9",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "score_protecao_caixa"
-                  }
-                },
-                "Property": "MEDIA GERAL DE PROTEÇÃO DE CAIXA"
-              }
-            },
-            "Function": 1
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

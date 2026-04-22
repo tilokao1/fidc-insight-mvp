@@ -57,13 +57,12 @@ table score_prazo_longo
 
 	column metrica_prazo_longo
 		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 62fff4ff-0da9-4728-9c01-344ca358c603
 		summarizeBy: sum
 		sourceColumn: metrica_prazo_longo
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition score_prazo_longo = m
 		mode: import

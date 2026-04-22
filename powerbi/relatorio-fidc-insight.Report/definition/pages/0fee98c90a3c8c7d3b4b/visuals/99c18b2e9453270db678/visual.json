@@ -4,16 +4,16 @@
   "position": {
     "x": 0,
     "y": 117.68996960486322,
-    "z": 1,
-    "height": 352.09726443769,
-    "width": 1045.5927051671733,
-    "tabOrder": 1
+    "z": 0,
+    "height": 344.31610942249239,
+    "width": 640,
+    "tabOrder": 0
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "histogram42E8DF98F1244DB799B2A8A65DBCB226",
     "query": {
       "queryState": {
-        "Category": {
+        "axis": {
           "projections": [
             {
               "field": {
@@ -32,7 +32,7 @@
             }
           ]
         },
-        "Y": {
+        "datavalues": {
           "projections": [
             {
               "field": {
@@ -47,60 +47,25 @@
                       "Property": "numero_setores_ativos"
                     }
                   },
-                  "Function": 0
+                  "Function": 5
                 }
               },
-              "queryRef": "Sum(score_num_setores_ativos.numero_setores_ativos)",
-              "nativeQueryRef": "Soma de numero_setores_ativos"
+              "queryRef": "CountNonNull(score_num_setores_ativos.numero_setores_ativos)",
+              "nativeQueryRef": "numero_setores_ativos"
             }
           ]
         }
       },
       "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Aggregation": {
-                "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "score_num_setores_ativos"
-                      }
-                    },
-                    "Property": "numero_setores_ativos"
-                  }
-                },
-                "Function": 0
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
         "isDefaultSort": true
       }
-    },
-    "objects": {
-      "labels": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ]
     },
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {
     "filters": [
       {
-        "name": "6d0935559783d13a06d5",
+        "name": "9aa57a79a5e173ad61ea",
         "field": {
           "Column": {
             "Expression": {
@@ -114,7 +79,7 @@
         "type": "Categorical"
       },
       {
-        "name": "dd9693f7402022565739",
+        "name": "ce01894e982048c03d8b",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -127,7 +92,7 @@
                 "Property": "numero_setores_ativos"
               }
             },
-            "Function": 0
+            "Function": 5
           }
         },
         "type": "Advanced"

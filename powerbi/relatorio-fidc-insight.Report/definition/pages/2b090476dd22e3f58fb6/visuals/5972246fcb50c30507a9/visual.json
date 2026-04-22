@@ -243,25 +243,6 @@
         }
       },
       {
-        "name": "65113851ebd692d48c78",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "score_3_metrica_1"
-                  }
-                },
-                "Property": "HHI_Cedentes"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
         "name": "481d5686e78e7b2b24ba",
         "type": "Exclude",
         "filter": {

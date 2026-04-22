@@ -65,13 +65,12 @@ table score_desvio_desempenho
 
 	column metrica_desvio_desempenho
 		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 6fb8b453-6c1c-4785-9f49-87a56068a1a1
 		summarizeBy: sum
 		sourceColumn: metrica_desvio_desempenho
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition score_desvio_desempenho = m
 		mode: import

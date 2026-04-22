@@ -1,0 +1,158 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "cd7dceaa7b8376e0b633",
+  "position": {
+    "x": 640,
+    "y": 474.65045592705167,
+    "z": 2000,
+    "height": 245.10638297872342,
+    "width": 640,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "score_liquidez_curto_prazo"
+                    }
+                  },
+                  "Property": "DENOM_SOCIAL"
+                }
+              },
+              "queryRef": "score_liquidez_curto_prazo.DENOM_SOCIAL",
+              "nativeQueryRef": "DENOM_SOCIAL"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "score_liquidez_curto_prazo"
+                        }
+                      },
+                      "Property": "liquidez_curto_prazo"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(score_liquidez_curto_prazo.liquidez_curto_prazo)",
+              "nativeQueryRef": "Soma de liquidez_curto_prazo"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "score_liquidez_curto_prazo"
+                        }
+                      },
+                      "Property": "liquidez_total"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(score_liquidez_curto_prazo.liquidez_total)",
+              "nativeQueryRef": "Soma de liquidez_total"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "score_liquidez_curto_prazo"
+                        }
+                      },
+                      "Property": "metrica_liquidez_curto_prazo"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(score_liquidez_curto_prazo.metrica_liquidez_curto_prazo)",
+              "nativeQueryRef": "Soma de metrica_liquidez_curto_prazo"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_liquidez_curto_prazo"
+                  }
+                },
+                "Property": "DENOM_SOCIAL"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "264.79754203915564D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "score_liquidez_curto_prazo.DENOM_SOCIAL"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.4893947145453D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(score_liquidez_curto_prazo.liquidez_curto_prazo)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "146.10942249240122D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(score_liquidez_curto_prazo.liquidez_total)"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,38 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
-  "name": "4a3cc9303b5dd3e9c31d",
+  "name": "998bc21f37ce95a6000d",
   "position": {
-    "x": 640,
-    "y": 117.68996960486322,
-    "z": 1000,
-    "height": 344.31610942249239,
+    "x": 0,
+    "y": 0,
+    "z": 3000,
+    "height": 117.68996960486322,
     "width": 640,
-    "tabOrder": 1000
+    "tabOrder": 3000
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "cardVisual",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "score_liquidez_curto_prazo"
-                    }
-                  },
-                  "Property": "DENOM_SOCIAL"
-                }
-              },
-              "queryRef": "score_liquidez_curto_prazo.DENOM_SOCIAL",
-              "nativeQueryRef": "DENOM_SOCIAL",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
+        "Data": {
           "projections": [
             {
               "field": {
@@ -41,17 +22,17 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "score_liquidez_curto_prazo"
+                          "Entity": "score_protecao_caixa"
                         }
                       },
-                      "Property": "metrica_liquidez_curto_prazo"
+                      "Property": "MEDIA GERAL DE PROTEÇÃO DE CAIXA"
                     }
                   },
                   "Function": 1
                 }
               },
-              "queryRef": "Sum(score_liquidez_curto_prazo.metrica_liquidez_curto_prazo)",
-              "nativeQueryRef": "Média de metrica_liquidez_curto_prazo"
+              "queryRef": "Sum(score_protecao_caixa.MEDIA GERAL DE PROTEÇÃO DE CAIXA)",
+              "nativeQueryRef": "Média de MEDIA GERAL DE PROTEÇÃO DE CAIXA"
             }
           ]
         }
@@ -65,10 +46,10 @@
                   "Column": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "score_liquidez_curto_prazo"
+                        "Entity": "score_protecao_caixa"
                       }
                     },
-                    "Property": "metrica_liquidez_curto_prazo"
+                    "Property": "MEDIA GERAL DE PROTEÇÃO DE CAIXA"
                   }
                 },
                 "Function": 1
