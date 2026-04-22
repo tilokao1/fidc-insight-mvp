@@ -1,0 +1,68 @@
+table score_num_setores_ativos
+	lineageTag: 121a316e-d313-4521-b973-037e9d6c3276
+
+	column CNPJ_FUNDO_CLASSE
+		dataType: string
+		lineageTag: 312a21bf-c2be-4875-8035-f589266842f1
+		summarizeBy: none
+		sourceColumn: CNPJ_FUNDO_CLASSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DENOM_SOCIAL
+		dataType: string
+		lineageTag: 7de1a6c0-fcb6-492b-a52b-bfbee9c35f52
+		summarizeBy: none
+		sourceColumn: DENOM_SOCIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column DT_COMPTC
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8c5f7868-5fe5-4521-b019-48160e5f54bd
+		summarizeBy: none
+		sourceColumn: DT_COMPTC
+
+		variation Variation
+			isDefault
+			relationship: 4bd02e66-3609-4cbe-b9ae-279dfbd3ebb0
+			defaultHierarchy: LocalDateTable_5669a06f-abeb-4050-8e66-05c8d0967a7b.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column numero_setores_ativos
+		dataType: string
+		lineageTag: fbe5e343-2a7d-4392-a8c9-f0695370cc8c
+		summarizeBy: none
+		sourceColumn: numero_setores_ativos
+
+		annotation SummarizationSetBy = Automatic
+
+	partition score_num_setores_ativos = m
+		mode: import
+		source = ```
+				let
+				    // URL do Supabase + o caminho da tabela
+				    UrlDaApi = "https://bgkrnjbleagxnhjlggbj.supabase.co/rest/v1/score_num_setores_ativos",
+				    
+				    // Chave anon public (coloque a mesma chave nos dois lugares)
+				    ChaveAnon = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJna3JuamJsZWFneG5oamxnZ2JqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NjYxNTEsImV4cCI6MjA5MTM0MjE1MX0.i2ZIZHy74lfohzGf-YCFiRduLT3yWzPZWVYXaOY9Qhg",
+				
+				    Fonte = Json.Document(Web.Contents(UrlDaApi, 
+				        [Headers=[apikey=ChaveAnon, Authorization="Bearer " & ChaveAnon]]
+				    )),
+				    
+				    // Converte a resposta da API (JSON) em uma tabela legível
+				    Tabela = Table.FromRecords(Fonte),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"DT_COMPTC", type date}})
+				in
+				    #"Tipo Alterado"
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

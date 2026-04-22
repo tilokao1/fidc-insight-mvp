@@ -162,6 +162,71 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3592.3616394153596,
+            "y": 30.064970863773226
+          },
+          "nodeIndex": "score_desvio_desempenho",
+          "nodeLineageTag": "5c2c1262-dcfb-4a37-9013-15fdc30ed42b",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3876.3616394153596,
+            "y": 42.064970863773226
+          },
+          "nodeIndex": "score_liquidez_curto_prazo",
+          "nodeLineageTag": "3768deee-9709-4b70-b38f-6e31b73cce14",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4160.36163941536,
+            "y": 66.064970863773226
+          },
+          "nodeIndex": "score_num_setores_ativos",
+          "nodeLineageTag": "121a316e-d313-4521-b973-037e9d6c3276",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4444.36163941536,
+            "y": 42.064970863773226
+          },
+          "nodeIndex": "score_prazo_longo",
+          "nodeLineageTag": "e99d8213-71ee-4363-9ad9-1c8a0b0614c7",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4728.36163941536,
+            "y": 42.064970863773226
+          },
+          "nodeIndex": "score_protecao_caixa",
+          "nodeLineageTag": "7722fe99-9d00-4da8-b657-d8c01a82e6fc",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas as tabelas",

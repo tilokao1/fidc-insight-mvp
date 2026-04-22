@@ -1,0 +1,92 @@
+table score_liquidez_curto_prazo
+	lineageTag: 3768deee-9709-4b70-b38f-6e31b73cce14
+
+	column CNPJ_FUNDO_CLASSE
+		dataType: string
+		lineageTag: 0a786a0d-fa0c-4b07-b9b3-3be9877ffb06
+		summarizeBy: none
+		sourceColumn: CNPJ_FUNDO_CLASSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DENOM_SOCIAL
+		dataType: string
+		lineageTag: 73447e61-edbf-486d-87df-78a543a5589e
+		summarizeBy: none
+		sourceColumn: DENOM_SOCIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column DT_COMPTC
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0969a1f8-5fe4-48f6-8b6a-841861d99c78
+		summarizeBy: none
+		sourceColumn: DT_COMPTC
+
+		variation Variation
+			isDefault
+			relationship: 10359e05-445d-4700-8993-9dc646b0d8ad
+			defaultHierarchy: LocalDateTable_1934afef-2722-46b7-bdef-e825f89e5397.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column liquidez_curto_prazo
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 72a62318-52a5-4887-9bee-62452dc5b0b3
+		summarizeBy: sum
+		sourceColumn: liquidez_curto_prazo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column liquidez_total
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: f9901f95-7048-40b3-8678-b62ec99fd3fe
+		summarizeBy: sum
+		sourceColumn: liquidez_total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column metrica_liquidez_curto_prazo
+		dataType: double
+		lineageTag: fd4a64af-7977-4b1c-b982-f6696fc7b75c
+		summarizeBy: sum
+		sourceColumn: metrica_liquidez_curto_prazo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition score_liquidez_curto_prazo = m
+		mode: import
+		source = ```
+				let
+				    // URL do Supabase + o caminho da tabela
+				    UrlDaApi = "https://bgkrnjbleagxnhjlggbj.supabase.co/rest/v1/score_liquidez_curto_prazo",
+				    
+				    // Chave anon public (coloque a mesma chave nos dois lugares)
+				    ChaveAnon = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJna3JuamJsZWFneG5oamxnZ2JqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NjYxNTEsImV4cCI6MjA5MTM0MjE1MX0.i2ZIZHy74lfohzGf-YCFiRduLT3yWzPZWVYXaOY9Qhg",
+				
+				    Fonte = Json.Document(Web.Contents(UrlDaApi, 
+				        [Headers=[apikey=ChaveAnon, Authorization="Bearer " & ChaveAnon]]
+				    )),
+				    
+				    // Converte a resposta da API (JSON) em uma tabela legível
+				    Tabela = Table.FromRecords(Fonte),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"DT_COMPTC", type date}, {"liquidez_curto_prazo", Currency.Type}, {"liquidez_total", Currency.Type}, {"metrica_liquidez_curto_prazo", Percentage.Type}})
+				in
+				    #"Tipo Alterado"
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

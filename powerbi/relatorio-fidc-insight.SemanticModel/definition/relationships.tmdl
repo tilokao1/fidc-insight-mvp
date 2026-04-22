@@ -132,3 +132,78 @@ relationship AutoDetected_642bb194-6640-4a7f-9b49-875f76bc9978
 	fromColumn: 'INFORME MENSAL FIDC TAB'.DENOM_SOCIAL
 	toColumn: Tabela.DENOM_SOCIAL
 
+relationship AutoDetected_c05540ba-41ea-41db-9fe2-5d229a34b92e
+	fromColumn: score_protecao_caixa.CNPJ_FUNDO_CLASSE
+	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
+
+relationship AutoDetected_e40371ae-c133-4154-8043-ab0532d6db4a
+	fromColumn: score_prazo_longo.CNPJ_FUNDO_CLASSE
+	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
+
+relationship AutoDetected_3e7222b4-a847-4b44-9a4b-aacb6e40fdcc
+	fromColumn: score_num_setores_ativos.CNPJ_FUNDO_CLASSE
+	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
+
+relationship AutoDetected_e2ba3a9f-f639-4576-8249-86936e58f6ed
+	fromColumn: score_liquidez_curto_prazo.CNPJ_FUNDO_CLASSE
+	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
+
+relationship AutoDetected_44ac14e0-98d5-41d7-95ea-20db8a958ac5
+	fromColumn: score_desvio_desempenho.CNPJ_FUNDO_CLASSE
+	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
+
+relationship AutoDetected_7eb6d57e-a87c-4d45-86ea-1c4a53af3942
+	isActive: false
+	fromColumn: score_protecao_caixa.DENOM_SOCIAL
+	toColumn: Tabela.DENOM_SOCIAL
+
+relationship AutoDetected_e8ce3b1e-6fdd-4c39-9ea4-5e3ebcfa9be8
+	isActive: false
+	fromColumn: score_prazo_longo.DENOM_SOCIAL
+	toColumn: Tabela.DENOM_SOCIAL
+
+relationship AutoDetected_eda70d53-70af-4a1a-bd7d-b55e38367164
+	isActive: false
+	fromColumn: score_num_setores_ativos.DENOM_SOCIAL
+	toColumn: Tabela.DENOM_SOCIAL
+
+relationship AutoDetected_08341040-c1d1-4e0d-a5ca-c617b93dfd53
+	isActive: false
+	fromColumn: score_liquidez_curto_prazo.DENOM_SOCIAL
+	toColumn: Tabela.DENOM_SOCIAL
+
+relationship AutoDetected_45d70307-8b9e-4edc-a081-062e5e5393d5
+	isActive: false
+	fromColumn: score_desvio_desempenho.DENOM_SOCIAL
+	toColumn: Tabela.DENOM_SOCIAL
+
+relationship 83baa06a-5c68-4ed8-9823-b74d0b62be6e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'INFORME MENSAL FIDC TAB'.DT_COMPTC
+	toColumn: LocalDateTable_32a1de11-491d-424a-a8cf-8071dc434f5a.Date
+
+relationship bd4f8840-27d8-4558-bcc5-d1c9c161ba36
+	joinOnDateBehavior: datePartOnly
+	fromColumn: score_protecao_caixa.DT_COMPTC
+	toColumn: LocalDateTable_af00cb5b-9b77-4e37-a0c9-62e275be4346.Date
+
+relationship a59cf221-bb79-4604-8fcf-3c1068ac3883
+	joinOnDateBehavior: datePartOnly
+	fromColumn: score_prazo_longo.DT_COMPTC
+	toColumn: LocalDateTable_aa39cf99-27b4-4943-a694-09925df6b897.Date
+
+relationship 4bd02e66-3609-4cbe-b9ae-279dfbd3ebb0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: score_num_setores_ativos.DT_COMPTC
+	toColumn: LocalDateTable_5669a06f-abeb-4050-8e66-05c8d0967a7b.Date
+
+relationship 10359e05-445d-4700-8993-9dc646b0d8ad
+	joinOnDateBehavior: datePartOnly
+	fromColumn: score_liquidez_curto_prazo.DT_COMPTC
+	toColumn: LocalDateTable_1934afef-2722-46b7-bdef-e825f89e5397.Date
+
+relationship b92f0974-9279-4bad-8054-9e04b7dfd4dc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: score_desvio_desempenho.DT_COMPTC
+	toColumn: LocalDateTable_36a5c769-a85d-43c7-a15c-982db57ca7b2.Date
+
