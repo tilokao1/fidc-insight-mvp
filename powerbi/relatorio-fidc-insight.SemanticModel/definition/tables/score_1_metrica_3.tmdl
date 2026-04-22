@@ -89,6 +89,13 @@ table score_1_metrica_3
 
 		annotation SummarizationSetBy = Automatic
 
+	hierarchy 'DT_COMPTC Hierarquia'
+		lineageTag: 16132129-4227-4e76-aaa0-c5b1c3cf48ce
+
+		level DT_COMPTC
+			lineageTag: d3c1068d-ee61-40d7-bfc5-2ab1af7445aa
+			column: DT_COMPTC
+
 	partition score_1_metrica_3 = m
 		mode: import
 		source = ```

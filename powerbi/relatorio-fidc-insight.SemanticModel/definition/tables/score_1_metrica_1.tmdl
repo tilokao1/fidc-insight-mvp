@@ -292,8 +292,8 @@ table score_1_metrica_1
 
 		variation Variation
 			isDefault
-			relationship: 15222347-7ce9-4ceb-8838-e7e476434182
-			defaultHierarchy: LocalDateTable_d6d10875-94ef-4472-9197-1bb1c297bd89.'Hierarquia de datas'
+			relationship: 78a16460-57df-4660-8fb2-3d9002c99ded
+			defaultHierarchy: LocalDateTable_c801aff6-1724-4a4d-84c1-abb6b63eca68.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
 

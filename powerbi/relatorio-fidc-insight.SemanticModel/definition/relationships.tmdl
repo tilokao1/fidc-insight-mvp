@@ -18,23 +18,82 @@ relationship 3613afbc-820d-47b2-b80a-7ea63b72dbee
 	fromColumn: score_3_metrica_2.DT_COMPTC
 	toColumn: LocalDateTable_9bab00e4-a332-40e7-9a9b-b71714f912d9.Date
 
-relationship d6df4628-c9a5-4972-a59c-9434c8c471b4
-	joinOnDateBehavior: datePartOnly
-	fromColumn: score_1_metrica_2.DT_COMPTC
-	toColumn: LocalDateTable_536b4387-2915-4983-9d21-f22ecf7b5fc8.Date
-
-relationship b130f75f-731f-4ed3-b62a-f7bb577ab902
-	joinOnDateBehavior: datePartOnly
-	fromColumn: score_1_metrica_4.DT_COMPTC
-	toColumn: LocalDateTable_f12401ca-5abe-49a8-8d11-06719d1c196e.Date
-
-relationship 15222347-7ce9-4ceb-8838-e7e476434182
-	joinOnDateBehavior: datePartOnly
-	fromColumn: score_1_metrica_1.DT_COMPTC
-	toColumn: LocalDateTable_d6d10875-94ef-4472-9197-1bb1c297bd89.Date
-
 relationship 55d3fc3b-11ee-4f65-8f2c-d20a9390b31d
 	joinOnDateBehavior: datePartOnly
 	fromColumn: score_1_metrica_3.DT_COMPTC
 	toColumn: LocalDateTable_9957131b-4e77-40ff-9008-562308e1a608.Date
+
+relationship a870d438-014a-4133-abe4-298fd4a8e48b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: score_4_metrica_3.DT_COMPTC
+	toColumn: LocalDateTable_6c08f687-31eb-4413-816c-364a42cc0877.Date
+
+relationship 78a16460-57df-4660-8fb2-3d9002c99ded
+	joinOnDateBehavior: datePartOnly
+	fromColumn: score_1_metrica_1.DT_COMPTC
+	toColumn: LocalDateTable_c801aff6-1724-4a4d-84c1-abb6b63eca68.Date
+
+relationship 3614265f-41a9-4d17-95d8-98dcd22de1f1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: score_1_metrica_4.DT_COMPTC
+	toColumn: LocalDateTable_13fbbab5-824d-430d-94e3-d4bcf7799b09.Date
+
+relationship 25ea6c9d-4c63-4c4d-a839-0e328cacffc1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: score_1_metrica_2.DT_COMPTC
+	toColumn: LocalDateTable_93071ed8-b7f6-4189-9699-b6140034ac69.Date
+
+relationship 67f087f2-3f7a-eceb-7a72-09ae3596e83c
+	fromColumn: score_2_metricas_1_e_2.CNPJ_FUNDO_CLASSE
+	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
+
+relationship 66cbb59c-f79c-0aa9-e6e9-f3b696b16a6f
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: score_3_metrica_1.CNPJ_FUNDO_CLASSE
+	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
+
+relationship 10bd953b-37fe-a505-d539-9cd40c3d10fd
+	fromColumn: score_4_metrica_1.CNPJ_FUNDO_CLASSE
+	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
+
+relationship 9e1754ca-4c7f-2439-c068-07b101bc0aee
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: score_4_metrica_2.CNPJ_FUNDO_CLASSE
+	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
+
+relationship 6a3e62e7-0160-d406-390f-74bf81500d0d
+	fromColumn: score_4_metrica_3.CNPJ_FUNDO_CLASSE
+	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
+
+relationship 42818a17-733c-c8e6-cb47-9c8d0e947936
+	fromColumn: score_1_metrica_1.CNPJ_FUNDO_CLASSE
+	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
+
+relationship d6da7779-f53a-0344-fd98-48b43577b96a
+	fromColumn: score_1_metrica_2.CNPJ_FUNDO_CLASSE
+	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
+
+relationship 7843d089-fa07-fcb9-da7b-a8b5378de680
+	fromColumn: score_1_metrica_3.CNPJ_FUNDO_CLASSE
+	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
+
+relationship f213d7d6-d11d-379e-66b2-2b9fd01a84b9
+	fromColumn: score_1_metrica_4.CNPJ_FUNDO_CLASSE
+	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
+
+relationship ab10fd92-7144-e4ec-19b8-f63c4721784d
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: score_1_metrica_2.TAB_I2_VL_CARTEIRA
+	toColumn: score_1_metrica_1.TAB_I2_VL_CARTEIRA
+
+relationship 44846197-f4f1-c5da-8db8-ecef07e160c9
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: score_1_metrica_3.TAB_I2_VL_CARTEIRA
+	toColumn: score_1_metrica_1.TAB_I2_VL_CARTEIRA
 

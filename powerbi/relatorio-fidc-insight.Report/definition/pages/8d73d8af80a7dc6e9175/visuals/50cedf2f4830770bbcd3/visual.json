@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "50cedf2f4830770bbcd3",
   "position": {
-    "x": 9.72644376899696,
-    "y": 0,
+    "x": 0,
+    "y": 480.48632218844989,
     "z": 0,
-    "height": 719.75683890577511,
-    "width": 520.36474164133745,
+    "height": 239.27051671732525,
+    "width": 624.43768996960489,
     "tabOrder": 0
   },
   "visual": {
@@ -31,103 +31,17 @@
             },
             {
               "field": {
-                "HierarchyLevel": {
+                "Column": {
                   "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "score_4_metrica_1"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "DT_COMPTC"
-                        }
-                      },
-                      "Hierarchy": "Hierarquia de datas"
+                    "SourceRef": {
+                      "Entity": "score_4_metrica_1"
                     }
                   },
-                  "Level": "Ano"
+                  "Property": "DT_COMPTC"
                 }
               },
-              "queryRef": "score_4_metrica_1.DT_COMPTC.Variation.Hierarquia de datas.Ano",
-              "nativeQueryRef": "DT_COMPTC Ano"
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "score_4_metrica_1"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "DT_COMPTC"
-                        }
-                      },
-                      "Hierarchy": "Hierarquia de datas"
-                    }
-                  },
-                  "Level": "Trimestre"
-                }
-              },
-              "queryRef": "score_4_metrica_1.DT_COMPTC.Variation.Hierarquia de datas.Trimestre",
-              "nativeQueryRef": "DT_COMPTC Trimestre"
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "score_4_metrica_1"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "DT_COMPTC"
-                        }
-                      },
-                      "Hierarchy": "Hierarquia de datas"
-                    }
-                  },
-                  "Level": "Mês"
-                }
-              },
-              "queryRef": "score_4_metrica_1.DT_COMPTC.Variation.Hierarquia de datas.Mês",
-              "nativeQueryRef": "DT_COMPTC Mês"
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "score_4_metrica_1"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "DT_COMPTC"
-                        }
-                      },
-                      "Hierarchy": "Hierarquia de datas"
-                    }
-                  },
-                  "Level": "Dia"
-                }
-              },
-              "queryRef": "score_4_metrica_1.DT_COMPTC.Variation.Hierarquia de datas.Dia",
-              "nativeQueryRef": "DT_COMPTC Dia"
+              "queryRef": "score_4_metrica_1.DT_COMPTC",
+              "nativeQueryRef": "DT_COMPTC"
             },
             {
               "field": {
@@ -165,5 +79,51 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "df6f4efc93780d9a0ca4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_4_metrica_1"
+              }
+            },
+            "Property": "CNPJ_FUNDO_CLASSE"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a51577a50001210452ce",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_4_metrica_1"
+              }
+            },
+            "Property": "percentual_subordinacao"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1201b60d054c8812d656",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_4_metrica_1"
+              }
+            },
+            "Property": "DT_COMPTC"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

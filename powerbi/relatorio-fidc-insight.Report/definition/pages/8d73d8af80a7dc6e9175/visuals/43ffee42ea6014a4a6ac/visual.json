@@ -2,18 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "43ffee42ea6014a4a6ac",
   "position": {
-    "x": 539.81762917933133,
-    "y": 0,
+    "x": 624.43768996960489,
+    "y": 387.11246200607906,
     "z": 1000,
-    "height": 719.75683890577511,
-    "width": 740.18237082066878,
+    "height": 332.64437689969606,
+    "width": 520.36474164133745,
     "tabOrder": 1000
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "columnChart",
     "query": {
       "queryState": {
-        "Values": {
+        "Category": {
           "projections": [
             {
               "field": {
@@ -27,46 +27,13 @@
                 }
               },
               "queryRef": "score_4_metrica_3.CNPJ_FUNDO_CLASSE",
-              "nativeQueryRef": "CNPJ_FUNDO_CLASSE"
-            },
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "score_4_metrica_3"
-                        }
-                      },
-                      "Property": "cotistas_anterior"
-                    }
-                  },
-                  "Function": 0
-                }
-              },
-              "queryRef": "Sum(score_4_metrica_3.cotistas_anterior)",
-              "nativeQueryRef": "Soma de cotistas_anterior"
-            },
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "score_4_metrica_3"
-                        }
-                      },
-                      "Property": "cotistas_atual"
-                    }
-                  },
-                  "Function": 0
-                }
-              },
-              "queryRef": "Sum(score_4_metrica_3.cotistas_atual)",
-              "nativeQueryRef": "Soma de cotistas_atual"
-            },
+              "nativeQueryRef": "CNPJ_FUNDO_CLASSE",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
             {
               "field": {
                 "Aggregation": {
@@ -85,23 +52,32 @@
               },
               "queryRef": "Sum(score_4_metrica_3.variacao_cotistas)",
               "nativeQueryRef": "Soma de variacao_cotistas"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "score_4_metrica_3"
-                    }
-                  },
-                  "Property": "DT_COMPTC"
-                }
-              },
-              "queryRef": "score_4_metrica_3.DT_COMPTC",
-              "nativeQueryRef": "DT_COMPTC"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "score_4_metrica_3"
+                      }
+                    },
+                    "Property": "variacao_cotistas"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "drillFilterOtherVisuals": true
@@ -109,7 +85,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "b68730f572b23535641e",
+        "name": "64e27313e115c501b496",
         "field": {
           "Column": {
             "Expression": {
@@ -120,48 +96,97 @@
             "Property": "CNPJ_FUNDO_CLASSE"
           }
         },
-        "type": "Categorical"
-      },
-      {
-        "name": "e367dd8639b4c1b9d08b",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "score_4_metrica_3"
+        "type": "TopN",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "subquery",
+              "Expression": {
+                "Subquery": {
+                  "Query": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "s",
+                        "Entity": "score_4_metrica_3",
+                        "Type": 0
+                      }
+                    ],
+                    "Select": [
+                      {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "s"
+                            }
+                          },
+                          "Property": "CNPJ_FUNDO_CLASSE"
+                        },
+                        "Name": "field"
+                      }
+                    ],
+                    "OrderBy": [
+                      {
+                        "Direction": 2,
+                        "Expression": {
+                          "Aggregation": {
+                            "Expression": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "s"
+                                  }
+                                },
+                                "Property": "variacao_cotistas"
+                              }
+                            },
+                            "Function": 0
+                          }
+                        }
+                      }
+                    ],
+                    "Top": 10
                   }
-                },
-                "Property": "cotistas_anterior"
-              }
+                }
+              },
+              "Type": 2
             },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "1314d73a332c38edc6a2",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "score_4_metrica_3"
+            {
+              "Name": "s",
+              "Entity": "score_4_metrica_3",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "s"
+                          }
+                        },
+                        "Property": "CNPJ_FUNDO_CLASSE"
+                      }
+                    }
+                  ],
+                  "Table": {
+                    "SourceRef": {
+                      "Source": "subquery"
+                    }
                   }
-                },
-                "Property": "cotistas_atual"
+                }
               }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
+            }
+          ]
+        }
       },
       {
-        "name": "665e45de90907b4e0665",
+        "name": "505a4eb93e10300b4066",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -180,7 +205,7 @@
         "type": "Advanced"
       },
       {
-        "name": "8d24f4dc879c21024423",
+        "name": "cdd5b62fd0e581789610",
         "field": {
           "Column": {
             "Expression": {
@@ -191,7 +216,47 @@
             "Property": "DT_COMPTC"
           }
         },
-        "type": "Categorical"
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "s",
+              "Entity": "score_4_metrica_3",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 1,
+                  "Left": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "s"
+                        }
+                      },
+                      "Property": "DT_COMPTC"
+                    }
+                  },
+                  "Right": {
+                    "DateSpan": {
+                      "Expression": {
+                        "Literal": {
+                          "Value": "datetime'2026-01-01T00:00:00'"
+                        }
+                      },
+                      "TimeUnit": 5
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
       }
     ]
   }

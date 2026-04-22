@@ -95,6 +95,35 @@
         ]
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "score_3_metrica_1.CNPJ_FUNDO_CLASSE"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "score_3_metrica_1"
+                    }
+                  },
+                  "Property": "CNPJ_FUNDO_CLASSE"
+                }
+              }
+            ],
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
     "objects": {
       "columnWidth": [
         {
@@ -250,58 +279,6 @@
           ]
         },
         "howCreated": "Exclude"
-      },
-      {
-        "name": "05bc3ee4e76e7c1ca36e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_3_metrica_1"
-              }
-            },
-            "Property": "CNPJ_FUNDO_CLASSE"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "f5fd006da8e833167ea8",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "score_3_metrica_1"
-                  }
-                },
-                "Property": "HHI_Cedentes"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "4c6f24d91a499b377e58",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "score_3_metrica_1"
-                  }
-                },
-                "Property": "score_100"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }
