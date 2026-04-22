@@ -1,0 +1,122 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "4a3cc9303b5dd3e9c31d",
+  "position": {
+    "x": 0,
+    "y": 480,
+    "z": 2,
+    "height": 240,
+    "width": 1046,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "score_liquidez_curto_prazo"
+                    }
+                  },
+                  "Property": "DENOM_SOCIAL"
+                }
+              },
+              "queryRef": "score_liquidez_curto_prazo.DENOM_SOCIAL",
+              "nativeQueryRef": "DENOM_SOCIAL",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "score_liquidez_curto_prazo"
+                        }
+                      },
+                      "Property": "metrica_liquidez_curto_prazo"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(score_liquidez_curto_prazo.metrica_liquidez_curto_prazo)",
+              "nativeQueryRef": "Média de metrica_liquidez_curto_prazo"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "score_liquidez_curto_prazo"
+                      }
+                    },
+                    "Property": "metrica_liquidez_curto_prazo"
+                  }
+                },
+                "Function": 1
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b2a2ef3d2832c08ed6cb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_liquidez_curto_prazo"
+              }
+            },
+            "Property": "DENOM_SOCIAL"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "227983bae54944056376",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_liquidez_curto_prazo"
+                  }
+                },
+                "Property": "metrica_liquidez_curto_prazo"
+              }
+            },
+            "Function": 1
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

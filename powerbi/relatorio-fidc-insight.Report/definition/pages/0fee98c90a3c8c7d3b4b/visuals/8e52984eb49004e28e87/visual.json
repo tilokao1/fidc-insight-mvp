@@ -1,0 +1,89 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "8e52984eb49004e28e87",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 117.68996960486322,
+    "width": 304.43768996960489,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "score_protecao_caixa"
+                        }
+                      },
+                      "Property": "MEDIA GERAL DE PROTEÇÃO DE CAIXA"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Avg(score_protecao_caixa.MEDIA GERAL DE PROTEÇÃO DE CAIXA)",
+              "nativeQueryRef": "Média de MEDIA GERAL DE PROTEÇÃO DE CAIXA"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "score_protecao_caixa"
+                      }
+                    },
+                    "Property": "MEDIA GERAL DE PROTEÇÃO DE CAIXA"
+                  }
+                },
+                "Function": 1
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4374f6fca8a5a91059a9",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_protecao_caixa"
+                  }
+                },
+                "Property": "MEDIA GERAL DE PROTEÇÃO DE CAIXA"
+              }
+            },
+            "Function": 1
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "5972246fcb50c30507a9",
   "position": {
     "x": 0,
@@ -51,8 +51,7 @@
                 }
               },
               "queryRef": "Sum(score_3_metrica_1.HHI_Cedentes)",
-              "nativeQueryRef": "Soma de HHI_Cedentes",
-              "displayName": "."
+              "nativeQueryRef": "Soma de HHI_Cedentes"
             }
           ]
         }
@@ -142,233 +141,6 @@
   },
   "filterConfig": {
     "filters": [
-      {
-        "name": "f3501760e152045b7031",
-        "type": "Exclude",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "s",
-              "Entity": "score_3_metrica_1",
-              "Type": 0
-            },
-            {
-              "Name": "s1",
-              "Entity": "score_1_metrica_1",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Not": {
-                  "Expression": {
-                    "Or": {
-                      "Left": {
-                        "Or": {
-                          "Left": {
-                            "Or": {
-                              "Left": {
-                                "Or": {
-                                  "Left": {
-                                    "Or": {
-                                      "Left": {
-                                        "Or": {
-                                          "Left": {
-                                            "In": {
-                                              "Expressions": [
-                                                {
-                                                  "Column": {
-                                                    "Expression": {
-                                                      "SourceRef": {
-                                                        "Source": "s"
-                                                      }
-                                                    },
-                                                    "Property": "CNPJ_FUNDO_CLASSE"
-                                                  }
-                                                }
-                                              ],
-                                              "Values": [
-                                                [
-                                                  {
-                                                    "Literal": {
-                                                      "Value": "'55.626.390/0001-00'"
-                                                    }
-                                                  }
-                                                ]
-                                              ]
-                                            }
-                                          },
-                                          "Right": {
-                                            "In": {
-                                              "Expressions": [
-                                                {
-                                                  "Column": {
-                                                    "Expression": {
-                                                      "SourceRef": {
-                                                        "Source": "s1"
-                                                      }
-                                                    },
-                                                    "Property": "CNPJ_FUNDO_CLASSE"
-                                                  }
-                                                }
-                                              ],
-                                              "Values": [
-                                                [
-                                                  {
-                                                    "Literal": {
-                                                      "Value": "'09.195.235/0001-50'"
-                                                    }
-                                                  }
-                                                ]
-                                              ]
-                                            }
-                                          }
-                                        }
-                                      },
-                                      "Right": {
-                                        "In": {
-                                          "Expressions": [
-                                            {
-                                              "Column": {
-                                                "Expression": {
-                                                  "SourceRef": {
-                                                    "Source": "s"
-                                                  }
-                                                },
-                                                "Property": "CNPJ_FUNDO_CLASSE"
-                                              }
-                                            }
-                                          ],
-                                          "Values": [
-                                            [
-                                              {
-                                                "Literal": {
-                                                  "Value": "'50.823.781/0001-92'"
-                                                }
-                                              }
-                                            ]
-                                          ]
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "Right": {
-                                    "In": {
-                                      "Expressions": [
-                                        {
-                                          "Column": {
-                                            "Expression": {
-                                              "SourceRef": {
-                                                "Source": "s"
-                                              }
-                                            },
-                                            "Property": "CNPJ_FUNDO_CLASSE"
-                                          }
-                                        }
-                                      ],
-                                      "Values": [
-                                        [
-                                          {
-                                            "Literal": {
-                                              "Value": "'20.867.468/0001-95'"
-                                            }
-                                          }
-                                        ]
-                                      ]
-                                    }
-                                  }
-                                }
-                              },
-                              "Right": {
-                                "In": {
-                                  "Expressions": [
-                                    {
-                                      "Column": {
-                                        "Expression": {
-                                          "SourceRef": {
-                                            "Source": "s"
-                                          }
-                                        },
-                                        "Property": "CNPJ_FUNDO_CLASSE"
-                                      }
-                                    }
-                                  ],
-                                  "Values": [
-                                    [
-                                      {
-                                        "Literal": {
-                                          "Value": "'51.124.933/0001-21'"
-                                        }
-                                      }
-                                    ]
-                                  ]
-                                }
-                              }
-                            }
-                          },
-                          "Right": {
-                            "In": {
-                              "Expressions": [
-                                {
-                                  "Column": {
-                                    "Expression": {
-                                      "SourceRef": {
-                                        "Source": "s"
-                                      }
-                                    },
-                                    "Property": "CNPJ_FUNDO_CLASSE"
-                                  }
-                                }
-                              ],
-                              "Values": [
-                                [
-                                  {
-                                    "Literal": {
-                                      "Value": "'64.151.892/0001-04'"
-                                    }
-                                  }
-                                ]
-                              ]
-                            }
-                          }
-                        }
-                      },
-                      "Right": {
-                        "In": {
-                          "Expressions": [
-                            {
-                              "Column": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Source": "s"
-                                  }
-                                },
-                                "Property": "CNPJ_FUNDO_CLASSE"
-                              }
-                            }
-                          ],
-                          "Values": [
-                            [
-                              {
-                                "Literal": {
-                                  "Value": "'20.998.938/0001-50'"
-                                }
-                              }
-                            ]
-                          ]
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "Exclude"
-      },
       {
         "name": "de51291a9b34479abb0e",
         "field": {
@@ -471,7 +243,7 @@
         }
       },
       {
-        "name": "2bfcab7adaab4e4d001b",
+        "name": "65113851ebd692d48c78",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -488,6 +260,68 @@
           }
         },
         "type": "Advanced"
+      },
+      {
+        "name": "481d5686e78e7b2b24ba",
+        "type": "Exclude",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "s",
+              "Entity": "score_3_metrica_1",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "s"
+                              }
+                            },
+                            "Property": "CNPJ_FUNDO_CLASSE"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'55.626.390/0001-00'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'50.823.781/0001-92'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'20.867.468/0001-95'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "Exclude"
       }
     ]
   }

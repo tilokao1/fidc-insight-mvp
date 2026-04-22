@@ -8,7 +8,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["score_2_metricas_1_e_2","score_3_metrica_1","score_3_metrica_2","score_4_metrica_1","score_4_metrica_2","score_4_metrica_3","score_1_metrica_1","score_1_metrica_2","score_1_metrica_3","score_1_metrica_4","Tabela","INFORME MENSAL FIDC TAB","score_protecao_caixa","score_prazo_longo","score_num_setores_ativos","score_liquidez_curto_prazo","score_desvio_desempenho"]
+annotation PBI_QueryOrder = ["score_2_metricas_1_e_2","score_3_metrica_1","score_3_metrica_2","score_4_metrica_1","score_4_metrica_2","score_4_metrica_3","INFORME MENSAL FIDC TAB","score_protecao_caixa","score_prazo_longo","score_num_setores_ativos","score_liquidez_curto_prazo","score_desvio_desempenho"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -18,21 +18,12 @@ ref table score_3_metrica_2
 ref table score_4_metrica_1
 ref table score_4_metrica_2
 ref table score_4_metrica_3
-ref table score_1_metrica_1
-ref table score_1_metrica_2
-ref table score_1_metrica_3
-ref table score_1_metrica_4
 ref table DateTableTemplate_7a9ce246-7d19-4afd-bc6a-556fe932b15e
 ref table LocalDateTable_7dc594b5-7183-40fb-bf94-b1021cc35886
 ref table LocalDateTable_b7ba6510-d466-44da-9a5b-c499f005d4d8
 ref table LocalDateTable_4adcf974-f005-4cd3-99cd-2ed69f435faf
 ref table LocalDateTable_9bab00e4-a332-40e7-9a9b-b71714f912d9
-ref table LocalDateTable_9957131b-4e77-40ff-9008-562308e1a608
 ref table LocalDateTable_6c08f687-31eb-4413-816c-364a42cc0877
-ref table LocalDateTable_c801aff6-1724-4a4d-84c1-abb6b63eca68
-ref table LocalDateTable_13fbbab5-824d-430d-94e3-d4bcf7799b09
-ref table LocalDateTable_93071ed8-b7f6-4189-9699-b6140034ac69
-ref table Tabela
 ref table 'INFORME MENSAL FIDC TAB'
 ref table score_protecao_caixa
 ref table score_prazo_longo

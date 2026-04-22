@@ -34,12 +34,14 @@ table score_num_setores_ativos
 		annotation UnderlyingDateTimeDataType = Date
 
 	column numero_setores_ativos
-		dataType: string
+		dataType: int64
 		lineageTag: fbe5e343-2a7d-4392-a8c9-f0695370cc8c
 		summarizeBy: none
 		sourceColumn: numero_setores_ativos
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition score_num_setores_ativos = m
 		mode: import
@@ -57,7 +59,7 @@ table score_num_setores_ativos
 				    
 				    // Converte a resposta da API (JSON) em uma tabela legível
 				    Tabela = Table.FromRecords(Fonte),
-				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"DT_COMPTC", type date}})
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"DT_COMPTC", type date}, {"numero_setores_ativos", Int64.Type}})
 				in
 				    #"Tipo Alterado"
 				```

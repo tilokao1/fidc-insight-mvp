@@ -18,30 +18,10 @@ relationship 3613afbc-820d-47b2-b80a-7ea63b72dbee
 	fromColumn: score_3_metrica_2.DT_COMPTC
 	toColumn: LocalDateTable_9bab00e4-a332-40e7-9a9b-b71714f912d9.Date
 
-relationship 55d3fc3b-11ee-4f65-8f2c-d20a9390b31d
-	joinOnDateBehavior: datePartOnly
-	fromColumn: score_1_metrica_3.DT_COMPTC
-	toColumn: LocalDateTable_9957131b-4e77-40ff-9008-562308e1a608.Date
-
 relationship a870d438-014a-4133-abe4-298fd4a8e48b
 	joinOnDateBehavior: datePartOnly
 	fromColumn: score_4_metrica_3.DT_COMPTC
 	toColumn: LocalDateTable_6c08f687-31eb-4413-816c-364a42cc0877.Date
-
-relationship 78a16460-57df-4660-8fb2-3d9002c99ded
-	joinOnDateBehavior: datePartOnly
-	fromColumn: score_1_metrica_1.DT_COMPTC
-	toColumn: LocalDateTable_c801aff6-1724-4a4d-84c1-abb6b63eca68.Date
-
-relationship 3614265f-41a9-4d17-95d8-98dcd22de1f1
-	joinOnDateBehavior: datePartOnly
-	fromColumn: score_1_metrica_4.DT_COMPTC
-	toColumn: LocalDateTable_13fbbab5-824d-430d-94e3-d4bcf7799b09.Date
-
-relationship 25ea6c9d-4c63-4c4d-a839-0e328cacffc1
-	joinOnDateBehavior: datePartOnly
-	fromColumn: score_1_metrica_2.DT_COMPTC
-	toColumn: LocalDateTable_93071ed8-b7f6-4189-9699-b6140034ac69.Date
 
 relationship 67f087f2-3f7a-eceb-7a72-09ae3596e83c
 	fromColumn: score_2_metricas_1_e_2.CNPJ_FUNDO_CLASSE
@@ -67,70 +47,9 @@ relationship 6a3e62e7-0160-d406-390f-74bf81500d0d
 	fromColumn: score_4_metrica_3.CNPJ_FUNDO_CLASSE
 	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
 
-relationship 42818a17-733c-c8e6-cb47-9c8d0e947936
-	fromColumn: score_1_metrica_1.CNPJ_FUNDO_CLASSE
-	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
-
-relationship d6da7779-f53a-0344-fd98-48b43577b96a
-	fromColumn: score_1_metrica_2.CNPJ_FUNDO_CLASSE
-	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
-
-relationship 7843d089-fa07-fcb9-da7b-a8b5378de680
-	fromColumn: score_1_metrica_3.CNPJ_FUNDO_CLASSE
-	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
-
-relationship f213d7d6-d11d-379e-66b2-2b9fd01a84b9
-	fromColumn: score_1_metrica_4.CNPJ_FUNDO_CLASSE
-	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
-
-relationship ab10fd92-7144-e4ec-19b8-f63c4721784d
-	isActive: false
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: score_1_metrica_2.TAB_I2_VL_CARTEIRA
-	toColumn: score_1_metrica_1.TAB_I2_VL_CARTEIRA
-
-relationship 44846197-f4f1-c5da-8db8-ecef07e160c9
-	isActive: false
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: score_1_metrica_3.TAB_I2_VL_CARTEIRA
-	toColumn: score_1_metrica_1.TAB_I2_VL_CARTEIRA
-
-relationship AutoDetected_e0fd41cf-b931-4e6f-8a06-ca0f27b900ed
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: Tabela.CNPJ_FUNDO_CLASSE
-	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
-
 relationship AutoDetected_34363698-465f-4a7c-a1d8-5e3ea2fa3e01
 	fromColumn: 'INFORME MENSAL FIDC TAB'.CNPJ_FUNDO_CLASSE
 	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
-
-relationship AutoDetected_2ddcfc7d-10c1-4e38-878a-f9a7dcd4cf08
-	isActive: false
-	fromColumn: score_1_metrica_1.DENOM_SOCIAL
-	toColumn: Tabela.DENOM_SOCIAL
-
-relationship AutoDetected_55f1eb98-ff97-4387-87c7-6096db3d995e
-	isActive: false
-	fromColumn: score_1_metrica_2.DENOM_SOCIAL
-	toColumn: Tabela.DENOM_SOCIAL
-
-relationship AutoDetected_c2997ef1-5984-4124-9521-c86c3a51d446
-	isActive: false
-	fromColumn: score_1_metrica_3.DENOM_SOCIAL
-	toColumn: Tabela.DENOM_SOCIAL
-
-relationship AutoDetected_67a7a7a6-f679-48ac-8c4b-8a6f7403bb63
-	isActive: false
-	fromColumn: score_1_metrica_4.DENOM_SOCIAL
-	toColumn: Tabela.DENOM_SOCIAL
-
-relationship AutoDetected_642bb194-6640-4a7f-9b49-875f76bc9978
-	isActive: false
-	fromColumn: 'INFORME MENSAL FIDC TAB'.DENOM_SOCIAL
-	toColumn: Tabela.DENOM_SOCIAL
 
 relationship AutoDetected_c05540ba-41ea-41db-9fe2-5d229a34b92e
 	fromColumn: score_protecao_caixa.CNPJ_FUNDO_CLASSE
@@ -151,31 +70,6 @@ relationship AutoDetected_e2ba3a9f-f639-4576-8249-86936e58f6ed
 relationship AutoDetected_44ac14e0-98d5-41d7-95ea-20db8a958ac5
 	fromColumn: score_desvio_desempenho.CNPJ_FUNDO_CLASSE
 	toColumn: score_3_metrica_2.CNPJ_FUNDO_CLASSE
-
-relationship AutoDetected_7eb6d57e-a87c-4d45-86ea-1c4a53af3942
-	isActive: false
-	fromColumn: score_protecao_caixa.DENOM_SOCIAL
-	toColumn: Tabela.DENOM_SOCIAL
-
-relationship AutoDetected_e8ce3b1e-6fdd-4c39-9ea4-5e3ebcfa9be8
-	isActive: false
-	fromColumn: score_prazo_longo.DENOM_SOCIAL
-	toColumn: Tabela.DENOM_SOCIAL
-
-relationship AutoDetected_eda70d53-70af-4a1a-bd7d-b55e38367164
-	isActive: false
-	fromColumn: score_num_setores_ativos.DENOM_SOCIAL
-	toColumn: Tabela.DENOM_SOCIAL
-
-relationship AutoDetected_08341040-c1d1-4e0d-a5ca-c617b93dfd53
-	isActive: false
-	fromColumn: score_liquidez_curto_prazo.DENOM_SOCIAL
-	toColumn: Tabela.DENOM_SOCIAL
-
-relationship AutoDetected_45d70307-8b9e-4edc-a081-062e5e5393d5
-	isActive: false
-	fromColumn: score_desvio_desempenho.DENOM_SOCIAL
-	toColumn: Tabela.DENOM_SOCIAL
 
 relationship 83baa06a-5c68-4ed8-9823-b74d0b62be6e
 	joinOnDateBehavior: datePartOnly

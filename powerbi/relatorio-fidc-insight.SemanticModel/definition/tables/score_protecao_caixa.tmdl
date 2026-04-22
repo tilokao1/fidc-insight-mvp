@@ -55,15 +55,14 @@ table score_protecao_caixa
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
-	column metrica_protecao_caixa
+	column 'MEDIA GERAL DE PROTEÇÃO DE CAIXA'
 		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: c130e740-c789-407d-b6b6-0a2badbff8eb
 		summarizeBy: sum
-		sourceColumn: metrica_protecao_caixa
+		sourceColumn: MEDIA GERAL DE PROTEÇÃO DE CAIXA
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition score_protecao_caixa = m
 		mode: import
@@ -81,9 +80,14 @@ table score_protecao_caixa
 				    
 				    // Converte a resposta da API (JSON) em uma tabela legível
 				    Tabela = Table.FromRecords(Fonte),
-				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"DT_COMPTC", type date}, {"TAB_I1_VL_DISP", Currency.Type}, {"TAB_I_VL_ATIVO", Currency.Type}, {"metrica_protecao_caixa", Percentage.Type}})
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"DT_COMPTC", type date}, {"TAB_I1_VL_DISP", Currency.Type}, {"TAB_I_VL_ATIVO", Currency.Type}, {"metrica_protecao_caixa", Percentage.Type}}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Tipo Alterado",{{"metrica_protecao_caixa", "MEDIA GERAL DE PROTEÇÃO DE CAIXA"}}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Colunas Renomeadas", each [MEDIA GERAL DE PROTEÇÃO DE CAIXA] <> null and [MEDIA GERAL DE PROTEÇÃO DE CAIXA] <> ""),
+				    #"Linhas Filtradas1" = Table.SelectRows(#"Linhas Filtradas", each [MEDIA GERAL DE PROTEÇÃO DE CAIXA] > 0),
+				    #"Linhas Filtradas2" = Table.SelectRows(#"Linhas Filtradas1", each ([MEDIA GERAL DE PROTEÇÃO DE CAIXA] <> null and [MEDIA GERAL DE PROTEÇÃO DE CAIXA] <> "")),
+				    #"Linhas Filtradas3" = Table.SelectRows(#"Linhas Filtradas2", each [MEDIA GERAL DE PROTEÇÃO DE CAIXA] > 1E-05)
 				in
-				    #"Tipo Alterado"
+				    #"Linhas Filtradas3"
 				```
 
 	annotation PBI_NavigationStepName = Navegação

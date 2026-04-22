@@ -57,13 +57,12 @@ table score_liquidez_curto_prazo
 
 	column metrica_liquidez_curto_prazo
 		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: fd4a64af-7977-4b1c-b982-f6696fc7b75c
 		summarizeBy: sum
 		sourceColumn: metrica_liquidez_curto_prazo
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition score_liquidez_curto_prazo = m
 		mode: import
@@ -81,9 +80,10 @@ table score_liquidez_curto_prazo
 				    
 				    // Converte a resposta da API (JSON) em uma tabela legível
 				    Tabela = Table.FromRecords(Fonte),
-				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"DT_COMPTC", type date}, {"liquidez_curto_prazo", Currency.Type}, {"liquidez_total", Currency.Type}, {"metrica_liquidez_curto_prazo", Percentage.Type}})
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"DT_COMPTC", type date}, {"liquidez_curto_prazo", Currency.Type}, {"liquidez_total", Currency.Type}, {"metrica_liquidez_curto_prazo", Percentage.Type}}),
+				    #"Linhas Classificadas" = Table.Sort(#"Tipo Alterado",{{"metrica_liquidez_curto_prazo", Order.Descending}})
 				in
-				    #"Tipo Alterado"
+				    #"Linhas Classificadas"
 				```
 
 	annotation PBI_NavigationStepName = Navegação
