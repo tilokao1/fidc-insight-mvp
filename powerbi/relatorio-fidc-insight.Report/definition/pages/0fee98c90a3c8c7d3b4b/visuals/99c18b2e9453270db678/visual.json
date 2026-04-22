@@ -10,10 +10,10 @@
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "histogram42E8DF98F1244DB799B2A8A65DBCB226",
+    "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
-        "axis": {
+        "Category": {
           "projections": [
             {
               "field": {
@@ -32,7 +32,7 @@
             }
           ]
         },
-        "datavalues": {
+        "Y": {
           "projections": [
             {
               "field": {
@@ -47,16 +47,36 @@
                       "Property": "numero_setores_ativos"
                     }
                   },
-                  "Function": 5
+                  "Function": 1
                 }
               },
-              "queryRef": "CountNonNull(score_num_setores_ativos.numero_setores_ativos)",
-              "nativeQueryRef": "numero_setores_ativos"
+              "queryRef": "Avg(score_num_setores_ativos.numero_setores_ativos)",
+              "nativeQueryRef": "Média de numero_setores_ativos"
             }
           ]
         }
       },
       "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "score_num_setores_ativos"
+                      }
+                    },
+                    "Property": "numero_setores_ativos"
+                  }
+                },
+                "Function": 1
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
         "isDefaultSort": true
       }
     },
@@ -65,7 +85,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "9aa57a79a5e173ad61ea",
+        "name": "489d092a6b7b1911e240",
         "field": {
           "Column": {
             "Expression": {
@@ -79,7 +99,7 @@
         "type": "Categorical"
       },
       {
-        "name": "ce01894e982048c03d8b",
+        "name": "263e617f3017000861d7",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -92,7 +112,7 @@
                 "Property": "numero_setores_ativos"
               }
             },
-            "Function": 5
+            "Function": 1
           }
         },
         "type": "Advanced"

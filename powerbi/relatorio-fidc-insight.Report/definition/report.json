@@ -11,7 +11,7 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "AccessibleOrchid",
+      "name": "Divergent",
       "reportVersionAtImport": {
         "visual": "2.6.0",
         "report": "3.1.0",
@@ -64,8 +64,8 @@
           "type": "BaseTheme"
         },
         {
-          "name": "AccessibleOrchid",
-          "path": "BuiltInThemes/AccessibleOrchid.json",
+          "name": "Divergent",
+          "path": "BuiltInThemes/Divergent.json",
           "type": "CustomTheme"
         }
       ]
