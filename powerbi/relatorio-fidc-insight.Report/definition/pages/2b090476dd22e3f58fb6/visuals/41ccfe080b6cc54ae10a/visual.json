@@ -1,0 +1,308 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "41ccfe080b6cc54ae10a",
+  "position": {
+    "x": 0,
+    "y": 535.92705167173256,
+    "z": 1000,
+    "height": 183.82978723404256,
+    "width": 1280,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "score_3_metrica_1"
+                    }
+                  },
+                  "Property": "CNPJ_FUNDO_CLASSE"
+                }
+              },
+              "queryRef": "score_3_metrica_1.CNPJ_FUNDO_CLASSE",
+              "nativeQueryRef": "CNPJ_FUNDO_CLASSE",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "score_3_metrica_1"
+                        }
+                      },
+                      "Property": "HHI_Cedentes"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(score_3_metrica_1.HHI_Cedentes)",
+              "nativeQueryRef": "Soma de HHI_Cedentes",
+              "displayName": "CONCENTRAÇÃO DE CENDENTES"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "score_3_metrica_1"
+                        }
+                      },
+                      "Property": "score_100"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(score_3_metrica_1.score_100)",
+              "nativeQueryRef": "Soma de score_100",
+              "displayName": "PERCENTUAL DE SAUDE"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_3_metrica_1"
+                  }
+                },
+                "Property": "CNPJ_FUNDO_CLASSE"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "373.3456036559197D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "score_3_metrica_1.CNPJ_FUNDO_CLASSE"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "447.5771722707592D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(score_3_metrica_1.score_100)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "439.4075183329489D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(score_3_metrica_1.HHI_Cedentes)"
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            },
+            "fontColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9bf94a9d08e8a47d0c00",
+        "type": "Exclude",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "s",
+              "Entity": "score_3_metrica_1",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "s"
+                              }
+                            },
+                            "Property": "CNPJ_FUNDO_CLASSE"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'55.626.390/0001-00'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'50.823.781/0001-92'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'20.867.468/0001-95'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'51.124.933/0001-21'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'64.151.892/0001-04'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "Exclude"
+      },
+      {
+        "name": "05bc3ee4e76e7c1ca36e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_3_metrica_1"
+              }
+            },
+            "Property": "CNPJ_FUNDO_CLASSE"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f5fd006da8e833167ea8",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_3_metrica_1"
+                  }
+                },
+                "Property": "HHI_Cedentes"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4c6f24d91a499b377e58",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_3_metrica_1"
+                  }
+                },
+                "Property": "score_100"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

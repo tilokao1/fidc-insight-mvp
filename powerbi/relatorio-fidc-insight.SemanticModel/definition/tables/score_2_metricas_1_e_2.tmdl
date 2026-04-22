@@ -12,23 +12,21 @@ table score_2_metricas_1_e_2
 
 	column pct_curto_prazo
 		dataType: double
+		formatString: 0.00
 		lineageTag: 5a0a53fc-cd13-4533-a7c4-c7fe7f26acc1
-		summarizeBy: sum
+		summarizeBy: count
 		sourceColumn: pct_curto_prazo
 
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation SummarizationSetBy = User
 
 	column pct_longo_prazo
 		dataType: double
+		formatString: 0.00
 		lineageTag: c580c6f0-0bec-4663-b4a7-cd4f90189122
 		summarizeBy: sum
 		sourceColumn: pct_longo_prazo
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column PRAZO_PAGTO_RESGATE
 		dataType: double

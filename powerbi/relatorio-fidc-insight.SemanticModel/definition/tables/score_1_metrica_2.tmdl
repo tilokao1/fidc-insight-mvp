@@ -19,49 +19,70 @@ table score_1_metrica_2
 		annotation SummarizationSetBy = Automatic
 
 	column DT_COMPTC
-		dataType: string
+		dataType: dateTime
+		formatString: Long Date
 		lineageTag: 08ddcdd5-f9a9-434e-9d5e-cbd7bbf02929
 		summarizeBy: none
 		sourceColumn: DT_COMPTC
 
+		variation Variation
+			isDefault
+			relationship: d6df4628-c9a5-4972-a59c-9434c8c471b4
+			defaultHierarchy: LocalDateTable_536b4387-2915-4983-9d21-f22ecf7b5fc8.'Hierarquia de datas'
+
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column TAB_I2_VL_CARTEIRA
-		dataType: string
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
 		lineageTag: e15f46b6-18df-4c29-81b3-c354156a31e7
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: TAB_I2_VL_CARTEIRA
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
 	column TAB_I2A5_VL_CRED_VENCIDO_PENDENTE
-		dataType: string
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
 		lineageTag: 2d55bfed-a38f-4abd-a97f-1bf3833b3797
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: TAB_I2A5_VL_CRED_VENCIDO_PENDENTE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
 	column TAB_I2A6_VL_CRED_EMP_RECUP
-		dataType: string
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
 		lineageTag: fa22fefe-18cc-4a77-8ca2-4426ec2fb043
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: TAB_I2A6_VL_CRED_EMP_RECUP
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
 	column distressed_total
-		dataType: string
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
 		lineageTag: 8e01f132-790d-417d-b44e-b74be1ca692f
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: distressed_total
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
 	column metrica_1_2_estrategia_distressed
-		dataType: string
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 2896eda0-5060-4285-8744-5011c1c56998
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: metrica_1_2_estrategia_distressed
 
 		annotation SummarizationSetBy = Automatic
@@ -81,9 +102,12 @@ table score_1_metrica_2
 				    )),
 				    
 				    // Converte a resposta da API (JSON) em uma tabela legível
-				    Tabela = Table.FromRecords(Fonte)
+				    Tabela = Table.FromRecords(Fonte),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"DT_COMPTC", type date}, {"TAB_I2_VL_CARTEIRA", Currency.Type}, {"TAB_I2A5_VL_CRED_VENCIDO_PENDENTE", Currency.Type}}),
+				    #"Tipo Alterado com Localidade" = Table.TransformColumnTypes(#"Tipo Alterado", {{"TAB_I2_VL_CARTEIRA", type text}}, "pt-BR"),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Tipo Alterado com Localidade",{{"TAB_I2_VL_CARTEIRA", Currency.Type}, {"TAB_I2A6_VL_CRED_EMP_RECUP", Currency.Type}, {"distressed_total", Currency.Type}, {"metrica_1_2_estrategia_distressed", Percentage.Type}})
 				in
-				    Tabela
+				    #"Tipo Alterado1"
 				```
 
 	annotation PBI_NavigationStepName = Navegação

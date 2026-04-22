@@ -18,3 +18,23 @@ relationship 3613afbc-820d-47b2-b80a-7ea63b72dbee
 	fromColumn: score_3_metrica_2.DT_COMPTC
 	toColumn: LocalDateTable_9bab00e4-a332-40e7-9a9b-b71714f912d9.Date
 
+relationship d6df4628-c9a5-4972-a59c-9434c8c471b4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: score_1_metrica_2.DT_COMPTC
+	toColumn: LocalDateTable_536b4387-2915-4983-9d21-f22ecf7b5fc8.Date
+
+relationship b130f75f-731f-4ed3-b62a-f7bb577ab902
+	joinOnDateBehavior: datePartOnly
+	fromColumn: score_1_metrica_4.DT_COMPTC
+	toColumn: LocalDateTable_f12401ca-5abe-49a8-8d11-06719d1c196e.Date
+
+relationship 15222347-7ce9-4ceb-8838-e7e476434182
+	joinOnDateBehavior: datePartOnly
+	fromColumn: score_1_metrica_1.DT_COMPTC
+	toColumn: LocalDateTable_d6d10875-94ef-4472-9197-1bb1c297bd89.Date
+
+relationship 55d3fc3b-11ee-4f65-8f2c-d20a9390b31d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: score_1_metrica_3.DT_COMPTC
+	toColumn: LocalDateTable_9957131b-4e77-40ff-9008-562308e1a608.Date
+

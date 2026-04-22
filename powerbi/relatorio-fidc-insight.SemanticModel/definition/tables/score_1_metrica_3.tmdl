@@ -23,49 +23,66 @@ table score_1_metrica_3
 		annotation SummarizationSetBy = Automatic
 
 	column DT_COMPTC
-		dataType: string
+		dataType: dateTime
+		formatString: Long Date
 		lineageTag: 846924ea-6a4d-4e77-9d63-634bb337d771
 		summarizeBy: none
 		sourceColumn: DT_COMPTC
+
+		variation Variation
+			isDefault
+			relationship: 55d3fc3b-11ee-4f65-8f2c-d20a9390b31d
+			defaultHierarchy: LocalDateTable_9957131b-4e77-40ff-9008-562308e1a608.'Hierarquia de datas'
 
 		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column TAB_I2_VL_CARTEIRA
-		dataType: string
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
 		lineageTag: afe70278-807d-45e4-90d3-7d4fa5e030fb
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: TAB_I2_VL_CARTEIRA
 
 		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
 	column TAB_X_VL_GARANTIA_DIRCRED
-		dataType: string
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
 		lineageTag: 22a58166-c6e9-4cd6-b988-10cafbd89ec6
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: TAB_X_VL_GARANTIA_DIRCRED
 
 		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
 	column TAB_X_PR_GARANTIA_DIRCRED
-		dataType: string
+		dataType: double
 		lineageTag: 9968c757-2e4a-4b4c-9ca2-4e033daea86f
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: TAB_X_PR_GARANTIA_DIRCRED
 
 		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column metrica_1_3_nivel_garantia_coobrigacao
-		dataType: string
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: e41e0675-42e1-41ff-8866-9da25c56996b
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: metrica_1_3_nivel_garantia_coobrigacao
 
 		changedProperty = IsHidden
@@ -87,9 +104,10 @@ table score_1_metrica_3
 				    )),
 				    
 				    // Converte a resposta da API (JSON) em uma tabela legível
-				    Tabela = Table.FromRecords(Fonte)
+				    Tabela = Table.FromRecords(Fonte),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"DT_COMPTC", type date}, {"TAB_I2_VL_CARTEIRA", Currency.Type}, {"TAB_X_VL_GARANTIA_DIRCRED", Currency.Type}, {"TAB_X_PR_GARANTIA_DIRCRED", type number}, {"metrica_1_3_nivel_garantia_coobrigacao", Percentage.Type}})
 				in
-				    Tabela
+				    #"Tipo Alterado"
 				```
 
 	changedProperty = IsHidden

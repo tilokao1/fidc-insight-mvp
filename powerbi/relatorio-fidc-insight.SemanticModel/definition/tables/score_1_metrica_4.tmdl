@@ -19,33 +19,46 @@ table score_1_metrica_4
 		annotation SummarizationSetBy = Automatic
 
 	column DT_COMPTC
-		dataType: string
+		dataType: dateTime
+		formatString: Long Date
 		lineageTag: 3b65a8d1-a9f5-4add-b690-b640a417ac15
 		summarizeBy: none
 		sourceColumn: DT_COMPTC
 
+		variation Variation
+			isDefault
+			relationship: b130f75f-731f-4ed3-b62a-f7bb577ab902
+			defaultHierarchy: LocalDateTable_f12401ca-5abe-49a8-8d11-06719d1c196e.'Hierarquia de datas'
+
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column TAB_X_VL_RENTAB_MES
-		dataType: string
+		dataType: double
 		lineageTag: 89faad48-4146-4d7d-ab4b-82948428ea01
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: TAB_X_VL_RENTAB_MES
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column rentabilidade_absoluta
-		dataType: string
+		dataType: double
 		lineageTag: 5a096426-ace2-449c-ac86-e52c54003095
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: rentabilidade_absoluta
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column metrica_1_4_risco_oculto
-		dataType: string
+		dataType: double
+		formatString: 0.00
 		lineageTag: 24a8f0d9-d53e-403a-8deb-9f26c67750b9
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: metrica_1_4_risco_oculto
 
 		annotation SummarizationSetBy = Automatic
@@ -65,9 +78,10 @@ table score_1_metrica_4
 				    )),
 				    
 				    // Converte a resposta da API (JSON) em uma tabela legível
-				    Tabela = Table.FromRecords(Fonte)
+				    Tabela = Table.FromRecords(Fonte),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"DT_COMPTC", type date}, {"TAB_X_VL_RENTAB_MES", type number}, {"rentabilidade_absoluta", type number}, {"metrica_1_4_risco_oculto", Percentage.Type}})
 				in
-				    Tabela
+				    #"Tipo Alterado"
 				```
 
 	annotation PBI_NavigationStepName = Navegação

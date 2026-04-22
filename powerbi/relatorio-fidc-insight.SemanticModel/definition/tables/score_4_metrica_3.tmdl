@@ -19,25 +19,28 @@ table score_4_metrica_3
 		annotation SummarizationSetBy = Automatic
 
 	column cotistas_atual
-		dataType: string
+		dataType: int64
+		formatString: 0
 		lineageTag: c5e941cf-0884-49fc-b2a5-2ca7ab164e65
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: cotistas_atual
 
 		annotation SummarizationSetBy = Automatic
 
 	column cotistas_anterior
-		dataType: string
+		dataType: int64
+		formatString: 0
 		lineageTag: 369cfaeb-e63e-4511-bb6a-1ace0b5757cd
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: cotistas_anterior
 
 		annotation SummarizationSetBy = Automatic
 
 	column variacao_cotistas
-		dataType: string
+		dataType: int64
+		formatString: 0
 		lineageTag: a175ec5c-9366-4b7c-af78-55aa9c586e06
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: variacao_cotistas
 
 		annotation SummarizationSetBy = Automatic
@@ -57,9 +60,10 @@ table score_4_metrica_3
 				    )),
 				    
 				    // Converte a resposta da API (JSON) em uma tabela legível
-				    Tabela = Table.FromRecords(Fonte)
+				    Tabela = Table.FromRecords(Fonte),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"cotistas_atual", Int64.Type}, {"cotistas_anterior", Int64.Type}, {"variacao_cotistas", Int64.Type}})
 				in
-				    Tabela
+				    #"Tipo Alterado"
 				```
 
 	annotation PBI_NavigationStepName = Navegação
