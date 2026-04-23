@@ -23,3 +23,27 @@ relationship b92f0974-9279-4bad-8054-9e04b7dfd4dc
 	fromColumn: score_desvio_desempenho.DT_COMPTC
 	toColumn: LocalDateTable_36a5c769-a85d-43c7-a15c-982db57ca7b2.Date
 
+relationship 6dffa9d2-b40d-fe8c-5579-ed820469acf9
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: score_desvio_desempenho.DENOM_SOCIAL
+	toColumn: score_liquidez_curto_prazo.DENOM_SOCIAL
+
+relationship 36391176-be74-79f4-edf7-fe8c4c3f7817
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: score_desvio_desempenho.DENOM_SOCIAL
+	toColumn: score_num_setores_ativos.DENOM_SOCIAL
+
+relationship 7fe6d336-4da9-dae9-2885-1465a8a58ca6
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: score_desvio_desempenho.DENOM_SOCIAL
+	toColumn: score_prazo_longo.DENOM_SOCIAL
+
+relationship 2a55e13c-f97e-af3f-4762-8e0a92dd496c
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: score_desvio_desempenho.desvio_desempenho
+	toColumn: score_protecao_caixa.DENOM_SOCIAL
+

@@ -42,8 +42,6 @@ table score_num_setores_ativos
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isDecimal":true}
-
 	partition score_num_setores_ativos = m
 		mode: import
 		source = ```

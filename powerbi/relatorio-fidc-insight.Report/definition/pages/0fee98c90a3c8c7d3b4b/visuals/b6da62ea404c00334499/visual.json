@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "b6da62ea404c00334499",
   "position": {
     "x": 784.8552511415528,
@@ -28,13 +28,12 @@
                       "Property": "numero_setores_ativos"
                     }
                   },
-                  "Function": 1
+                  "Function": 5
                 }
               },
               "queryRef": "CountNonNull(score_num_setores_ativos.numero_setores_ativos)",
-              "nativeQueryRef": "Média Numero Setores Ativos",
-              "displayName": "Média Numero Setores Ativos",
-              "format": "0.00%;-0.00%;0.00%"
+              "nativeQueryRef": "Contagem de numero_setores_ativos1",
+              "displayName": "Média Numero Setores Ativos"
             }
           ]
         }
@@ -54,7 +53,7 @@
                     "Property": "numero_setores_ativos"
                   }
                 },
-                "Function": 1
+                "Function": 5
               }
             },
             "direction": "Descending"

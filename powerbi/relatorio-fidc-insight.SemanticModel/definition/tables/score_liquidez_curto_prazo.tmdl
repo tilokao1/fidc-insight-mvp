@@ -40,7 +40,7 @@ table score_liquidez_curto_prazo
 		summarizeBy: sum
 		sourceColumn: liquidez_curto_prazo
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
@@ -59,10 +59,10 @@ table score_liquidez_curto_prazo
 		dataType: double
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: fd4a64af-7977-4b1c-b982-f6696fc7b75c
-		summarizeBy: sum
+		summarizeBy: average
 		sourceColumn: metrica_liquidez_curto_prazo
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	partition score_liquidez_curto_prazo = m
 		mode: import

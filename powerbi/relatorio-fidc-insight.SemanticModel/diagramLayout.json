@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 3393,
+        "x": 3549,
         "y": 0
       },
       "nodes": [
@@ -19,7 +19,7 @@
             "height": 248,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 5
         },
         {
           "location": {
@@ -32,7 +32,7 @@
             "height": 224,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
         },
         {
           "location": {
@@ -45,7 +45,7 @@
             "height": 176,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 2
         },
         {
           "location": {
@@ -58,7 +58,7 @@
             "height": 224,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 3
         },
         {
           "location": {
@@ -71,7 +71,7 @@
             "height": 224,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 4
         }
       ],
       "name": "Todas as tabelas",

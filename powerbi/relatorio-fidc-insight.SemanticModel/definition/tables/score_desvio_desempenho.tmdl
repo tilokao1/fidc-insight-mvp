@@ -56,7 +56,7 @@ table score_desvio_desempenho
 	column desvio_desempenho
 		dataType: double
 		lineageTag: ba23ec9d-208a-4ffe-97c5-bbe6e6b9d2c6
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: desvio_desempenho
 
 		annotation SummarizationSetBy = Automatic
