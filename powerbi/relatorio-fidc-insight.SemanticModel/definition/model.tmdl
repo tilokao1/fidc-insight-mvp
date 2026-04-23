@@ -8,29 +8,16 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["score_2_metricas_1_e_2","score_3_metrica_1","score_3_metrica_2","score_4_metrica_1","score_4_metrica_2","score_4_metrica_3","INFORME MENSAL FIDC TAB","score_protecao_caixa","score_prazo_longo","score_num_setores_ativos","score_liquidez_curto_prazo","score_desvio_desempenho"]
+annotation PBI_QueryOrder = ["score_protecao_caixa","score_prazo_longo","score_num_setores_ativos","score_liquidez_curto_prazo","score_desvio_desempenho"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
-ref table score_2_metricas_1_e_2
-ref table score_3_metrica_1
-ref table score_3_metrica_2
-ref table score_4_metrica_1
-ref table score_4_metrica_2
-ref table score_4_metrica_3
 ref table DateTableTemplate_7a9ce246-7d19-4afd-bc6a-556fe932b15e
-ref table LocalDateTable_7dc594b5-7183-40fb-bf94-b1021cc35886
-ref table LocalDateTable_b7ba6510-d466-44da-9a5b-c499f005d4d8
-ref table LocalDateTable_4adcf974-f005-4cd3-99cd-2ed69f435faf
-ref table LocalDateTable_9bab00e4-a332-40e7-9a9b-b71714f912d9
-ref table LocalDateTable_6c08f687-31eb-4413-816c-364a42cc0877
-ref table 'INFORME MENSAL FIDC TAB'
 ref table score_protecao_caixa
 ref table score_prazo_longo
 ref table score_num_setores_ativos
 ref table score_liquidez_curto_prazo
 ref table score_desvio_desempenho
-ref table LocalDateTable_32a1de11-491d-424a-a8cf-8071dc434f5a
 ref table LocalDateTable_af00cb5b-9b77-4e37-a0c9-62e275be4346
 ref table LocalDateTable_aa39cf99-27b4-4943-a694-09925df6b897
 ref table LocalDateTable_5669a06f-abeb-4050-8e66-05c8d0967a7b

@@ -35,13 +35,14 @@ table score_num_setores_ativos
 
 	column numero_setores_ativos
 		dataType: int64
+		formatString: 0
 		lineageTag: fbe5e343-2a7d-4392-a8c9-f0695370cc8c
 		summarizeBy: none
 		sourceColumn: numero_setores_ativos
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"isDecimal":true}
 
 	partition score_num_setores_ativos = m
 		mode: import

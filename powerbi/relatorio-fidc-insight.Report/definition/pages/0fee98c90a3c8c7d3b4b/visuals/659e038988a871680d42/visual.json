@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
-  "name": "55ca6f56c5ed3097e82d",
+  "name": "659e038988a871680d42",
   "position": {
-    "x": 625,
+    "x": 750.4,
     "y": 0,
-    "z": 2000,
-    "height": 360,
-    "width": 635,
-    "tabOrder": 2000
+    "z": 10000,
+    "height": 67.2,
+    "width": 249.6,
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,16 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "score_4_metrica_3"
+                      "Entity": "score_desvio_desempenho"
                     }
                   },
                   "Property": "DT_COMPTC"
                 }
               },
-              "queryRef": "score_4_metrica_3.DT_COMPTC",
+              "queryRef": "score_desvio_desempenho.DT_COMPTC",
               "nativeQueryRef": "DT_COMPTC",
-              "active": true,
-              "format": "d"
+              "active": true
             }
           ]
         }
@@ -41,7 +40,7 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "score_4_metrica_3"
+                    "Entity": "score_desvio_desempenho"
                   }
                 },
                 "Property": "DT_COMPTC"
@@ -60,17 +59,63 @@
             "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'Basic'"
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
           }
         }
       ],
-      "general": [
+      "background": [
         {
           "properties": {
-            "orientation": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F4F4F4'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "width": {
               "expr": {
                 "Literal": {
                   "Value": "1D"
@@ -80,27 +125,28 @@
           }
         }
       ],
-      "selection": [
+      "visualHeader": [
         {
           "properties": {
-            "strictSingleSelect": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F4F4F4'"
+                    }
+                  }
                 }
               }
             },
-            "singleSelect": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "selectAllCheckboxEnabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+            "border": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F4F4F4'"
+                    }
+                  }
                 }
               }
             }

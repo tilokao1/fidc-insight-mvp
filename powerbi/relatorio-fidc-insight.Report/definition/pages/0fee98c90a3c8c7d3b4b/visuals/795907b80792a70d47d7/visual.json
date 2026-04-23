@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "795907b80792a70d47d7",
   "position": {
     "x": 0,
-    "y": 474.65045592705167,
-    "z": 5000,
-    "height": 245.10638297872342,
+    "y": 531.2,
+    "z": 4000,
+    "height": 244.8,
     "width": 640,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "tableEx",
@@ -93,24 +93,37 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Column": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "score_prazo_longo"
-                      }
-                    },
-                    "Property": "metrica_prazo_longo"
+                  "SourceRef": {
+                    "Entity": "score_prazo_longo"
                   }
                 },
-                "Function": 0
+                "Property": "DENOM_SOCIAL"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "395D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "score_prazo_longo.DENOM_SOCIAL"
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   }

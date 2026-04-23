@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
-  "name": "9c35ed0d177536320e82",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "13b06dd3c25d0e428d40",
   "position": {
-    "x": 0,
-    "y": 1.25,
-    "z": 3000,
-    "height": 357.5,
-    "width": 625,
-    "tabOrder": 3000
+    "x": 1024,
+    "y": 0,
+    "z": 11000,
+    "height": 67.2,
+    "width": 270.4,
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,35 +20,21 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "score_4_metrica_1"
+                      "Entity": "score_desvio_desempenho"
                     }
                   },
-                  "Property": "DT_COMPTC"
+                  "Property": "DENOM_SOCIAL"
                 }
               },
-              "queryRef": "score_4_metrica_1.DT_COMPTC",
-              "nativeQueryRef": "DT_COMPTC",
-              "active": true
+              "queryRef": "score_desvio_desempenho.DENOM_SOCIAL",
+              "nativeQueryRef": "Denominação Social",
+              "active": true,
+              "displayName": "Denominação Social"
             }
           ]
         }
       },
       "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "score_4_metrica_1"
-                  }
-                },
-                "Property": "DT_COMPTC"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ],
         "isDefaultSort": true
       }
     },
@@ -59,7 +45,7 @@
             "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'Basic'"
+                  "Value": "'Dropdown'"
                 }
               }
             }
@@ -69,20 +55,13 @@
       "general": [
         {
           "properties": {
-            "orientation": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            },
             "filter": {
               "filter": {
                 "Version": 2,
                 "From": [
                   {
                     "Name": "s",
-                    "Entity": "score_4_metrica_1",
+                    "Entity": "score_desvio_desempenho",
                     "Type": 0
                   }
                 ],
@@ -98,7 +77,7 @@
                                   "Source": "s"
                                 }
                               },
-                              "Property": "DT_COMPTC"
+                              "Property": "DENOM_SOCIAL"
                             }
                           }
                         ],
@@ -106,7 +85,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "datetime'2025-05-31T00:00:00'"
+                                "Value": "'AIMORES FIDC-NP - RESPONSABILIDADE LIMITADA'"
                               }
                             }
                           ]
@@ -115,33 +94,6 @@
                     }
                   }
                 ]
-              }
-            }
-          }
-        }
-      ],
-      "selection": [
-        {
-          "properties": {
-            "strictSingleSelect": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "singleSelect": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "selectAllCheckboxEnabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
               }
             }
           }
