@@ -55,14 +55,6 @@ def calcular_score_4():
         # --- MÉTRICA 4.3: Confiança do Mercado (Variação de Cotistas) ---
         print("Calculando Métrica 4.3...")
 
-        # PROBLEMA DO SCRIPT ANTERIOR:
-        # A tabela inf_mensal_fidc_tab_X_1 tem UMA LINHA POR CLASSE/SÉRIE.
-        # Um fundo com 3 séries gera 3 linhas no mesmo CNPJ+mês.
-        # Aplicar LAG() direto nessas linhas faz o banco comparar
-        # a Série Sênior de um mês com a Série Subordinada do mesmo mês
-        # → duplicatas por CNPJ+data, variações invertidas (ex: +31 e -31).
-        #
-        # SOLUÇÃO:
         # Passo 1 — agregar (SUM) cotistas por CNPJ+mês dentro de uma CTE,
         #           garantindo 1 linha por CNPJ+mês antes de qualquer LAG.
         # Passo 2 — buscar DENOM_SOCIAL via subconsulta (primeiro valor por CNPJ).
@@ -70,8 +62,7 @@ def calcular_score_4():
 
         query_43 = """
         WITH cotistas_agregados AS (
-            -- Soma os cotistas de TODAS as classes/séries do fundo no mesmo mês,
-            -- eliminando as duplicatas que causavam os resultados errados.
+            -- Soma os cotistas de TODAS as classes/séries do fundo no mesmo mês.
             SELECT
                 "CNPJ_FUNDO_CLASSE",
                 "DT_COMPTC",
