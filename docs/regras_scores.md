@@ -64,13 +64,8 @@ Mede o risco da gestão do fundo e da sua estrutura de capital.
 **Cáculo:** Percentual_Subordinação = (PL_Classes_Protetoras / PL_Total_Fundo) * 100
 Onde: PL_Classes_Protetoras = A soma da multiplicação (tab_X_2.TAB_X_QT_COTA * tab_X_2.TAB_X_VL_COTA) apenas para as linhas onde a coluna TAB_X_CLASSE_SERIE contiver as palavras "Subordinada" ou "Mezanino". PL_Total_Fundo = tab_IV.TAB_IV_A_VL_PL (Patrimônio Líquido Total).
 
-#### Métrica 4.2: Alinhamento do Gestor
-**Conceito:** O gestor está concentrando o risco do fundo comprando créditos de uma única empresa (possível conflito de interesse/favorecimento)?
-**Tabelas:**  inf_mensal_fidc_tab_VII (Encargos e Concentrações) e inf_mensal_fidc_tab_IV (PL).
-**Cáculo:** (Tabela VII.TAB_VII_B1_2_VL_CEDENTE / tab_IV.TAB_IV_A_VL_PL) * 100
-Se o resultado for maior que 20% (Regra padrão da CVM para fundos pulverizados), então "ALERTA - Alta Concentração", senão "OK".
-
 #### Métrica 4.3: Alinhamento do Gestor
 **Conceito:** O fundo está ganhando ou perdendo investidores (cotistas)?
 **Tabelas:**  inf_mensal_fidc_tab_X_1
-**Cáculo:** Variacao_Cotistas = (tab_X_1.TAB_X_NR_COTST[Mês Atual] - tab_X_1.TAB_X_NR_COTST[Mês Anterior]) (Análise de série temporal)
+**Cáculo:** Variacao_Cotistas = SUM(TAB_X_NR_COTST)[Mês Atual] - SUM(TAB_X_NR_COTST)[Mês Anterior]
+Observação: Como a tabela registra uma linha por classe/série do fundo, o número de cotistas é somado por CNPJ + mês antes da comparação temporal. O LAG() é aplicado sobre esse total consolidado, garantindo que a variação reflita o fundo como um todo e não comparações entre séries distintas.
