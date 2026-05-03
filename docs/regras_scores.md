@@ -68,4 +68,12 @@ Onde: PL_Classes_Protetoras = A soma da multiplicação (tab_X_2.TAB_X_QT_COTA *
 **Conceito:** O fundo está ganhando ou perdendo investidores (cotistas)?
 **Tabelas:**  inf_mensal_fidc_tab_X_1
 **Cáculo:** Variacao_Cotistas = SUM(TAB_X_NR_COTST)[Mês Atual] - SUM(TAB_X_NR_COTST)[Mês Anterior]
-Observação: Como a tabela registra uma linha por classe/série do fundo, o número de cotistas é somado por CNPJ + mês antes da comparação temporal. O LAG() é aplicado sobre esse total consolidado, garantindo que a variação reflita o fundo como um todo e não comparações entre séries distintas.
+**Observação:** Como a tabela registra uma linha por classe/série do fundo, o número de cotistas é somado por CNPJ + mês antes da comparação temporal. O LAG() é aplicado sobre esse total consolidado, garantindo que a variação reflita o fundo como um todo e não comparações entre séries distintas.
+
+#### Verificação de Administradores com Processo Sancionador 
+**Conceito:** Quais Administradores estão com processos Sancionadores na CVM(Comissão de Valores Mobiliários) ?
+**Tabelas:**  inf_mensal_fidc_tab_I e inf_mensal_fidc_tab_IV
+**Consulta Externa:**  https://sistemas.cvm.gov.br/asp/cvmwww/inqueritos/formbuscapas.asp
+**Cálculo:** Filtram-se os dados bancários pela data de competência (DT_COMPTC) mais recente, unindo as Tabelas I e IV. Isola-se um array contendo apenas os CNPJs únicos dos Administradores, garantindo que o processamento seja feito por entidade e não por fundo. Realiza-se uma requisição HTTP (POST) no formulário da CVM para cada CNPJ único. O algoritmo faz o parsing (leitura) da estrutura HTML retornada e contabiliza a quantidade de linhas presentes na tabela de resultados da CVM. O valor absoluto total é mapeado de volta para o banco de dados na coluna de volumetria QTD_PROC_CVM, atrelando o risco a todos os fundos sob o guarda-chuva daquele administrador.
+**Observação:** Tratamento de Firewall: A extração externa exige a injeção de um Header de User-Agent (simulando um navegador real) e delays estratégicos (pausas de ~1.5s a 2s entre consultas) para evitar que o WAF do governo bloqueie o IP da aplicação com erros de rede (ex: Errno 101: Network is unreachable).
+O mapeamento em memória por CNPJs únicos evita requisições redundantes, reduzindo o tempo de processamento em banco de horas para poucos minutos.
