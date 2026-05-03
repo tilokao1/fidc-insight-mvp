@@ -68,9 +68,13 @@ jobs:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
       run: python scripts/metricas_score_4.py
 
+    - name: 12. Executar Script de Verificação de Processos Sancionadores
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      run: python scripts/metrica_score_admin_process.py
+
     # Retirada momentaneamente do script de metricas para ajuste de performance. Irá retornar posteriormente.
     # - name: 8. Executar Scripts de Métricas - Módulo 2 "Performance & Value Analyzer"; Matriz de Risco vs. Retorno.
     #   env:
     #     DATABASE_URL: ${{ secrets.DATABASE_URL }}
     #   run: python scripts/risco_retorno_ranking.py
-    
