@@ -2,6 +2,7 @@ import os
 import time
 import requests
 import pandas as pd
+import io
 from sqlalchemy import create_engine
 from sqlalchemy.pool import NullPool
 
@@ -25,7 +26,7 @@ def buscar_qtd_processos_cvm(cnpj):
         response.raise_for_status()
         
         # Tenta ler as tabelas HTML da página de resposta
-        tabelas = pd.read_html(response.text)
+        tabelas = pd.read_html(io.StringIO(response.text))
         
         if tabelas:
             # Em páginas legadas ASP, a tabela de resultados costuma ser a última
