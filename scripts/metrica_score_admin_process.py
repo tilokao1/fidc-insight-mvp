@@ -18,11 +18,13 @@ def buscar_qtd_processos_cvm(cnpj):
         "txtDocIndiciado": cnpj
     }
     headers = {
-        "Content-Type": "application/x-www-form-urlencoded"
+        "Content-Type": "application/x-www-form-urlencoded",
+        # O User-Agent disfarça o script de Python como se fosse um Google Chrome no Windows
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     }
     
     try:
-        response = requests.post(URL_CVM_ACTION, data=payload, headers=headers, timeout=15)
+        response = requests.post(URL_CVM_ACTION, data=payload, headers=headers, timeout=20)
         response.raise_for_status()
         
         # Tenta ler as tabelas HTML da página de resposta
