@@ -31,4 +31,4 @@ jobs:
     - name: 11. Executar Scripts de Métricas - Score 4
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      run: python scripts/metricas_score_4.py
+      run: python scripts/metrica_score_admin_process.py
