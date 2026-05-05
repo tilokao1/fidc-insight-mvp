@@ -1,3 +1,6 @@
+# Importa o módulo os, usado para acessar variáveis de ambiente
+import os
+
 # Importa a biblioteca pandas, usada para manipulação e análise de dados em formato de tabela
 import pandas as pd
 
@@ -14,16 +17,16 @@ import numpy as np
 # Exibe uma mensagem no terminal indicando o início da execução da métrica
 print("🚀 Iniciando Métrica - Proteção de Caixa...")
 
+# URL do banco vinda do Secret do GitHub
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 # Cria a conexão com o banco usando a URL armazenada em variável de ambiente
 engine = create_engine(
-DATABASE_URL,
-poolclass=NullPool,
-)
-    # Define que a conexão não usará pool persistente
+    DATABASE_URL,
     poolclass=NullPool,
 )
 
+def calcular_e_salvar_protecao_caixa(conexao_engine):
     # Query SQL que seleciona as colunas necessárias da tabela de informações mensais dos FIDCs
     query = '''
     SELECT
