@@ -4,7 +4,7 @@ from sqlalchemy.pool import NullPool
 import os
 from dotenv import load_dotenv
 
-print("🚀 Iniciando Score Setorial (versão BI)...")
+print("🚀 Iniciando Score Setorial (versão final)...")
 
 load_dotenv()
 
@@ -15,96 +15,109 @@ engine = create_engine(
 
 def calcular_e_salvar_score_setorial(conexao_engine):
 
-    df_tab2 = pd.read_sql_query('SELECT * FROM "inf_mensal_fidc_tab_II"', conexao_engine)
+    # =========================
+    # 1. LEITURA
+    # =========================
+    df = pd.read_sql_query('SELECT * FROM "inf_mensal_fidc_tab_II"', conexao_engine)
 
-    if df_tab2.empty:
-        print("Erro: tabela vazia.")
+    if df.empty:
+        print("❌ Nenhum dado encontrado.")
         return
 
-    data_recente = df_tab2['DT_COMPTC'].max()
-    df_tab2 = df_tab2[df_tab2['DT_COMPTC'] == data_recente]
+    data_recente = df["DT_COMPTC"].max()
+    df = df[df["DT_COMPTC"] == data_recente]
 
-    colunas_id = ['CNPJ_FUNDO_CLASSE', 'DT_COMPTC']
+    print(f"📅 Processando competência: {data_recente}")
+
+    # =========================
+    # 2. IDENTIFICAR COLUNAS
+    # =========================
+    colunas_id = ["CNPJ_FUNDO_CLASSE", "DT_COMPTC"]
+
     colunas_remover = [
-        'TAB_II_VL_CARTEIRA',
-        'TAB_II_C_VL_COMERC',
-        'TAB_II_D_VL_SERV',
-        'TAB_II_F_VL_FINANC',
-        'TAB_II_H_VL_FACTOR',
-        'TAB_II_I_VL_SETOR_PUBLICO'
+        "TAB_II_VL_CARTEIRA",
+        "TAB_II_C_VL_COMERC",
+        "TAB_II_D_VL_SERV",
+        "TAB_II_F_VL_FINANC",
+        "TAB_II_H_VL_FACTOR",
+        "TAB_II_I_VL_SETOR_PUBLICO"
     ]
 
     colunas_setores = [
-        col for col in df_tab2.columns
-        if col.startswith('TAB_II_') and col not in colunas_remover
+        col for col in df.columns
+        if col.startswith("TAB_II_") and col not in colunas_remover
     ]
 
     # =========================
-    # UNPIVOT
+    # 3. UNPIVOT
     # =========================
-    df_unpivot = pd.melt(
-        df_tab2,
+    df_long = pd.melt(
+        df,
         id_vars=colunas_id,
         value_vars=colunas_setores,
-        var_name='setor',
-        value_name='valor'
+        var_name="setor",
+        value_name="valor"
     )
 
-    df_unpivot = df_unpivot.fillna(0)
-    df_unpivot = df_unpivot[df_unpivot['valor'] > 0]
+    df_long["valor"] = pd.to_numeric(df_long["valor"], errors="coerce")
+    df_long = df_long.dropna(subset=["valor"])
+    df_long = df_long[df_long["valor"] > 0]
 
     # =========================
-    # SHARE (0–1)
+    # 4. NORMALIZAÇÃO
     # =========================
-    df_unpivot['total_fundo'] = df_unpivot.groupby('CNPJ_FUNDO_CLASSE')['valor'].transform('sum')
-    df_unpivot['share'] = df_unpivot['valor'] / df_unpivot['total_fundo']
+    df_long["total_fundo"] = df_long.groupby("CNPJ_FUNDO_CLASSE")["valor"].transform("sum")
+
+    df_long["share"] = df_long["valor"] / df_long["total_fundo"]
 
     # =========================
-    # HHI
+    # 5. HHI
     # =========================
-    df_unpivot['quadrado'] = df_unpivot['share'] ** 2
+    df_long["quadrado"] = df_long["share"] ** 2
 
-    df_score = df_unpivot.groupby(
-        ['CNPJ_FUNDO_CLASSE', 'DT_COMPTC']
-    )['quadrado'].sum().reset_index()
+    df_score = df_long.groupby(
+        ["CNPJ_FUNDO_CLASSE", "DT_COMPTC"]
+    )["quadrado"].sum().reset_index()
 
-    df_score.rename(columns={'quadrado': 'HHI_Setorial'}, inplace=True)
-
-    # =========================
-    # SCORE
-    # =========================
-    df_score['score_setorial'] = (1 - df_score['HHI_Setorial']) * 10
-    df_score['score_setorial'] = df_score['score_setorial'].clip(0, 10)
+    df_score.rename(columns={"quadrado": "HHI_Setorial"}, inplace=True)
 
     # =========================
-    # MÉTRICAS EXPLICATIVAS
+    # 6. SCORE
     # =========================
+    df_score["score_setorial"] = (1 - df_score["HHI_Setorial"]) * 10
+    df_score["score_setorial"] = df_score["score_setorial"].clip(0, 10)
 
-    # qtd setores
-    qtd = df_unpivot.groupby('CNPJ_FUNDO_CLASSE')['setor'].count().reset_index()
-    qtd.rename(columns={'setor': 'qtd_setores'}, inplace=True)
+    df_score["score_100"] = df_score["score_setorial"] * 10
+
+    # =========================
+    # 7. MÉTRICAS EXPLICATIVAS
+    # =========================
 
     # maior setor
-    max_setor = df_unpivot.groupby('CNPJ_FUNDO_CLASSE')['share'].max().reset_index()
-    max_setor.rename(columns={'share': 'maior_setor'}, inplace=True)
+    maior = df_long.groupby("CNPJ_FUNDO_CLASSE")["share"].max().reset_index()
+    maior.rename(columns={"share": "maior_setor"}, inplace=True)
 
-    # top 3
+    # top 3 setores
     top3 = (
-        df_unpivot.sort_values(['CNPJ_FUNDO_CLASSE', 'share'], ascending=False)
-        .groupby('CNPJ_FUNDO_CLASSE')
+        df_long.sort_values(["CNPJ_FUNDO_CLASSE", "share"], ascending=False)
+        .groupby("CNPJ_FUNDO_CLASSE")
         .head(3)
     )
 
-    top3_sum = top3.groupby('CNPJ_FUNDO_CLASSE')['share'].sum().reset_index()
-    top3_sum.rename(columns={'share': 'top3_setores'}, inplace=True)
+    top3_sum = top3.groupby("CNPJ_FUNDO_CLASSE")["share"].sum().reset_index()
+    top3_sum.rename(columns={"share": "top3_setores"}, inplace=True)
 
     # merge
-    df_score = df_score.merge(qtd, on='CNPJ_FUNDO_CLASSE')
-    df_score = df_score.merge(max_setor, on='CNPJ_FUNDO_CLASSE')
-    df_score = df_score.merge(top3_sum, on='CNPJ_FUNDO_CLASSE')
+    df_score = df_score.merge(maior, on="CNPJ_FUNDO_CLASSE")
+    df_score = df_score.merge(top3_sum, on="CNPJ_FUNDO_CLASSE")
 
     # =========================
-    # CLASSIFICAÇÃO
+    # 8. CAMPOS PRO BI
+    # =========================
+    df_score["concentracao_top1_pct"] = df_score["maior_setor"] * 100
+
+    # =========================
+    # 9. CLASSIFICAÇÃO
     # =========================
     def classificar(score):
         if score >= 8:
@@ -114,10 +127,10 @@ def calcular_e_salvar_score_setorial(conexao_engine):
         else:
             return "Baixa Diversificação"
 
-    df_score['classificacao'] = df_score['score_setorial'].apply(classificar)
+    df_score["classificacao"] = df_score["score_setorial"].apply(classificar)
 
     # =========================
-    # SALVAR PRINCIPAL
+    # 10. SALVAR
     # =========================
     df_score.to_sql(
         "score_3_metrica_2",
@@ -126,19 +139,26 @@ def calcular_e_salvar_score_setorial(conexao_engine):
         index=False
     )
 
-    # =========================
-    # TABELA DETALHE (BI)
-    # =========================
-    df_unpivot.to_sql(
+    # tabela detalhe (igual cedentes)
+    df_long.to_sql(
         "score_3_metrica_2_detalhe",
         conexao_engine,
         if_exists="replace",
         index=False
     )
 
-    print("✅ Score setorial pronto para BI!")
+    # índice
+    with conexao_engine.begin() as conn:
+        conn.execute(text(
+            'CREATE INDEX IF NOT EXISTS idx_setorial_cnpj ON "score_3_metrica_2" ("CNPJ_FUNDO_CLASSE");'
+        ))
 
+    print("✅ Score setorial final salvo no Supabase!")
+
+# =========================
+# EXECUÇÃO
+# =========================
 try:
     calcular_e_salvar_score_setorial(engine)
 except Exception as e:
-    print(f"Erro: {e}")
+    print(f"❌ Erro: {e}")
