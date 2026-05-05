@@ -4,7 +4,7 @@ from sqlalchemy.pool import NullPool
 import os
 from dotenv import load_dotenv
 
-print("🚀 Iniciando Score de Cedentes (versão BI)...")
+print("🚀 Iniciando Score de Cedentes (versão final definitiva)...")
 
 load_dotenv()
 
@@ -33,16 +33,21 @@ df_long = df.melt(
     value_name="participacao"
 )
 
-df_long = df_long.dropna()
 df_long["participacao"] = pd.to_numeric(df_long["participacao"], errors="coerce")
 df_long = df_long.dropna(subset=["participacao"])
 df_long = df_long[df_long["participacao"] > 0]
 
-# 🔥 CONVERSÃO PRA PROPORÇÃO (0–1)
-df_long["share"] = df_long["participacao"] / 100
+# =========================
+# 3. NORMALIZAÇÃO (CRÍTICO)
+# =========================
+df_long["total_participacao"] = df_long.groupby(
+    ["CNPJ_FUNDO_CLASSE"]
+)["participacao"].transform("sum")
+
+df_long["share"] = df_long["participacao"] / df_long["total_participacao"]
 
 # =========================
-# 3. HHI
+# 4. HHI
 # =========================
 df_long["quadrado"] = df_long["share"] ** 2
 
@@ -53,19 +58,17 @@ df_score = df_long.groupby(
 df_score.rename(columns={"quadrado": "HHI_Cedentes"}, inplace=True)
 
 # =========================
-# 4. SCORE (0–10)
+# 5. SCORE
 # =========================
 df_score["score_cedentes"] = (1 - df_score["HHI_Cedentes"]) * 10
 df_score["score_cedentes"] = df_score["score_cedentes"].clip(0, 10)
+
+# ✔ CORREÇÃO AQUI
 df_score["score_100"] = df_score["score_cedentes"] * 10
 
 # =========================
-# 5. MÉTRICAS EXPLICATIVAS
+# 6. MÉTRICAS EXPLICATIVAS
 # =========================
-
-# qtd cedentes
-qtd = df_long.groupby("CNPJ_FUNDO_CLASSE")["cedente"].count().reset_index()
-qtd.rename(columns={"cedente": "qtd_cedentes"}, inplace=True)
 
 # maior cedente
 max_ced = df_long.groupby("CNPJ_FUNDO_CLASSE")["share"].max().reset_index()
@@ -81,13 +84,17 @@ top3 = (
 top3_sum = top3.groupby("CNPJ_FUNDO_CLASSE")["share"].sum().reset_index()
 top3_sum.rename(columns={"share": "top3_share"}, inplace=True)
 
-# merge tudo
-df_score = df_score.merge(qtd, on="CNPJ_FUNDO_CLASSE")
+# merge
 df_score = df_score.merge(max_ced, on="CNPJ_FUNDO_CLASSE")
 df_score = df_score.merge(top3_sum, on="CNPJ_FUNDO_CLASSE")
 
 # =========================
-# 6. CLASSIFICAÇÃO
+# 7. CAMPOS EXTRA PRO BI
+# =========================
+df_score["concentracao_top1_pct"] = df_score["maior_cedente"] * 100
+
+# =========================
+# 8. CLASSIFICAÇÃO
 # =========================
 def classificar(score):
     if score >= 8:
@@ -100,7 +107,7 @@ def classificar(score):
 df_score["classificacao"] = df_score["score_cedentes"].apply(classificar)
 
 # =========================
-# 7. SALVAR TABELA PRINCIPAL
+# 9. SALVAR PRINCIPAL
 # =========================
 df_score.to_sql(
     "score_3_metrica_1",
@@ -110,7 +117,7 @@ df_score.to_sql(
 )
 
 # =========================
-# 8. TABELA GRANULAR (PRO BI)
+# 10. TABELA DETALHE
 # =========================
 df_long.to_sql(
     "score_3_metrica_1_detalhe",
@@ -119,4 +126,4 @@ df_long.to_sql(
     index=False
 )
 
-print("✅ Dados prontos para BI!")
+print("✅ Score de cedentes final (normalizado e corrigido) salvo no Supabase!")
