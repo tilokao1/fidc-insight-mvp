@@ -13,7 +13,7 @@ def calcular_score_4():
     with engine.begin() as conn:
         print("Iniciando cálculos do Score 4...")
 
-        # --- MÉTRICA 4.1: Proteção ao Investidor (Subordinação) ---
+        # --- MÉTRICA Proteção ao Investidor (Subordinação) ---
         print("Calculando Métrica 4.1...")
         query_41 = """
         SELECT 
@@ -36,7 +36,7 @@ def calcular_score_4():
         df_41.to_sql("score_4_metrica_1", conn, if_exists="replace", index=False)
         print(f"   Métrica 4.1: {len(df_41)} registros salvos.")
 
-        # --- MÉTRICA 4.2: Confiança do Mercado (Variação de Cotistas) ---
+        # --- MÉTRICA Confiança do Mercado (Variação de Cotistas) ---
         print("Calculando Métrica 4.2...")
 
         # Passo 1 — agregar (SUM) cotistas por CNPJ+mês dentro de uma CTE, garantindo 1 linha por CNPJ+mês antes de qualquer LAG.
