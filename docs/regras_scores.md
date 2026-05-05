@@ -8,9 +8,9 @@ Com base nos informes do CVM são criados dois módulos, onde no primeiro temos 
 Mede o risco intrínseco de inadimplência da carteira.
 
 #### Métrica 1.1: Taxa de Inadimplência Atual
-**Conceito:** Quanto da carteira está com pagamento atrasado hoje?
-**Tabelas:** inf_mensal_fidc_tab_I (para inadimplentes e total da carteira).
-**Cáculo:** (tab_I.TAB_I2A3_VL_CRED_INAD / tab_I.TAB_I2_VL_CARTEIRA)
+**Conceito:** Quanto da carteira está com pagamento atrasado hoje?  
+**Tabelas:** inf_mensal_fidc_tab_I (para inadimplentes e total da carteira).  
+**Cáculo:** (tab_I.TAB_I2A3_VL_CRED_INAD / tab_I.TAB_I2_VL_CARTEIRA)  
 
 #### Métrica 1.2: Estratégia "Distressed"
 **Conceito:** Qual o nível de exposição da carteira a créditos problemáticos?
