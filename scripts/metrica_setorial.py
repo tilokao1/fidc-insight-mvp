@@ -133,7 +133,7 @@ def calcular_e_salvar_score_setorial(conexao_engine):
     # 10. SALVAR
     # =========================
     df_score.to_sql(
-        "score_3_metrica_2",
+        "score_concentracao_setorial",
         conexao_engine,
         if_exists="replace",
         index=False

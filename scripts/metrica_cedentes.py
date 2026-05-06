@@ -110,7 +110,7 @@ df_score["classificacao"] = df_score["score_cedentes"].apply(classificar)
 # 9. SALVAR PRINCIPAL
 # =========================
 df_score.to_sql(
-    "score_3_metrica_1",
+    "score_concentracao_de_cedentes",
     engine,
     if_exists="replace",
     index=False
