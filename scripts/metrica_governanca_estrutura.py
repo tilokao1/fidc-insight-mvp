@@ -33,7 +33,7 @@ def calcular_score_4():
         GROUP BY t4."CNPJ_FUNDO_CLASSE", t4."DENOM_SOCIAL", t4."DT_COMPTC", t4."TAB_IV_A_VL_PL"
         """
         df_41 = pd.read_sql(query_41, conn)
-        df_41.to_sql("protecao_ao_investidor", conn, if_exists="replace", index=False)
+        df_41.to_sql("score_protecao_ao_investidor", conn, if_exists="replace", index=False)
         print(f"   Métrica 4.1: {len(df_41)} registros salvos.")
 
         # --- MÉTRICA Confiança do Mercado (Variação de Cotistas) ---
@@ -78,7 +78,7 @@ def calcular_score_4():
         ORDER BY ca."CNPJ_FUNDO_CLASSE", ca."DT_COMPTC"
         """
         df_42 = pd.read_sql(query_42, conn)
-        df_42.to_sql("retencao_de_cotistas", conn, if_exists="replace", index=False)
+        df_42.to_sql("score_retencao_de_cotistas", conn, if_exists="replace", index=False)
         print(f"   Métrica 4.3: {len(df_42)} registros salvos.")
 
     print("✅ Score 4 calculado e salvo com sucesso no Supabase!")
