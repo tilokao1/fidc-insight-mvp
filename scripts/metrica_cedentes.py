@@ -116,14 +116,4 @@ df_score.to_sql(
     index=False
 )
 
-# =========================
-# 10. TABELA DETALHE
-# =========================
-df_long.to_sql(
-    "score_3_metrica_1_detalhe",
-    engine,
-    if_exists="replace",
-    index=False
-)
-
 print("✅ Score de cedentes final (normalizado e corrigido) salvo no Supabase!")

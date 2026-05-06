@@ -139,14 +139,6 @@ def calcular_e_salvar_score_setorial(conexao_engine):
         index=False
     )
 
-    # tabela detalhe (igual cedentes)
-    df_long.to_sql(
-        "score_3_metrica_2_detalhe",
-        conexao_engine,
-        if_exists="replace",
-        index=False
-    )
-
     # índice
     with conexao_engine.begin() as conn:
         conn.execute(text(
