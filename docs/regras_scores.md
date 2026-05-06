@@ -1,76 +1,78 @@
 # Métricas FIDC Insight
 
-Com base nos informes do CVM são criados dois módulos, onde no primeiro temos o disgnóstico de risco e no segundo temos a análise de desempenho e valor.
+Com base nos informes da CVM, são criados dois módulos: no primeiro, temos o diagnóstico de risco e, no segundo, a análise de governança e estrutura.
 
 ---
+### Score Qualidade dos Ativos
+Mede o risco intrínseco da gestão do fundo, abrangendo sua proteção, liquidez, exposição e desvios.  
 
-### Score 1: Qualidade dos Ativos (Risco de Crédito)
-Mede o risco intrínseco de inadimplência da carteira.
+#### Métrica Proteção de Caixa  
+**Conceito:** Quanto do patrimônio está disponível imediatamente?  
+**Tabela(s):** inf_mensal_fidc_tab_I  
+**Cálculo:** "TAB_I1_VL_DISP" / "TAB_I_VL_ATIVO"  
+**Observação:** Quanto maior, mais colchão de segurança.  
 
-#### Métrica 1.1: Taxa de Inadimplência Atual
-**Conceito:** Quanto da carteira está com pagamento atrasado hoje?  
-**Tabelas:** inf_mensal_fidc_tab_I (para inadimplentes e total da carteira).  
-**Cáculo:** (tab_I.TAB_I2A3_VL_CRED_INAD / tab_I.TAB_I2_VL_CARTEIRA)  
+#### Métrica Liquidez de Curto Prazo  
+**Conceito:** Quanto do fundo retorna em até 90 dias?  
+**Tabela(s):** inf_mensal_fidc_tab_X_5  
+**Cálculo:** ("TAB_X_VL_LIQUIDEZ_0" + "TAB_X_VL_LIQUIDEZ_30" + "TAB_X_VL_LIQUIDEZ_60" + "TAB_X_VL_LIQUIDEZ_90") / ("TAB_X_VL_LIQUIDEZ_0" + "TAB_X_VL_LIQUIDEZ_30" + "TAB_X_VL_LIQUIDEZ_60" + "TAB_X_VL_LIQUIDEZ_90" + "TAB_X_VL_LIQUIDEZ_180" + "TAB_X_VL_LIQUIDEZ_360" + "TAB_X_VL_LIQUIDEZ_MAIOR_360")  
+**Observação:** Quanto maior, mais fácil transformar a carteira em caixa rápido.  
 
-#### Métrica 1.2: Estratégia "Distressed"
-**Conceito:** Qual o nível de exposição da carteira a créditos problemáticos?  
-**Tabelas:** inf_mensal_fidc_tab_I  
-**Cáculo:** MAX ((tab_I.TAB_I2A5_VL_CRED_VENCIDO_PENDENTE, tab_I.TAB_I2A6_VL_CRED_EMP_RECUP) / tab_I.TAB_I2_VL_CARTEIRA)  
+#### Métrica Exposição de Longo Prazo  
+**Conceito:** Quanto da carteira leva mais de 1 ano para retornar?  
+**Tabela(s):** inf_mensal_fidc_tab_V  
+**Cálculo:** ("TAB_V_A7_VL_PRAZO_VENC_360" + "TAB_V_A7_VL_PRAZO_VENC_720" + "TAB_V_A7_VL_PRAZO_VENC_1080" + "TAB_V_A10_VL_PRAZO_VENC_MAIOR_1080") / "TAB_V_A_VL_DIRCRED_PRAZO"  
+**Observação:** Quanto maior o valor, mais longa e "travada" é a carteira.  
 
-#### Métrica 1.3: Nível de Garantia (Coobrigação)
-**Conceito:** Qual % da carteira possui proteção adicional por meio de garantias?  
-**Tabelas:** inf_mensal_fidc_tab_X_7 e inf_mensal_fidc_tab_I.  
-**Cáculo:** (tab_X_7.TAB_X_VL_GARANTIA_DIRCRED / tab_I.TAB_I2_VL_CARTEIRA)  
+#### Métrica Desvio de Desempenho
+**Conceito:** O quanto o desempenho real divergiu do esperado?
+**Tabela(s):** inf_mensal_fidc_tab_X_6  
+**Cálculo:** Desvio = "TAB_X_PR_DESEMP_REAL" - "TAB_X_PR_DESEMP_ESPERADO"
+Métrica é normalizada através da divisão pelo limite (P95). Esse resultado é então limitado ("clipado") para que nunca seja menor que 0 ou maior que 1.  
+**Observação:** Se o valor for baixo, o fundo performou perto do esperado. Se o valor for alto, o fundo se desviou muito do esperado.  
 
-#### Métrica 1.4: Risco Oculto (Proxy de Agressividade da Carteira)
-**Conceito:** O fundo apresenta comportamento compatível com maior nível de risco na carteira?  
-**Tabelas:** inf_mensal_fidc_tab_X_3  
-**Cáculo:** ABS(tab_X_3.TAB_X_VL_RENTAB_MES) normalizado pelo percentil 95  
+#### Métrica Número de Setores Ativos  
+**Conceito:** Em quantos setores o fundo está exposto?  
+**Tabela(s):** inf_mensal_fidc_tab_II  
+**Cálculo:** Todas as 27 colunas que representam os setores ou segmentos são convertidas para o formato numérico. Valores inválidos ou nulos (NaN) são padronizados como zero. O script percorre os dados de cada fundo (por linha) e verifica o valor alocado em cada uma das 27 colunas setoriais. Um setor só é considerado "ativo" se o seu valor for estritamente maior que zero. O resultado da métrica é a soma simples de quantas colunas, dentre as 27 avaliadas, retornaram verdadeiro para a condição de valor maior que zero.  
+**Observação:** Valores mais altos indicam que o fundo é mais diversificado.  
 
-### Score 2: Risco de Liquidez
-Mede o risco do fundo não ter dinheiro em caixa para pagar os resgates dos investidores.
-
-#### Métrica 2.1: Perfil de Vencimento da Carteira (Maturidade)
-**Conceito:** Como se distribui o prazo de recebimento dos ativos do fundo?  
-**Tabelas:** inf_mensal_fidc_tab_X_5 (todas as colunas VL_LIQUIDEZ_...) e inf_mensal_fidc_tab_I.  
-**Cáculo:** % Curto Prazo (Até 90d) = (TAB_X.VL_LIQUIDEZ_1_30 + TAB_X.VL_LIQUIDEZ_31_60 + TAB_X.VL_LIQUIDEZ_61_90) / tab_I.TAB_I2_VL_CARTEIRA * 100% Longo Prazo (> 360d) = (TAB_X.VL_LIQUIDEZ_ACIMA_360) / TAB_X.TAB_I2_VL_CARTEIRA * 100  
-
-#### Métrica 2.2: Descasamento de Prazos
-**Conceito:** O prazo que o fundo tem para pagar investidores é compatível com o prazo que ele tem para receber seus ativos?  
-**Tabelas:** inf_mensal_fidc_tab_I (para o passivo) e inf_mensal_fidc_tab_X_5 (para o ativo).  
-**Cáculo:** É uma regra de negócio, um "Alerta": Prazo_Resgate_Investidor = tab_I.PRAZO_PAGTO_RESGATE (em dias). SE Prazo_Resgate_Investidor <= 90 DIAS E % Curto Prazo (Até 90d) < 20% ENTÃO "RISCO DE LIQUIDEZ ALTO"
-
-### Score 3: Risco de Diversificação
-Mede o risco do fundo estar "colocando todos os ovos na mesma cesta.
-
-#### Métrica 3.1: Concentração de Originadores (Cedentes)
+#### Métrica Concentração de Cedentes
 **Conceito:** O fundo depende de poucas empresas para originar seus créditos?  
-**Tabelas:**  inf_mensal_fidc_tab_I  
-**Cáculo:** Percentual_Top_1_Cedente = tab_I.TAB_I2A12_PR_CEDENTE_1 (A tabela já dá o percentual!).  
+**Tabela(s):**  inf_mensal_fidc_tab_I  
+**Cálculo:**  Share = Participação do Cedente / Total de Participações do fundo. Uso de Índice Herfindahl-Hirschman (HHI) para medir a concentração e inversão da lógica para ficar mais intuitivo. 
+**Observação:**  Após o cálculo, o fundo é classificado:  
+* Nota $\ge$ 8: Alta Diversificação.  
+* Nota entre 5 e 7.99: Média Diversificação.
+* Nota $<$ 5: Baixa Diversificação.  
 
-#### Métrica 3.2: Concentração Setorial
+#### Métrica Concentração Setorial
 **Conceito:**  O fundo está muito exposto a um único setor da economia?  
-**Tabelas:** inf_mensal_fidc_tab_I (várias colunas TAB_II_..._VL_...) e inf_mensal_fidc_tab_II (total).  
-**Cáculo:** Percentual_Maior_Setor = (MAX(tab_II.TAB_II_A_VL_INDUST, tab_II.TAB_II_C_VL_COMERC, ...) / tab_II.TAB_II_VL_CARTEIRA) * 100  
+**Tabela(s):** inf_mensal_fidc_tab_II
+**Cálculo:** Share = Valor do Setor / Valor Total Exposto. Uso de Índice Herfindahl-Hirschman (HHI) para medir a concentração e inversão da lógica para ficar mais intuitivo. 
+**Observação:**  Após o cálculo o fundo é classificado conforme abaixo:  
+* Nota $\ge$ 8: Alta Diversificação.  
+* Nota entre 5 e 7.99: Média Diversificação.  
+* Nota $<$ 5: Baixa Diversificação.  
 
-### Score 4: Governança e Estrutura
+### Score Governança e Estrutura
 Mede o risco da gestão do fundo e da sua estrutura de capital.
 
-#### Métrica 4.1: Proteção ao Investidor (Subordinação)
+#### Métrica Proteção ao Investidor (Subordinação)  
 **Conceito:** Qual o 'colchão' de segurança (cotas subordinadas e mezanino) que protege os investidores seniores das primeiras perdas em caso de inadimplência?  
-**Tabelas:**  inf_mensal_fidc_tab_X_2 (para calcular o PL das classes protetoras) e inf_mensal_fidc_tab_IV (para o PL Total do Fundo).  
-**Cáculo:** Percentual_Subordinação = (PL_Classes_Protetoras / PL_Total_Fundo) * 100  
-**Onde:** PL_Classes_Protetoras = A soma da multiplicação (tab_X_2.TAB_X_QT_COTA * tab_X_2.TAB_X_VL_COTA) apenas para as linhas onde a coluna TAB_X_CLASSE_SERIE contiver as palavras "Subordinada" ou "Mezanino". PL_Total_Fundo = tab_IV.TAB_IV_A_VL_PL (Patrimônio Líquido Total).
+**Tabela(s):**  inf_mensal_fidc_tab_X_2 (para calcular o PL das classes protetoras) e inf_mensal_fidc_tab_IV (para o PL Total do Fundo).  
+**Cálculo:** Percentual_Subordinação = (PL_Classes_Protetoras / PL_Total_Fundo) * 100  
+**Observação:** PL_Classes_Protetoras = A soma da multiplicação (tab_X_2.TAB_X_QT_COTA * tab_X_2.TAB_X_VL_COTA) apenas para as linhas onde a coluna TAB_X_CLASSE_SERIE contiver as palavras "Subordinada" ou "Mezanino". PL_Total_Fundo = tab_IV.TAB_IV_A_VL_PL (Patrimônio Líquido Total).
 
-#### Métrica 4.3: Alinhamento do Gestor
+#### Métrica Retenção de cotistas
 **Conceito:** O fundo está ganhando ou perdendo investidores (cotistas)?  
-**Tabelas:**  inf_mensal_fidc_tab_X_1  
-**Cáculo:** Variacao_Cotistas = SUM(TAB_X_NR_COTST)[Mês Atual] - SUM(TAB_X_NR_COTST)[Mês Anterior]  
+**Tabela(s):**  inf_mensal_fidc_tab_X_1  
+**Cálculo:** Variacao_Cotistas = SUM(TAB_X_NR_COTST)[Mês Atual] - SUM(TAB_X_NR_COTST)[Mês Anterior]  
 **Observação:** Como a tabela registra uma linha por classe/série do fundo, o número de cotistas é somado por CNPJ + mês antes da comparação temporal. O LAG() é aplicado sobre esse total consolidado, garantindo que a variação reflita o fundo como um todo e não comparações entre séries distintas.  
 
-#### Verificação de Administradores com Processo Sancionador 
-**Conceito:** Quais Administradores estão com processos Sancionadores na CVM(Comissão de Valores Mobiliários) ?  
-**Tabelas:**  inf_mensal_fidc_tab_I e inf_mensal_fidc_tab_IV  
+#### Métrica Administradores com Processo Sancionador 
+**Conceito:** Quais Administradores estão com processos Sancionadores na CVM(Comissão de Valores Mobiliários)?  
+**Tabela(s):**  inf_mensal_fidc_tab_I e inf_mensal_fidc_tab_IV  
 **Consulta Externa:**  https://sistemas.cvm.gov.br/asp/cvmwww/inqueritos/formbuscapas.asp  
 **Cálculo:** Filtram-se os dados bancários pela data de competência (DT_COMPTC) mais recente, unindo as Tabelas I e IV. Isola-se um array contendo apenas os CNPJs únicos dos Administradores, garantindo que o processamento seja feito por entidade e não por fundo. Realiza-se uma requisição HTTP (POST) no formulário da CVM para cada CNPJ único. O algoritmo faz o parsing (leitura) da estrutura HTML retornada e contabiliza a quantidade de linhas presentes na tabela de resultados da CVM. O valor absoluto total é mapeado de volta para o banco de dados na coluna de volumetria QTD_PROC_CVM, atrelando o risco a todos os fundos sob o guarda-chuva daquele administrador.  
 **Observação:** Tratamento de Firewall: A extração externa exige a injeção de um Header de User-Agent (simulando um navegador real) e delays estratégicos (pausas de ~1.5s a 2s entre consultas) para evitar que o WAF do governo bloqueie o IP da aplicação com erros de rede (ex: Errno 101: Network is unreachable).
