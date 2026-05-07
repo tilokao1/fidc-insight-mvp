@@ -28,12 +28,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: 9. Executar Scripts de Métricas - Concentração de Cedentes
+    - name: 11. Executar Scripts de Métricas - Proteção ao Investidor
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      run: python scripts/metrica_cedentes.py     
-
-    - name: 10. Executar Scripts de Métricas - Concentração Setorial
-      env:
-        DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      run: python scripts/metrica_setorial.py 
+      run: python scripts/metrica_governanca_estrutura.py
