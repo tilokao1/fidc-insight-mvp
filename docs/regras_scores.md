@@ -31,12 +31,6 @@ Mede o risco intrínseco da gestão do fundo, abrangendo sua proteção, liquide
 Métrica é normalizada através da divisão pelo limite (P95). Esse resultado é então limitado ("clipado") para que nunca seja menor que 0 ou maior que 1.  
 **Observação:** Se o valor for baixo, o fundo performou perto do esperado. Se o valor for alto, o fundo se desviou muito do esperado.  
 
-#### Métrica Número de Setores Ativos  
-**Conceito:** Em quantos setores o fundo está exposto?  
-**Tabela(s):** inf_mensal_fidc_tab_II  
-**Cálculo:** Todas as 27 colunas que representam os setores ou segmentos são convertidas para o formato numérico. Valores inválidos ou nulos (NaN) são padronizados como zero. O script percorre os dados de cada fundo (por linha) e verifica o valor alocado em cada uma das 27 colunas setoriais. Um setor só é considerado "ativo" se o seu valor for estritamente maior que zero. O resultado da métrica é a soma simples de quantas colunas, dentre as 27 avaliadas, retornaram verdadeiro para a condição de valor maior que zero.  
-**Observação:** Valores mais altos indicam que o fundo é mais diversificado.  
-
 #### Métrica Concentração de Cedentes
 **Conceito:** O fundo depende de poucas empresas para originar seus créditos?  
 **Tabela(s):**  inf_mensal_fidc_tab_I  
