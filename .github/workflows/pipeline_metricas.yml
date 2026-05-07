@@ -48,27 +48,22 @@ jobs:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
       run: python scripts/desvio_de_desempenho.py
 
-    - name: 8. Executar Scripts de Métricas - Número de Setores Ativos
-      env:
-        DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      run: python scripts/numero_de_setores_ativos.py
-
-    - name: 9. Executar Scripts de Métricas - Concentração de Cedentes
+    - name: 8. Executar Scripts de Métricas - Concentração de Cedentes
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
       run: python scripts/metrica_cedentes.py     
 
-    - name: 10. Executar Scripts de Métricas - Concentração Setorial
+    - name: 9. Executar Scripts de Métricas - Concentração Setorial
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
       run: python scripts/metrica_setorial.py 
 
-    - name: 11. Executar Scripts de Métricas - Proteção ao Investidor
+    - name: 10. Executar Scripts de Métricas - Proteção ao Investidor
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
       run: python scripts/metrica_governanca_estrutura.py
 
-    - name: 12. Executar Script de Verificação de Processos Sancionadores
+    - name: 11. Executar Script de Verificação de Processos Sancionadores
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
       run: python scripts/metrica_score_admin_process.py
