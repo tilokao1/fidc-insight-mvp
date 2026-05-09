@@ -88,9 +88,9 @@ Esses arquivos são mantidos em pasta compartilhada do grupo.
 ## 🪙 Custo e Prazo de Desenvolvimento do projeto
 
 Custo Plataforma(Cliente): Power BI Pro(Valor com impostos): R$ 109,56(mensal);  
-Custo Recursos Humanos: 64 dias úteis x 4 horas por dia x 5 colaboradores = 1280 horas x R$ 50,00;  
-Valor Total: R$ 64.000,00.  
-Prazo: 90 Dias.  
+Custo Recursos Humanos: 60 dias x 4 horas por dia x 5 colaboradores = 1200 horas x R$ 50,00;  
+Valor Total: R$ 60.000,00.  
+Prazo: 60 Dias.  
 
 ---
 
