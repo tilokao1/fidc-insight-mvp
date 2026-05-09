@@ -235,21 +235,29 @@ function calcScorePagadores(pagCnpjs) {
   const inadInv = (1 - Math.min(1, inad)) * 100;
   // Scores 0 a 1000 -> divide por 10 para virar 0 a 100%
   const matNorm = (Math.min(1000, mat) / 10);
-  // Atraso: como bons clientes podem ter valores altos, reduzimos o peso ou aumentamos a tolerância
-  const atrasoNorm = (1 - Math.min(1, atraso / 45)) * 100; 
+  // Atraso: peso leve (10%) — tolerância de 90 dias antes de zerar
+  const atrasoNorm = (1 - Math.min(1, atraso / 90)) * 100;
 
   const score = Math.round(
-    liqNorm * 0.30 +
-    liqQNorm * 0.15 +
-    inadInv * 0.25 +
-    atrasoNorm * 0.20 +
-    matNorm * 0.10
+    liqNorm  * 0.30 +
+    liqQNorm * 0.18 +
+    inadInv  * 0.27 +
+    matNorm  * 0.15 +
+    atrasoNorm * 0.10
   );
 
   return {score, liq, liqQ, inad, atraso, mat, matEvol, qtd, n: pagCnpjs.length};
 }
 
-function verdict(score){return score>=65?'ok':score>=40?'caution':'risk'}
+function verdict(score, stats){
+  const hardAlert = stats && (
+    stats.inad > 0.20 ||
+    stats.liq  < 0.60 ||
+    stats.liqQ < 0.65
+  );
+  if(hardAlert) return score >= 50 ? 'caution' : 'risk';
+  return score >= 75 ? 'ok' : score >= 50 ? 'caution' : 'risk';
+}
 function vLabel(v){return v==='ok'?'Comprar':v==='caution'?'Análise adicional':'Não Comprar'}
 function vIcon(v){return v==='ok'?'✓':v==='caution'?'⚠':'✗'}
 function vColor(v){return v==='ok'?'#48bb78':v==='caution'?'#ed8936':'#f56565'}
@@ -270,7 +278,7 @@ function processData(){
     const pagIds=[...new Set(c.boletos.map(b=>b.id_pagador).filter(Boolean))];
     const pagCnpjs=pagIds.map(pid=>cnpjMap[normKey(pid)]).filter(Boolean);
     const stats=calcScorePagadores(pagCnpjs);
-    const verd=verdict(stats.score);
+    const verd=verdict(stats.score, stats);
     const vlrTotal=c.boletos.reduce((s,b)=>s+(parseFloat(b.vlr_nominal)||parseFloat(b.vlr_baixa)||0),0);
     const pagos=c.boletos.filter(b=>b.dt_pagamento&&b.dt_pagamento.trim()).length;
     const ufs=[...new Set(pagCnpjs.map(p=>p.uf).filter(Boolean))];
@@ -326,7 +334,7 @@ function renderCedente(){
   let pagCnpjsF=c.pagCnpjs;
   if(ufF)pagCnpjsF=pagCnpjsF.filter(p=>p.uf===ufF);
   const stats=ufF?calcScorePagadores(pagCnpjsF):c.stats;
-  const verd=verdict(stats.score);
+  const verd=verdict(stats.score, stats);
   const col=vColor(verd);
 
   let bolF=c.boletos;
@@ -364,7 +372,7 @@ function renderCedente(){
       <div class="kpi"><div class="kpi-accent" style="background:#9f7aea"></div>
         <div class="kpi-label">% de boletos pagos nos últimos 3 meses</div>
         <div class="kpi-value" style="color:#9f7aea">${fmtN(stats.liqQ*100,1)}%</div>
-        <div class="kpi-sub" style="color:${stats.liqQ>=1?'#48bb78':'#f56565'}">${stats.liqQ>=1?'Adequada':'Insuficiente'}</div>
+        <div class="kpi-sub" style="color:${stats.liqQ>=0.8?'#48bb78':stats.liqQ>=0.6?'#ed8936':'#f56565'}">${stats.liqQ>=0.8?'Adequada':stats.liqQ>=0.6?'Moderada':'Insuficiente'}</div>
       </div>
       <div class="kpi"><div class="kpi-accent" style="background:#ed8936"></div>
         <div class="kpi-label">Média de atraso</div>
@@ -436,7 +444,8 @@ function renderCedente(){
     const inad=parseFloat(cn.share_vl_inad_pag_bol_6_a_15d)||0;
     const mat=parseFloat(cn.score_materialidade_v2)||0;
     const liqQ=parseFloat(cn.indicador_liquidez_quantitativo_3m)||0;
-    const vp=verdict(calcScorePagadores([cn]).score);
+    const pagStats=calcScorePagadores([cn]);
+    const vp=verdict(pagStats.score, pagStats);
     const nBol=c.boletos.filter(b=>b.id_pagador===pid).length;
     return`<div class="pag-card">
       <div class="pag-header">
@@ -448,7 +457,7 @@ function renderCedente(){
       </div>
       <div class="pag-metrics">
         <div class="pag-metric"><div class="pag-metric-val" style="color:${liq>=0.7?'#48bb78':'#f56565'}">${(liq*100).toFixed(1)}%</div><div class="pag-metric-lbl">Liq. 1m</div></div>
-        <div class="pag-metric"><div class="pag-metric-val" style="color:${liqQ>=0.7?'#48bb78':'#f56565'}">${(liqQ*100).toFixed(1)}%</div><div class="pag-metric-lbl">Liq. 3m</div></div>
+        <div class="pag-metric"><div class="pag-metric-val" style="color:${liqQ>=0.8?'#48bb78':liqQ>=0.6?'#ed8936':'#f56565'}">${(liqQ*100).toFixed(1)}%</div><div class="pag-metric-lbl">Liq. 3m</div></div>
         <div class="pag-metric"><div class="pag-metric-val" style="color:${atr>15?'#f56565':atr>7?'#ed8936':'#48bb78'}">${atr.toFixed(1)}d</div><div class="pag-metric-lbl">Atraso</div></div>
         <div class="pag-metric"><div class="pag-metric-val" style="color:${inad>0.2?'#f56565':inad>0.1?'#ed8936':'#48bb78'}">${(inad*100).toFixed(1)}%</div><div class="pag-metric-lbl">Inadimpl.</div></div>
         <div class="pag-metric"><div class="pag-metric-val" style="color:#48bb78">${mat.toFixed(2)}</div><div class="pag-metric-lbl">Mat. v2</div></div>
@@ -493,7 +502,7 @@ function renderCedente(){
       data:{
         labels:top.map(p=>p.id_cnpj.length>20?p.id_cnpj.substring(0,20)+'...':p.id_cnpj),
         datasets:[{label:'Liquidez 1m',data:top.map(p=>parseFloat((parseFloat(p.sacado_indice_liquidez_1m)||0).toFixed(2))),
-          backgroundColor:top.map(p=>{const v=parseFloat(p.sacado_indice_liquidez_1m)||0;return v>=1?'rgba(72,187,120,.7)':v>=0.5?'rgba(237,137,54,.7)':'rgba(245,101,101,.7)'}),
+          backgroundColor:top.map(p=>{const v=parseFloat(p.sacado_indice_liquidez_1m)||0;return v>=0.8?'rgba(72,187,120,.7)':v>=0.5?'rgba(237,137,54,.7)':'rgba(245,101,101,.7)'}),
           borderRadius:4,borderSkipped:false}]
       },
       options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
@@ -505,18 +514,24 @@ function renderCedente(){
     const ctxC=document.getElementById('chart-comp');if(!ctxC)return;
     if(charts.comp)try{charts.comp.destroy()}catch(e){}
     const mediaGeral=calcScorePagadores(allCedentes.flatMap(c=>c.pagCnpjs));
-    const norm=(v,max)=>Math.round(Math.min(100,(v/max)*100));
-    const labelsComp=['Liq. (1m)','Liq. (3m)','Mat. v2','Mat. evol.','Inadimp. (inv.)','Atraso (inv.)'];
     const normScore = (v) => Math.round((v / 1000) * 100);
     const normLiq = (v) => Math.round(v * 100);
+    // Atraso normalizado invertido (0-100): maior = melhor; tooltip mostra dias reais.
+    // Para o gráfico, usamos referência dinâmica para a barra da média geral não sumir quando atraso >= 90 dias.
+    // Obs.: isso afeta apenas a visualização; o score continua usando a regra fixa de 90 dias.
+    const atrasoRefGrafico = Math.max(stats.atraso, mediaGeral.atraso, 1);
+    const atrasoNormCed   = Math.round((1 - (stats.atraso / atrasoRefGrafico)) * 100);
+    const atrasoNormMedia = Math.round((1 - (mediaGeral.atraso / atrasoRefGrafico)) * 100);
+
+    const labelsComp=['Liq. (1m)','Liq. (3m)','Mat. v2','Mat. evol.','Inadimp. (inv.)','Atraso (inv.)'];
 
     const dadosCed = [
-      normLiq(stats.liq),             // Liquidez 1m
-      normLiq(stats.liqQ),            // Liquidez 3m
-      normScore(stats.mat),           // Materialidade v2 (0-1000)
-      normScore(stats.matEvol),       // Materialidade Evol (0-1000)
+      normLiq(stats.liq),
+      normLiq(stats.liqQ),
+      normScore(stats.mat),
+      normScore(stats.matEvol),
       Math.round((1 - Math.min(1, stats.inad)) * 100),
-      Math.round((1 - Math.min(1, stats.atraso / 45)) * 100)
+      atrasoNormCed
     ];
     const dadosMedia = [
       normLiq(mediaGeral.liq),
@@ -524,20 +539,31 @@ function renderCedente(){
       normScore(mediaGeral.mat),
       normScore(mediaGeral.matEvol),
       Math.round((1 - Math.min(1, mediaGeral.inad)) * 100),
-      Math.round((1 - Math.min(1, mediaGeral.atraso / 45)) * 100)
+      atrasoNormMedia
     ];
+    // Dias reais para tooltip
+    const diasCed   = [null,null,null,null,null, parseFloat(stats.atraso.toFixed(1))];
+    const diasMedia = [null,null,null,null,null, parseFloat(mediaGeral.atraso.toFixed(1))];
+
     charts.comp=new Chart(ctxC,{
       type:'bar',
       data:{
         labels:labelsComp,
         datasets:[
-          {label:'Cedente selecionado',data:dadosCed,backgroundColor:'#378ADD',borderRadius:4,borderSkipped:false},
-          {label:'Média geral',data:dadosMedia,backgroundColor:'rgba(136,135,128,.4)',borderRadius:4,borderSkipped:false}
+          {label:'Cedente selecionado',data:dadosCed,_dias:diasCed,backgroundColor:'#378ADD',borderRadius:4,borderSkipped:false},
+          {label:'Média geral',data:dadosMedia,_dias:diasMedia,backgroundColor:'rgba(136,135,128,.4)',borderRadius:4,borderSkipped:false}
         ]
       },
       options:{
         responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.raw}%`}}},
+        plugins:{
+          legend:{display:false},
+          tooltip:{callbacks:{label:ctx=>{
+            const dias=ctx.dataset._dias?.[ctx.dataIndex];
+            if(dias!=null) return `${ctx.dataset.label}: ${ctx.raw}% (${dias} dias)`;
+            return `${ctx.dataset.label}: ${ctx.raw}%`;
+          }}}
+        },
         scales:{
           x:{grid:{color:'rgba(255,255,255,.05)'},ticks:{color:'#718096',font:{size:10}},border:{color:'#2d3748'}},
           y:{min:0,max:100,grid:{color:'rgba(255,255,255,.05)'},ticks:{color:'#718096',font:{size:10},callback:v=>v+'%'},border:{color:'#2d3748'}}
