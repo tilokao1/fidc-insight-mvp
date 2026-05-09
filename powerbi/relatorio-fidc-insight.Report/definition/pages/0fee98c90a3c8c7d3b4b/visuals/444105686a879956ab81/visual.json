@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "444105686a879956ab81",
   "position": {
-    "x": 150.72121212121209,
-    "y": 104.53549190535493,
-    "z": 5000,
-    "height": 118.35616438356165,
-    "width": 203.10502283105023,
-    "tabOrder": 5000
+    "x": 140.58744993324433,
+    "y": 115.76769025367156,
+    "z": 8000,
+    "height": 104.13885180240321,
+    "width": 203.07076101468627,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -32,8 +32,8 @@
                 }
               },
               "queryRef": "Sum(score_protecao_caixa.MEDIA GERAL DE PROTEÇÃO DE CAIXA)",
-              "nativeQueryRef": "Média Proteção de Caixa",
-              "displayName": "Média Proteção de Caixa"
+              "nativeQueryRef": "Proteção de Caixa",
+              "displayName": "Proteção de Caixa"
             }
           ]
         }
@@ -78,7 +78,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#FFFFFF'"
+                      "Value": "'#F8FAFC'"
                     }
                   }
                 }
@@ -87,7 +87,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "20D"
+                  "Value": "28D"
                 }
               }
             },
@@ -131,6 +131,24 @@
               }
             }
           }
+        },
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#111827'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
         }
       ],
       "shapeCustomRectangle": [
@@ -163,6 +181,20 @@
           "selector": {
             "metadata": "Sum(score_protecao_caixa.MEDIA GERAL DE PROTEÇÃO DE CAIXA)"
           }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
         }
       ],
       "outline": [
@@ -179,6 +211,31 @@
           "selector": {
             "metadata": "Sum(score_protecao_caixa.MEDIA GERAL DE PROTEÇÃO DE CAIXA)"
           }
+        },
+        {
+          "properties": {
+            "lineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#2563EB'"
+                    }
+                  }
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
         }
       ],
       "label": [
@@ -189,7 +246,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#8B949E'"
+                      "Value": "'#F8FAFC'"
                     }
                   }
                 }
@@ -243,6 +300,13 @@
                   "Value": "'Normal'"
                 }
               }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           },
           "selector": {
@@ -257,6 +321,29 @@
               "expr": {
                 "Literal": {
                   "Value": "2L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "paddingUniform": {
+              "expr": {
+                "Literal": {
+                  "Value": "10L"
+                }
+              }
+            },
+            "paddingIndividual": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -307,6 +394,13 @@
         {
           "properties": {
             "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "show": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -376,7 +470,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -407,7 +501,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },

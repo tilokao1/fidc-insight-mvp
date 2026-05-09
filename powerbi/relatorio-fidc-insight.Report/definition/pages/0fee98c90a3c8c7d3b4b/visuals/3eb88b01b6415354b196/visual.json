@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "3eb88b01b6415354b196",
   "position": {
-    "x": 129.45454545454547,
-    "y": 4.3636363636363633,
-    "z": 13000,
-    "height": 56.727272727272727,
-    "width": 299.63636363636363,
-    "tabOrder": 11002
+    "x": 108.8,
+    "y": 4.8,
+    "z": 16000,
+    "height": 64,
+    "width": 356.8,
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "textbox",
@@ -22,7 +22,7 @@
                     "value": "Métricas CVM",
                     "textStyle": {
                       "fontFamily": "Calibri",
-                      "fontSize": "28pt",
+                      "fontSize": "32pt",
                       "color": "#ffffff"
                     }
                   }
@@ -36,6 +36,19 @@
     },
     "visualContainerObjects": {
       "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
         {
           "properties": {
             "show": {

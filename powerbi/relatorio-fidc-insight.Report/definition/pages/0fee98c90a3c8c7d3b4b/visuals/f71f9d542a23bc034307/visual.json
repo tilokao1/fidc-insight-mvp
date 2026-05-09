@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "f71f9d542a23bc034307",
   "position": {
-    "x": 999.67098381071014,
-    "y": 104.71357409713576,
-    "z": 8000,
-    "height": 118,
-    "width": 203,
-    "tabOrder": 8000
+    "x": 1013.6181575433914,
+    "y": 115.76769025367156,
+    "z": 11000,
+    "height": 104.13885180240321,
+    "width": 203.07076101468627,
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -32,8 +32,8 @@
                 }
               },
               "queryRef": "Sum(score_desvio_desempenho.metrica_desvio_desempenho)",
-              "nativeQueryRef": "Média Desvio Desempenho",
-              "displayName": "Média Desvio Desempenho"
+              "nativeQueryRef": "Desvio Desempenho",
+              "displayName": "Desvio Desempenho"
             }
           ]
         }
@@ -66,12 +66,26 @@
       "value": [
         {
           "properties": {
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Calibri'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "28D"
+                }
+              }
+            },
             "fontColor": {
               "solid": {
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#FFFFFF'"
+                      "Value": "'#EF4444'"
                     }
                   }
                 }
@@ -81,20 +95,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'center'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "20D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Calibri'"
                 }
               }
             }
@@ -150,35 +150,10 @@
       "label": [
         {
           "properties": {
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#8B949E'"
-                    }
-                  }
-                }
-              }
-            },
-            "position": {
+            "heading": {
               "expr": {
                 "Literal": {
-                  "Value": "'aboveValue'"
-                }
-              }
-            },
-            "textWrap": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "matchValueAlignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "'Normal'"
                 }
               }
             },
@@ -203,10 +178,35 @@
                 }
               }
             },
-            "heading": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F8FAFC'"
+                    }
+                  }
+                }
+              }
+            },
+            "position": {
               "expr": {
                 "Literal": {
-                  "Value": "'Normal'"
+                  "Value": "'aboveValue'"
+                }
+              }
+            },
+            "textWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "matchValueAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -299,10 +299,53 @@
       "title": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "titleWrap": {
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#111827'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "'12'"
                 }
               }
             }
@@ -362,7 +405,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -435,7 +478,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },

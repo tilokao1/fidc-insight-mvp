@@ -11,13 +11,13 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "Divergent",
+      "name": "Tema_Metricas_CVM_Dark7358582591644446.json",
       "reportVersionAtImport": {
-        "visual": "2.6.0",
-        "report": "3.1.0",
-        "page": "2.3.0"
+        "visual": "2.8.0",
+        "report": "3.2.0",
+        "page": "2.3.1"
       },
-      "type": "SharedResources"
+      "type": "RegisteredResources"
     }
   },
   "objects": {
@@ -62,11 +62,6 @@
           "name": "CY26SU02",
           "path": "BaseThemes/CY26SU02.json",
           "type": "BaseTheme"
-        },
-        {
-          "name": "Divergent",
-          "path": "BuiltInThemes/Divergent.json",
-          "type": "CustomTheme"
         }
       ]
     },
@@ -78,6 +73,11 @@
           "name": "logo_data_mudanca_cor5007919697458338.png",
           "path": "logo_data_mudanca_cor5007919697458338.png",
           "type": "Image"
+        },
+        {
+          "name": "Tema_Metricas_CVM_Dark7358582591644446.json",
+          "path": "Tema_Metricas_CVM_Dark7358582591644446.json",
+          "type": "CustomTheme"
         }
       ]
     }

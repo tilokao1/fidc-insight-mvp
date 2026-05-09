@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "85efdf930c3c76195d51",
   "position": {
-    "x": 145.45454545454547,
-    "y": 48,
-    "z": 14000,
-    "height": 37.81818181818182,
-    "width": 416,
-    "tabOrder": 11003
+    "x": 145.6,
+    "y": 54.4,
+    "z": 17000,
+    "height": 35.2,
+    "width": 505.6,
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "textbox",
@@ -21,8 +21,8 @@
                   {
                     "value": "Visão geral de desempenho dos fundos de investimento",
                     "textStyle": {
-                      "fontSize": "11pt",
-                      "color": "#cccccc"
+                      "fontSize": "14pt",
+                      "color": "#cbd5e1"
                     }
                   }
                 ],
@@ -35,6 +35,19 @@
     },
     "visualContainerObjects": {
       "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
         {
           "properties": {
             "show": {

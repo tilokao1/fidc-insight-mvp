@@ -4,10 +4,10 @@
   "position": {
     "x": 0,
     "y": 0,
-    "z": 12000,
-    "height": 123.17351598173515,
-    "width": 149.88584474885843,
-    "tabOrder": 11001
+    "z": 15000,
+    "height": 118.4,
+    "width": 140.8,
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "image",
@@ -53,6 +53,21 @@
               "expr": {
                 "Literal": {
                   "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "795907b80792a70d47d7",
   "position": {
-    "x": 0,
-    "y": 531.45896656534956,
-    "z": 4000,
-    "height": 244.98480243161094,
-    "width": 640.12158054711244,
-    "tabOrder": 4000
+    "x": 9.6,
+    "y": 552,
+    "z": 7000,
+    "height": 244.8,
+    "width": 640,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "tableEx",
@@ -96,18 +96,13 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Column": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "score_prazo_longo"
-                      }
-                    },
-                    "Property": "TAB_V_A_VL_DIRCRED_PRAZO"
+                  "SourceRef": {
+                    "Entity": "score_prazo_longo"
                   }
                 },
-                "Function": 0
+                "Property": "DENOM_SOCIAL"
               }
             },
             "direction": "Descending"
@@ -122,7 +117,49 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "209.28570163833882D"
+                  "Value": "232.74098238909076D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "score_liquidez_curto_prazo.DENOM_SOCIAL"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "137.92669893740302D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(score_liquidez_curto_prazo.liquidez_curto_prazo)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "146.10942249240122D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(score_liquidez_curto_prazo.liquidez_total)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "318.2D"
                 }
               }
             }
@@ -130,18 +167,31 @@
           "selector": {
             "metadata": "score_prazo_longo.DENOM_SOCIAL"
           }
-        },
-        {
-          "properties": {},
-          "selector": {
-            "metadata": "Sum(score_prazo_longo.prazo_longo)"
-          }
         }
       ],
       "grid": [
         {
           "properties": {
-            "gridHorizontalColor": {
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVerticalColor": {
               "solid": {
                 "color": {
                   "expr": {
@@ -153,7 +203,7 @@
                 }
               }
             },
-            "outlineColor": {
+            "gridHorizontalColor": {
               "solid": {
                 "color": {
                   "expr": {
@@ -187,9 +237,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0.6
+                    "Literal": {
+                      "Value": "'#111827'"
                     }
                   }
                 }
@@ -211,9 +260,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0.6
+                    "Literal": {
+                      "Value": "'#1F2937'"
                     }
                   }
                 }
@@ -225,6 +273,20 @@
       "columnHeaders": [
         {
           "properties": {
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arial'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
             "fontColor": {
               "solid": {
                 "color": {
@@ -241,9 +303,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.6
+                    "Literal": {
+                      "Value": "'#1E3A8A'"
                     }
                   }
                 }
@@ -271,9 +332,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.6
+                    "Literal": {
+                      "Value": "'#1E3A8A'"
                     }
                   }
                 }
@@ -287,10 +347,28 @@
       "background": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#111827'"
+                    }
+                  }
+                }
+              }
+            },
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "100D"
+                  "Value": "0D"
                 }
               }
             }
@@ -303,7 +381,32 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1E3A8A'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
                 }
               }
             }
@@ -313,20 +416,39 @@
       "visualHeader": [
         {
           "properties": {
-            "transparency": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             },
-            "border": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -336,23 +458,37 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#111827'"
                     }
                   }
                 }
               }
             },
-            "foreground": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "'12'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "keepLayerOrder": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -361,80 +497,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "7492aa94a0cd2c990658",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_prazo_longo"
-              }
-            },
-            "Property": "DENOM_SOCIAL"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "6247afa079987685379e",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "score_prazo_longo"
-                  }
-                },
-                "Property": "prazo_longo"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "5e57409da5237200a471",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "score_prazo_longo"
-                  }
-                },
-                "Property": "metrica_prazo_longo"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "fa6957777003305c732a",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "score_prazo_longo"
-                  }
-                },
-                "Property": "TAB_V_A_VL_DIRCRED_PRAZO"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

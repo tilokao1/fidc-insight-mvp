@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "36465dc85548b04455d8",
   "position": {
-    "x": 577.54860938148636,
-    "y": 104.58754669987549,
-    "z": 7000,
-    "height": 118.4,
-    "width": 198.4,
-    "tabOrder": 7000
+    "x": 583.17757009345792,
+    "y": 118.02403204272363,
+    "z": 10000,
+    "height": 104.13885180240321,
+    "width": 197.86381842456609,
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -32,8 +32,8 @@
                 }
               },
               "queryRef": "Sum(score_prazo_longo.metrica_prazo_longo)",
-              "nativeQueryRef": "Média Prazo Longo",
-              "displayName": "Média Prazo Longo"
+              "nativeQueryRef": "Prazo Longo",
+              "displayName": "Prazo Longo"
             }
           ]
         }
@@ -66,12 +66,26 @@
       "value": [
         {
           "properties": {
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Calibri'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "28D"
+                }
+              }
+            },
             "fontColor": {
               "solid": {
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#FFFFFF'"
+                      "Value": "'#22C55E'"
                     }
                   }
                 }
@@ -81,20 +95,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'center'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "20D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Calibri'"
                 }
               }
             }
@@ -150,35 +150,10 @@
       "label": [
         {
           "properties": {
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#8B949E'"
-                    }
-                  }
-                }
-              }
-            },
-            "position": {
+            "heading": {
               "expr": {
                 "Literal": {
-                  "Value": "'aboveValue'"
-                }
-              }
-            },
-            "textWrap": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "matchValueAlignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "'Normal'"
                 }
               }
             },
@@ -203,10 +178,35 @@
                 }
               }
             },
-            "heading": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F8FAFC'"
+                    }
+                  }
+                }
+              }
+            },
+            "position": {
               "expr": {
                 "Literal": {
-                  "Value": "'Normal'"
+                  "Value": "'aboveValue'"
+                }
+              }
+            },
+            "textWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "matchValueAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -299,10 +299,53 @@
       "title": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "titleWrap": {
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#111827'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "'12'"
                 }
               }
             }
@@ -362,7 +405,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -435,7 +478,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
