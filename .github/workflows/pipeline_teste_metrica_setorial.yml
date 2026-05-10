@@ -1,4 +1,4 @@
-name: Pipeline Criação de Métricas FIDC
+name: Pipeline Teste Metrica Setorial FIDC
 
 on:
   schedule:
