@@ -78,9 +78,9 @@ Esses arquivos são mantidos em pasta compartilhada do grupo.
 
 ## 🔄 Fluxo de Atualização do Projeto
 
-**1. Execução Automatizada:** Na madrugada de todo dia 10, a esteira contendo os 10 scripts Python é acionada de forma automática.  
+**1. Execução Automatizada:** Na madrugada de todo dia 10, a esteira contendo os 10 scripts Python é acionada de forma automática através do GitHub Actions.  
 
-**2. Coleta e Análise de Dados (CVM):** Durante a execução, os scripts acessam o portal da CVM, efetuam a limpeza e salvam no banco de dados. Uma das etapas principais avalia cada CNPJ dos administradores de FIDCs para quantificar o número de processos em que o administrador consta como acusado.  
+**2. Coleta e Análise de Dados (CVM):** Durante a execução, os scripts acessam o portal da CVM, fazem as extração dos informes mensais, efetuam a limpeza e salvam no banco de dados. É feito também um processo de webscraping para cada CNPJ dos administradores de FIDCs buscando quantificar o número de processos em que o administrador consta como acusado.  
 
 **3. Cálculo de Métricas e Banco de Dados:** Os scores e métricas são calculados e os dados consolidados atualizam o banco de dados PostgreSQL (hospedado na AWS pelo Supabase).  
 
