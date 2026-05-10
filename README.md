@@ -48,6 +48,8 @@ Documento principal explicando:
 - Tecnologias utilizadas
 - Organização das pastas
 - Fluxo de trabalho
+- Observações
+- Custo e Prazo
 
 ---
 
