@@ -79,9 +79,13 @@ Esses arquivos são mantidos em pasta compartilhada do grupo.
 ## 🔄 Fluxo de Atualização do Projeto
 
 **1. Execução Automatizada:** Na madrugada de todo dia 10, a esteira contendo os 10 scripts Python é acionada de forma automática.  
+
 **2. Coleta e Análise de Dados (CVM):** Durante a execução, os scripts acessam o portal da CVM, efetuam a limpeza e salvam no banco de dados. Uma das etapas principais avalia cada CNPJ dos administradores de FIDCs para quantificar o número de processos em que o administrador consta como acusado.  
+
 **3. Cálculo de Métricas e Banco de Dados:** Os scores e métricas são calculados e os dados consolidados atualizam o banco de dados PostgreSQL (hospedado na AWS pelo Supabase).  
+
 **4. Consumo e Visualização no Power BI:** O Power BI se conecta ao banco para consumir as tabelas de métricas e scores, refletindo os resultados atualizados diretamente no dashboard online.  
+
 **5. Interface Interativa via GitHub:** O dashboard no Power BI possui uma tela com o visual de HTML content, que renderiza uma página vinculada ao GitHub Pages. Através dessa integração, o usuário final pode interagir ativamente enviando arquivos e consultando métricas específicas da companhia na própria página.
 
 ---
