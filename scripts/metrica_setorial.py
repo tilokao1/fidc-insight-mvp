@@ -142,7 +142,7 @@ def calcular_e_salvar_score_setorial(conexao_engine):
     # índice
     with conexao_engine.begin() as conn:
         conn.execute(text(
-            'CREATE INDEX IF NOT EXISTS idx_setorial_cnpj ON "score_3_metrica_2" ("CNPJ_FUNDO_CLASSE");'
+            'CREATE INDEX IF NOT EXISTS idx_setorial_cnpj ON "score_concentracao_setorial" ("CNPJ_FUNDO_CLASSE");'
         ))
 
     print("✅ Score setorial final salvo no Supabase!")
