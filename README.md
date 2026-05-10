@@ -71,17 +71,24 @@ Esses arquivos são mantidos em pasta compartilhada do grupo.
 - Python (Pandas, SQLAlchemy, psycopg2-binary, python-dotenv, requests e python-dateutil)
 - PostgreSQL (Banco de Dados Online)
 - Power BI Online (Visualização)
+- HTML, CSS e JavaScript (Visualização)
 - Git e GitHub (Versionamento)
 
 ---
 
 ## 🔄 Fluxo de Atualização do Projeto
 
-1. Dados são coletados e tratados via Python
-2. Banco PostgreSQL é atualizado no AWS através do Supabase
-3. Scores e métricas são calculados
-4. Power BI consome os dados para visualização
-5. PPT é atualizado com os resultados e entregas.
+**1. Execução Automatizada:** Na madrugada de todo dia 10, a esteira contendo os 10 scripts Python é acionada de forma automática.  
+**2. Coleta e Análise de Dados (CVM):** Durante a execução, os scripts acessam o portal da CVM, efetuam a limpeza e salvam no banco de dados. Uma das etapas principais avalia cada CNPJ dos administradores de FIDCs para quantificar o número de processos em que o administrador consta como acusado.  
+**3. Cálculo de Métricas e Banco de Dados:** Os scores e métricas são calculados e os dados consolidados atualizam o banco de dados PostgreSQL (hospedado na AWS pelo Supabase).  
+**4. Consumo e Visualização no Power BI:** O Power BI se conecta ao banco para consumir as tabelas de métricas e scores, refletindo os resultados atualizados diretamente no dashboard online.  
+**5. Interface Interativa via GitHub:** O dashboard no Power BI possui uma tela com o visual de HTML content, que renderiza uma página vinculada ao GitHub Pages. Através dessa integração, o usuário final pode interagir ativamente enviando arquivos e consultando métricas específicas da companhia na própria página.
+
+---
+
+## 📝 Observação
+
+Para a tela de análises internas da empresa, desenvolvemos um arquivo HTML único — com CSS e JavaScript integrados — e o vinculamos ao Power BI por meio do visual HTML Content. Essa abordagem garante que as informações sejam processadas e descartadas imediatamente após a visualização, sem qualquer armazenamento em bancos de dados externos. Dessa forma garantimos a segurança de dados de produtos internos.
 
 ---
 
@@ -96,8 +103,7 @@ Prazo: 60 Dias.
 
 ## 🔜 Próximos Passos
 
-* Realizar mais análises a fim de melhorar o entendimento dos dados da base de dados.
-* Verificar a possibilidade de inserção da Matriz de Risco vs. Retorno.
+* Realizar mais análises a fim de melhorar o entendimento dos dados das bases de dados CVM e Núclea.
 * Utilizar algoritmos de Machine Learning para analise preditiva com previsão de inadimplência.
 
 ---
