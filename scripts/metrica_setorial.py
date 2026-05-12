@@ -76,7 +76,7 @@ def calcular_e_salvar_score_setorial(conexao_engine):
     df_long["quadrado"] = df_long["share"] ** 2
 
     df_score = df_long.groupby(
-        ["CNPJ_FUNDO_CLASSE", "DT_COMPTC"]
+        ["CNPJ_FUNDO_CLASSE", "DT_COMPTC", "DENOM_SOCIAL"]
     )["quadrado"].sum().reset_index()
 
     df_score.rename(columns={"quadrado": "HHI_Setorial"}, inplace=True)
