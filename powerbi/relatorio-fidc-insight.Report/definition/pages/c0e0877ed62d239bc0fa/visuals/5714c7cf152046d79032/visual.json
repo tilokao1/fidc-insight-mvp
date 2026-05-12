@@ -547,23 +547,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "9e026599532bf76b2137",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_aderencia_desempenho"
-              }
-            },
-            "Property": "aderencia"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

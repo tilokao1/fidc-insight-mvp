@@ -547,42 +547,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "633f1b54e74684935d78",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_concentracao_setorial"
-              }
-            },
-            "Property": "classificacao"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "855f209694bc7924e109",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "score_concentracao_setorial"
-                  }
-                },
-                "Property": "CNPJ_FUNDO_CLASSE"
-              }
-            },
-            "Function": 5
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

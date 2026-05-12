@@ -446,23 +446,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "7f39b5961df134dd8229",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_concentracao_setorial"
-              }
-            },
-            "Property": "top1_concentracao"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

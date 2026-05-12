@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 244.8,
     "width": 640,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "tableEx",
@@ -602,61 +602,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "71803b36d8dd90fed388",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_prazo_longo"
-              }
-            },
-            "Property": "DENOM_SOCIAL"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "56209be2ae228e30cbad",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "score_prazo_longo"
-                  }
-                },
-                "Property": "TAB_V_A_VL_DIRCRED_PRAZO"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "4201343b978824f2ec98",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "score_prazo_longo"
-                  }
-                },
-                "Property": "prazo_longo"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

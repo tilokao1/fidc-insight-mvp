@@ -11,6 +11,28 @@
   },
   "visual": {
     "visualType": "htmlContent443BE3AD55E043BF878BED274D3A6865",
+    "query": {
+      "queryState": {
+        "content": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Tabela"
+                    }
+                  },
+                  "Property": "Tabela"
+                }
+              },
+              "queryRef": "Tabela.Tabela",
+              "nativeQueryRef": "Tabela"
+            }
+          ]
+        }
+      }
+    },
     "drillFilterOtherVisuals": true
   }
 }

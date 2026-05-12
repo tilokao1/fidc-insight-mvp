@@ -32,18 +32,18 @@
             },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "score_concentracao_setorial"
                     }
                   },
-                  "Property": "concentracao_top1_pct"
+                  "Property": "top1_concentracao"
                 }
               },
-              "queryRef": "Sum(score_concentracao_setorial.concentracao_top1_pct)",
-              "nativeQueryRef": "Concentração Top 1",
-              "displayName": "Concentração Top 1"
+              "queryRef": "score_concentracao_setorial.top1_concentracao",
+              "nativeQueryRef": "Melhor Concentração",
+              "displayName": "Melhor Concentração"
             },
             {
               "field": {
@@ -273,6 +273,20 @@
           "selector": {
             "metadata": "score_concentracao_setorial.classificacao"
           }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "112D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "score_concentracao_setorial.top1_concentracao"
+          }
         }
       ]
     },
@@ -430,51 +444,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "608c8115696ef6c9ea0c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_concentracao_setorial"
-              }
-            },
-            "Property": "DENOM_SOCIAL"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "6c1c32dfa29000680902",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_concentracao_setorial"
-              }
-            },
-            "Property": "concentracao_top1_pct"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "7219da74f2996f715023",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_concentracao_setorial"
-              }
-            },
-            "Property": "classificacao"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

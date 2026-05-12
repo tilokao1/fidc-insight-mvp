@@ -1,0 +1,19 @@
+table Tabela
+	lineageTag: 837f8313-9f20-4ace-9fb1-6c91bc07c6e7
+
+	column Tabela
+		dataType: string
+		lineageTag: 7f135536-10ea-4f42-889c-ad6aaa9738fe
+		summarizeBy: none
+		sourceColumn: Tabela
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Tabela = m
+		mode: import
+		source = Web.BrowserContents("https://tilokao1.github.io/fidc-insight-mvp/")
+
+	annotation PBI_ResultType = Text
+
+	annotation PBI_NavigationStepName = Navegação
+

@@ -2754,16 +2754,6 @@ cultureInfo pt-BR
 			            },
 			            "Weight": 0.599
 			          }
-			        },
-			        {
-			          "Concentração Top 1": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -3355,75 +3345,46 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
+			    },
+			    "tabela": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabela"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tabela": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "tabela.tabela": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabela",
+			          "ConceptualProperty": "Tabela"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tabela": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "tabela name": {
+			            "State": "Generated"
+			          }
+			        }
+			      ],
+			      "NameType": "Name"
 			    }
 			  },
 			  "Relationships": {
-			    "score_liquidez_curto_prazo_dt_comptc_hierarquia_de_data_has_score_liquidez_curto_prazo_dt_comptc_ano": {
-			      "Binding": {
-			        "ConceptualEntity": "score_liquidez_curto_prazo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "score_liquidez_curto_prazo.dt_comptc.hierarquia_de_data": {
-			          "Target": {
-			            "Entity": "score_liquidez_curto_prazo.dt_comptc.hierarquia_de_data"
-			          }
-			        },
-			        "score_liquidez_curto_prazo.dt_comptc.ano": {
-			          "Target": {
-			            "Entity": "score_liquidez_curto_prazo.dt_comptc.ano"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "score_liquidez_curto_prazo.dt_comptc.hierarquia_de_data"
-			            },
-			            "Object": {
-			              "Role": "score_liquidez_curto_prazo.dt_comptc.ano"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_anos"
-			        }
-			      ]
-			    },
-			    "score_liquidez_curto_prazo_dt_comptc_has_hierarquia_de_data": {
-			      "Binding": {
-			        "ConceptualEntity": "score_liquidez_curto_prazo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "score_liquidez_curto_prazo.dt_comptc": {
-			          "Target": {
-			            "Entity": "score_liquidez_curto_prazo.dt_comptc"
-			          }
-			        },
-			        "score_liquidez_curto_prazo.dt_comptc.hierarquia_de_data": {
-			          "Target": {
-			            "Entity": "score_liquidez_curto_prazo.dt_comptc.hierarquia_de_data"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "score_liquidez_curto_prazo.dt_comptc"
-			            },
-			            "Object": {
-			              "Role": "score_liquidez_curto_prazo.dt_comptc.hierarquia_de_data"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dt_comptcs_have_hierarquia_de_data"
-			        }
-			      ]
-			    },
 			    "score_prazo_longo_dt_comptc_mê_has_score_prazo_longo_dt_comptc_dia": {
 			      "Binding": {
 			        "ConceptualEntity": "score_prazo_longo"
@@ -3750,7 +3711,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_anos1"
+			          "ID": "hierarquia_de_data_have_anos"
 			        }
 			      ]
 			    },
@@ -3783,7 +3744,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dt_comptcs_have_hierarquia_de_data1"
+			          "ID": "dt_comptcs_have_hierarquia_de_data"
 			        }
 			      ]
 			    },
@@ -4113,7 +4074,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_anos2"
+			          "ID": "hierarquia_de_data_have_anos1"
 			        }
 			      ]
 			    },
@@ -4146,7 +4107,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dt_comptcs_have_hierarquia_de_data2"
+			          "ID": "dt_comptcs_have_hierarquia_de_data1"
 			        }
 			      ]
 			    },
@@ -4411,6 +4372,52 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "score_admin_processes_have_score_concentracao_de_cedentes"
+			        }
+			      ]
+			    },
+			    "tabela_has_tabela": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabela"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabela": {
+			          "Target": {
+			            "Entity": "tabela"
+			          }
+			        },
+			        "tabela.tabela": {
+			          "Target": {
+			            "Entity": "tabela.tabela"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabela"
+			            },
+			            "Object": {
+			              "Role": "tabela.tabela"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabelas_have_tabelas"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "tabela"
+			            },
+			            "Name": {
+			              "Role": "tabela.tabela"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabelas_are_names_IDs_of_tabelas"
 			        }
 			      ]
 			    },
@@ -6784,6 +6791,72 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "score_protecao_caixas_have_cnpj_fundo_classes"
+			        }
+			      ]
+			    },
+			    "score_liquidez_curto_prazo_dt_comptc_has_hierarquia_de_data": {
+			      "Binding": {
+			        "ConceptualEntity": "score_liquidez_curto_prazo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "score_liquidez_curto_prazo.dt_comptc": {
+			          "Target": {
+			            "Entity": "score_liquidez_curto_prazo.dt_comptc"
+			          }
+			        },
+			        "score_liquidez_curto_prazo.dt_comptc.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "score_liquidez_curto_prazo.dt_comptc.hierarquia_de_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "score_liquidez_curto_prazo.dt_comptc"
+			            },
+			            "Object": {
+			              "Role": "score_liquidez_curto_prazo.dt_comptc.hierarquia_de_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dt_comptcs_have_hierarquia_de_data2"
+			        }
+			      ]
+			    },
+			    "score_liquidez_curto_prazo_dt_comptc_hierarquia_de_data_has_score_liquidez_curto_prazo_dt_comptc_ano": {
+			      "Binding": {
+			        "ConceptualEntity": "score_liquidez_curto_prazo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "score_liquidez_curto_prazo.dt_comptc.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "score_liquidez_curto_prazo.dt_comptc.hierarquia_de_data"
+			          }
+			        },
+			        "score_liquidez_curto_prazo.dt_comptc.ano": {
+			          "Target": {
+			            "Entity": "score_liquidez_curto_prazo.dt_comptc.ano"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "score_liquidez_curto_prazo.dt_comptc.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "score_liquidez_curto_prazo.dt_comptc.ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_anos2"
 			        }
 			      ]
 			    },

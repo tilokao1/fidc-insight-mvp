@@ -8,7 +8,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["score_protecao_caixa","score_prazo_longo","score_admin_process","score_liquidez_curto_prazo","score_aderencia_desempenho","score_concentracao_de_cedentes","score_concentracao_setorial","score_protecao_ao_investidor","score_retencao_de_cotistas"]
+annotation PBI_QueryOrder = ["score_protecao_caixa","score_prazo_longo","score_admin_process","score_liquidez_curto_prazo","score_aderencia_desempenho","score_concentracao_de_cedentes","score_concentracao_setorial","score_protecao_ao_investidor","score_retencao_de_cotistas","Tabela"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -25,6 +25,7 @@ ref table score_concentracao_de_cedentes
 ref table score_concentracao_setorial
 ref table score_protecao_ao_investidor
 ref table score_retencao_de_cotistas
+ref table Tabela
 
 ref cultureInfo pt-BR
 
