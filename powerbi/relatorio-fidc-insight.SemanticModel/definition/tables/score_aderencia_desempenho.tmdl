@@ -1,0 +1,102 @@
+table score_aderencia_desempenho
+	lineageTag: 5c2c1262-dcfb-4a37-9013-15fdc30ed42b
+
+	measure aderencia = AVERAGE(score_aderencia_desempenho[score_aderencia_desempenho])/100
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b45257bc-d863-45b7-b44a-06ecaad0ad74
+
+	column CNPJ_FUNDO_CLASSE
+		dataType: string
+		lineageTag: e8f6ed6f-9e45-4803-82cc-09c9946b5f3c
+		summarizeBy: none
+		sourceColumn: CNPJ_FUNDO_CLASSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DENOM_SOCIAL
+		dataType: string
+		lineageTag: c8285f09-071b-4330-9c05-ed8b67ad9a40
+		summarizeBy: none
+		sourceColumn: DENOM_SOCIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column DT_COMPTC
+		dataType: string
+		lineageTag: 57407eec-5d65-43c7-b02c-66ee390b7d60
+		summarizeBy: none
+		sourceColumn: DT_COMPTC
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_X_PR_DESEMP_ESPERADO
+		dataType: double
+		lineageTag: 44c83f96-7082-43a6-b354-abf9f677dbb7
+		summarizeBy: sum
+		sourceColumn: TAB_X_PR_DESEMP_ESPERADO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TAB_X_PR_DESEMP_REAL
+		dataType: double
+		lineageTag: 23bf8b84-8812-4a53-9f24-59d5e1555b64
+		summarizeBy: sum
+		sourceColumn: TAB_X_PR_DESEMP_REAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column desvio_desempenho
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ba23ec9d-208a-4ffe-97c5-bbe6e6b9d2c6
+		summarizeBy: none
+		sourceColumn: desvio_desempenho
+
+		annotation SummarizationSetBy = Automatic
+
+	column score_aderencia_desempenho
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 68459d7b-6d7a-4655-a87a-508aceb354f5
+		summarizeBy: sum
+		sourceColumn: score_aderencia_desempenho
+
+		annotation SummarizationSetBy = Automatic
+
+	column classificacao_desempenho
+		dataType: string
+		lineageTag: 134600fd-2ff8-4d95-a364-760bb1fdc504
+		summarizeBy: none
+		sourceColumn: classificacao_desempenho
+
+		annotation SummarizationSetBy = Automatic
+
+	partition score_aderencia_desempenho = m
+		mode: import
+		source = ```
+				let
+				    // URL do Supabase + o caminho da tabela
+				    UrlDaApi = "https://bgkrnjbleagxnhjlggbj.supabase.co/rest/v1/score_aderencia_desempenho",
+				    
+				    // Chave anon public (coloque a mesma chave nos dois lugares)
+				    ChaveAnon = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJna3JuamJsZWFneG5oamxnZ2JqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NjYxNTEsImV4cCI6MjA5MTM0MjE1MX0.i2ZIZHy74lfohzGf-YCFiRduLT3yWzPZWVYXaOY9Qhg",
+				
+				    Fonte = Json.Document(Web.Contents(UrlDaApi, 
+				        [Headers=[apikey=ChaveAnon, Authorization="Bearer " & ChaveAnon]]
+				    )),
+				   
+				    // Converte a resposta da API (JSON) em uma tabela legível
+				    Tabela = Table.FromRecords(Fonte),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"desvio_desempenho", type number}, {"score_aderencia_desempenho", type number}, {"TAB_X_PR_DESEMP_ESPERADO", type number}, {"TAB_X_PR_DESEMP_REAL", type number}})
+				in
+				    #"Tipo Alterado"
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

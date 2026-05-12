@@ -1,0 +1,124 @@
+table score_concentracao_setorial
+	lineageTag: 2af821d2-79ed-4d2e-a334-1d5c6dd18e8b
+
+	measure top1_concentracao = AVERAGE(score_concentracao_setorial[concentracao_top1_pct])/100
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c7bf8887-33c0-4495-ba40-5faf723c61f5
+
+	column CNPJ_FUNDO_CLASSE
+		dataType: string
+		lineageTag: e26f3bcb-6fb7-4839-86e5-0f1f26586d12
+		summarizeBy: none
+		sourceColumn: CNPJ_FUNDO_CLASSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DT_COMPTC
+		dataType: string
+		lineageTag: 33525dfc-0b04-4181-a01a-8318bb0e7bb0
+		summarizeBy: none
+		sourceColumn: DT_COMPTC
+
+		annotation SummarizationSetBy = Automatic
+
+	column HHI_Setorial
+		dataType: double
+		lineageTag: 224f6425-8866-41ad-876a-bb3d942fd0d8
+		summarizeBy: sum
+		sourceColumn: HHI_Setorial
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column score_setorial
+		dataType: double
+		lineageTag: 5fc122b0-e29d-4e9a-9b14-7ca3e213d60d
+		summarizeBy: sum
+		sourceColumn: score_setorial
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column score_100
+		dataType: double
+		lineageTag: 42219fbf-4122-4b76-9cf0-7837c3731550
+		summarizeBy: sum
+		sourceColumn: score_100
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column maior_setor
+		dataType: double
+		lineageTag: 73c2a299-1295-4977-a409-0e397817718e
+		summarizeBy: sum
+		sourceColumn: maior_setor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column top3_setores
+		dataType: double
+		lineageTag: adc6b6ce-df45-4ab7-a5e4-c62580f836e6
+		summarizeBy: sum
+		sourceColumn: top3_setores
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column concentracao_top1_pct
+		dataType: double
+		lineageTag: 8ff8b52c-712d-4551-a29a-e6174e09eba3
+		summarizeBy: sum
+		sourceColumn: concentracao_top1_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column classificacao
+		dataType: string
+		lineageTag: dc4258d8-532e-4f6a-b331-1145e2ee0481
+		summarizeBy: none
+		sourceColumn: classificacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column DENOM_SOCIAL
+		dataType: string
+		lineageTag: ea89fdcc-2adf-4ed7-b075-dbeea7f4849c
+		summarizeBy: none
+		sourceColumn: DENOM_SOCIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	partition score_concentracao_setorial = m
+		mode: import
+		source = ```
+				let
+				    // URL do Supabase + o caminho da tabela
+				    UrlDaApi = "https://bgkrnjbleagxnhjlggbj.supabase.co/rest/v1/score_concentracao_setorial",
+				    
+				    // Chave anon public (coloque a mesma chave nos dois lugares)
+				    ChaveAnon = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJna3JuamJsZWFneG5oamxnZ2JqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NjYxNTEsImV4cCI6MjA5MTM0MjE1MX0.i2ZIZHy74lfohzGf-YCFiRduLT3yWzPZWVYXaOY9Qhg",
+				
+				    Fonte = Json.Document(Web.Contents(UrlDaApi, 
+				        [Headers=[apikey=ChaveAnon, Authorization="Bearer " & ChaveAnon]]
+				    )),
+				   
+				    // Converte a resposta da API (JSON) em uma tabela legível
+				    Tabela = Table.FromRecords(Fonte),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"maior_setor", type number}, {"score_100", type number}, {"top3_setores", type number}, {"concentracao_top1_pct", type number}, {"score_setorial", type number}, {"HHI_Setorial", type number}})
+				in
+				    #"Tipo Alterado"
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

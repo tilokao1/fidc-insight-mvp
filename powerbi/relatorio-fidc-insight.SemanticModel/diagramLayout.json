@@ -1,0 +1,148 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 3482,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 3876.3616394153596,
+            "y": 102.92054851740473
+          },
+          "nodeIndex": "score_liquidez_curto_prazo",
+          "nodeLineageTag": "3768deee-9709-4b70-b38f-6e31b73cce14",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 4444.36163941536,
+            "y": 102.92054851740473
+          },
+          "nodeIndex": "score_prazo_longo",
+          "nodeLineageTag": "e99d8213-71ee-4363-9ad9-1c8a0b0614c7",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 4728.36163941536,
+            "y": 102.92054851740473
+          },
+          "nodeIndex": "score_protecao_caixa",
+          "nodeLineageTag": "7722fe99-9d00-4da8-b657-d8c01a82e6fc",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1420,
+            "y": 69.8230922217449
+          },
+          "nodeIndex": "Tabelateste",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4160.36163941536,
+            "y": 126.92054851740473
+          },
+          "nodeIndex": "score_admin_process",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3592.3616394153596,
+            "y": 9.8230922217448722
+          },
+          "nodeIndex": "score_concentracao_setorial",
+          "nodeLineageTag": "2af821d2-79ed-4d2e-a334-1d5c6dd18e8b",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4160.36163941536,
+            "y": 45.823092221744872
+          },
+          "nodeIndex": "score_protecao_ao_investidor",
+          "nodeLineageTag": "816e8a1b-0d77-403a-8fed-8a9da209389d",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4444.36163941536,
+            "y": 45.823092221744872
+          },
+          "nodeIndex": "score_retencao_de_cotistas",
+          "nodeLineageTag": "05233faa-eccd-4ee2-9410-a27a503975ab",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3876.3616394153596,
+            "y": 9.8230922217448722
+          },
+          "nodeIndex": "score_concentracao_de_cedentes",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3592.3616394153596,
+            "y": 90.920548517404725
+          },
+          "nodeIndex": "score_aderencia_desempenho",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

@@ -1,0 +1,83 @@
+table score_admin_process
+	lineageTag: 121a316e-d313-4521-b973-037e9d6c3276
+
+	column CNPJ_FUNDO_CLASSE
+		dataType: string
+		lineageTag: 312a21bf-c2be-4875-8035-f589266842f1
+		summarizeBy: none
+		sourceColumn: CNPJ_FUNDO_CLASSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DENOM_SOCIAL
+		dataType: string
+		lineageTag: 7de1a6c0-fcb6-492b-a52b-bfbee9c35f52
+		summarizeBy: none
+		sourceColumn: DENOM_SOCIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column DT_COMPTC
+		dataType: string
+		lineageTag: 8c5f7868-5fe5-4521-b019-48160e5f54bd
+		summarizeBy: none
+		sourceColumn: DT_COMPTC
+
+		annotation SummarizationSetBy = Automatic
+
+	column CNPJ_ADMIN
+		dataType: string
+		lineageTag: 30027bb7-5d99-40f0-be0e-07b2bc716060
+		summarizeBy: none
+		sourceColumn: CNPJ_ADMIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column ADMIN
+		dataType: string
+		lineageTag: cda86511-11de-48d4-b9e8-897aee728bb2
+		summarizeBy: none
+		sourceColumn: ADMIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAB_IV_A_VL_PL
+		dataType: string
+		lineageTag: 56223d90-ac24-408b-84dc-cd6c5fb67b8e
+		summarizeBy: none
+		sourceColumn: TAB_IV_A_VL_PL
+
+		annotation SummarizationSetBy = Automatic
+
+	column QTD_PROC_CVM
+		dataType: string
+		lineageTag: 63eca0dc-5a56-4f51-b0b1-9b6c9073812c
+		summarizeBy: none
+		sourceColumn: QTD_PROC_CVM
+
+		annotation SummarizationSetBy = Automatic
+
+	partition score_admin_process = m
+		mode: import
+		source = ```
+				let
+				    // URL do Supabase + o caminho da tabela
+				    UrlDaApi = "https://bgkrnjbleagxnhjlggbj.supabase.co/rest/v1/score_admin_process",
+				    
+				    // Chave anon public (coloque a mesma chave nos dois lugares)
+				    ChaveAnon = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJna3JuamJsZWFneG5oamxnZ2JqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NjYxNTEsImV4cCI6MjA5MTM0MjE1MX0.i2ZIZHy74lfohzGf-YCFiRduLT3yWzPZWVYXaOY9Qhg",
+				
+				    Fonte = Json.Document(Web.Contents(UrlDaApi, 
+				        [Headers=[apikey=ChaveAnon, Authorization="Bearer " & ChaveAnon]]
+				    )),
+				   
+				    // Converte a resposta da API (JSON) em uma tabela legível
+				    Tabela = Table.FromRecords(Fonte)
+				in
+				    Tabela
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
