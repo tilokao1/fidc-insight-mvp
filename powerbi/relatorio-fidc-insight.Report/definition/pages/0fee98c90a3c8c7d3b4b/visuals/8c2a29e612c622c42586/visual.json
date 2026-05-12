@@ -2,9 +2,9 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "8c2a29e612c622c42586",
   "position": {
-    "x": 740.8,
-    "y": 251.2,
-    "z": 23000,
+    "x": 734.4,
+    "y": 248,
+    "z": 21000,
     "height": 262.4,
     "width": 512,
     "tabOrder": 23000
@@ -448,12 +448,12 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "5f998e04c260320c18f9",
+        "name": "302f102b6fe37a72c126",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "score_num_setores_ativos"
+                "Entity": "score_liquidez_curto_prazo"
               }
             },
             "Property": "DENOM_SOCIAL"
@@ -472,7 +472,7 @@
                     "From": [
                       {
                         "Name": "s",
-                        "Entity": "score_num_setores_ativos",
+                        "Entity": "score_liquidez_curto_prazo",
                         "Type": 0
                       }
                     ],
@@ -501,7 +501,7 @@
                                     "Source": "s"
                                   }
                                 },
-                                "Property": "numero_setores_ativos"
+                                "Property": "metrica_liquidez_curto_prazo"
                               }
                             },
                             "Function": 1
@@ -517,7 +517,7 @@
             },
             {
               "Name": "s",
-              "Entity": "score_num_setores_ativos",
+              "Entity": "score_liquidez_curto_prazo",
               "Type": 0
             }
           ],
@@ -546,8 +546,26 @@
               }
             }
           ]
+        }
+      },
+      {
+        "name": "fc5ddeff514c3aacfd6a",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_liquidez_curto_prazo"
+                  }
+                },
+                "Property": "metrica_liquidez_curto_prazo"
+              }
+            },
+            "Function": 1
+          }
         },
-        "howCreated": "User"
+        "type": "Advanced"
       }
     ]
   }

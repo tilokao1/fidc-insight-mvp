@@ -1,0 +1,99 @@
+table score_concetracao_de_cedentes
+	lineageTag: adceb2df-8adb-4a18-a78b-5aef080fc975
+
+	column CNPJ_FUNDO_CLASSE
+		dataType: string
+		lineageTag: e9a305f2-302e-47e1-80b4-f71c762fc193
+		summarizeBy: none
+		sourceColumn: CNPJ_FUNDO_CLASSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DT_COMPTC
+		dataType: string
+		lineageTag: fbcbdf90-b247-43bd-ae49-b0db28b67a08
+		summarizeBy: none
+		sourceColumn: DT_COMPTC
+
+		annotation SummarizationSetBy = Automatic
+
+	column HHI_Cedentes
+		dataType: string
+		lineageTag: ec10d0ac-1829-4919-80ef-fe37770f9d65
+		summarizeBy: none
+		sourceColumn: HHI_Cedentes
+
+		annotation SummarizationSetBy = Automatic
+
+	column score_cedentes
+		dataType: string
+		lineageTag: f27c4bf6-7de1-4416-9480-9f40d524278f
+		summarizeBy: none
+		sourceColumn: score_cedentes
+
+		annotation SummarizationSetBy = Automatic
+
+	column score_100
+		dataType: string
+		lineageTag: 979c793d-af75-46f0-b352-7c15725716ff
+		summarizeBy: none
+		sourceColumn: score_100
+
+		annotation SummarizationSetBy = Automatic
+
+	column maior_cedente
+		dataType: string
+		lineageTag: a76fb4be-8ac7-4fec-b431-4fb8541f4e42
+		summarizeBy: none
+		sourceColumn: maior_cedente
+
+		annotation SummarizationSetBy = Automatic
+
+	column top3_share
+		dataType: string
+		lineageTag: 36d19770-d073-4a15-9699-8e20572e1fd7
+		summarizeBy: none
+		sourceColumn: top3_share
+
+		annotation SummarizationSetBy = Automatic
+
+	column concentracao_top1_pct
+		dataType: string
+		lineageTag: 97244670-c67b-4bf5-a826-576be9946048
+		summarizeBy: none
+		sourceColumn: concentracao_top1_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column classificacao
+		dataType: string
+		lineageTag: febffaba-8458-46dd-aebb-6fa332f5cb45
+		summarizeBy: none
+		sourceColumn: classificacao
+
+		annotation SummarizationSetBy = Automatic
+
+	partition score_concetracao_de_cedentes = m
+		mode: import
+		source = ```
+				let
+				    // URL do Supabase + o caminho da tabela
+				    UrlDaApi = "https://bgkrnjbleagxnhjlggbj.supabase.co/rest/v1/score_concentracao_de_cedentes",
+				    
+				    // Chave anon public (coloque a mesma chave nos dois lugares)
+				    ChaveAnon = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJna3JuamJsZWFneG5oamxnZ2JqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NjYxNTEsImV4cCI6MjA5MTM0MjE1MX0.i2ZIZHy74lfohzGf-YCFiRduLT3yWzPZWVYXaOY9Qhg",
+				
+				    Fonte = Json.Document(Web.Contents(UrlDaApi, 
+				        [Headers=[apikey=ChaveAnon, Authorization="Bearer " & ChaveAnon]]
+				    )),
+				   
+				    // Converte a resposta da API (JSON) em uma tabela legível
+				    Tabela = Table.FromRecords(Fonte)
+				in
+				    Tabela
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

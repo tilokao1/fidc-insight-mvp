@@ -474,6 +474,16 @@ cultureInfo pt-BR
 			            },
 			            "Weight": 0.461
 			          }
+			        },
+			        {
+			          "Denominação Social": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -763,7 +773,7 @@ cultureInfo pt-BR
 			    "score_num_setores_ativo": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "score_num_setores_ativos"
+			          "ConceptualEntity": "score_admin_process"
 			        }
 			      },
 			      "State": "Generated",
@@ -802,7 +812,7 @@ cultureInfo pt-BR
 			    "score_num_setores_ativo.cnpj_fundo_classe": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "score_num_setores_ativos",
+			          "ConceptualEntity": "score_admin_process",
 			          "ConceptualProperty": "CNPJ_FUNDO_CLASSE"
 			        }
 			      },
@@ -825,7 +835,7 @@ cultureInfo pt-BR
 			    "score_num_setores_ativo.denom_social": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "score_num_setores_ativos",
+			          "ConceptualEntity": "score_admin_process",
 			          "ConceptualProperty": "DENOM_SOCIAL"
 			        }
 			      },
@@ -878,7 +888,7 @@ cultureInfo pt-BR
 			    "score_num_setores_ativo.dt_comptc": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "score_num_setores_ativos",
+			          "ConceptualEntity": "score_admin_process",
 			          "ConceptualProperty": "DT_COMPTC"
 			        }
 			      },
@@ -908,7 +918,7 @@ cultureInfo pt-BR
 			    "score_num_setores_ativo.dt_comptc.hierarquia_de_data": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "score_num_setores_ativos",
+			          "ConceptualEntity": "score_admin_process",
 			          "VariationSource": "DT_COMPTC",
 			          "VariationSet": "Variation",
 			          "Hierarchy": "Hierarquia de datas"
@@ -996,7 +1006,7 @@ cultureInfo pt-BR
 			    "score_num_setores_ativo.dt_comptc.ano": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "score_num_setores_ativos",
+			          "ConceptualEntity": "score_admin_process",
 			          "VariationSource": "DT_COMPTC",
 			          "VariationSet": "Variation",
 			          "Hierarchy": "Hierarquia de datas",
@@ -1020,7 +1030,7 @@ cultureInfo pt-BR
 			    "score_num_setores_ativo.dt_comptc.trimestre": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "score_num_setores_ativos",
+			          "ConceptualEntity": "score_admin_process",
 			          "VariationSource": "DT_COMPTC",
 			          "VariationSet": "Variation",
 			          "Hierarchy": "Hierarquia de datas",
@@ -1044,7 +1054,7 @@ cultureInfo pt-BR
 			    "score_num_setores_ativo.dt_comptc.mê": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "score_num_setores_ativos",
+			          "ConceptualEntity": "score_admin_process",
 			          "VariationSource": "DT_COMPTC",
 			          "VariationSet": "Variation",
 			          "Hierarchy": "Hierarquia de datas",
@@ -1068,7 +1078,7 @@ cultureInfo pt-BR
 			    "score_num_setores_ativo.dt_comptc.dia": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "score_num_setores_ativos",
+			          "ConceptualEntity": "score_admin_process",
 			          "VariationSource": "DT_COMPTC",
 			          "VariationSet": "Variation",
 			          "Hierarchy": "Hierarquia de datas",
@@ -1085,36 +1095,6 @@ cultureInfo pt-BR
 			        {
 			          "dt comptc dia": {
 			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "score_num_setores_ativo.numero_setores_ativo": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "score_num_setores_ativos",
-			          "ConceptualProperty": "numero_setores_ativos"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "numero setores ativo": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "numero setore ativo": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.78
-			          }
-			        },
-			        {
-			          "numero_setores_ativos": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
 			          }
 			        }
 			      ]
@@ -1213,6 +1193,16 @@ cultureInfo pt-BR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "Denominação Social": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -1939,6 +1929,95 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
+			    },
+			    "score_prazo_longo.pct_longo_final": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "score_prazo_longo",
+			          "ConceptualProperty": "PCT_LONGO_FINAL"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pct longo final": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PCT_LONGO_FINAL": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "pct longo decider": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.458
+			          }
+			        },
+			        {
+			          "Longo Prazo (%)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "score_prazo_longo.cor_PCT_LONGO": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "score_prazo_longo",
+			          "ConceptualProperty": "Cor_PCT_LONGO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cor PCT LONGO": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Cor_PCT_LONGO": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "score_liquidez_curto_prazo.cor_PCT_CURTO": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "score_liquidez_curto_prazo",
+			          "ConceptualProperty": "Cor_PCT_CURTO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cor PCT CURTO": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Cor_PCT_CURTO": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
@@ -2373,7 +2452,7 @@ cultureInfo pt-BR
 			    },
 			    "score_num_setores_ativo_dt_comptc_mê_has_score_num_setores_ativo_dt_comptc_dia": {
 			      "Binding": {
-			        "ConceptualEntity": "score_num_setores_ativos"
+			        "ConceptualEntity": "score_admin_process"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -2439,7 +2518,7 @@ cultureInfo pt-BR
 			    },
 			    "score_num_setores_ativo_dt_comptc_trimestre_has_score_num_setores_ativo_dt_comptc_mê": {
 			      "Binding": {
-			        "ConceptualEntity": "score_num_setores_ativos"
+			        "ConceptualEntity": "score_admin_process"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -2505,7 +2584,7 @@ cultureInfo pt-BR
 			    },
 			    "score_num_setores_ativo_dt_comptc_ano_has_score_num_setores_ativo_dt_comptc_trimestre": {
 			      "Binding": {
-			        "ConceptualEntity": "score_num_setores_ativos"
+			        "ConceptualEntity": "score_admin_process"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -2571,7 +2650,7 @@ cultureInfo pt-BR
 			    },
 			    "score_num_setores_ativo_dt_comptc_hierarquia_de_data_has_score_num_setores_ativo_dt_comptc_dia": {
 			      "Binding": {
-			        "ConceptualEntity": "score_num_setores_ativos"
+			        "ConceptualEntity": "score_admin_process"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -2604,7 +2683,7 @@ cultureInfo pt-BR
 			    },
 			    "score_num_setores_ativo_dt_comptc_hierarquia_de_data_has_score_num_setores_ativo_dt_comptc_mê": {
 			      "Binding": {
-			        "ConceptualEntity": "score_num_setores_ativos"
+			        "ConceptualEntity": "score_admin_process"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -2637,7 +2716,7 @@ cultureInfo pt-BR
 			    },
 			    "score_num_setores_ativo_dt_comptc_hierarquia_de_data_has_score_num_setores_ativo_dt_comptc_trimestre": {
 			      "Binding": {
-			        "ConceptualEntity": "score_num_setores_ativos"
+			        "ConceptualEntity": "score_admin_process"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -2670,7 +2749,7 @@ cultureInfo pt-BR
 			    },
 			    "score_num_setores_ativo_dt_comptc_hierarquia_de_data_has_score_num_setores_ativo_dt_comptc_ano": {
 			      "Binding": {
-			        "ConceptualEntity": "score_num_setores_ativos"
+			        "ConceptualEntity": "score_admin_process"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -2703,7 +2782,7 @@ cultureInfo pt-BR
 			    },
 			    "score_num_setores_ativo_dt_comptc_has_hierarquia_de_data": {
 			      "Binding": {
-			        "ConceptualEntity": "score_num_setores_ativos"
+			        "ConceptualEntity": "score_admin_process"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -3592,6 +3671,105 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
+			    "score_liquidez_curto_prazo_has_cor_PCT_CURTO": {
+			      "Binding": {
+			        "ConceptualEntity": "score_liquidez_curto_prazo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "score_liquidez_curto_prazo": {
+			          "Target": {
+			            "Entity": "score_liquidez_curto_prazo"
+			          }
+			        },
+			        "score_liquidez_curto_prazo.cor_PCT_CURTO": {
+			          "Target": {
+			            "Entity": "score_liquidez_curto_prazo.cor_PCT_CURTO"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "score_liquidez_curto_prazo"
+			            },
+			            "Object": {
+			              "Role": "score_liquidez_curto_prazo.cor_PCT_CURTO"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "score_liquidez_curto_prazos_have_cor_PCT_CURTO"
+			        }
+			      ]
+			    },
+			    "score_prazo_longo_has_cor_PCT_LONGO": {
+			      "Binding": {
+			        "ConceptualEntity": "score_prazo_longo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "score_prazo_longo": {
+			          "Target": {
+			            "Entity": "score_prazo_longo"
+			          }
+			        },
+			        "score_prazo_longo.cor_PCT_LONGO": {
+			          "Target": {
+			            "Entity": "score_prazo_longo.cor_PCT_LONGO"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "score_prazo_longo"
+			            },
+			            "Object": {
+			              "Role": "score_prazo_longo.cor_PCT_LONGO"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "score_prazo_longo_have_cor_PCT_LONGO"
+			        }
+			      ]
+			    },
+			    "score_prazo_longo_has_pct_longo_final": {
+			      "Binding": {
+			        "ConceptualEntity": "score_prazo_longo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "score_prazo_longo": {
+			          "Target": {
+			            "Entity": "score_prazo_longo"
+			          }
+			        },
+			        "score_prazo_longo.pct_longo_final": {
+			          "Target": {
+			            "Entity": "score_prazo_longo.pct_longo_final"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "score_prazo_longo"
+			            },
+			            "Object": {
+			              "Role": "score_prazo_longo.pct_longo_final"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "score_prazo_longo_have_pct_longo_final"
+			        }
+			      ]
+			    },
 			    "score_desvio_desempenho_has_metrica_desvio_desempenho": {
 			      "Binding": {
 			        "ConceptualEntity": "score_desvio_desempenho"
@@ -4011,7 +4189,7 @@ cultureInfo pt-BR
 			    },
 			    "score_num_setores_ativo_has_numero_setores_ativo": {
 			      "Binding": {
-			        "ConceptualEntity": "score_num_setores_ativos"
+			        "ConceptualEntity": "score_admin_process"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -4044,7 +4222,7 @@ cultureInfo pt-BR
 			    },
 			    "score_num_setores_ativo_has_dt_comptc": {
 			      "Binding": {
-			        "ConceptualEntity": "score_num_setores_ativos"
+			        "ConceptualEntity": "score_admin_process"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -4077,7 +4255,7 @@ cultureInfo pt-BR
 			    },
 			    "score_num_setores_ativo_has_denom_social": {
 			      "Binding": {
-			        "ConceptualEntity": "score_num_setores_ativos"
+			        "ConceptualEntity": "score_admin_process"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -4110,7 +4288,7 @@ cultureInfo pt-BR
 			    },
 			    "score_num_setores_ativo_has_cnpj_fundo_classe": {
 			      "Binding": {
-			        "ConceptualEntity": "score_num_setores_ativos"
+			        "ConceptualEntity": "score_admin_process"
 			      },
 			      "State": "Generated",
 			      "Roles": {

@@ -4,64 +4,13 @@
   "position": {
     "x": 794.05874499332458,
     "y": 121.84245660881174,
-    "z": 12000,
+    "z": 11000,
     "height": 91.989319092122841,
     "width": 203.07076101468627,
     "tabOrder": 8000
   },
   "visual": {
     "visualType": "cardVisual",
-    "query": {
-      "queryState": {
-        "Data": {
-          "projections": [
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "score_num_setores_ativos"
-                        }
-                      },
-                      "Property": "numero_setores_ativos"
-                    }
-                  },
-                  "Function": 5
-                }
-              },
-              "queryRef": "CountNonNull(score_num_setores_ativos.numero_setores_ativos)",
-              "nativeQueryRef": "Numero Setores Ativos",
-              "displayName": "Numero Setores Ativos"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Aggregation": {
-                "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "score_num_setores_ativos"
-                      }
-                    },
-                    "Property": "numero_setores_ativos"
-                  }
-                },
-                "Function": 5
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    },
     "objects": {
       "value": [
         {

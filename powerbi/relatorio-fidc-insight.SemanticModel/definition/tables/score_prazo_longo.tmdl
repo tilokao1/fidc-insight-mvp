@@ -1,6 +1,33 @@
 table score_prazo_longo
 	lineageTag: e99d8213-71ee-4363-9ad9-1c8a0b0614c7
 
+	measure PCT_LONGO_FINAL =
+			
+			VAR pct =
+			    SELECTEDVALUE('score_prazo_longo'[metrica_prazo_longo])
+			
+			RETURN
+			IF(
+			    ISINSCOPE('score_prazo_longo'[denom_social]),
+			    FORMAT(pct, "0.00%") &
+			    IF(pct >= 0.5, " ▲", " ▼"),
+			    BLANK()
+			)
+		lineageTag: e7b259ae-b231-44ea-8f3f-3ba3e852f8c0
+
+	measure Cor_PCT_LONGO =
+			
+			VAR pct =
+			    SELECTEDVALUE('score_prazo_longo'[metrica_prazo_longo])
+			
+			RETURN
+			IF(
+			    pct >= 0.5,
+			    "#22C55E",
+			    "#EF4444"
+			)
+		lineageTag: 79763c93-e51b-4c75-b8f3-a5ea1311034a
+
 	column CNPJ_FUNDO_CLASSE
 		dataType: string
 		lineageTag: 71e9241d-345a-43c0-9f0b-5ce52d1cb66b
@@ -35,7 +62,7 @@ table score_prazo_longo
 
 	column TAB_V_A_VL_DIRCRED_PRAZO
 		dataType: decimal
-		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
 		lineageTag: d3f6edf5-45e9-48de-a671-4c1b1cfc4efe
 		summarizeBy: sum
 		sourceColumn: TAB_V_A_VL_DIRCRED_PRAZO

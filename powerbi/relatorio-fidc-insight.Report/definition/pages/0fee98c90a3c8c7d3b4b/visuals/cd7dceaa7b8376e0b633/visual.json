@@ -4,9 +4,9 @@
   "position": {
     "x": 668.8,
     "y": 552,
-    "z": 6000,
-    "height": 244.8,
-    "width": 577.6,
+    "z": 5000,
+    "height": 248,
+    "width": 632,
     "tabOrder": 2000
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "score_liquidez_curto_prazo.DENOM_SOCIAL",
-              "nativeQueryRef": "DENOM_SOCIAL"
+              "nativeQueryRef": "Denominação Social",
+              "displayName": "Denominação Social"
             },
             {
               "field": {
@@ -46,8 +47,8 @@
                 }
               },
               "queryRef": "Sum(score_liquidez_curto_prazo.liquidez_total)",
-              "nativeQueryRef": "CARTEIRA",
-              "displayName": "CARTEIRA"
+              "nativeQueryRef": "Carteira",
+              "displayName": "Carteira"
             },
             {
               "field": {
@@ -66,8 +67,8 @@
                 }
               },
               "queryRef": "Sum(score_liquidez_curto_prazo.liquidez_curto_prazo)",
-              "nativeQueryRef": "CARTEIRA CURTO PZ",
-              "displayName": "CARTEIRA CURTO PZ"
+              "nativeQueryRef": "Curto Prazo (R$)",
+              "displayName": "Curto Prazo (R$)"
             },
             {
               "field": {
@@ -86,8 +87,8 @@
                 }
               },
               "queryRef": "Sum(score_liquidez_curto_prazo.metrica_liquidez_curto_prazo)",
-              "nativeQueryRef": "PCT_CURT",
-              "displayName": "PCT_CURT"
+              "nativeQueryRef": "Curto Prazo (%)",
+              "displayName": "Curto Prazo (%)"
             }
           ]
         }
@@ -104,13 +105,13 @@
                         "Entity": "score_liquidez_curto_prazo"
                       }
                     },
-                    "Property": "metrica_liquidez_curto_prazo"
+                    "Property": "liquidez_curto_prazo"
                   }
                 },
                 "Function": 0
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -257,6 +258,13 @@
                   }
                 }
               }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -330,6 +338,36 @@
                 }
               }
             }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(score_liquidez_curto_prazo.liquidez_curto_prazo)"
+          }
+        },
+        {
+          "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(score_liquidez_curto_prazo.liquidez_total)"
           }
         }
       ]

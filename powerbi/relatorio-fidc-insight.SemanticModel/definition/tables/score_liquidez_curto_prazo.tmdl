@@ -1,6 +1,19 @@
 table score_liquidez_curto_prazo
 	lineageTag: 3768deee-9709-4b70-b38f-6e31b73cce14
 
+	measure Cor_PCT_CURTO =
+			
+			VAR pct =
+			    SELECTEDVALUE(score_liquidez_curto_prazo[metrica_liquidez_curto_prazo]])
+			
+			RETURN
+			IF(
+			    pct >= 0.5,
+			    "#22C55E",
+			    "#EF4444"
+			))))))))
+		lineageTag: ad698082-48f8-4ff9-9c6b-f57cc2b99991
+
 	column CNPJ_FUNDO_CLASSE
 		dataType: string
 		lineageTag: 0a786a0d-fa0c-4b07-b9b3-3be9877ffb06

@@ -2,9 +2,9 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "795907b80792a70d47d7",
   "position": {
-    "x": 9.6,
-    "y": 552,
-    "z": 7000,
+    "x": 0,
+    "y": 555.2,
+    "z": 6000,
     "height": 244.8,
     "width": 640,
     "tabOrder": 3000
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "score_prazo_longo.DENOM_SOCIAL",
-              "nativeQueryRef": "DENOM_SOCIAL"
+              "nativeQueryRef": "Denominação Social ",
+              "displayName": "Denominação Social "
             },
             {
               "field": {
@@ -46,8 +47,8 @@
                 }
               },
               "queryRef": "Sum(score_prazo_longo.TAB_V_A_VL_DIRCRED_PRAZO)",
-              "nativeQueryRef": "CARTEIRA",
-              "displayName": "CARTEIRA"
+              "nativeQueryRef": "Carteira",
+              "displayName": "Carteira"
             },
             {
               "field": {
@@ -66,28 +67,23 @@
                 }
               },
               "queryRef": "Sum(score_prazo_longo.prazo_longo)",
-              "nativeQueryRef": "VALOR LONGO PRAZO",
-              "displayName": "VALOR LONGO PRAZO"
+              "nativeQueryRef": "Longo Prazo (R$)",
+              "displayName": "Longo Prazo (R$)"
             },
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "score_prazo_longo"
-                        }
-                      },
-                      "Property": "metrica_prazo_longo"
+                    "SourceRef": {
+                      "Entity": "score_prazo_longo"
                     }
                   },
-                  "Function": 0
+                  "Property": "PCT_LONGO_FINAL"
                 }
               },
-              "queryRef": "Sum(score_prazo_longo.metrica_prazo_longo)",
-              "nativeQueryRef": "PCT_LONG",
-              "displayName": "PCT_LONG"
+              "queryRef": "score_prazo_longo.PCT_LONGO_FINAL",
+              "nativeQueryRef": "Longo Prazo (%)",
+              "displayName": "Longo Prazo (%)"
             }
           ]
         }
@@ -105,7 +101,7 @@
                 "Property": "DENOM_SOCIAL"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
@@ -159,13 +155,55 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "318.2D"
+                  "Value": "178.96061044162957D"
                 }
               }
             }
           },
           "selector": {
             "metadata": "score_prazo_longo.DENOM_SOCIAL"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "127.2D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(score_prazo_longo.prazo_longo)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "154.13143836594773D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(score_prazo_longo.TAB_V_A_VL_DIRCRED_PRAZO)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "84.1929581118157D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "score_prazo_longo.PCT_LONGO_FINAL"
           }
         }
       ],
@@ -266,7 +304,44 @@
                   }
                 }
               }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "score_prazo_longo"
+                        }
+                      },
+                      "Property": "Cor_PCT_LONGO"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "score_prazo_longo.PCT_LONGO_FINAL"
           }
         }
       ],
@@ -309,6 +384,13 @@
                   }
                 }
               }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
@@ -339,6 +421,29 @@
                 }
               }
             }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(score_prazo_longo.prazo_longo)"
           }
         }
       ]
@@ -497,5 +602,61 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "71803b36d8dd90fed388",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_prazo_longo"
+              }
+            },
+            "Property": "DENOM_SOCIAL"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "56209be2ae228e30cbad",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_prazo_longo"
+                  }
+                },
+                "Property": "TAB_V_A_VL_DIRCRED_PRAZO"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4201343b978824f2ec98",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_prazo_longo"
+                  }
+                },
+                "Property": "prazo_longo"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

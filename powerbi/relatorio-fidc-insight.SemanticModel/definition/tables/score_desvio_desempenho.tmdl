@@ -26,8 +26,8 @@ table score_desvio_desempenho
 
 		variation Variation
 			isDefault
-			relationship: b92f0974-9279-4bad-8054-9e04b7dfd4dc
-			defaultHierarchy: LocalDateTable_36a5c769-a85d-43c7-a15c-982db57ca7b2.'Hierarquia de datas'
+			relationship: c2f4a52a-bf35-478e-a413-ca8b1d33284c
+			defaultHierarchy: LocalDateTable_867fe140-d7d8-44c8-ad19-9561c7917a90.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -88,7 +88,7 @@ table score_desvio_desempenho
 				    
 				    // Converte a resposta da API (JSON) em uma tabela legível
 				    Tabela = Table.FromRecords(Fonte),
-				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"DT_COMPTC", type date}, {"TAB_X_PR_DESEMP_ESPERADO", type number}, {"TAB_X_PR_DESEMP_REAL", type number}, {"desvio_desempenho", type number}, {"metrica_desvio_desempenho", Percentage.Type}})
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"DT_COMPTC", type date}, {"metrica_desvio_desempenho", Percentage.Type}, {"desvio_desempenho", Percentage.Type}, {"TAB_X_PR_DESEMP_REAL", type number}, {"TAB_X_PR_DESEMP_ESPERADO", type number}})
 				in
 				    #"Tipo Alterado"
 				```

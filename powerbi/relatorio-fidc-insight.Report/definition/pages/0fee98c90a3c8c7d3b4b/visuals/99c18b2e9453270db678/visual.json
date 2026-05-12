@@ -4,7 +4,7 @@
   "position": {
     "x": 89.6,
     "y": 248.11722296395197,
-    "z": 19000,
+    "z": 18000,
     "height": 262.4,
     "width": 512,
     "tabOrder": 0
@@ -20,7 +20,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "score_num_setores_ativos"
+                      "Entity": "score_admin_process"
                     }
                   },
                   "Property": "DENOM_SOCIAL"
@@ -42,7 +42,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "score_num_setores_ativos"
+                          "Entity": "score_admin_process"
                         }
                       },
                       "Property": "numero_setores_ativos"
@@ -67,7 +67,7 @@
                   "Column": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "score_num_setores_ativos"
+                        "Entity": "score_admin_process"
                       }
                     },
                     "Property": "numero_setores_ativos"
@@ -441,7 +441,7 @@
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "score_num_setores_ativos"
+                "Entity": "score_admin_process"
               }
             },
             "Property": "DENOM_SOCIAL"
@@ -460,7 +460,7 @@
                     "From": [
                       {
                         "Name": "s",
-                        "Entity": "score_num_setores_ativos",
+                        "Entity": "score_admin_process",
                         "Type": 0
                       }
                     ],
@@ -505,7 +505,7 @@
             },
             {
               "Name": "s",
-              "Entity": "score_num_setores_ativos",
+              "Entity": "score_admin_process",
               "Type": 0
             }
           ],
