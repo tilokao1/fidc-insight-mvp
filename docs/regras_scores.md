@@ -25,11 +25,11 @@ Mede o risco intrínseco da gestão do fundo, abrangendo sua proteção, liquide
 **Observação:** Quanto maior o valor, mais longa e "travada" é a carteira.  
 
 #### Métrica Desvio de Desempenho
-**Conceito:** O quanto o desempenho real divergiu do esperado?
+**Conceito:** O fundo performou próximo ao que era esperado?
 **Tabela(s):** inf_mensal_fidc_tab_X_6  
-**Cálculo:** Desvio = "TAB_X_PR_DESEMP_REAL" - "TAB_X_PR_DESEMP_ESPERADO"
-Métrica é normalizada através da divisão pelo limite (P95). Esse resultado é então limitado ("clipado") para que nunca seja menor que 0 ou maior que 1.  
-**Observação:** Se o valor for baixo, o fundo performou perto do esperado. Se o valor for alto, o fundo se desviou muito do esperado.  
+**Cálculo:** Desvio = ABS("TAB_X_PR_DESEMP_REAL" - "TAB_X_PR_DESEMP_ESPERADO"); A partir desse desvio, é criada uma nota de 0 a 100: score_aderencia_desempenho = 100 - ((Desvio - Limite_Bom) / (Limite_Ruim - Limite_Bom) * 100); Onde:Limite_Bom = 5; Limite_Ruim = 20; O resultado é limitado para nunca ficar abaixo de 0 ou acima de 100.
+O resultado é limitado para nunca ficar abaixo de 0 ou acima de 100.
+**Observação:** Quanto maior a nota, mais próximo o fundo performou do esperado. Quanto menor a nota, maior foi o desvio entre o desempenho real e o desempenho esperado.
 
 #### Métrica Concentração de Cedentes
 **Conceito:** O fundo depende de poucas empresas para originar seus créditos?  
