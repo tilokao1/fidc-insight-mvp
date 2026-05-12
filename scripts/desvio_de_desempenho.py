@@ -2,6 +2,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 from sqlalchemy.pool import NullPool
 import numpy as np
+import os
 
 print("🚀 Iniciando Métrica - Aderência ao Desempenho Esperado...")
 
