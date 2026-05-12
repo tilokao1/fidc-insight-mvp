@@ -32,7 +32,7 @@ def calcular_e_salvar_score_setorial(conexao_engine):
     # =========================
     # 2. IDENTIFICAR COLUNAS
     # =========================
-    colunas_id = ["CNPJ_FUNDO_CLASSE", "DT_COMPTC"]
+    colunas_id = ["CNPJ_FUNDO_CLASSE", "DT_COMPTC", "DENOM_SOCIAL"]
 
     colunas_remover = [
         "TAB_II_VL_CARTEIRA",
