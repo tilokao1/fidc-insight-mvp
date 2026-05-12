@@ -1,0 +1,96 @@
+table score_protecao_caixa
+	lineageTag: 7722fe99-9d00-4da8-b657-d8c01a82e6fc
+
+	column CNPJ_FUNDO_CLASSE
+		dataType: string
+		lineageTag: 72747a52-7409-4147-a62a-98e1e50b8ab7
+		summarizeBy: none
+		sourceColumn: CNPJ_FUNDO_CLASSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DENOM_SOCIAL
+		dataType: string
+		lineageTag: 548d59e2-d3eb-426d-bc1c-9e897bd7f47e
+		summarizeBy: none
+		sourceColumn: DENOM_SOCIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column DT_COMPTC
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5e586ecc-986d-4c03-a46e-71b923b99c92
+		summarizeBy: none
+		sourceColumn: DT_COMPTC
+
+		variation Variation
+			isDefault
+			relationship: bd4f8840-27d8-4558-bcc5-d1c9c161ba36
+			defaultHierarchy: LocalDateTable_af00cb5b-9b77-4e37-a0c9-62e275be4346.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column TAB_I1_VL_DISP
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: f4785860-adab-4526-a7a3-7cf46a3d15e4
+		summarizeBy: sum
+		sourceColumn: TAB_I1_VL_DISP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column TAB_I_VL_ATIVO
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 955922c9-aafe-401b-83b1-7bc379cf8de2
+		summarizeBy: sum
+		sourceColumn: TAB_I_VL_ATIVO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column 'MEDIA GERAL DE PROTEÇÃO DE CAIXA'
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c130e740-c789-407d-b6b6-0a2badbff8eb
+		summarizeBy: sum
+		sourceColumn: MEDIA GERAL DE PROTEÇÃO DE CAIXA
+
+		annotation SummarizationSetBy = Automatic
+
+	partition score_protecao_caixa = m
+		mode: import
+		source = ```
+				let
+				    // URL do Supabase + o caminho da tabela
+				    UrlDaApi = "https://bgkrnjbleagxnhjlggbj.supabase.co/rest/v1/score_protecao_caixa",
+				    
+				    // Chave anon public (coloque a mesma chave nos dois lugares)
+				    ChaveAnon = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJna3JuamJsZWFneG5oamxnZ2JqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NjYxNTEsImV4cCI6MjA5MTM0MjE1MX0.i2ZIZHy74lfohzGf-YCFiRduLT3yWzPZWVYXaOY9Qhg",
+				
+				    Fonte = Json.Document(Web.Contents(UrlDaApi, 
+				        [Headers=[apikey=ChaveAnon, Authorization="Bearer " & ChaveAnon]]
+				    )),
+				    
+				    // Converte a resposta da API (JSON) em uma tabela legível
+				    Tabela = Table.FromRecords(Fonte),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"DT_COMPTC", type date}, {"TAB_I1_VL_DISP", Currency.Type}, {"TAB_I_VL_ATIVO", Currency.Type}, {"metrica_protecao_caixa", Percentage.Type}}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Tipo Alterado",{{"metrica_protecao_caixa", "MEDIA GERAL DE PROTEÇÃO DE CAIXA"}}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Colunas Renomeadas", each [MEDIA GERAL DE PROTEÇÃO DE CAIXA] <> null and [MEDIA GERAL DE PROTEÇÃO DE CAIXA] <> ""),
+				    #"Linhas Filtradas1" = Table.SelectRows(#"Linhas Filtradas", each [MEDIA GERAL DE PROTEÇÃO DE CAIXA] > 0),
+				    #"Linhas Filtradas2" = Table.SelectRows(#"Linhas Filtradas1", each ([MEDIA GERAL DE PROTEÇÃO DE CAIXA] <> null and [MEDIA GERAL DE PROTEÇÃO DE CAIXA] <> "")),
+				    #"Linhas Filtradas3" = Table.SelectRows(#"Linhas Filtradas2", each [MEDIA GERAL DE PROTEÇÃO DE CAIXA] > 1E-05)
+				in
+				    #"Linhas Filtradas3"
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

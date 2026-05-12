@@ -1,0 +1,93 @@
+table score_retencao_de_cotistas
+	lineageTag: 05233faa-eccd-4ee2-9410-a27a503975ab
+
+	column CNPJ_FUNDO_CLASSE
+		dataType: string
+		lineageTag: e2ef2b04-ab17-471c-a77f-0c973275e271
+		summarizeBy: none
+		sourceColumn: CNPJ_FUNDO_CLASSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DENOM_SOCIAL
+		dataType: string
+		lineageTag: d0c92613-3130-485c-b097-0a84ff066e6a
+		summarizeBy: none
+		sourceColumn: DENOM_SOCIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column DT_COMPTC
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 858594c3-aad6-483b-af5b-7b9875617b54
+		summarizeBy: none
+		sourceColumn: DT_COMPTC
+
+		variation Variation
+			isDefault
+			relationship: 046d5516-4efd-4b34-a210-a5261cc76ba6
+			defaultHierarchy: LocalDateTable_4d2d75b0-040e-4341-a2b6-450c73d8b42c.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column cotistas_atual
+		dataType: double
+		formatString: 0
+		lineageTag: d6be6ffa-a0f5-4ebe-9149-c09bae7b3583
+		summarizeBy: sum
+		sourceColumn: cotistas_atual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column cotistas_anterior
+		dataType: double
+		formatString: 0
+		lineageTag: dc93d91f-88b0-4074-8e86-86920facf257
+		summarizeBy: sum
+		sourceColumn: cotistas_anterior
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column variacao_cotistas
+		dataType: double
+		formatString: 0
+		lineageTag: 77f1ca08-4a26-4cce-baad-d25141e74100
+		summarizeBy: sum
+		sourceColumn: variacao_cotistas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	partition score_retencao_de_cotistas = m
+		mode: import
+		source = ```
+				let
+				    // URL do Supabase + o caminho da tabela
+				    UrlDaApi = "https://bgkrnjbleagxnhjlggbj.supabase.co/rest/v1/score_retencao_de_cotistas",
+				    
+				    // Chave anon public (coloque a mesma chave nos dois lugares)
+				    ChaveAnon = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJna3JuamJsZWFneG5oamxnZ2JqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NjYxNTEsImV4cCI6MjA5MTM0MjE1MX0.i2ZIZHy74lfohzGf-YCFiRduLT3yWzPZWVYXaOY9Qhg",
+				
+				    Fonte = Json.Document(Web.Contents(UrlDaApi, 
+				        [Headers=[apikey=ChaveAnon, Authorization="Bearer " & ChaveAnon]]
+				    )),
+				   
+				    // Converte a resposta da API (JSON) em uma tabela legível
+				    Tabela = Table.FromRecords(Fonte),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"cotistas_atual", type number}, {"cotistas_anterior", type number}, {"variacao_cotistas", type number}, {"DT_COMPTC", type date}})
+				in
+				    #"Tipo Alterado"
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
