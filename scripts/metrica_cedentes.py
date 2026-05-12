@@ -27,7 +27,7 @@ cols_cedentes = [c for c in df.columns if "PR_CEDENTE" in c and "TAB_I2B1" in c]
 # 2. UNPIVOT
 # =========================
 df_long = df.melt(
-    id_vars=["CNPJ_FUNDO_CLASSE", "DT_COMPTC"],
+    id_vars=["CNPJ_FUNDO_CLASSE", "DT_COMPTC", "DENOM_SOCIAL"],
     value_vars=cols_cedentes,
     var_name="cedente",
     value_name="participacao"
@@ -52,7 +52,7 @@ df_long["share"] = df_long["participacao"] / df_long["total_participacao"]
 df_long["quadrado"] = df_long["share"] ** 2
 
 df_score = df_long.groupby(
-    ["CNPJ_FUNDO_CLASSE", "DT_COMPTC"]
+    ["CNPJ_FUNDO_CLASSE", "DT_COMPTC", "DENOM_SOCIAL"]
 )["quadrado"].sum().reset_index()
 
 df_score.rename(columns={"quadrado": "HHI_Cedentes"}, inplace=True)
