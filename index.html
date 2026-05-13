@@ -222,9 +222,13 @@ function handleFile(type,input){
 function setStatus(msg,err){const el=document.getElementById('upload-status');el.textContent=msg;el.className='upload-status'+(err?' error':'');}
 
 function calcScorePagadores(pagCnpjs) {
-  if(!pagCnpjs.length) return {score:0, liq:0, liqQ:0, inad:0, atraso:0, mat:0, matEvol:0, qtd:0, n:0};
+  if(!pagCnpjs || !pagCnpjs.length) return {score:0, liq:0, liqQ:0, inad:0, atraso:0, mat:0, matEvol:0, qtd:0, n:0};
   
-  const avg = f => pagCnpjs.reduce((s, c) => s + (parseFloat(c[f]) || 0), 0) / pagCnpjs.length;
+  // Função de média blindada contra valores nulos/NaN
+  const avg = f => {
+    const validVals = pagCnpjs.map(c => parseFloat(c[f])).filter(v => !isNaN(v));
+    return validVals.length ? validVals.reduce((a, b) => a + b, 0) / validVals.length : 0;
+  };
   
   const liq = avg('sacado_indice_liquidez_1m');
   const liqQ = avg('indicador_liquidez_quantitativo_3m');
@@ -234,15 +238,11 @@ function calcScorePagadores(pagCnpjs) {
   const matEvol = avg('score_materialidade_evolucao');
   const qtd = avg('score_quantidade_v2');
 
-  // NORMALIZAÇÃO SEGUNDO O DICIONÁRIO:
-  // Liquidez 0 a 1 -> vira 0 a 100%
+  // Normalização
   const liqNorm = Math.min(1, liq) * 100;
   const liqQNorm = Math.min(1, liqQ) * 100;
-  // Inadimplência 0 a 1 -> invertido (1 é ruim, 0 é bom)
   const inadInv = (1 - Math.min(1, inad)) * 100;
-  // Scores 0 a 1000 -> divide por 10 para virar 0 a 100%
   const matNorm = (Math.min(1000, mat) / 10);
-  // Atraso: peso leve (10%) — tolerância de 90 dias antes de zerar
   const atrasoNorm = (1 - Math.min(1, atraso / 90)) * 100;
 
   const score = Math.round(
@@ -256,20 +256,18 @@ function calcScorePagadores(pagCnpjs) {
   return {score, liq, liqQ, inad, atraso, mat, matEvol, qtd, n: pagCnpjs.length};
 }
 
-function verdict(score, stats) {
-    // Se stats não existir, faz um julgamento simples baseado apenas no score
-    if (!stats) {
-        return score >= 75 ? 'ok' : score >= 50 ? 'caution' : 'risk';
-    }
+function verdict(score, stats){
+  // Se stats for nulo ou undefined, faz julgamento apenas pelo score (evita erro)
+  if (!stats) return score >= 75 ? 'ok' : score >= 50 ? 'caution' : 'risk';
 
-    // Se stats existir, aplica as travas de segurança (Hard Alerts)
-    const hardAlert = (stats.inad > 0.20 || stats.liq < 0.60 || stats.liqQ < 0.65);
-    
-    if (hardAlert) {
-        return score >= 50 ? 'caution' : 'risk';
-    }
-    
-    return score >= 75 ? 'ok' : score >= 50 ? 'caution' : 'risk';
+  const hardAlert = (
+    (parseFloat(stats.inad) || 0) > 0.20 ||
+    (parseFloat(stats.liq) || 0) < 0.60 ||
+    (parseFloat(stats.liqQ) || 0) < 0.65
+  );
+
+  if(hardAlert) return score >= 50 ? 'caution' : 'risk';
+  return score >= 75 ? 'ok' : score >= 50 ? 'caution' : 'risk';
 }
 function vLabel(v){return v==='ok'?'Comprar':v==='caution'?'Análise adicional':'Não Comprar'}
 function vIcon(v){return v==='ok'?'✓':v==='caution'?'⚠':'✗'}
