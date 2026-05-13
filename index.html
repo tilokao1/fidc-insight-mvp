@@ -256,14 +256,20 @@ function calcScorePagadores(pagCnpjs) {
   return {score, liq, liqQ, inad, atraso, mat, matEvol, qtd, n: pagCnpjs.length};
 }
 
-function verdict(score, stats){
-  const hardAlert = stats && (
-    stats.inad > 0.20 ||
-    stats.liq  < 0.60 ||
-    stats.liqQ < 0.65
-  );
-  if(hardAlert) return score >= 50 ? 'caution' : 'risk';
-  return score >= 75 ? 'ok' : score >= 50 ? 'caution' : 'risk';
+function verdict(score, stats) {
+    // Se stats não existir, faz um julgamento simples baseado apenas no score
+    if (!stats) {
+        return score >= 75 ? 'ok' : score >= 50 ? 'caution' : 'risk';
+    }
+
+    // Se stats existir, aplica as travas de segurança (Hard Alerts)
+    const hardAlert = (stats.inad > 0.20 || stats.liq < 0.60 || stats.liqQ < 0.65);
+    
+    if (hardAlert) {
+        return score >= 50 ? 'caution' : 'risk';
+    }
+    
+    return score >= 75 ? 'ok' : score >= 50 ? 'caution' : 'risk';
 }
 function vLabel(v){return v==='ok'?'Comprar':v==='caution'?'Análise adicional':'Não Comprar'}
 function vIcon(v){return v==='ok'?'✓':v==='caution'?'⚠':'✗'}
