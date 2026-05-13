@@ -162,7 +162,6 @@ tr:hover td{background:#1a202c}
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#718096" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
     <span id="lbl-cnpjs">CNPJs.csv</span>
   </label>
-  <button class="upload-btn" id="btn-analisar" type="button">▶ Analisar</button>
   <span id="upload-status" class="upload-status"></span>
 </div>
 
@@ -210,12 +209,33 @@ function parseCSV(text){
 function handleFile(type,input){
   const file=input.files[0];if(!file)return;
   const reader=new FileReader();
+
   reader.onload=e=>{
     const data=parseCSV(e.target.result);
-    if(type==='boletos'){rawBoletos=data;document.getElementById('lbl-boletos').textContent=file.name;document.getElementById('lbl-boletos').style.color='#48bb78'}
-    else{rawCNPJs=data;document.getElementById('lbl-cnpjs').textContent=file.name;document.getElementById('lbl-cnpjs').style.color='#48bb78'}
+
+    if(type==='boletos'){
+      rawBoletos=data;
+      document.getElementById('lbl-boletos').textContent=file.name;
+      document.getElementById('lbl-boletos').style.color='#48bb78';
+    } else {
+      rawCNPJs=data;
+      document.getElementById('lbl-cnpjs').textContent=file.name;
+      document.getElementById('lbl-cnpjs').style.color='#48bb78';
+    }
+
     setStatus(`${data.length} registros — ${file.name}`);
+
+    // ✅ NOVO: dispara automaticamente quando ambos carregados
+    if(rawBoletos.length && rawCNPJs.length){
+      try {
+        processData();
+      } catch(e){
+        console.error('Erro ao processar:', e);
+        setStatus('Erro ao processar os dados', true);
+      }
+    }
   };
+
   reader.readAsText(file,'UTF-8');
 }
 
@@ -692,22 +712,6 @@ function renderRanking(){
   window.addEventListener('error', function(e){
     safeSetStatus('Erro JS: ' + (e.message || 'verifique o código'), true);
   });
-
-  // Botão analisar
-  const btn = document.getElementById('btn-analisar');
-  if(btn){
-    btn.addEventListener('click', function(ev){
-      ev.preventDefault();
-      safeSetStatus('Clique detectado: iniciando análise...', false);
-      try {
-        processData();
-      } catch(err){
-        safeSetStatus('Falha ao executar análise: ' + (err?.message || String(err)), true);
-      }
-    });
-  } else {
-    safeSetStatus('Aviso: botão #btn-analisar não encontrado.', true);
-  }
 
   // Inputs de arquivo (caso onchange inline seja ignorado)
   const fb = document.getElementById('file-boletos');
