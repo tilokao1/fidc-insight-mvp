@@ -223,23 +223,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "fae5eb4af4b116358f15",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_retencao_de_cotistas"
-              }
-            },
-            "Property": "CNPJ_FUNDO_CLASSE"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

@@ -20,21 +20,63 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "score_prazo_longo"
+                      "Entity": "score_protecao_caixa"
                     }
                   },
                   "Property": "DENOM_SOCIAL"
                 }
               },
-              "queryRef": "score_prazo_longo.DENOM_SOCIAL",
-              "nativeQueryRef": "Denom Social",
-              "active": true,
-              "displayName": "Denom Social"
+              "queryRef": "score_protecao_caixa.DENOM_SOCIAL",
+              "nativeQueryRef": "DENOM_SOCIAL",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "score_protecao_caixa"
+                        }
+                      },
+                      "Property": "MEDIA GERAL DE PROTEÇÃO DE CAIXA"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(score_protecao_caixa.MEDIA GERAL DE PROTEÇÃO DE CAIXA)",
+              "nativeQueryRef": "Média de MEDIA GERAL DE PROTEÇÃO DE CAIXA"
             }
           ]
         }
       },
       "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "score_protecao_caixa"
+                      }
+                    },
+                    "Property": "MEDIA GERAL DE PROTEÇÃO DE CAIXA"
+                  }
+                },
+                "Function": 1
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
         "isDefaultSort": true
       }
     },
@@ -388,111 +430,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "5f998e04c260320c18f9",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_admin_process"
-              }
-            },
-            "Property": "DENOM_SOCIAL"
-          }
-        },
-        "type": "TopN",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "subquery",
-              "Expression": {
-                "Subquery": {
-                  "Query": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "s",
-                        "Entity": "score_admin_process",
-                        "Type": 0
-                      }
-                    ],
-                    "Select": [
-                      {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Source": "s"
-                            }
-                          },
-                          "Property": "DENOM_SOCIAL"
-                        },
-                        "Name": "field"
-                      }
-                    ],
-                    "OrderBy": [
-                      {
-                        "Direction": 2,
-                        "Expression": {
-                          "Aggregation": {
-                            "Expression": {
-                              "Column": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Source": "s"
-                                  }
-                                },
-                                "Property": "numero_setores_ativos"
-                              }
-                            },
-                            "Function": 1
-                          }
-                        }
-                      }
-                    ],
-                    "Top": 5
-                  }
-                }
-              },
-              "Type": 2
-            },
-            {
-              "Name": "s",
-              "Entity": "score_admin_process",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "s"
-                          }
-                        },
-                        "Property": "DENOM_SOCIAL"
-                      }
-                    }
-                  ],
-                  "Table": {
-                    "SourceRef": {
-                      "Source": "subquery"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User"
-      }
-    ]
   }
 }

@@ -73,6 +73,14 @@ table score_concentracao_de_cedentes
 
 		annotation SummarizationSetBy = Automatic
 
+	column DENOM_SOCIAL
+		dataType: string
+		lineageTag: 195ac539-f467-4e53-8d5b-b89434cb2a2f
+		summarizeBy: none
+		sourceColumn: DENOM_SOCIAL
+
+		annotation SummarizationSetBy = Automatic
+
 	partition score_concentracao_de_cedentes = m
 		mode: import
 		source = ```
@@ -92,8 +100,6 @@ table score_concentracao_de_cedentes
 				in
 				    Tabela
 				```
-
-	changedProperty = Name
 
 	annotation PBI_NavigationStepName = Navegação
 

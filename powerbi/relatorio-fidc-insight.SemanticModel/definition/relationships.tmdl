@@ -54,3 +54,17 @@ relationship 046d5516-4efd-4b34-a210-a5261cc76ba6
 	fromColumn: score_retencao_de_cotistas.DT_COMPTC
 	toColumn: LocalDateTable_4d2d75b0-040e-4341-a2b6-450c73d8b42c.Date
 
+relationship AutoDetected_901307bd-9635-4939-abcb-095871a8995e
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: score_concentracao_de_cedentes.DENOM_SOCIAL
+	toColumn: score_liquidez_curto_prazo.DENOM_SOCIAL
+
+relationship AutoDetected_464684ae-2c54-4d49-b00e-49490315d054
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: score_concentracao_de_cedentes.DENOM_SOCIAL
+	toColumn: score_concentracao_setorial.DENOM_SOCIAL
+

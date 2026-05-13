@@ -529,20 +529,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "a1eeae321a5565a17a98",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_retencao_de_cotistas"
-              }
-            },
-            "Property": "DENOM_SOCIAL"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
         "name": "95facf9de5b1219ff3e0",
         "field": {
           "Column": {
@@ -643,6 +629,39 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "aa4ef6afc26204fd979f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_retencao_de_cotistas"
+              }
+            },
+            "Property": "DENOM_SOCIAL"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6bd7c2a09b0c9a9c6076",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_retencao_de_cotistas"
+                  }
+                },
+                "Property": "variacao_cotistas"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

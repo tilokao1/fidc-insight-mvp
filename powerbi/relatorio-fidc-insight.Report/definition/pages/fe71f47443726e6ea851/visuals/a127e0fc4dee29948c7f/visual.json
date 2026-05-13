@@ -509,48 +509,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "790650b9b9f9eb959432",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_retencao_de_cotistas"
-              }
-            },
-            "Property": "CNPJ_FUNDO_CLASSE"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "0bb209ac79b333672f32",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_retencao_de_cotistas"
-              }
-            },
-            "Property": "variacao_cotistas"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "e31e3221f5cc3d5c4cea",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_retencao_de_cotistas"
-              }
-            },
-            "Property": "cotistas_atual"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
         "name": "2fc7504319f5c25c562d",
         "field": {
           "Column": {
