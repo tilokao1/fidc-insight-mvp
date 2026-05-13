@@ -1,6 +1,10 @@
 table score_protecao_ao_investidor
 	lineageTag: 816e8a1b-0d77-403a-8fed-8a9da209389d
 
+	measure Medida = AVERAGE(score_protecao_ao_investidor[percentual_subordinacao])/100
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 74ecc12e-06ed-427d-b089-e668c499d98f
+
 	column CNPJ_FUNDO_CLASSE
 		dataType: string
 		lineageTag: 618dfbf6-7ff1-45bd-a267-ffdf78c7739b
@@ -26,28 +30,34 @@ table score_protecao_ao_investidor
 		annotation SummarizationSetBy = Automatic
 
 	column vl_patrimonio_liquido
-		dataType: string
+		dataType: double
 		lineageTag: edcefa61-b177-44ad-8ddc-ed04cb678beb
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: vl_patrimonio_liquido
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column vl_subordinacao_total
-		dataType: string
+		dataType: double
 		lineageTag: 4dfc3344-0df0-4316-9d41-0088ba1a4ea6
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: vl_subordinacao_total
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column percentual_subordinacao
-		dataType: string
+		dataType: double
 		lineageTag: 9071e090-096f-4b1d-80b4-c7325ec9b85d
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: percentual_subordinacao
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition score_protecao_ao_investidor = m
 		mode: import
@@ -64,9 +74,10 @@ table score_protecao_ao_investidor
 				    )),
 				   
 				    // Converte a resposta da API (JSON) em uma tabela legível
-				    Tabela = Table.FromRecords(Fonte)
+				    Tabela = Table.FromRecords(Fonte),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"vl_subordinacao_total", type number}, {"vl_patrimonio_liquido", type number}, {"percentual_subordinacao", type number}})
 				in
-				    Tabela
+				    #"Tipo Alterado"
 				```
 
 	annotation PBI_NavigationStepName = Navegação

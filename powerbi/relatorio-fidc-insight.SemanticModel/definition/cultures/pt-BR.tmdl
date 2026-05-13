@@ -100,6 +100,16 @@ cultureInfo pt-BR
 			            },
 			            "Weight": 0.461
 			          }
+			        },
+			        {
+			          "Denominação Social": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -473,16 +483,6 @@ cultureInfo pt-BR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.461
-			          }
-			        },
-			        {
-			          "Denominação Social": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -1235,6 +1235,16 @@ cultureInfo pt-BR
 			            },
 			            "Weight": 0.485
 			          }
+			        },
+			        {
+			          "CNPJ": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -1332,16 +1342,6 @@ cultureInfo pt-BR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.461
-			          }
-			        },
-			        {
-			          "Denominação Social": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -1998,16 +1998,6 @@ cultureInfo pt-BR
 			            },
 			            "Weight": 0.458
 			          }
-			        },
-			        {
-			          "Longo Prazo (%)": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -2098,6 +2088,16 @@ cultureInfo pt-BR
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "CNPJ": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -2432,6 +2432,16 @@ cultureInfo pt-BR
 			            },
 			            "Weight": 0.599
 			          }
+			        },
+			        {
+			          "Concentração top1": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -2447,6 +2457,16 @@ cultureInfo pt-BR
 			        {
 			          "classificacao": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Classificação": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -2897,6 +2917,16 @@ cultureInfo pt-BR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "Denominação Social": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -3586,108 +3616,206 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
+			    },
+			    "score_concentracao_de_cedente.denom_social": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "score_concentracao_de_cedentes",
+			          "ConceptualProperty": "DENOM_SOCIAL"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "denom social": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "DENOM_SOCIAL": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "denom party": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "denom get-together": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "denom gathering": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "Denominação Social": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "código_HTML": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Código HTML"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "código HTML": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "código HTML": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "código_HTML.código_HTML": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Código HTML",
+			          "ConceptualProperty": "Código HTML"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "código HTML": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "código HTML name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "código HTML": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ],
+			      "NameType": "Name"
+			    },
+			    "texto_exibido": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Texto Exibido"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "texto exibido": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "texto exibido": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "texto_exibido.texto_exibido": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Texto Exibido",
+			          "ConceptualProperty": "Texto Exibido"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "texto exibido": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "texto exibido name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "texto exibido": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ],
+			      "NameType": "Name"
+			    },
+			    "score_protecao_ao_investidor.medida": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "score_protecao_ao_investidor",
+			          "ConceptualProperty": "Medida"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "medida": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "% Subordinação": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Subordinação": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
-			    "score_retencao_de_cotista_dt_comptc_has_hierarquia_de_data": {
-			      "Binding": {
-			        "ConceptualEntity": "score_retencao_de_cotistas"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "score_retencao_de_cotista.dt_comptc": {
-			          "Target": {
-			            "Entity": "score_retencao_de_cotista.dt_comptc"
-			          }
-			        },
-			        "score_retencao_de_cotista.dt_comptc.hierarquia_de_data": {
-			          "Target": {
-			            "Entity": "score_retencao_de_cotista.dt_comptc.hierarquia_de_data"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "score_retencao_de_cotista.dt_comptc"
-			            },
-			            "Object": {
-			              "Role": "score_retencao_de_cotista.dt_comptc.hierarquia_de_data"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dt_comptcs_have_hierarquia_de_data"
-			        }
-			      ]
-			    },
-			    "score_liquidez_curto_prazo_dt_comptc_mê_has_score_liquidez_curto_prazo_dt_comptc_dia": {
-			      "Binding": {
-			        "ConceptualEntity": "score_liquidez_curto_prazo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "score_liquidez_curto_prazo.dt_comptc.mê": {
-			          "Target": {
-			            "Entity": "score_liquidez_curto_prazo.dt_comptc.mê"
-			          }
-			        },
-			        "score_liquidez_curto_prazo.dt_comptc.dia": {
-			          "Target": {
-			            "Entity": "score_liquidez_curto_prazo.dt_comptc.dia"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "score_liquidez_curto_prazo.dt_comptc.mê"
-			            },
-			            "Object": {
-			              "Role": "score_liquidez_curto_prazo.dt_comptc.dia"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mê_have_dias"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "score_liquidez_curto_prazo.dt_comptc.dia"
-			            },
-			            "Object": {
-			              "Role": "score_liquidez_curto_prazo.dt_comptc.mê"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dias_have_mê"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "score_liquidez_curto_prazo.dt_comptc.dia"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "score_liquidez_curto_prazo.dt_comptc.mê"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dias_are_in_mê2"
-			        }
-			      ]
-			    },
 			    "score_liquidez_curto_prazo_dt_comptc_trimestre_has_score_liquidez_curto_prazo_dt_comptc_mê": {
 			      "Binding": {
 			        "ConceptualEntity": "score_liquidez_curto_prazo"
@@ -3981,7 +4109,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dt_comptcs_have_hierarquia_de_data1"
+			          "ID": "dt_comptcs_have_hierarquia_de_data"
 			        }
 			      ]
 			    },
@@ -4014,7 +4142,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_dias1"
+			          "ID": "mê_have_dias"
 			        },
 			        {
 			          "Attribute": {
@@ -4027,7 +4155,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dias_have_mê1"
+			          "ID": "dias_have_mê"
 			        },
 			        {
 			          "Preposition": {
@@ -4344,7 +4472,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dt_comptcs_have_hierarquia_de_data2"
+			          "ID": "dt_comptcs_have_hierarquia_de_data1"
 			        }
 			      ]
 			    },
@@ -4377,7 +4505,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_dias2"
+			          "ID": "mê_have_dias1"
 			        },
 			        {
 			          "Attribute": {
@@ -4390,7 +4518,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dias_have_mê2"
+			          "ID": "dias_have_mê1"
 			        },
 			        {
 			          "Preposition": {
@@ -4707,7 +4835,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dt_comptcs_have_hierarquia_de_data3"
+			          "ID": "dt_comptcs_have_hierarquia_de_data2"
 			        }
 			      ]
 			    },
@@ -4972,6 +5100,164 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "score_admin_processes_have_score_concentracao_de_cedentes"
+			        }
+			      ]
+			    },
+			    "score_protecao_ao_investidor_has_medida": {
+			      "Binding": {
+			        "ConceptualEntity": "score_protecao_ao_investidor"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "score_protecao_ao_investidor": {
+			          "Target": {
+			            "Entity": "score_protecao_ao_investidor"
+			          }
+			        },
+			        "score_protecao_ao_investidor.medida": {
+			          "Target": {
+			            "Entity": "score_protecao_ao_investidor.medida"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "score_protecao_ao_investidor"
+			            },
+			            "Object": {
+			              "Role": "score_protecao_ao_investidor.medida"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "score_protecao_ao_investidors_have_medida"
+			        }
+			      ]
+			    },
+			    "texto_exibido_has_texto_exibido": {
+			      "Binding": {
+			        "ConceptualEntity": "Texto Exibido"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "texto_exibido": {
+			          "Target": {
+			            "Entity": "texto_exibido"
+			          }
+			        },
+			        "texto_exibido.texto_exibido": {
+			          "Target": {
+			            "Entity": "texto_exibido.texto_exibido"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "texto_exibido"
+			            },
+			            "Object": {
+			              "Role": "texto_exibido.texto_exibido"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "texto_exibidos_have_texto_exibidos"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "texto_exibido"
+			            },
+			            "Name": {
+			              "Role": "texto_exibido.texto_exibido"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "texto_exibidos_are_names_IDs_of_texto_exibidos"
+			        }
+			      ]
+			    },
+			    "código_HTML_has_código_HTML": {
+			      "Binding": {
+			        "ConceptualEntity": "Código HTML"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "código_HTML": {
+			          "Target": {
+			            "Entity": "código_HTML"
+			          }
+			        },
+			        "código_HTML.código_HTML": {
+			          "Target": {
+			            "Entity": "código_HTML.código_HTML"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "código_HTML"
+			            },
+			            "Object": {
+			              "Role": "código_HTML.código_HTML"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "código_HTML_have_código_HTML"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "código_HTML"
+			            },
+			            "Name": {
+			              "Role": "código_HTML.código_HTML"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "código_HTML_are_names_IDs_of_código_HTML"
+			        }
+			      ]
+			    },
+			    "score_concentracao_de_cedente_has_denom_social": {
+			      "Binding": {
+			        "ConceptualEntity": "score_concentracao_de_cedentes"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "score_concentracao_de_cedente": {
+			          "Target": {
+			            "Entity": "score_concentracao_de_cedente"
+			          }
+			        },
+			        "score_concentracao_de_cedente.denom_social": {
+			          "Target": {
+			            "Entity": "score_concentracao_de_cedente.denom_social"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "score_concentracao_de_cedente"
+			            },
+			            "Object": {
+			              "Role": "score_concentracao_de_cedente.denom_social"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "score_concentracao_de_cedentes_have_denom_socials"
 			        }
 			      ]
 			    },
@@ -7345,6 +7631,105 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "score_protecao_caixas_have_cnpj_fundo_classes"
+			        }
+			      ]
+			    },
+			    "score_liquidez_curto_prazo_dt_comptc_mê_has_score_liquidez_curto_prazo_dt_comptc_dia": {
+			      "Binding": {
+			        "ConceptualEntity": "score_liquidez_curto_prazo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "score_liquidez_curto_prazo.dt_comptc.mê": {
+			          "Target": {
+			            "Entity": "score_liquidez_curto_prazo.dt_comptc.mê"
+			          }
+			        },
+			        "score_liquidez_curto_prazo.dt_comptc.dia": {
+			          "Target": {
+			            "Entity": "score_liquidez_curto_prazo.dt_comptc.dia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "score_liquidez_curto_prazo.dt_comptc.mê"
+			            },
+			            "Object": {
+			              "Role": "score_liquidez_curto_prazo.dt_comptc.dia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_have_dias2"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "score_liquidez_curto_prazo.dt_comptc.dia"
+			            },
+			            "Object": {
+			              "Role": "score_liquidez_curto_prazo.dt_comptc.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dias_have_mê2"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "score_liquidez_curto_prazo.dt_comptc.dia"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "score_liquidez_curto_prazo.dt_comptc.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dias_are_in_mê2"
+			        }
+			      ]
+			    },
+			    "score_retencao_de_cotista_dt_comptc_has_hierarquia_de_data": {
+			      "Binding": {
+			        "ConceptualEntity": "score_retencao_de_cotistas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "score_retencao_de_cotista.dt_comptc": {
+			          "Target": {
+			            "Entity": "score_retencao_de_cotista.dt_comptc"
+			          }
+			        },
+			        "score_retencao_de_cotista.dt_comptc.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "score_retencao_de_cotista.dt_comptc.hierarquia_de_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "score_retencao_de_cotista.dt_comptc"
+			            },
+			            "Object": {
+			              "Role": "score_retencao_de_cotista.dt_comptc.hierarquia_de_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dt_comptcs_have_hierarquia_de_data3"
 			        }
 			      ]
 			    },

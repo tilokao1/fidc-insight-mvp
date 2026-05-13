@@ -4,14 +4,14 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 3482,
+        "x": 3631.3616394153596,
         "y": 0
       },
       "nodes": [
         {
           "location": {
             "x": 3876.3616394153596,
-            "y": 107.83209462827718
+            "y": 115.19941379458585
           },
           "nodeIndex": "score_liquidez_curto_prazo",
           "nodeLineageTag": "3768deee-9709-4b70-b38f-6e31b73cce14",
@@ -24,7 +24,7 @@
         {
           "location": {
             "x": 4444.36163941536,
-            "y": 107.83209462827718
+            "y": 115.19941379458585
           },
           "nodeIndex": "score_prazo_longo",
           "nodeLineageTag": "e99d8213-71ee-4363-9ad9-1c8a0b0614c7",
@@ -37,7 +37,7 @@
         {
           "location": {
             "x": 4728.36163941536,
-            "y": 107.83209462827718
+            "y": 115.19941379458585
           },
           "nodeIndex": "score_protecao_caixa",
           "nodeLineageTag": "7722fe99-9d00-4da8-b657-d8c01a82e6fc",
@@ -50,7 +50,7 @@
         {
           "location": {
             "x": 4160.36163941536,
-            "y": 131.83209462827716
+            "y": 139.19941379458584
           },
           "nodeIndex": "score_admin_process",
           "size": {
@@ -62,7 +62,7 @@
         {
           "location": {
             "x": 3592.3616394153596,
-            "y": 14.734638332617322
+            "y": 22.101957498925998
           },
           "nodeIndex": "score_concentracao_setorial",
           "nodeLineageTag": "2af821d2-79ed-4d2e-a334-1d5c6dd18e8b",
@@ -75,7 +75,7 @@
         {
           "location": {
             "x": 4160.36163941536,
-            "y": 50.734638332617322
+            "y": 58.101957498926
           },
           "nodeIndex": "score_protecao_ao_investidor",
           "nodeLineageTag": "816e8a1b-0d77-403a-8fed-8a9da209389d",
@@ -88,7 +88,7 @@
         {
           "location": {
             "x": 4444.36163941536,
-            "y": 50.734638332617322
+            "y": 58.101957498926
           },
           "nodeIndex": "score_retencao_de_cotistas",
           "nodeLineageTag": "05233faa-eccd-4ee2-9410-a27a503975ab",
@@ -101,7 +101,7 @@
         {
           "location": {
             "x": 3876.3616394153596,
-            "y": 14.734638332617322
+            "y": 22.101957498925998
           },
           "nodeIndex": "score_concentracao_de_cedentes",
           "size": {
@@ -113,7 +113,7 @@
         {
           "location": {
             "x": 3592.3616394153596,
-            "y": 95.832094628277176
+            "y": 103.19941379458585
           },
           "nodeIndex": "score_aderencia_desempenho",
           "size": {
@@ -125,9 +125,23 @@
         {
           "location": {
             "x": 1420,
-            "y": 117.46027425870238
+            "y": 119.91604731413861
           },
-          "nodeIndex": "Código HTML",
+          "nodeIndex": "Código HTML",
+          "nodeLineageTag": "7673fbc4-fedb-4301-9435-845b8419333d",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1704,
+            "y": 119.91604731413861
+          },
+          "nodeIndex": "Texto Exibido",
+          "nodeLineageTag": "40b1ebd2-462b-46db-bb36-868c193010f6",
           "size": {
             "height": 104,
             "width": 234

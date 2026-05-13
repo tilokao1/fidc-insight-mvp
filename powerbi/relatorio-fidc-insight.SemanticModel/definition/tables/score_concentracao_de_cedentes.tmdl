@@ -18,52 +18,64 @@ table score_concentracao_de_cedentes
 		annotation SummarizationSetBy = Automatic
 
 	column HHI_Cedentes
-		dataType: string
+		dataType: double
 		lineageTag: ec10d0ac-1829-4919-80ef-fe37770f9d65
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: HHI_Cedentes
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column score_cedentes
-		dataType: string
+		dataType: double
 		lineageTag: f27c4bf6-7de1-4416-9480-9f40d524278f
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: score_cedentes
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column score_100
-		dataType: string
+		dataType: double
 		lineageTag: 979c793d-af75-46f0-b352-7c15725716ff
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: score_100
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column maior_cedente
-		dataType: string
+		dataType: double
 		lineageTag: a76fb4be-8ac7-4fec-b431-4fb8541f4e42
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: maior_cedente
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column top3_share
-		dataType: string
+		dataType: double
 		lineageTag: 36d19770-d073-4a15-9699-8e20572e1fd7
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: top3_share
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column concentracao_top1_pct
-		dataType: string
+		dataType: double
 		lineageTag: 97244670-c67b-4bf5-a826-576be9946048
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: concentracao_top1_pct
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column classificacao
 		dataType: string
@@ -96,9 +108,10 @@ table score_concentracao_de_cedentes
 				    )),
 				   
 				    // Converte a resposta da API (JSON) em uma tabela legível
-				    Tabela = Table.FromRecords(Fonte)
+				    Tabela = Table.FromRecords(Fonte),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"score_100", type number}, {"concentracao_top1_pct", type number}, {"top3_share", type number}, {"maior_cedente", type number}, {"HHI_Cedentes", type number}, {"score_cedentes", type number}})
 				in
-				    Tabela
+				    #"Tipo Alterado"
 				```
 
 	annotation PBI_NavigationStepName = Navegação
