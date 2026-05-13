@@ -22,7 +22,14 @@ body{background:#0e1117;color:#e2e8f0;min-height:100vh;overflow-x:hidden}
 .upload-label{font-size:11px;color:#718096;white-space:nowrap}
 .upload-zone{display:flex;align-items:center;gap:7px;background:#0e1117;border:1px dashed #2d3748;border-radius:8px;padding:5px 11px;cursor:pointer;transition:border-color .2s}
 .upload-zone:hover{border-color:#1a56db}
-.upload-zone input{display:none}
+.upload-zone{position:relative;overflow:hidden}
+.upload-zone input{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  cursor:pointer;
+  display:block;
+}
 .upload-zone span{font-size:11px;color:#a0aec0}
 .upload-btn{background:#1a56db;color:#fff;border:none;border-radius:6px;padding:6px 16px;font-size:11px;cursor:pointer;font-weight:500}
 .upload-btn:hover{background:#1e63f0}
@@ -155,7 +162,7 @@ tr:hover td{background:#1a202c}
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#718096" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
     <span id="lbl-cnpjs">CNPJs.csv</span>
   </label>
-  <button class="upload-btn" onclick="processData()">▶ Analisar</button>
+  <button class="upload-btn" id="btn-analisar" type="button">▶ Analisar</button>
   <span id="upload-status" class="upload-status"></span>
 </div>
 
@@ -672,7 +679,42 @@ function renderRanking(){
     bindIfMissingInlineHandlers();
   }
 })();
+(function bindPowerBIEvents(){
+  function safeSetStatus(msg, isErr){
+    try { setStatus(msg, isErr); } catch(e) {}
+  }
 
+  // Mostra erro no status (no Power BI isso ajuda porque console é chato de ver)
+  window.addEventListener('error', function(e){
+    safeSetStatus('Erro JS: ' + (e.message || 'verifique o código'), true);
+  });
+
+  // Botão analisar
+  const btn = document.getElementById('btn-analisar');
+  if(btn){
+    btn.addEventListener('click', function(ev){
+      ev.preventDefault();
+      safeSetStatus('Clique detectado: iniciando análise...', false);
+      try {
+        processData();
+      } catch(err){
+        safeSetStatus('Falha ao executar análise: ' + (err?.message || String(err)), true);
+      }
+    });
+  } else {
+    safeSetStatus('Aviso: botão #btn-analisar não encontrado.', true);
+  }
+
+  // Inputs de arquivo (caso onchange inline seja ignorado)
+  const fb = document.getElementById('file-boletos');
+  if(fb){
+    fb.addEventListener('change', function(){ handleFile('boletos', fb); });
+  }
+  const fc = document.getElementById('file-cnpjs');
+  if(fc){
+    fc.addEventListener('change', function(){ handleFile('cnpjs', fc); });
+  }
+})();
 </script>
 </body>
 </html>
