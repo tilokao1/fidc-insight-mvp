@@ -155,12 +155,12 @@ tr:hover td{background:#1a202c}
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#718096" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
     <span id="lbl-cnpjs">CNPJs.csv</span>
   </label>
-  <button class="upload-btn" onclick="processData()">Analisar</button>
+  <button class="upload-btn" onclick="processData()">▶ Analisar</button>
   <span id="upload-status" class="upload-status"></span>
 </div>
 
 <div class="filters" id="filters-bar" style="display:none">
-  <span class="filter-label">Cedente:</span>
+  <span class="filter-label">🔍 Cedente:</span>
   <select id="sel-cedente" onchange="selectCedenteFromDropdown()"></select>
   <span class="filter-label" style="margin-left:8px">UF pagadores:</span>
   <select id="sel-uf" onchange="renderCedente()"><option value="">Todas</option></select>
@@ -593,7 +593,7 @@ function renderRanking(){
     </div>
     <div style="max-height:400px;overflow-y:auto;padding-right:4px">
     ${lista.map((c,i)=>`
-      <div class="ranking-row ${c.id===activeCedente?'active':''}" onclick="selectCedente('${c.id}')">
+      <div class="ranking-row ${c.id===activeCedente?'active':''}" data-cedente-id="${c.id}" onclick="selectCedente('${c.id}')">
         <div class="ranking-num">${i+1}</div>
         <div class="semaforo sem-${c.verdict}" style="flex-shrink:0"><div class="dot-${c.verdict}"></div>${vLabel(c.verdict)}</div>
         <div class="ranking-info">
@@ -608,6 +608,71 @@ function renderRanking(){
       </div>`).join('')}
     </div>`;
 }
+// ===== Power BI hardening (se o visual remover onclick/onchange) =====
+(function bootForSandbox(){
+  function bindIfMissingInlineHandlers(){
+    // Mostra erros no status (no Power BI isso ajuda muito)
+    window.addEventListener('error', function(e){
+      try { setStatus('Erro no script: ' + (e.message || 'ver console'), true); } catch(_) {}
+    });
+    window.addEventListener('unhandledrejection', function(e){
+      try {
+        const msg = (e.reason && e.reason.message) ? e.reason.message : String(e.reason || 'erro');
+        setStatus('Erro (promise): ' + msg, true);
+      } catch(_) {}
+    });
+
+    // Botão "Analisar" — só adiciona listener se o onclick tiver sido removido
+    var btn = document.querySelector('.upload-btn');
+    if (btn && !btn.getAttribute('onclick')) {
+      btn.addEventListener('click', function(ev){
+        ev.preventDefault();
+        processData();
+      });
+    }
+
+    // Inputs de arquivo — só adiciona listener se o onchange tiver sido removido
+    var fb = document.getElementById('file-boletos');
+    if (fb && !fb.getAttribute('onchange')) {
+      fb.addEventListener('change', function(){ handleFile('boletos', this); });
+    }
+    var fc = document.getElementById('file-cnpjs');
+    if (fc && !fc.getAttribute('onchange')) {
+      fc.addEventListener('change', function(){ handleFile('cnpjs', this); });
+    }
+
+    // Selects — idem
+    var selCed = document.getElementById('sel-cedente');
+    if (selCed && !selCed.getAttribute('onchange')) {
+      selCed.addEventListener('change', selectCedenteFromDropdown);
+    }
+    var selUf = document.getElementById('sel-uf');
+    if (selUf && !selUf.getAttribute('onchange')) {
+      selUf.addEventListener('change', renderCedente);
+    }
+    var selParecer = document.getElementById('sel-parecer');
+    if (selParecer && !selParecer.getAttribute('onchange')) {
+      selParecer.addEventListener('change', renderRanking);
+    }
+
+    // Event delegation para ranking (funciona mesmo se onclick for removido)
+    document.addEventListener('click', function(ev){
+      var t = ev.target;
+      if (!t) return;
+      var row = t.closest ? t.closest('.ranking-row') : null;
+      if (!row) return;
+      var id = row.getAttribute('data-cedente-id');
+      if (id) selectCedente(id);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindIfMissingInlineHandlers);
+  } else {
+    bindIfMissingInlineHandlers();
+  }
+})();
+
 </script>
 </body>
 </html>
