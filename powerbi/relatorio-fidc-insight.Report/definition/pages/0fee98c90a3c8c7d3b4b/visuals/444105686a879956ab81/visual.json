@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "444105686a879956ab81",
   "position": {
-    "x": 140.58744993324433,
-    "y": 115.76769025367156,
+    "x": 144.53881771439924,
+    "y": 119.71905803482659,
     "z": 7000,
     "height": 104.13885180240321,
     "width": 203.07076101468627,
@@ -521,5 +521,28 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6715f569b6e2089c40d1",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_protecao_caixa"
+                  }
+                },
+                "Property": "MEDIA GERAL DE PROTEÇÃO DE CAIXA"
+              }
+            },
+            "Function": 1
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

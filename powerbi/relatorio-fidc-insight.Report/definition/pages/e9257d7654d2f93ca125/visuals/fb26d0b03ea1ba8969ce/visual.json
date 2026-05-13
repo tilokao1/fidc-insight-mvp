@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "fb26d0b03ea1ba8969ce",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 799.9241274658574,
+    "width": 1300,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "htmlContent443BE3AD55E043BF878BED274D3A6855",
+    "query": {
+      "queryState": {
+        "content": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Código HTML"
+                    }
+                  },
+                  "Property": "Código HTML"
+                }
+              },
+              "queryRef": "Código HTML.Código HTML",
+              "nativeQueryRef": "Código HTML"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "53e2c69bb28164c4c2c6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Código HTML"
+              }
+            },
+            "Property": "Código HTML"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

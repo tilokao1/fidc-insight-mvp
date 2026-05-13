@@ -82,9 +82,11 @@ table score_retencao_de_cotistas
 				   
 				    // Converte a resposta da API (JSON) em uma tabela legível
 				    Tabela = Table.FromRecords(Fonte),
-				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela,{{"cotistas_atual", type number}, {"cotistas_anterior", type number}, {"variacao_cotistas", type number}, {"DT_COMPTC", type date}})
+				    #"Linhas Filtradas1" = Table.SelectRows(Tabela, each ([DT_COMPTC] = "2026-04-30") and ([variacao_cotistas] <> 0)),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Linhas Filtradas1",{{"cotistas_atual", type number}, {"cotistas_anterior", type number}, {"variacao_cotistas", type number}, {"DT_COMPTC", type date}}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Tipo Alterado", each ([DT_COMPTC] = #date(2026, 4, 30)) and ([variacao_cotistas] <> 0))
 				in
-				    #"Tipo Alterado"
+				    #"Linhas Filtradas"
 				```
 
 	annotation PBI_NavigationStepName = Navegação

@@ -3403,43 +3403,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "tabela": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Tabela"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "tabela": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tabela.tabela": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Tabela",
-			          "ConceptualProperty": "Tabela"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "tabela": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "tabela name": {
-			            "State": "Generated"
-			          }
-			        }
-			      ],
-			      "NameType": "Name"
-			    },
 			    "score_retencao_de_cotista.dt_comptc.hierarquia_de_data": {
 			      "Definition": {
 			        "Binding": {
@@ -5009,52 +4972,6 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "score_admin_processes_have_score_concentracao_de_cedentes"
-			        }
-			      ]
-			    },
-			    "tabela_has_tabela": {
-			      "Binding": {
-			        "ConceptualEntity": "Tabela"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "tabela": {
-			          "Target": {
-			            "Entity": "tabela"
-			          }
-			        },
-			        "tabela.tabela": {
-			          "Target": {
-			            "Entity": "tabela.tabela"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "tabela"
-			            },
-			            "Object": {
-			              "Role": "tabela.tabela"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "tabelas_have_tabelas"
-			        },
-			        {
-			          "Name": {
-			            "Subject": {
-			              "Role": "tabela"
-			            },
-			            "Name": {
-			              "Role": "tabela.tabela"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "tabelas_are_names_IDs_of_tabelas"
 			        }
 			      ]
 			    },

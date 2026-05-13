@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "4ff4c8d11b105364475b",
   "position": {
     "x": 688,
@@ -223,5 +223,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7bd447db138e4487bc9d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_retencao_de_cotistas"
+              }
+            },
+            "Property": "CNPJ_FUNDO_CLASSE"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

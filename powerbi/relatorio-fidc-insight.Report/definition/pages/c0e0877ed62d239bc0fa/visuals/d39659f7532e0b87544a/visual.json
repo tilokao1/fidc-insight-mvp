@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "d39659f7532e0b87544a",
   "position": {
-    "x": 0,
-    "y": 551.8102372034956,
+    "x": 20.74468085106383,
+    "y": 552.20364741641333,
     "z": 4000,
-    "height": 245.06866416978775,
-    "width": 670.287141073658,
+    "height": 244.98480243161094,
+    "width": 606.53495440729478,
     "tabOrder": 2000
   },
   "visual": {
@@ -107,21 +107,16 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Column": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "score_aderencia_desempenho"
-                      }
-                    },
-                    "Property": "TAB_X_PR_DESEMP_ESPERADO"
+                  "SourceRef": {
+                    "Entity": "score_aderencia_desempenho"
                   }
                 },
-                "Function": 0
+                "Property": "DENOM_SOCIAL"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -203,7 +198,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "104.34425622910706D"
+                  "Value": "99.42131869671239D"
                 }
               }
             }
@@ -224,6 +219,20 @@
           },
           "selector": {
             "metadata": "score_aderencia_desempenho.classificacao_desempenho"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "94.98784196283508D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "score_aderencia_desempenho.aderencia"
           }
         }
       ],
@@ -569,5 +578,89 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "756756c41bda48c49a60",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_aderencia_desempenho"
+              }
+            },
+            "Property": "DENOM_SOCIAL"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "280fe5a7ad721b89c961",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_aderencia_desempenho"
+                  }
+                },
+                "Property": "TAB_X_PR_DESEMP_ESPERADO"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "27a37cb968d02616a4c5",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_aderencia_desempenho"
+                  }
+                },
+                "Property": "TAB_X_PR_DESEMP_REAL"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6fe23a6c45bcabbc1ced",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_aderencia_desempenho"
+              }
+            },
+            "Property": "aderencia"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fe35e21e885e7b92178f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_aderencia_desempenho"
+              }
+            },
+            "Property": "classificacao_desempenho"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

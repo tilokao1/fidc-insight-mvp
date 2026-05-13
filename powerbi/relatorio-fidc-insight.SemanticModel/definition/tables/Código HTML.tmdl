@@ -1,0 +1,19 @@
+table 'Código HTML'
+	lineageTag: 7673fbc4-fedb-4301-9435-845b8419333d
+
+	column 'Código HTML'
+		dataType: string
+		lineageTag: 089ae999-9af2-4dd3-8362-af720a2fba19
+		summarizeBy: none
+		sourceColumn: Código HTML
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Código HTML' = m
+		mode: import
+		source = Web.BrowserContents("https://tilokao1.github.io/fidc-insight-mvp/")
+
+	annotation PBI_ResultType = Text
+
+	annotation PBI_NavigationStepName = Navegação
+

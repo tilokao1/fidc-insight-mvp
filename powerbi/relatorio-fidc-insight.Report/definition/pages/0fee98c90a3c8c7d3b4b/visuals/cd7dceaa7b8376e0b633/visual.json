@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "cd7dceaa7b8376e0b633",
   "position": {
-    "x": 668.8,
-    "y": 552,
+    "x": 650.98784194528878,
+    "y": 552.20364741641333,
     "z": 5000,
-    "height": 248,
-    "width": 632,
+    "height": 247.94832826747719,
+    "width": 628.26747720364745,
     "tabOrder": 1000
   },
   "visual": {
@@ -97,21 +97,16 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Column": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "score_liquidez_curto_prazo"
-                      }
-                    },
-                    "Property": "liquidez_curto_prazo"
+                  "SourceRef": {
+                    "Entity": "score_liquidez_curto_prazo"
                   }
                 },
-                "Function": 0
+                "Property": "DENOM_SOCIAL"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
@@ -123,7 +118,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "232.74098238909076D"
+                  "Value": "213.9505605033639D"
                 }
               }
             }
@@ -137,7 +132,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "137.92669893740302D"
+                  "Value": "140.89190323689888D"
                 }
               }
             }
@@ -151,7 +146,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "146.10942249240122D"
+                  "Value": "135.22915240988743D"
                 }
               }
             }
@@ -526,5 +521,80 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "83929d664f020e6969ac",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_liquidez_curto_prazo"
+              }
+            },
+            "Property": "DENOM_SOCIAL"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "61cd0ca34b33423d047d",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_liquidez_curto_prazo"
+                  }
+                },
+                "Property": "liquidez_total"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "166921551ba4890c798d",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_liquidez_curto_prazo"
+                  }
+                },
+                "Property": "liquidez_curto_prazo"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "475ac965aa991de0d6f3",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_liquidez_curto_prazo"
+                  }
+                },
+                "Property": "metrica_liquidez_curto_prazo"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

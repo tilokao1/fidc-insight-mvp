@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "00616af0c162c92d8929",
   "position": {
     "x": 752.45901639344265,
@@ -629,39 +629,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "aa4ef6afc26204fd979f",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_retencao_de_cotistas"
-              }
-            },
-            "Property": "DENOM_SOCIAL"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "6bd7c2a09b0c9a9c6076",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "score_retencao_de_cotistas"
-                  }
-                },
-                "Property": "variacao_cotistas"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

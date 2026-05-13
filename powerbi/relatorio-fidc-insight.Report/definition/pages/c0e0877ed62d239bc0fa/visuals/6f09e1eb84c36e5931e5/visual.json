@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "6f09e1eb84c36e5931e5",
   "position": {
-    "x": 836.16,
-    "y": 112.32,
+    "x": 835.80871194379381,
+    "y": 119.33111166475658,
     "z": 5000,
     "height": 101.92,
     "width": 201.76,
@@ -446,5 +446,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7e16168258e5aefc8d5a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_concentracao_setorial"
+              }
+            },
+            "Property": "top1_concentracao"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

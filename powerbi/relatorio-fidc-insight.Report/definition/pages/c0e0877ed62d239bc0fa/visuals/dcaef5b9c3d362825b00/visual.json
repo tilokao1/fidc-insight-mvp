@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
-  "name": "efa78dc9fbdb0555b664",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "dcaef5b9c3d362825b00",
   "position": {
-    "x": 145.6,
-    "y": 54.4,
-    "z": 10000,
-    "height": 35.2,
-    "width": 505.6,
-    "tabOrder": 8000
+    "x": 143.23708206686931,
+    "y": 10.866261398176292,
+    "z": 16001,
+    "height": 64.209726443769,
+    "width": 470.21276595744678,
+    "tabOrder": 16001
   },
   "visual": {
     "visualType": "textbox",
@@ -19,10 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "Diagnóstico de qualidade dos fundos",
+                    "value": "Qualidade dos Ativos",
                     "textStyle": {
-                      "fontSize": "14pt",
-                      "color": "#cbd5e1"
+                      "fontFamily": "Calibri",
+                      "fontSize": "24pt",
+                      "color": "#ffffff"
                     }
                   }
                 ]

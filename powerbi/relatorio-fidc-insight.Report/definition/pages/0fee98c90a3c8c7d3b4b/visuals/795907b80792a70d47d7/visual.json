@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "795907b80792a70d47d7",
   "position": {
-    "x": 0,
-    "y": 555.2,
+    "x": 20.74468085106383,
+    "y": 555.16717325227955,
     "z": 6000,
-    "height": 244.8,
-    "width": 640,
+    "height": 244.98480243161094,
+    "width": 600.60790273556233,
     "tabOrder": 2000
   },
   "visual": {
@@ -197,7 +197,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "84.1929581118157D"
+                  "Value": "134.52335563108707D"
                 }
               }
             }
@@ -602,5 +602,75 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2217f57ccb77605b696a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_prazo_longo"
+              }
+            },
+            "Property": "DENOM_SOCIAL"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9227e5c07c9157ea1c91",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_prazo_longo"
+                  }
+                },
+                "Property": "TAB_V_A_VL_DIRCRED_PRAZO"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cce5168960d32a0acac3",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_prazo_longo"
+                  }
+                },
+                "Property": "prazo_longo"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "02025ed5691940e622ed",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_prazo_longo"
+              }
+            },
+            "Property": "PCT_LONGO_FINAL"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "a127e0fc4dee29948c7f",
   "position": {
-    "x": 670.83969465648852,
-    "y": 523.969465648855,
+    "x": 650,
+    "y": 523.55623100303944,
     "z": 1000,
-    "height": 275.87786259541986,
-    "width": 629.16030534351148,
+    "height": 276.59574468085106,
+    "width": 602.58358662613978,
     "tabOrder": 1000
   },
   "visual": {
@@ -349,6 +349,36 @@
             "metadata": "score_retencao_de_cotistas.variacao_cotistas"
           }
         }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "160.69832936285135D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "score_retencao_de_cotistas.DT_COMPTC"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "158.48936084690658D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "score_retencao_de_cotistas.CNPJ_FUNDO_CLASSE"
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -609,6 +639,62 @@
           ]
         },
         "isLockedInViewMode": true
+      },
+      {
+        "name": "4b68ffda7232e61d31c3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_retencao_de_cotistas"
+              }
+            },
+            "Property": "CNPJ_FUNDO_CLASSE"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6426d062ac445a513df7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_retencao_de_cotistas"
+              }
+            },
+            "Property": "cotistas_anterior"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8acc47d59a06400ebe27",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_retencao_de_cotistas"
+              }
+            },
+            "Property": "cotistas_atual"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d34dd2bcaf114ba2ba3a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_retencao_de_cotistas"
+              }
+            },
+            "Property": "variacao_cotistas"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

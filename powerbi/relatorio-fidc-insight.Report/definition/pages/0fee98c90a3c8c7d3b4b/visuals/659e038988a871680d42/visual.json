@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "659e038988a871680d42",
   "position": {
     "x": 688,
@@ -230,5 +230,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "693f394688112416d92e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_aderencia_desempenho"
+              }
+            },
+            "Property": "DT_COMPTC"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

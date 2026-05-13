@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
-  "name": "efa78dc9fbdb0555b664",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "93686df6c28bb38d86cf",
   "position": {
     "x": 145.6,
     "y": 54.4,
-    "z": 10000,
+    "z": 22001,
     "height": 35.2,
     "width": 505.6,
-    "tabOrder": 8000
+    "tabOrder": 22001
   },
   "visual": {
     "visualType": "textbox",
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Diagnóstico de qualidade dos fundos",
+                    "value": "Visão Geral de Desempenho dos Fundos de Investimento",
                     "textStyle": {
                       "fontSize": "14pt",
                       "color": "#cbd5e1"

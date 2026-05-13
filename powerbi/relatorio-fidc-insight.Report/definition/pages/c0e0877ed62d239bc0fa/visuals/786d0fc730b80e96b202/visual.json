@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "786d0fc730b80e96b202",
   "position": {
-    "x": 688.13982521847686,
-    "y": 551.8102372034956,
+    "x": 650.98784194528878,
+    "y": 552.20364741641333,
     "z": 3000,
-    "height": 248.31460674157302,
-    "width": 611.86017478152314,
+    "height": 247.94832826747719,
+    "width": 628.26747720364745,
     "tabOrder": 1000
   },
   "visual": {
@@ -444,5 +444,51 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6cbea6b2337b9e898eda",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_concentracao_setorial"
+              }
+            },
+            "Property": "DENOM_SOCIAL"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c8c8fc07dc6385c7c81f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_concentracao_setorial"
+              }
+            },
+            "Property": "top1_concentracao"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b6b2592e31624004dbe2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_concentracao_setorial"
+              }
+            },
+            "Property": "classificacao"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

@@ -1,0 +1,25 @@
+table 'Texto Exibido'
+	lineageTag: 40b1ebd2-462b-46db-bb36-868c193010f6
+
+	column 'Texto Exibido'
+		dataType: string
+		lineageTag: 27351b72-3b71-4c41-9f7d-aaddb637a2a6
+		summarizeBy: none
+		sourceColumn: Texto Exibido
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Texto Exibido' = m
+		mode: import
+		source =
+				let
+				    Fonte = Web.BrowserContents("https://tilokao1.github.io/fidc-insight-mvp/"),
+				    #"Tabela extraída de HTML" = Html.Table(Fonte, {{"Column1", "BODY"}}),
+				    Column1 = #"Tabela extraída de HTML"[Column1]{0}
+				in
+				    Column1
+
+	annotation PBI_ResultType = Text
+
+	annotation PBI_NavigationStepName = Navegação
+

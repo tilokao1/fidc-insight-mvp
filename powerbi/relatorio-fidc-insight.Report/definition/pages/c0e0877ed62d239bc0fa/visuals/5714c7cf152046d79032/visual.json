@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "5714c7cf152046d79032",
   "position": {
-    "x": 215.64689130345056,
-    "y": 114.75409836065575,
+    "x": 215.59668144901426,
+    "y": 119.40455428778412,
     "z": 6000,
     "height": 104.91803278688525,
     "width": 232.78688524590166,
@@ -547,5 +547,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "bb88447db15264420728",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "score_aderencia_desempenho"
+              }
+            },
+            "Property": "aderencia"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

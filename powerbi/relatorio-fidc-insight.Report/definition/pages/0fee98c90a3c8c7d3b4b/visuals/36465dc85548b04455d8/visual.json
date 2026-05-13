@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "36465dc85548b04455d8",
   "position": {
-    "x": 583.17757009345792,
-    "y": 118.02403204272363,
+    "x": 955.25531914893611,
+    "y": 120.51671732522796,
     "z": 9000,
     "height": 104.13885180240321,
     "width": 197.86381842456609,
@@ -498,5 +498,28 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3342d4abcebf5550d3cc",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_prazo_longo"
+                  }
+                },
+                "Property": "metrica_prazo_longo"
+              }
+            },
+            "Function": 1
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
