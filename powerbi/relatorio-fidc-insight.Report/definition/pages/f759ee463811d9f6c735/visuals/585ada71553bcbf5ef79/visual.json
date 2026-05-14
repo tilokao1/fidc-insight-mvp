@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "585ada71553bcbf5ef79",
   "position": {
     "x": 685,
     "y": 223.33333333333334,
-    "z": 11,
+    "z": 11000,
     "height": 231.66666666666669,
     "width": 578.33333333333337,
-    "tabOrder": 10
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -537,20 +537,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "c54dfc3a05ca0e0f7e30",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "score_protecao_ao_investidor"
-              }
-            },
-            "Property": "DENOM_SOCIAL"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

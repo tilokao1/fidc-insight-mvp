@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "d21abfe348730467672a",
   "position": {
-    "x": 650,
-    "y": 503.33333333333337,
-    "z": 12,
-    "height": 296.66666666666669,
-    "width": 650,
-    "tabOrder": 12
+    "x": 660,
+    "y": 515.55555555555554,
+    "z": 12000,
+    "height": 284.44444444444446,
+    "width": 620,
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "tableEx",
@@ -87,6 +87,23 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "score_protecao_ao_investidor"
+                  }
+                },
+                "Property": "DENOM_SOCIAL"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "objects": {

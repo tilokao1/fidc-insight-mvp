@@ -1852,7 +1852,7 @@ cultureInfo pt-BR
 			          }
 			        },
 			        {
-			          "Classificação": {
+			          "Desempenho": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -1862,7 +1862,7 @@ cultureInfo pt-BR
 			          }
 			        },
 			        {
-			          "Desempenho": {
+			          "Classificação": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -3793,7 +3793,7 @@ cultureInfo pt-BR
 			          }
 			        },
 			        {
-			          "% Subordinação": {
+			          "Subordinação": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -3803,7 +3803,7 @@ cultureInfo pt-BR
 			          }
 			        },
 			        {
-			          "Subordinação": {
+			          "% Subordinação": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "fbce36da0de9f9fc1964",
   "position": {
-    "x": 0,
-    "y": 551.8102372034956,
-    "z": 4,
-    "height": 245.06866416978775,
-    "width": 670.287141073658,
-    "tabOrder": 2
+    "x": 21.111111111111111,
+    "y": 552.22222222222217,
+    "z": 4000,
+    "height": 244.44444444444443,
+    "width": 606.66666666666663,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "tableEx",
@@ -175,7 +175,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "236.24391706990178D"
+                  "Value": "178.5234606503081D"
                 }
               }
             }
@@ -224,6 +224,20 @@
           },
           "selector": {
             "metadata": "score_aderencia_desempenho.classificacao_desempenho"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "90.66666810957754D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "score_aderencia_desempenho.aderencia"
           }
         }
       ],

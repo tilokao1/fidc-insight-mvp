@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "37f8a0645fdb23c6cdfd",
   "position": {
-    "x": 16.666666666666668,
-    "y": 515,
-    "z": 1,
-    "height": 285,
-    "width": 603.33333333333337,
+    "x": 26.666666666666664,
+    "y": 515.55555555555554,
+    "z": 1000,
+    "height": 284.44444444444446,
+    "width": 593.33333333333337,
     "tabOrder": 0
   },
   "visual": {
@@ -106,6 +106,34 @@
           },
           "selector": {
             "metadata": "Sum(score_liquidez_curto_prazo.liquidez_total)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "243.7792864138967D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "score_concentracao_de_cedentes.concentracao_top1_pct"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "201.44442976045877D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "score_concentracao_de_cedentes.CNPJ_FUNDO_CLASSE"
           }
         }
       ],

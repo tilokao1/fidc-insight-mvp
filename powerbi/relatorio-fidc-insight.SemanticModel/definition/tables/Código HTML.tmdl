@@ -1,6 +1,23 @@
 table 'Código HTML'
 	lineageTag: 7673fbc4-fedb-4301-9435-845b8419333d
 
+	measure Dashboard_HTML =
+			"
+			<!DOCTYPE html>
+			<html>
+			<head>
+			  <style>
+			    body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
+			    iframe { border: none; width: 100%; height: 100vh; }
+			  </style>
+			</head>
+			<body>
+			  <iframe src='https://tilokao1.github.io/fidc-insight-mvp/'></iframe>
+			</body>
+			</html>
+			"
+		lineageTag: 930e8ef1-37c6-4056-a745-04171d034823
+
 	column 'Código HTML'
 		dataType: string
 		lineageTag: 089ae999-9af2-4dd3-8362-af720a2fba19

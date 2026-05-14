@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "154e681659a181995a25",
   "position": {
-    "x": 108.8,
-    "y": 4.8,
-    "z": 9,
-    "height": 64,
-    "width": 356.8,
-    "tabOrder": 6
+    "x": 145.55555555555554,
+    "y": 13.333333333333332,
+    "z": 9000,
+    "height": 64.444444444444443,
+    "width": 356.66666666666669,
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "textbox",
@@ -22,12 +22,11 @@
                     "value": "Métricas CVM",
                     "textStyle": {
                       "fontFamily": "Calibri",
-                      "fontSize": "32pt",
+                      "fontSize": "24pt",
                       "color": "#ffffff"
                     }
                   }
-                ],
-                "horizontalTextAlignment": "center"
+                ]
               }
             ]
           }

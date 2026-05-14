@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "8ad6628185edf19b404e",
   "position": {
-    "x": 670,
+    "x": 652.22222222222217,
     "y": 523.33333333333337,
-    "z": 1,
+    "z": 1000,
     "height": 276.66666666666669,
-    "width": 628.33333333333337,
-    "tabOrder": 1
+    "width": 627.77777777777771,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "tableEx",
@@ -447,6 +447,20 @@
           },
           "selector": {
             "metadata": "score_protecao_ao_investidor.DENOM_SOCIAL"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "191.4444530745087D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "score_retencao_de_cotistas.CNPJ_FUNDO_CLASSE"
           }
         }
       ]

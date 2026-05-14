@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "cb96ee96abca5bd4ed6e",
   "position": {
-    "x": 145.6,
-    "y": 54.4,
-    "z": 6,
-    "height": 35.2,
-    "width": 542.4,
-    "tabOrder": 5
+    "x": 145.55555555555554,
+    "y": 54.444444444444443,
+    "z": 6000,
+    "height": 64.444444444444443,
+    "width": 542.22222222222217,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Diagnóstico do risco na gestão dos fundos e suas estruturas",
+                    "value": "Diagnóstico da concentração aos cedentes e proteção ao investidor",
                     "textStyle": {
                       "fontSize": "14pt",
                       "color": "#cbd5e1"
