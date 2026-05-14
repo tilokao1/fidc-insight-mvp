@@ -10,12 +10,12 @@
 body{background:#0e1117;color:#e2e8f0;min-height:100vh;overflow-x:hidden}
 
 /* TOPBAR */
-.topbar{background:linear-gradient(90deg,#0b1220,#111827);border-bottom:1px solid #1f2937;padding:14px 24px;}
-.logo{display:flex;align-items:center;gap:10px}
-.logo-icon{width:36px;height:36px;background:#1a56db;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0}
-.logo-text h1{font-size:22px;font-weight:700;letter-spacing:0.5px}
-.logo-text p{font-size:13px;color:#94a3b8}
-.updated{background:#1a202c;padding:4px 10px;border-radius:6px;border:1px solid #2d3748;font-size:11px;color:#718096}
+.topbar{background:linear-gradient(90deg,#0b1220,#111827);border-bottom:1px solid #1f2937;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.logo{display:flex;align-items:center;gap:14px}
+.logo img{height:52px;filter:drop-shadow(0 0 8px rgba(26,86,219,0.5))}
+.logo-text h1{font-size:22px;font-weight:700;color:#e2e8f0;letter-spacing:0.3px}
+.logo-text p{font-size:13px;color:#94a3b8;margin-top:2px}
+.updated{background:#1a202c;padding:5px 12px;border-radius:6px;border:1px solid #2d3748;font-size:12px;color:#718096}
 
 /* UPLOAD BAR */
 .upload-bar{background:#1a2035;border-bottom:1px solid #2d3748;padding:9px 20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -134,24 +134,20 @@ tr:hover td{background:#1a202c}
 .section-divider{display:flex;align-items:center;gap:10px;margin:4px 0}
 .section-divider span{font-size:11px;font-weight:600;color:#4a5568;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
 .section-divider::before,.section-divider::after{content:'';flex:1;height:1px;background:#2d3748}
-.logo img{filter: drop-shadow(0 0 6px rgba(26,86,219,0.6));}
-.parecer-box{box-shadow: 0 0 20px rgba(0,0,0,0.4);}
-.panel{box-shadow: 0 0 12px rgba(0,0,0,0.3);}
 
-  
 </style>
 </head>
 <body>
 
 <div class="topbar">
   <div class="logo">
-    <img src="logo/logo-data-insight-sem-fundo.png" style="height:40px;" />
+    <img src="logo/logo-data-insight-sem-fundo.png" alt="Logo Data Insight" />
     <div class="logo-text">
       <h1>Análise de dados Núclea</h1>
       <p>Decisão de compra de direitos creditórios por cedente</p>
     </div>
   </div>
-  <div class="updated" id="updated-time">Aguardando dados...</div>
+  <div class="updated" id="updated-time"></div>
 </div>
 
 <div class="upload-bar">
