@@ -28,23 +28,23 @@ Mede o risco intrínseco da gestão do fundo, abrangendo sua proteção, liquide
 **Conceito:** O fundo performou próximo ao que era esperado?
 **Tabela(s):** inf_mensal_fidc_tab_X_6  
 **Cálculo:** Desvio = ABS("TAB_X_PR_DESEMP_REAL" - "TAB_X_PR_DESEMP_ESPERADO"); A partir desse desvio, é criada uma nota de 0 a 100: score_aderencia_desempenho = 100 - ((Desvio - Limite_Bom) / (Limite_Ruim - Limite_Bom) * 100); Onde:Limite_Bom = 5; Limite_Ruim = 20; O resultado é limitado para nunca ficar abaixo de 0 ou acima de 100.
-O resultado é limitado para nunca ficar abaixo de 0 ou acima de 100.
+O resultado é limitado para nunca ficar abaixo de 0 ou acima de 100.  
 **Observação:** Quanto maior a nota, mais próximo o fundo performou do esperado. Quanto menor a nota, maior foi o desvio entre o desempenho real e o desempenho esperado.
 
 #### Métrica Concentração de Cedentes
 **Conceito:** O fundo depende de poucas empresas para originar seus créditos?  
-**Tabela(s):**  inf_mensal_fidc_tab_I  
-**Cálculo:**  Share = Participação do Cedente / Total de Participações do fundo. Uso de Índice Herfindahl-Hirschman (HHI) para medir a concentração e inversão da lógica para ficar mais intuitivo. 
+**Tabela(s):** inf_mensal_fidc_tab_I  
+**Cálculo:** Share = Participação do Cedente / Total de Participações do fundo. Uso de Índice Herfindahl-Hirschman (HHI) para medir a concentração e inversão da lógica para ficar mais intuitivo. 
 **Observação:**  Após o cálculo, o fundo é classificado:  
 * Nota $\ge$ 8: Alta Diversificação.  
 * Nota entre 5 e 7.99: Média Diversificação.
 * Nota $<$ 5: Baixa Diversificação.  
 
 #### Métrica Concentração Setorial
-**Conceito:**  O fundo está muito exposto a um único setor da economia?  
+**Conceito:** O fundo está muito exposto a um único setor da economia?  
 **Tabela(s):** inf_mensal_fidc_tab_II
 **Cálculo:** Share = Valor do Setor / Valor Total Exposto. Uso de Índice Herfindahl-Hirschman (HHI) para medir a concentração e inversão da lógica para ficar mais intuitivo. 
-**Observação:**  Após o cálculo o fundo é classificado conforme abaixo:  
+**Observação:** Após o cálculo o fundo é classificado conforme abaixo:  
 * Nota $\ge$ 8: Alta Diversificação.  
 * Nota entre 5 e 7.99: Média Diversificação.  
 * Nota $<$ 5: Baixa Diversificação.  
