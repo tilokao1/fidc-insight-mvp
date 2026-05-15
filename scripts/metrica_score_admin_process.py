@@ -19,7 +19,6 @@ def buscar_qtd_processos_cvm(cnpj):
     }
     headers = {
         "Content-Type": "application/x-www-form-urlencoded",
-        # O User-Agent disfarça o script de Python como se fosse um Google Chrome no Windows
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     }
     
@@ -31,16 +30,20 @@ def buscar_qtd_processos_cvm(cnpj):
         tabelas = pd.read_html(io.StringIO(response.text))
         
         if tabelas:
-            # Em páginas legadas ASP, a tabela de resultados costuma ser a última
+            # Pega a última tabela da página (onde ficam os resultados)
             df_resultados = tabelas[-1]
             
-            # Se a tabela tiver dados, retornamos a quantidade de linhas
-            # Subtraímos 1 se a página retornar uma linha de cabeçalho mesclada, 
-            # mas o read_html geralmente resolve isso usando a primeira linha como header.
-            return len(df_resultados)
+            qtd_linhas = len(df_resultados)
+            
+            # A CVM quebra o cabeçalho, fazendo a linha de colunas virar dado.
+            # Se a tabela tiver mais de 1 linha, subtraímos esse "falso dado".
+            if qtd_linhas > 1:
+                return qtd_linhas - 1
+            else:
+                # Se tiver apenas 1 linha (ou 0), significa que está vazia ou tem a msg de "Não encontrados"
+                return 0
             
     except ValueError:
-        # pd.read_html levanta ValueError se não achar nenhuma tag <table> (ex: CNPJ sem processos)
         return 0
     except Exception as e:
         print(f"      [!] Erro ao consultar CVM para o CNPJ {cnpj}: {e}")

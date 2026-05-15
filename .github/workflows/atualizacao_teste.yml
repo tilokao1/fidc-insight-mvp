@@ -31,4 +31,4 @@ jobs:
     - name: 9. Executar Scripts de Métricas - Concentração Setorial
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      run: python scripts/metrica_cedentes.py 
+      run: python scripts/metrica_score_admin_process.py
