@@ -3,7 +3,7 @@
 Com base nos informes da CVM, são criados dois módulos: no primeiro, temos o diagnóstico de risco e, no segundo, a análise de governança e estrutura.
 
 ---
-### Score Qualidade dos Ativos
+### Score Métricas CVM
 Mede o risco intrínseco da gestão do fundo, abrangendo sua proteção, liquidez, exposição e desvios.  
 
 #### Métrica Proteção de Caixa  
@@ -24,21 +24,17 @@ Mede o risco intrínseco da gestão do fundo, abrangendo sua proteção, liquide
 **Cálculo:** ("TAB_V_A7_VL_PRAZO_VENC_360" + "TAB_V_A7_VL_PRAZO_VENC_720" + "TAB_V_A7_VL_PRAZO_VENC_1080" + "TAB_V_A10_VL_PRAZO_VENC_MAIOR_1080") / "TAB_V_A_VL_DIRCRED_PRAZO"  
 **Observação:** Quanto maior o valor, mais longa e "travada" é a carteira.  
 
+---
+
+### Score Qualidade dos ativos
+Traz um diagnóstico de qualidade dos fundos 
+
 #### Métrica Desvio de Desempenho
 **Conceito:** O fundo performou próximo ao que era esperado?
 **Tabela(s):** inf_mensal_fidc_tab_X_6  
 **Cálculo:** Desvio = ABS("TAB_X_PR_DESEMP_REAL" - "TAB_X_PR_DESEMP_ESPERADO"); A partir desse desvio, é criada uma nota de 0 a 100: score_aderencia_desempenho = 100 - ((Desvio - Limite_Bom) / (Limite_Ruim - Limite_Bom) * 100); Onde:Limite_Bom = 5; Limite_Ruim = 20; O resultado é limitado para nunca ficar abaixo de 0 ou acima de 100.
 O resultado é limitado para nunca ficar abaixo de 0 ou acima de 100.  
 **Observação:** Quanto maior a nota, mais próximo o fundo performou do esperado. Quanto menor a nota, maior foi o desvio entre o desempenho real e o desempenho esperado.
-
-#### Métrica Concentração de Cedentes
-**Conceito:** O fundo depende de poucas empresas para originar seus créditos?  
-**Tabela(s):** inf_mensal_fidc_tab_I  
-**Cálculo:** Share = Participação do Cedente / Total de Participações do fundo. Uso de Índice Herfindahl-Hirschman (HHI) para medir a concentração e inversão da lógica para ficar mais intuitivo. 
-**Observação:**  Após o cálculo, o fundo é classificado:  
-* Nota $\ge$ 8: Alta Diversificação.  
-* Nota entre 5 e 7.99: Média Diversificação.
-* Nota $<$ 5: Baixa Diversificação.  
 
 #### Métrica Concentração Setorial
 **Conceito:** O fundo está muito exposto a um único setor da economia?  
@@ -54,18 +50,6 @@ O resultado é limitado para nunca ficar abaixo de 0 ou acima de 100.
 ### Score Governança e Estrutura
 Mede o risco da gestão do fundo e da sua estrutura de capital.
 
-#### Métrica Proteção ao Investidor (Subordinação)  
-**Conceito:** Qual o 'colchão' de segurança (cotas subordinadas e mezanino) que protege os investidores seniores das primeiras perdas em caso de inadimplência?  
-**Tabela(s):**  inf_mensal_fidc_tab_X_2 (para calcular o PL das classes protetoras) e inf_mensal_fidc_tab_IV (para o PL Total do Fundo).  
-**Cálculo:** Percentual_Subordinação = (PL_Classes_Protetoras / PL_Total_Fundo) * 100  
-**Observação:** PL_Classes_Protetoras = A soma da multiplicação (tab_X_2.TAB_X_QT_COTA * tab_X_2.TAB_X_VL_COTA) apenas para as linhas onde a coluna TAB_X_CLASSE_SERIE contiver as palavras "Subordinada" ou "Mezanino". PL_Total_Fundo = tab_IV.TAB_IV_A_VL_PL (Patrimônio Líquido Total).
-
-#### Métrica Retenção de cotistas
-**Conceito:** O fundo está ganhando ou perdendo investidores (cotistas)?  
-**Tabela(s):**  inf_mensal_fidc_tab_X_1  
-**Cálculo:** Variacao_Cotistas = SUM(TAB_X_NR_COTST)[Mês Atual] - SUM(TAB_X_NR_COTST)[Mês Anterior]  
-**Observação:** Como a tabela registra uma linha por classe/série do fundo, o número de cotistas é somado por CNPJ + mês antes da comparação temporal. O LAG() é aplicado sobre esse total consolidado, garantindo que a variação reflita o fundo como um todo e não comparações entre séries distintas.  
-
 #### Métrica Administradores com Processo Sancionador 
 **Conceito:** Quais Administradores estão com processos Sancionadores na CVM(Comissão de Valores Mobiliários)?  
 **Tabela(s):**  inf_mensal_fidc_tab_I e inf_mensal_fidc_tab_IV  
@@ -73,6 +57,32 @@ Mede o risco da gestão do fundo e da sua estrutura de capital.
 **Cálculo:** Filtram-se os dados bancários pela data de competência (DT_COMPTC) mais recente, unindo as Tabelas I e IV. Isola-se um array contendo apenas os CNPJs únicos dos Administradores, garantindo que o processamento seja feito por entidade e não por fundo. Realiza-se uma requisição HTTP (POST) no formulário da CVM para cada CNPJ único. O algoritmo faz o parsing (leitura) da estrutura HTML retornada e contabiliza a quantidade de linhas presentes na tabela de resultados da CVM. O valor absoluto total é mapeado de volta para o banco de dados na coluna de volumetria QTD_PROC_CVM, atrelando o risco a todos os fundos sob o guarda-chuva daquele administrador.  
 **Observação:** Tratamento de Firewall: A extração externa exige a injeção de um Header de User-Agent (simulando um navegador real) e delays estratégicos (pausas de ~1.5s a 2s entre consultas) para evitar que o WAF do governo bloqueie o IP da aplicação com erros de rede (ex: Errno 101: Network is unreachable).
 O mapeamento em memória por CNPJs únicos evita requisições redundantes, reduzindo o tempo de processamento em banco de horas para poucos minutos.
+
+#### Métrica Retenção de cotistas
+**Conceito:** O fundo está ganhando ou perdendo investidores (cotistas)?  
+**Tabela(s):**  inf_mensal_fidc_tab_X_1  
+**Cálculo:** Variacao_Cotistas = SUM(TAB_X_NR_COTST)[Mês Atual] - SUM(TAB_X_NR_COTST)[Mês Anterior]  
+**Observação:** Como a tabela registra uma linha por classe/série do fundo, o número de cotistas é somado por CNPJ + mês antes da comparação temporal. O LAG() é aplicado sobre esse total consolidado, garantindo que a variação reflita o fundo como um todo e não comparações entre séries distintas.  
+
+---
+
+### Score Cedentes e Proteção ao Investidor 
+Diagnóstico de concentração de cedentes e proteção ao investidor
+
+#### Métrica Concentração de Cedentes
+**Conceito:** O fundo depende de poucas empresas para originar seus créditos?  
+**Tabela(s):** inf_mensal_fidc_tab_I  
+**Cálculo:** Share = Participação do Cedente / Total de Participações do fundo. Uso de Índice Herfindahl-Hirschman (HHI) para medir a concentração e inversão da lógica para ficar mais intuitivo. 
+**Observação:**  Após o cálculo, o fundo é classificado:  
+* Nota $\ge$ 8: Alta Diversificação.  
+* Nota entre 5 e 7.99: Média Diversificação.
+* Nota $<$ 5: Baixa Diversificação.  
+
+#### Métrica Proteção ao Investidor (Subordinação)  
+**Conceito:** Qual o 'colchão' de segurança (cotas subordinadas e mezanino) que protege os investidores seniores das primeiras perdas em caso de inadimplência?  
+**Tabela(s):**  inf_mensal_fidc_tab_X_2 (para calcular o PL das classes protetoras) e inf_mensal_fidc_tab_IV (para o PL Total do Fundo).  
+**Cálculo:** Percentual_Subordinação = (PL_Classes_Protetoras / PL_Total_Fundo) * 100  
+**Observação:** PL_Classes_Protetoras = A soma da multiplicação (tab_X_2.TAB_X_QT_COTA * tab_X_2.TAB_X_VL_COTA) apenas para as linhas onde a coluna TAB_X_CLASSE_SERIE contiver as palavras "Subordinada" ou "Mezanino". PL_Total_Fundo = tab_IV.TAB_IV_A_VL_PL (Patrimônio Líquido Total).
 
 ---
 
